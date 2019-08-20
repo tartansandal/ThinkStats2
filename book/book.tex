@@ -21,6 +21,13 @@
 %\usepackage{mathpazo}
 %\usepackage{pslatex}
 
+\usepackage[
+   HomeHTMLFilename=index,     % Filename of the homepage.
+   HTMLFilename={node-},       % Filename prefix of other pages.
+   mathjax,                    % Use MathJax to display math.
+]{lwarp}
+%\boolfalse{FileSectionNames}  % If false, numbers the files.
+
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
@@ -31,13 +38,14 @@
 %\usepackage{amssymb}
 \usepackage{makeidx}
 \usepackage{setspace}
-\usepackage{hevea}                           
+\usepackage{hevea}
 \usepackage{upquote}
+\usepackage{relsize}
 
 \title{Think Stats}
 \author{Allen B. Downey}
 
-\newcommand{\thetitle}{Think Stats}
+\renewcommand{\thetitle}{Think Stats}
 \newcommand{\thesubtitle}{Exploratory Data Analysis in Python}
 \newcommand{\theversion}{2.0.38}
 
@@ -47,15 +55,55 @@
 \newstyle{img}{border:0px}
 
 % change the arrows in the HTML version
-\setlinkstext
-  {\imgsrc[ALT="Previous"]{back.png}}
-  {\imgsrc[ALT="Up"]{up.png}}
-  {\imgsrc[ALT="Next"]{next.png}} 
+ \setlinkstext
+   {\imgsrc[ALT="Previous"]{back.png}}
+   {\imgsrc[ALT="Up"]{up.png}}
+   {\imgsrc[ALT="Next"]{next.png}} 
 
 \makeindex
 
 \newif\ifplastex
 \plastexfalse
+
+%% Settings for LWARP
+
+\setcounter{tocdepth}{2}        % Include subsections in the \TOC.
+\setcounter{secnumdepth}{2}     % Number down to subsections.
+\setcounter{FileDepth}{0}       % Split \HTML\ files at chapters.
+\booltrue{CombineHigherDepths}  % Combine parts/chapters/sections
+\setcounter{SideTOCDepth}{1}    % Include subsections in the side\TOC
+
+% Override the \title for the web page.
+\HTMLTitle{Think Stats: Exploratory Data Analysis in Python}
+
+% Sets the HTML meta author tag.
+\HTMLAuthor{Allen B. Downey}
+
+% Sets the HTML meta language.
+\HTMLLanguage{en-US}
+
+% Set the HTML meta description.
+\HTMLDescription{
+Think Stats is an introduction to Probability and Statistics for Python programmers.
+}
+
+\HTMLFirstPageTop{
+\textscale{1.44}{Green Tea Press}\\
+Free books by Allen B. Downey
+}
+
+\HTMLPageTop{
+\textscale{1.44}{Green Tea Press}\\
+Free books by Allen B. Downey
+}
+
+\HTMLPageBottom{
+Copyright 2014 Allen B. Downey
+}
+
+\CSSFilename{book.css}
+
+\MathJaxFilename{book_mathjax.html}
 
 \begin{document}
 
@@ -118,6 +166,10 @@
 %\newcommand{\nextexercise}{\refstepcounter{exercise}}
 
 %\newenvironment{exercise}{\nextexercise \noindent \textbf{Exercise \thechapter.\theexercise} \begin{itshape} \noindent}{\end{itshape}}
+
+% This must come before loading 'latexonly'
+
+\begin{warpprint}
 
 \input{latexonly}
 
@@ -228,8 +280,9 @@ The \LaTeX\ source for this book is available from
 } % end small
 
 \end{latexonly}
+\end{warpprint}
 
-
+% XXX
 % HTMLONLY
 
 \begin{htmlonly}
@@ -257,9 +310,32 @@ Unported License, which is available at
 \setcounter{chapter}{-1}
 
 \end{htmlonly}
-
 \fi
 % END OF THE PART WE SKIP FOR PLASTEX
+
+\begin{warpHTML}
+
+\begin{titlepage}
+\textscale{1.44}{\thetitle: \thesubtitle}
+
+\textscale{1.2}{Allen B. Downey}{}
+
+Version \theversion
+
+Copyright 2014 Allen B. Downey
+
+Permission is granted to copy, distribute, and/or modify this document
+under the terms of the Creative Commons 
+Attribution-NonCommercial-ShareAlike 4.0 International
+Unported License, which is available at
+\url{http://creativecommons.org/licenses/by-nc-sa/4.0/}.
+
+\end{titlepage}
+
+\tableofcontents                % MUST BE BEFORE THE FIRST SECTION BREAK!
+
+\end{warpHTML}
+
 
 \chapter{Preface}
 \label{preface}
@@ -640,16 +716,18 @@ Luigi Patruno.
 
 \normalsize
 
+\begin{warpprint}
 \clearemptydoublepage
 
 % TABLE OF CONTENTS
-\begin{latexonly}
+%\begin{latexonly}
 
 \tableofcontents
 
 \clearemptydoublepage
 
-\end{latexonly}
+%\end{latexonly}
+\end{warpprint}
 
 % START THE BOOK
 \mainmatter
@@ -11556,14 +11634,17 @@ linear transformation if $X'$ is in the same family as $X$.  The normal
 distribution has this property; if $X \sim \normal~(\mu,
 \sigma^2)$,
 %
-\[ X' \sim \normal~(a \mu + b, a^{2} \sigma^2) \tag*{(1)} \]
-%
+\begin{equation} 
+    X' \sim \normal~(a \mu + b, a^{2} \sigma^2) \tag*{(1)}
+\end{equation}
 Normal distributions are also closed under addition.  
 If $Z = X + Y$ and
 $X \sim \normal~(\mu_{X}, \sigma_{X}^{2})$ and
 $Y \sim \normal~(\mu_{Y}, \sigma_{Y}^{2})$ then
 %
-\[ Z \sim \normal~(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)  \tag*{(2)}\]
+\begin{equation}
+    Z \sim \normal~(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)  \tag*{(2)}
+\end{equation}
 %
 In the special case $Z = X + X$, we have
 %
@@ -11571,7 +11652,9 @@ In the special case $Z = X + X$, we have
 %
 and in general if we draw $n$ values of $X$ and add them up, we have
 %
-\[ Z \sim \normal~(n \mu_X, n \sigma_X^2)  \tag*{(3)}\]
+\begin{equation}
+Z \sim \normal~(n \mu_X, n \sigma_X^2)  \tag*{(3)}
+\end{equation}
 
 
 \section{Sampling distributions}
@@ -12417,10 +12500,18 @@ distribution of this change, and is it statistically significant?
   \index{significant} \index{statistically significant}
 \end{exercise}
 
-
+\begin{warpprint}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{section}{\indexname}% or chapter
+\end{warpprint}
+\ForceHTMLPage
+\ForceHTMLTOC
 \printindex
 
+\begin{warpprint}
 \clearemptydoublepage
+\end{warpprint}
 %\blankpage
 %\blankpage
 %\blankpage

@@ -1,0 +1,59 @@
+/* ( --- Start of project.css --- ) */
+/* ( --- A sample project-specific CSS file for lwarp --- ) */
+
+/* Uncomment one of the following: */
+@import url("lwarp.css") ;
+/* @import url("lwarp_formal.css") ; */
+/*@import url("lwarp_sagebrush.css") ; */
+
+/* Project-specific CSS setting follow here. */
+/* . . . */
+
+body {
+    font-family: "Noto Serif", "serif";
+    background: #fbfbfb;
+    color: #333333;
+}
+
+header {
+    background-color: #aeccc5;
+}
+footer {
+    margin-top: 0
+}
+
+div.bodyandsidetoc {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+div.bodycontainer {
+    width: 800px;
+}
+div.sidetoccontainer {
+    background-color: #f0f7ee;
+    border-radius: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+div.book, h1, h2, h3, h4, h5, h6, span.paragraph, span.subparagraph
+{
+    font-family: "Noto Serif", "serif";
+}
+
+h1 {    /* title of the entire website, used on each page */
+    border-bottom: 1px solid #304070;
+}
+
+h2 {
+    border-bottom: 1px solid #304070;
+}
+section.textbody div.footnotes {
+    margin: 3ex 2em 1ex 2em;
+    border-bottom: 2px solid silver;
+}
+/* ( --- End of project.css --- ) */

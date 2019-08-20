@@ -1,10 +1,13 @@
 
-all:	book.tex
+all: thinkstats2.pdf
+	evince thinkstats2.pdf
+
+# factor out a common target
+thinkstats2.pdf: book.tex
 	pdflatex book
 	makeindex book.idx
 	pdflatex book
 	mv book.pdf thinkstats2.pdf
-	evince thinkstats2.pdf
 
 hevea:
 	sed 's/\(figs\/[^.]*\).\(pdf\|png\)/\1.eps/' book.tex > thinkstats2.tex
@@ -63,5 +66,99 @@ oreilly:
 clean:
 	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc
 
+.PHONY: clean oreilly sample small lint xxe plastex distrib hevea all
 
+## Rules for building HTML with `lwarp` ##
 
+# # Dont need this since pdfs are already part of the project
+# Make PDF files from EPS files with 'epstopdf'
+#%.pdf: %.eps
+#	lwarpmk epstopdf $<
+#	# generates files in same dir as source, so no need to move
+
+# Make SVG files from PDF files with 'pdftosvg'
+%.svg: %.pdf
+	lwarpmk pdftosvg $<
+	# generates files in current dir, so move into figs
+	mv $(notdir $@) figs/
+
+#
+# We use chains of sentinels (.lwarp_* files) to ensure the correct ordering of
+# operations while avoiding unnessary tasks.
+#
+
+# Generate PDF from source to configure lwarp
+# Note: `lwarpmk print1` regenerates book.pdf, so we cant use that file as a sentinel
+.lwarp_source: book.tex
+	rm -f .lwarp_source
+	pdflatex book
+	makeindex book.idx
+	pdflatex book
+	touch .lwarp_source
+
+# Re-generate PDF from source with lwarp configured
+.lwarp_print: .lwarp_source
+	rm -f .lwarp_print
+	lwarpmk print1; \
+	while grep -q 'Rerun to get cross-references right' book.log; \
+	do \
+		lwarpmk print1; \
+	done;
+	touch .lwarp_print
+	touch -r .lwarp_source book.tex
+
+# HTML requires an SVG file for each EPS file in figs directory
+SVG_FILES := $(patsubst %.eps,%.svg,$(wildcard figs/*.eps))
+
+# Generate HTML from the PDF
+.lwarp_html: .lwarp_print $(SVG_FILES) book_mathjax.html
+	rm -f .lwarp_html
+	lwarpmk html1; \
+	while grep -q 'Rerun to get cross-references right' book_html.log; \
+	do \
+		lwarpmk html1; \
+	done;
+	touch .lwarp_html
+	touch -r .lwarp_source book.tex
+
+# Generate SVG images of math from the HTML
+.lwarp_images: .lwarp_html
+	rm -f .lwarp_images
+	lwarpmk limages
+	lwarpmk html1
+	touch .lwarp_images
+	touch -r .lwarp_source book.tex
+
+# Generate PDF and HTML indexes
+.lwarp_index: .lwarp_html
+	rm -f .lwarp_index
+	lwarpmk printindex
+	lwarpmk htmlindex
+	touch .lwarp_index
+	touch -r .lwarp_source book.tex
+
+# Build HTML using SVG images to display math
+lwarp: .lwarp_images .lwarp_index
+	rm -rf html
+	mkdir html
+	mkdir html/figs
+	cp figs/*.svg html/figs/
+	cp -a book-images html/
+	cp lwarp*.css book.css html/
+	cp index.html right.html node-*.html html/
+
+# Build HTML using MathJax to display math
+# XXX uncomment the 'mathjax' option to the 'lwarp' package in book.tex first
+lwarp-mathjax: .lwarp_index
+	rm -rf html-mathjax
+	mkdir html-mathjax
+	mkdir html-mathjax/figs
+	cp figs/*.svg html-mathjax/figs/
+	cp lwarp*.css book.css html-mathjax/
+	cp index.html right.html book_mathjax.html node-*.html html-mathjax/
+
+lwarp-clean: clean
+	rm -f .lwarp_* book_html.html index.html node-*.html
+	rm -rf book-images html
+
+.PHONY: lwarp lwarp-mathjax lwarp-clean

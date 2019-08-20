@@ -12,17 +12,17 @@
 \newcommand{\clearemptydoublepage}{}
 \newcommand{\blankpage}{}
 
-\newcommand{\spacing}{}
-\newcommand{\endspacing}{}
+\renewcommand{\spacing}{}
+\renewcommand{\endspacing}{}
 
-\newcommand{\frontmatter}{}
-\newcommand{\mainmatter}{}
+\renewcommand{\frontmatter}{}
+\renewcommand{\mainmatter}{}
 
-\newcommand{\theoremstyle}[1]{}
-\newcommand{\newtheoremstyle}[1]{}
+%\newcommand{\theoremstyle}[1]{}
+%\newcommand{\newtheoremstyle}[1]{}
 
-\newcommand{\vfill}{}
+\renewcommand{\vfill}{}
 
-\htmlhead{\rawhtmlinput{header.html}}
+%\htmlhead{\rawhtmlinput{header.html}}
 
-\htmlfoot{\rawhtmlinput{footer.html}}
+%\htmlfoot{\rawhtmlinput{footer.html}}

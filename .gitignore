@@ -65,3 +65,28 @@ docs/_build/
 
 # Jupyter Files
 .ipynb_checkpoints/
+
+# lwarp files
+book/lwarp.css
+book/lwarp.ist
+book/lwarp.xdy
+book/lwarp_formal.css
+book/lwarp_mathjax.txt
+book/lwarp_one_limage.txt
+book/lwarp_sagebrush.css
+book/lwarpmk.conf
+book/book.lwarpmkconf
+book/comment_html.cut
+book/comment_print.cut
+book/sample_project.css
+
+# lwarp dist targets
+.lwarp_*
+book/book_html.*
+book/book-images.txt
+book/book-images/
+book/index.html
+book/node-*
+book/figs/*.svg
+book/html/
+book/html-mathjax/
