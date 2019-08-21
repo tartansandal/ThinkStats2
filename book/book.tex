@@ -536,8 +536,8 @@ damage.
 
 ---
 
-Allen B. Downey is a Professor of Computer Science at 
-the Franklin W. Olin College of Engineering in Needham, MA.
+Allen B. Downey is a Professor of Computer Science at
+the Franklin W. Olin College of Engineering in Needham, MA\@.
 
 
 
@@ -862,7 +862,7 @@ infile dictionary {
 \end{verbatim}
 
 This dictionary describes two variables: {\tt caseid} is a 12-character
-string that represents the respondent ID; {\tt pregorder} is a 
+string that represents the respondent ID\@; {\tt pregorder} is a 
 one-byte integer that indicates which pregnancy this record
 describes for this respondent.
 
@@ -1622,8 +1622,8 @@ You can read the documentation for {\tt thinkplot} at
 
 \section{NSFG variables}
 
-Now let's get back to the data from the NSFG.  The code in this
-chapter is in {\tt first.py}.  
+Now let's get back to the data from the NSFG\@.  The code in this
+chapter is in {\tt first.py}.
 For information about downloading and
 working with this code, see Section~\ref{code}.
 
@@ -2951,7 +2951,7 @@ percentile rank in the range 0--100.
 \index{sample}
 
 As an example, suppose we collect a sample with the values 
-{\tt [1, 2, 2, 3, 5]}.  Here are some values from its CDF:
+{\tt [1, 2, 2, 3, 5]}.  Here are some values from its CDF\@:
 %
 \[ CDF(0) = 0 \]
 %
@@ -2977,7 +2977,7 @@ If $x$ is greater than the largest value, $\CDF(x)$ is 1.
 \label{example_cdf}
 \end{figure}
 
-Figure~\ref{example_cdf} is a graphical representation of this CDF.
+Figure~\ref{example_cdf} is a graphical representation of this CDF\@.
 The CDF of a sample is a step function.
 \index{step function}
 
@@ -3034,7 +3034,7 @@ read a CDF is to look up percentiles.  For example, it looks like
 about 10\% of pregnancies are shorter than 36 weeks, and about 90\%
 are shorter than 41 weeks.  The CDF also provides a visual
 representation of the shape of the distribution.  Common values appear
-as steep or vertical sections of the CDF; in this example, the mode at
+as steep or vertical sections of the CDF\@; in this example, the mode at
 39 weeks is apparent.  There are few values below 30 weeks, so
 the CDF in this range is flat.
 \index{CDF, interpreting}
@@ -3199,7 +3199,7 @@ of the sample is below the 10th percentile, 20\% is below the
 So, regardless of the shape of the CDF, the distribution of
 percentile ranks is uniform.  This property is useful, because it
 is the basis of a simple and efficient algorithm for generating
-random numbers with a given CDF.  Here's how:
+random numbers with a given CDF\@.  Here's how:
 \index{inverse CDF algorithm}
 \index{random number}
 
@@ -3236,7 +3236,7 @@ age groups, you can convert race times to percentile ranks.
 \index{percentile rank}
 
 A few years ago I ran the James Joyce Ramble 10K in
-Dedham MA; I finished in 42:44, which was 97th in a field of 1633.  I beat or
+Dedham MA\@; I finished in 42:44, which was 97th in a field of 1633.  I beat or
 tied 1537 runners out of 1633, so my percentile rank in the field is
 94\%.  \index{James Joyce Ramble} \index{race time}
 
@@ -3300,7 +3300,7 @@ uniform between 0 and 1; that is, every value in the range
 should have the same probability.
 
 Generate 1000 numbers from {\tt random.random} and plot their
-PMF and CDF.  Is the distribution uniform?
+PMF and CDF\@.  Is the distribution uniform?
 \index{uniform distribution}
 \index{distribution!uniform}
 \index{random number}
@@ -3324,7 +3324,7 @@ less than or equal to a given value.
   fraction of the sample less than or equal to $x$.  \index{CDF}
 \index{cumulative probability}
 
-\item inverse CDF: A function that maps from a cumulative probability,
+\item inverse CDF\@: A function that maps from a cumulative probability,
   $p$, to the corresponding value.
 \index{inverse CDF}
 \index{CDF, inverse}
@@ -3446,7 +3446,7 @@ midnight.
 
 {\tt diffs} is the difference between consecutive birth times, and
 {\tt cdf} is the distribution of these interarrival times.
-Figure~\ref{analytic_interarrival_cdf} (left) shows the CDF.  It seems
+Figure~\ref{analytic_interarrival_cdf} (left) shows the CDF\@.  It seems
 to have the general shape of an exponential distribution, but how can
 we tell?
 
@@ -3535,7 +3535,7 @@ $\mu=0$ and $\sigma=1$ is called the {\bf standard normal
 a closed form solution, but there are algorithms that evaluate it
 efficiently.  One of them is provided by SciPy: {\tt scipy.stats.norm}
 is an object that represents a normal distribution; it provides a
-method, {\tt cdf}, that evaluates the standard normal CDF:
+method, {\tt cdf}, that evaluates the standard normal CDF\@:
 \index{SciPy}
 \index{closed form}
 
@@ -3568,7 +3568,7 @@ distributions with a range of parameters.  The sigmoid shape of these
 curves is a recognizable characteristic of a normal distribution.
 
 In the previous chapter we looked at the distribution of birth
-weights in the NSFG.  Figure~\ref{analytic_birthwgt_model} shows the
+weights in the NSFG\@.  Figure~\ref{analytic_birthwgt_model} shows the
 empirical CDF of weights for all live births and the CDF of
 a normal distribution with the same mean and variance.
 \index{National Survey of Family Growth}
@@ -4173,7 +4173,7 @@ often good models of more complex empirical distributions.
 \item interarrival time: The elapsed time between two events.
 \index{interarrival time}
 
-\item complementary CDF: A function that maps from a value, $x$,
+\item complementary CDF\@: A function that maps from a value, $x$,
 to the fraction of values that exceed $x$, which is $1 - \CDF(x)$.
 \index{complementary CDF} \index{CDF!complementary} \index{CCDF}
 
@@ -4209,7 +4209,7 @@ about downloading and working with this code, see Section~\ref{code}.
 \section{PDFs}
 
 The derivative of a CDF is called a {\bf probability density function},
-or PDF.  For example, the PDF of an exponential distribution is
+or PDF\@.  For example, the PDF of an exponential distribution is
 %
 \[ \PDF_{expo}(x) = \lambda e^{-\lambda x}   \]
 %
@@ -4368,7 +4368,7 @@ method.
 {\tt Density} takes a value or sequence, calls
 \verb"gaussian_kde.evaluate", and returns the resulting density.  The
 word ``Gaussian'' appears in the name because it uses a filter based
-on a Gaussian distribution to smooth the KDE.  \index{density}
+on a Gaussian distribution to smooth the KDE\@.  \index{density}
 
 Here's an example that generates a sample from a normal
 distribution and then makes an EstimatedPdf to fit it:
@@ -4445,8 +4445,8 @@ probabilities.  We'll see the implementation of these operations
 in the next few sections.
 \index{cumulative probability}
 
-A PDF is the derivative of a continuous CDF; or, equivalently,
-a CDF is the integral of a PDF.  Remember that a PDF maps from
+A PDF is the derivative of a continuous CDF\@; or, equivalently,
+a CDF is the integral of a PDF\@.  Remember that a PDF maps from
 values to probability densities; to get a probability, you have to
 integrate.
 \index{discrete distribution}
@@ -4467,7 +4467,7 @@ distribution.  Another option is kernel density estimation.
 
 The opposite of smoothing is {\bf discretizing}, or quantizing.  If you
 evaluate a PDF at discrete points, you can generate a PMF that is an
-approximation of the PDF.  You can get a better approximation using
+approximation of the PDF\@.  You can get a better approximation using
 numerical integration.  \index{discretize}
 \index{quantize}
 \index{binning}
@@ -4576,7 +4576,7 @@ not renormalize the Pmf.
 A CDF maps from values to cumulative probabilities, so I could have
 implemented Cdf as a \verb"_DictWrapper".  But the values in a CDF are
 ordered and the values in a \verb"_DictWrapper" are not.  Also, it is
-often useful to compute the inverse CDF; that is, the map from
+often useful to compute the inverse CDF\@; that is, the map from
 cumulative probability to value.  So the implementaion I chose is two
 sorted lists.  That way I can use binary search to do a forward or
 inverse lookup in logarithmic time.
@@ -4838,7 +4838,7 @@ Pearson's median skewness is -0.23.
 \end{figure}
 
 Now let's compare this distribution to the distribution of adult
-weight in the BRFSS.  Again, here's the code:
+weight in the BRFSS\@.  Again, here's the code:
 \index{thinkplot}
 
 \begin{verbatim}
@@ -5563,7 +5563,7 @@ the difference between Pearson's and Spearman's correlation.
 
 If variables A and B are correlated, there are three possible
 explanations: A causes B, or B causes A, or some other set of factors
-causes both A and B.  These explanations are called ``causal
+causes both A and B\@.  These explanations are called ``causal
 relationships''.
 \index{causal relationship}
 
@@ -5779,7 +5779,7 @@ compute $\xbar$.
 
 Here is a function that simulates the estimation game and computes
 the root mean squared error (RMSE), which is the square root of
-MSE:
+MSE\@:
 \index{mean squared error}
 \index{MSE}
 \index{RMSE}
@@ -5807,7 +5807,7 @@ number of times we play the game.  {\tt means} is the list of
 estimates based on $\xbar$.  {\tt medians} is the list of medians.
 \index{median}
 
-Here's the function that computes RMSE:
+Here's the function that computes RMSE\@:
 
 \begin{verbatim}
 def RMSE(estimates, actual):
@@ -5977,7 +5977,7 @@ unknown population mean, $\mu$.
 Having weighed 9 female gorillas, you might find $\xbar=90$ kg and
 sample standard deviation, $S=7.5$ kg.  The sample mean
 is an unbiased estimator of $\mu$, and in the long run it
-minimizes MSE.  So if you report a single
+minimizes MSE\@.  So if you report a single
 estimate that summarizes the results, you would report 90 kg.
 \index{MSE}
 \index{sample mean}
@@ -6256,13 +6256,13 @@ For the following exercises, you might want to start with a copy of
 \begin{exercise}
 
 In this chapter we used $\xbar$ and median to estimate $\mu$, and
-found that $\xbar$  yields lower MSE.
+found that $\xbar$  yields lower MSE\@.
 Also, we used $S^2$ and $S_{n-1}^2$ to estimate $\sigma$, and found that
 $S^2$ is biased and $S_{n-1}^2$ unbiased.
 
 Run similar experiments to see if $\xbar$ and median are biased estimates
 of $\mu$.
-Also check whether $S^2$ or $S_{n-1}^2$ yields a lower MSE.
+Also check whether $S^2$ or $S_{n-1}^2$ yields a lower MSE\@.
 \index{sample mean}
 \index{sample median}
 \index{estimator!biased}
@@ -6306,7 +6306,7 @@ until the total time exceeds 1 game, then returns the number of goals
 scored.
 
 Write another function that simulates many games, stores the
-estimates of {\tt lam}, then computes their mean error and RMSE.
+estimates of {\tt lam}, then computes their mean error and RMSE\@.
 
 Is this way of making an estimate biased?  Plot the sampling
 distribution of the estimates and the 90\% confidence interval.  What
@@ -7822,7 +7822,7 @@ intelligence.
 According to one study, there is a Pearson correlation of
 $\rho=0.72$ between total SAT scores and IQ scores, which sounds like
 a strong correlation.  But $R^2 = \rho^2 = 0.52$, so SAT scores
-account for only 52\% of variance in IQ.
+account for only 52\% of variance in IQ\@.
 
 IQ scores are normalized with {\tt Std(ys) = 15}, so
 
@@ -10490,7 +10490,7 @@ The fundamental concept in survival analysis is the {\bf survival
   curve}, $S(t)$, which is a function that maps from a duration, $t$, to the
 probability of surviving longer than $t$.  If you know the distribution
 of durations, or ``lifetimes'', finding the survival curve is easy;
-it's just the complement of the CDF: \index{survival curve}
+it's just the complement of the CDF\@: \index{survival curve}
 %
 \[ S(t) = 1 - \CDF(t) \]
 %
@@ -10499,7 +10499,7 @@ to $t$.
 \index{complementary CDF} \index{CDF!complementary} \index{CCDF}
 
 For example, in the NSFG dataset, we know the duration of 11189
-complete pregnancies.  We can read this data and compute the CDF:
+complete pregnancies.  We can read this data and compute the CDF\@:
 \index{pregnancy length}
 
 \begin{verbatim}
@@ -11153,7 +11153,7 @@ at age 35 they have caught up with both of the previous cohorts.
 
 \item Women born in the 80s are even less likely to marry before
 age 25.  What happens after that is not clear; for more data, we
-have to wait for the next cycle of the NSFG.
+have to wait for the next cycle of the NSFG\@.
 
 \end{itemize}
 
@@ -11358,7 +11358,7 @@ Women older than 22 have increasing remaining time until first
 marriage.  Components with this property are called {\bf UBNE} for
 "used better than new in expectation."  That is, the older the part,
 the longer it is expected to last.  Newborns and cancer patients are
-also UBNE; their life expectancy increases the longer they live.
+also UBNE\@; their life expectancy increases the longer they live.
 \index{UBNE}
 
 For this example I computed median, rather than mean, because the
@@ -11451,11 +11451,11 @@ birth, in a particular interval of time.
 \item cohort effect: a difference between cohorts.
 \index{cohort effect}
 
-\item NBUE: A property of expected remaining lifetime, ``New
+\item NBUE\@: A property of expected remaining lifetime, ``New
 better than used in expectation.''
 \index{NBUE}
 
-\item UBNE: A property of expected remaining lifetime, ``Used
+\item UBNE\@: A property of expected remaining lifetime, ``Used
 better than new in expectation.''
 \index{UBNE}
 
@@ -11618,7 +11618,7 @@ We can also use the sampling distribution to compute confidence
 intervals.  A 90\% confidence interval for $\xbar$ is the interval
 between the 5th and 95th percentiles of $Z$.  Since $Z$ is normally
 distributed, we can compute percentiles by evaluating the inverse
-CDF.
+CDF\@.
 \index{inverse CDF}
 \index{CDF, inverse}
 \index{confidence interval}
@@ -11952,7 +11952,7 @@ def GenerateExpoCorrelated(rho, n):
 is a sequence of uniform values between 0 and 1.  {\tt expo} is
 a correlated sequence of exponential values.
 {\tt ppf} stands for ``percent point function,'' which is another
-name for the inverse CDF.
+name for the inverse CDF\@.
 \index{inverse CDF}
 \index{CDF, inverse}
 \index{percent point function}
@@ -12055,7 +12055,7 @@ the same distribution to have the same mean, on average.  The variance
 of the sampling distribution is 0.0032.
 \index{sampling distribution}
 
-{\tt Normal} provides {\tt Prob}, which evaluates the normal CDF.
+{\tt Normal} provides {\tt Prob}, which evaluates the normal CDF\@.
 We can use {\tt Prob} to compute the probability of a
 difference as large as {\tt delta} under the null hypothesis:
 \index{null hypothesis}
