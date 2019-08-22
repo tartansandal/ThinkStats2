@@ -2,14 +2,3 @@
 <script type="text/javascript" async
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML-full">
 </script>
-
-<!-- importing the rightside bar content dynamically -->
-<script type="text/javascript">
-fetch("http:///right.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data => {
-    document.querySelector("footer").innerHTML = data;
-  });
-</script>
