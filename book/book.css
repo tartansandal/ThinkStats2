@@ -209,4 +209,9 @@ section.textbody div.footnotes {
     margin: 3ex 2em 1ex 2em;
     border-bottom: 2px solid silver;
 }
+
+span.amsthmnameexercise, span.amsthmnumberexercise {
+    font-weight: bold;
+}
+
 /* ( --- End of project.css --- ) */
