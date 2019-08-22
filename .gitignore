@@ -66,6 +66,14 @@ docs/_build/
 # Jupyter Files
 .ipynb_checkpoints/
 
+# pdflatex files
+book/book.aux
+book/book.idx
+book/book.ilg
+book/book.ind
+book/book.out
+book/book.toc
+
 # lwarp files
 book/lwarp.css
 book/lwarp.ist
