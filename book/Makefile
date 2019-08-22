@@ -1,9 +1,5 @@
 
-all: thinkstats2.pdf
-	evince thinkstats2.pdf
-
-# factor out a common target
-thinkstats2.pdf: book.tex
+all:
 	pdflatex book
 	makeindex book.idx
 	pdflatex book
