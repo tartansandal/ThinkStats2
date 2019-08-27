@@ -41,28 +41,8 @@
 \newcommand{\thesubtitle}{Exploratory Data Analysis in Python}
 \newcommand{\theversion}{2.0.38}
 
-% these styles get translated in CSS for the HTML version
-\newstyle{a:link}{color:black;}
-\newstyle{p+p}{margin-top:1em;margin-bottom:1em}
-\newstyle{img}{border:0px}
-
-% change the arrows in the HTML version
-\setlinkstext
-  {\imgsrc[ALT="Previous"]{back.png}}
-  {\imgsrc[ALT="Up"]{up.png}}
-  {\imgsrc[ALT="Next"]{next.png}} 
-
-\makeindex
-
-\newif\ifplastex
-\plastexfalse
-
-\begin{document}
-
-\frontmatter
-
-\newcommand{\Erdos}{Erd\H{o}s}
-\newcommand{\nhat}{\hat{N}}
+%\newcommand{\Erdos}{Erd\H{o}s}
+%\newcommand{\nhat}{\hat{N}}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\slope}{\mathrm{slope}}
 \newcommand{\inter}{\mathrm{inter}}
@@ -81,23 +61,8 @@
 \newcommand{\given}{|}
 %\newcommand{\goodchi}{\protect\raisebox{2pt}{$\chi$}}
 \newcommand{\goodchi}{\chi}
-
-\ifplastex
-    \usepackage{localdef}
-    \maketitle
-
-\newcount\anchorcnt
-\newcommand*{\Anchor}[1]{%
-  \@bsphack%
-    \Hy@GlobalStepCount\anchorcnt%
-    \edef\@currentHref{anchor.\the\anchorcnt}% 
-    \Hy@raisedlink{\hyper@anchorstart{\@currentHref}\hyper@anchorend}% 
-    \M@gettitle{}\label{#1}% 
-    \@esphack%
-}
-
-
-\else
+\newcommand{\lamhat}{L}
+\newcommand{\lamhatmed}{L_m}
 
 %%% EXERCISE
 
@@ -114,22 +79,84 @@
 \theoremstyle{exercise}
 \newtheorem{exercise}{Exercise}[chapter]
 
-%\newcounter{exercise}[chapter]
-%\newcommand{\nextexercise}{\refstepcounter{exercise}}
+% FIXME: why this?
+\sloppy
 
-%\newenvironment{exercise}{\nextexercise \noindent \textbf{Exercise \thechapter.\theexercise} \begin{itshape} \noindent}{\end{itshape}}
+\setlength{\headsep}{3ex}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{1.7ex plus 0.5ex minus 0.5ex}
+\renewcommand{\baselinestretch}{1.02}
 
-\input{latexonly}
+% see LaTeX Companion page 62
+\setlength{\topsep}{-0.0\parskip}
+\setlength{\partopsep}{-0.5\parskip}
+\setlength{\itemindent}{0.0in}
+\setlength{\listparindent}{0.0in}
 
-\begin{latexonly}
+% see LaTeX Companion page 26
+% these are copied from /usr/local/teTeX/share/texmf/tex/latex/base/book.cls
+% all I changed is afterskip
 
-\renewcommand{\blankpage}{\thispagestyle{empty} \quad \newpage}
+\makeatletter
 
-%\blankpage
-%\blankpage
+%\renewcommand{\section}{\@startsection 
+%    {section} {1} {0mm}%
+%    {-3.5ex \@plus -1ex \@minus -.2ex}%
+%    {0.7ex \@plus.2ex}%
+%    {\normalfont\Large\bfseries}}
+%\renewcommand\subsection{\@startsection {subsection}{2}{0mm}%
+%    {-3.25ex\@plus -1ex \@minus -.2ex}%
+%    {0.3ex \@plus .2ex}%
+%    {\normalfont\large\bfseries}}
+%\renewcommand\subsubsection{\@startsection {subsubsection}{3}{0mm}%
+%    {-3.25ex\@plus -1ex \@minus -.2ex}%
+%    {0.3ex \@plus .2ex}%
+%    {\normalfont\normalsize\bfseries}}
 
-% TITLE PAGES FOR LATEX VERSION
+% The following line adds a little extra space to the column
+% in which the Section numbers appear in the table of contents
+\renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{3.0em}}
+\setcounter{tocdepth}{1}
 
+\makeatother
+
+\newcommand{\beforefig}{\vspace{1.3\parskip}}
+\newcommand{\afterfig}{\vspace{-0.2\parskip}}
+
+\newcommand{\beforeverb}{\vspace{0.6\parskip}}
+\newcommand{\afterverb}{\vspace{0.6\parskip}}
+
+\newcommand{\adjustpage}[1]{\enlargethispage{#1\baselineskip}}
+
+
+% Note: the following command seems to cause problems for Acroreader
+% on Windows, so for now I am overriding it.
+%\newcommand{\clearemptydoublepage}{
+%            \newpage{\pagestyle{empty}\cleardoublepage}}
+\newcommand{\clearemptydoublepage}{\cleardoublepage}
+
+% HEADERS
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}{}}
+
+\lhead[\fancyplain{}{\bfseries\thepage}]%
+      {\fancyplain{}{\bfseries\rightmark}}
+\rhead[\fancyplain{}{\bfseries\leftmark}]%
+      {\fancyplain{}{\bfseries\thepage}}
+\cfoot{}
+
+\pagestyle{fancyplain}
+
+\newcommand{\blankpage}{\thispagestyle{empty} \quad \newpage}
+
+\makeindex
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
 %-half title--------------------------------------------------
 \thispagestyle{empty}
 
@@ -153,10 +180,6 @@ Version \theversion
 
 \blankpage
 \blankpage
-%\clearemptydoublepage
-%\pagebreak
-%\thispagestyle{empty}
-%\vspace*{6in}
 
 %--title page--------------------------------------------------
 \pagebreak
@@ -188,7 +211,6 @@ Allen B. Downey\\
 
 {\small Needham, Massachusetts}
 
-%\includegraphics[width=1in]{figs/logo1.eps}
 \vfill
 
 \end{flushright}
@@ -205,7 +227,7 @@ Copyright \copyright ~2014 Allen B. Downey.
 \vspace{0.2in}
 
 \begin{flushleft}
-Green Tea Press       \\
+Green Tea Press \\
 9 Washburn Ave \\
 Needham MA 02492
 \end{flushleft}
@@ -227,39 +249,7 @@ The \LaTeX\ source for this book is available from
 
 } % end small
 
-\end{latexonly}
-
-
-% HTMLONLY
-
-\begin{htmlonly}
-
-% TITLE PAGE FOR HTML VERSION
-
-{\Large \thetitle: \thesubtitle}
-
-{\large Allen B. Downey}
-
-Version \theversion
-
-\vspace{0.25in}
-
-Copyright 2014 Allen B. Downey
-
-\vspace{0.25in}
-
-Permission is granted to copy, distribute, and/or modify this document
-under the terms of the Creative Commons 
-Attribution-NonCommercial-ShareAlike 4.0 International
-Unported License, which is available at
-\url{http://creativecommons.org/licenses/by-nc-sa/4.0/}.
-
-\setcounter{chapter}{-1}
-
-\end{htmlonly}
-
-\fi
-% END OF THE PART WE SKIP FOR PLASTEX
+\end{titlepage}
 
 \chapter{Preface}
 \label{preface}
@@ -6175,9 +6165,6 @@ here's a sample:
 What do you think is the parameter, $\lambda$, of this distribution?
 \index{parameter}
 \index{mean}
-
-\newcommand{\lamhat}{L}
-\newcommand{\lamhatmed}{L_m}
 
 In general, the mean of an exponential distribution is $1/\lambda$,
 so working backwards, we might choose
@@ -12422,12 +12409,7 @@ distribution of this change, and is it statistically significant?
 \addcontentsline{toc}{chapter}{\indexname}%
 \printindex
 
-\clearemptydoublepage
-%\blankpage
-%\blankpage
-%\blankpage
-
+\cleardoublepage
 
 \end{document}
-
 

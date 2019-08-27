@@ -1,24 +1,11 @@
 
-all:	book.tex
+all: book.tex
 	pdflatex book
 	makeindex book.idx
 	pdflatex book
 	mv book.pdf thinkstats2.pdf
 	evince thinkstats2.pdf
 
-hevea:
-	sed 's/\(figs\/[^.]*\).\(pdf\|png\)/\1.eps/' book.tex > thinkstats2.tex
-	rm -rf html
-	mkdir html
-	hevea -O -e latexonly htmlonly thinkstats2
-# the following greps are a kludge to prevent imagen from seeing
-# the definitions in latexonly, and to avoid headers on the images
-	grep -v latexonly thinkstats2.image.tex > a; mv a thinkstats2.image.tex
-	sed s/\\\\usepackage{fancyhdr}// < thinkstats2.image.tex > a; mv a thinkstats2.image.tex
-	imagen -png thinkstats2
-	hacha thinkstats2.html
-	cp up.png next.png back.png html
-	mv index.html thinkstats2.css thinkstats2*.html thinkstats2*.png *motif.gif html
 
 DEST = /home/downey/public_html/greent/thinkstats2
 
@@ -31,28 +18,43 @@ distrib:
 	chmod -R o+r $(DEST)/*
 	cd $(DEST)/..; sh back
 
-plastex:
-	# Before running plastex, we need the current directory in PYTHONPATH
-	# export PYTHONPATH=$PYTHONPATH:.
-	rm -rf /home/downey/thinkstats/trunk/book/.svn
-	plastex --renderer=DocBook --theme=book --image-resolution=300 --filename=book.xml book.tex
-	rm -rf /home/downey/thinkstats/trunk/book/.svn
-
 xxe:
 	xmlcopyeditor ~/thinkstats/trunk/ThinkStats2/book/book/book.xml &
 
 lint:
 	xmllint -noout book/book.xml
 
-vector:
-	plastex --renderer=DocBook --theme=book --vector-imager=dvisvgm --filename=book.xml book.tex
+%.png: %.pdf
+	pdftoppm -png -singlefile $< $*
+	pngquant --force --ext .png --skip-if-larger --quality 70-95 $@
 
-small: small.tex
-	plastex --renderer=DocBook --theme=book --image-resolution=300 --filename=small.xml small.tex
+# Use pandoc to generate DocBook
+book.xml: book.tex Makefile
+	pandoc                \
+		--standalone      \
+		--from latex      \
+		--to docbook5 	  \
+		--output book.xml \
+		book.tex
 
-sample:
-	plastex --renderer=DocBook --theme=book --image-resolution=300 --image-scale-factor=0.25 --filename=sample2e.xml sample2e.tex
-	~/Downloads/xxe-perso-4_8_0/bin/xxe sample2e/sample2e.xml
+# Use pandoc to generate AsciiDoc
+new-book.adoc: book.tex Makefile
+	pandoc                     \
+		--standalone           \
+		--from latex           \
+		--to asciidoctor       \
+		--output new-book.adoc \
+		book.tex
+	# FIXME write a lua filter to do this
+	perl -i -pe 's{^(image:figs/\w+)\.pdf\[}{\1.png[}' new-book.adoc
+	# patch in frontmatter and code block fixes
+	patch new-book.adoc < book.adoc.patch
+
+# Use asciidoctor to generate HTML5
+PNG_FILES := $(patsubst %.pdf,%.png,$(wildcard figs/*.pdf))
+book.html: book.adoc $(PNG_FILES)
+	asciidoctor --doctype book --out-file book.html book.adoc
+
 
 FIGURES = figs/Correlation_examples.png
 
@@ -62,6 +64,3 @@ oreilly:
 
 clean:
 	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc
-
-
-

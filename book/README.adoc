@@ -1,0 +1,173 @@
+= README
+Kahlil Hodgson <kahlil.hodgson999@gmail.com>
+2019-08-28
+:doctype: book
+:stem: latexmath
+:toc: left
+:sectnums:
+:sectlinks:
+:sectanchors:
+
+
+Searching for an optimal toolchain for publishing a books containing mathematical
+equations (STEM).
+
+== Goals:
+
+Want to be able to easily maintain and produce high-quality output for both printing and
+online consumption.
+
+By "high-quality" we mean both attractive and functional. Mathematical formula's and
+layout should be clear and attractive. Navigation should be supported (contents pages).
+Cross-referencing should be complete and hyper-linking should work.
+
+For printing this will mean PDF, though this should include DocBook for publishing with
+O'Reilly.
+
+Do we want to support generating multi-page HTML5?
+
+Do we want to support authoring with multi-file documents?
+
+== Formats
+
+=== LaTeX
+
+This is a complex and feature-rich document processing language.
+Supports text based editing, but can be complicated.
+Huge STEM support.
+A bit old fashioned.
+Complex for simple documents.
+A bit ungainly.
+
+Want to support this as an input/authoring language.
+Perhaps via translation to AsciiDoc or DocBook5.
+
+=== AsciiDoc
+
+This is a plain text markup language.
+Simple but very complete feature set.
+Supports LaTeX maths and AsciiMath via MathJax.
+Functionally equivalent to DocBook5.
+Supported by GitHub documents.
+
+Want to support this as an input/authoring language.
+
+=== DocBook5
+
+This is an OASIS standard.
+It is used by many publishing firms including O'Reilly.
+We should support it as an output format.
+
+It is an XML format which is challenging for human composition--though there are tools
+to help with this.
+
+Want to avoid this as authoring format.
+May use it as an intermediate format.
+
+=== PDF
+
+Universal printing and electronic display format.
+
+Want to support this as an
+
+=== HTML5
+
+This is the dominant modern web-publishing format.
+
+Want to support this as a primary output format
+
+Multi-page?
+
+
+== Tools
+
+=== `asciidoctor`
+
+Good modern tool. Supported by .
+
+
+=== `plastex`
+
+???
+
+
+=== `lwarp`
+
+
+=== `hevea`
+
+Maths output is not very attractive.
+
+
+=== `pdflatex`
+
+Standard tool for generating PDF output from LaTeX.
+
+
+=== `xsltproc`
+
+Standard XML translation tool. Used to reformat DocBook.
+
+
+== Experiments
+
+=== `lwarp`
+
+Got this to work and the output looked pretty good. However could not control the HTML
+output as well as I would have liked.  Could not find an easy way to get extra content
+into the HTML--like sidebars and wrappers.
+
+Supported by a single developer. Not on GitHub.
+
+=== `plastex`
+
+Can generate DocBook and HTML from LaTeX.
+
+DocBook is good but HTML output is very old fashioned.
+
+Does not work with Python 3 yet.
+
+=== `pandoc`
+
+Can use this to generate DocBook, AsciiDoc, and HTML from LaTex.
+
+==== LaTeX -> DocBook5
+
+
+==== LaTeX -> HTML
+
+Looks OK, but could not get the MathJax format to load. Apparently --mathjax and
+standalone do not work together.
+
+==== LaTeX -> AsciiDoc
+
+Pretty good conversion. Had to remove some `section` redefinitions to make this work
+though.
+
+=== `xsltproc`
+
+Used this to unpack DocBook5 to multi-page (chunked) HTML.
+
+Output still looks very old fashioned out of the box. Have the feeling that this is not
+going to be the best approach.
+
+=== AsciiDoc
+
+This is a great format and the tool produces very nice HTML5 output. Very easy to style.
+
+Need to review the experimental multi-page output filter.
+
+==== STEM
+
+Some examples of AsciiDoc stem support.
+
+stem:[\frac{\bar{x}}{\lambda}]
+
+latexmath:[\frac{\bar{x}}{\lambda}]
+
+asciimath:[[[a,b\],[c,d\]\]((n),(k))]
+
+[asciimath]
+++++
+sqrt(4) = 2
+++++

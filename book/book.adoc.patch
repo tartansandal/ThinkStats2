@@ -1,0 +1,450 @@
+1c1
+< = Think Stats
+---
+> = Think Stats: Exploratory Data Analysis in Python
+2a3,4
+> v2.0.38
+> :doctype: book
+3a6,11
+> :toc: left
+> :sectnums:
+> :sectlinks:
+> :sectanchors:
+> :source-highlighter: highlightjs
+> :source-language: python
+5,16c13,14
+< 3 Think Stats +
+< Exploratory Data Analysis in Python
+< 
+< Version 2.0.38
+< 
+< 3 Think Stats +
+< Exploratory Data Analysis in Python
+< 
+< Version 2.0.38
+< 
+< Allen B. Downey +
+< 
+---
+> [Colophon]
+> = Colphon
+37a36
+> [preface]
+295c294
+< "`My two friends that have given birth recently to their first babies,
+---
+> My two friends that have given birth recently to their first babies,
+297c296
+< induced.`"
+---
+> induced.
+299,300c298,299
+< "`My first one came 2 weeks late and now I think the second one is going
+< to come out two weeks early!!`"
+---
+> My first one came 2 weeks late and now I think the second one is going
+> to come out two weeks early!!
+302,303c301,302
+< "`I don’t think that can be true because my sister was my mother’s first
+< and she was early, as with many of my cousins.`"
+---
+> I don’t think that can be true because my sister was my mother’s first
+> and she was early, as with many of my cousins.
+442a442
+> [source]
+605a606
+> [source]
+657a659
+> [source]
+664a667
+> [source]
+757a761
+> [source]
+781a786
+> [source]
+955a961
+> [source]
+965a972
+> [source]
+1021a1029
+> [source]
+1028a1037
+> [source]
+1084a1094
+> [source]
+1093a1104
+> [source]
+1146a1158
+> [source]
+1190a1203
+> [source]
+1200a1214
+> [source]
+1314a1329
+> [source]
+1356a1372
+> [source]
+1481a1498
+> [source]
+1594a1612
+> [source]
+1631a1650
+> [source]
+1698a1718
+> [source]
+1714a1735
+> [source]
+1731a1753
+> [source]
+1757a1780
+> [source]
+2044a2068
+> [source]
+2064a2089
+> [source]
+2080a2106
+> [source]
+2108a2135
+> [source]
+2187a2215
+> [source]
+2194a2223
+> [source]
+2218a2248
+> [source]
+2280a2311
+> [source]
+2288a2320
+> [source]
+2299a2332
+> [source]
+2330a2364
+> [source]
+2353a2388
+> [source]
+2371a2407
+> [source]
+2475a2512
+> [source]
+2520a2558
+> [source]
+2586a2625
+> [source]
+2641a2681
+> [source]
+2664a2705
+> [source]
+2889a2931
+> [source]
+3105a3148
+> [source]
+3178a3222
+> [source]
+3286a3331
+> [source]
+3314a3360
+> [source]
+3360a3407
+> [source]
+3375a3423
+> [source]
+3389a3438
+> [source]
+3403a3453
+> [source]
+3435a3486
+> [source]
+3453a3505
+> [source]
+3492a3545
+> [source]
+3530a3584
+> [source]
+3555a3610
+> [source]
+3577a3633
+> [source]
+3687a3744
+> [source]
+3695a3753
+> [source]
+3709a3768
+> [source]
+3734a3794
+> [source]
+3741a3802
+> [source]
+3765a3827
+> [source]
+3785a3848
+> [source]
+3808a3872
+> [source]
+3832a3897
+> [source]
+3839a3905
+> [source]
+3846a3913
+> [source]
+3932a4000
+> [source]
+3994a4063
+> [source]
+4068a4138
+> [source]
+4081a4152
+> [source]
+4104a4176
+> [source]
+4256a4329
+> [source]
+4280a4354
+> [source]
+4353a4428
+> [source]
+4381a4457
+> [source]
+4444a4521
+> [source]
+4592a4670
+> [source]
+4759a4838
+> [source]
+4808a4888
+> [source]
+4835a4916
+> [source]
+4872a4954
+> [source]
+4903a4986
+> [source]
+4923a5007
+> [source]
+4950a5035
+> [source]
+4980a5066
+> [source]
+5011a5098
+> [source]
+5031a5119
+> [source]
+5078a5167
+> [source]
+5123a5213
+> [source]
+5163a5254
+> [source]
+5193a5285
+> [source]
+5269a5362
+> [source]
+5294a5388
+> [source]
+5301a5396
+> [source]
+5456a5552
+> [source]
+5502a5599
+> [source]
+5520a5618
+> [source]
+5530a5629
+> [source]
+5564a5664
+> [source]
+5613a5714
+> [source]
+5633a5735
+> [source]
+5645a5748
+> [source]
+5668a5772
+> [source]
+5723a5828
+> [source]
+5799a5905
+> [source]
+5826a5933
+> [source]
+5872a5980
+> [source]
+5917a6026
+> [source]
+5937a6047
+> [source]
+5944a6055
+> [source]
+6053a6165
+> [source]
+6079a6192
+> [source]
+6091a6205
+> [source]
+6109a6224
+> [source]
+6149a6265
+> [source]
+6156a6273
+> [source]
+6163a6281
+> [source]
+6172a6291
+> [source]
+6183a6303
+> [source]
+6251a6372
+> [source]
+6339a6461
+> [source]
+6369a6492
+> [source]
+6407a6531
+> [source]
+6461a6586
+> [source]
+6566a6692
+> [source]
+6572a6699
+> [source]
+6591a6719
+> [source]
+6675a6804
+> [source]
+6684a6814
+> [source]
+6693a6824
+> [source]
+6708a6840
+> [source]
+6733a6866
+> [source]
+6767a6901
+> [source]
+6777a6912
+> [source]
+6791a6927
+> [source]
+6804a6941
+> [source]
+6929a7067
+> [source]
+6960a7099
+> [source]
+6978a7118
+> [source]
+7016a7157
+> [source]
+7062a7204
+> [source]
+7071a7214
+> [source]
+7102a7246
+> [source]
+7182a7327
+> [source]
+7194a7340
+> [source]
+7217a7364
+> [source]
+7245a7393
+> [source]
+7256a7405
+> [source]
+7286a7436
+> [source]
+7308a7459
+> [source]
+7348a7500
+> [source]
+7392a7545
+> [source]
+7423a7577
+> [source]
+7471a7626
+> [source]
+7499a7655
+> [source]
+7528a7685
+> [source]
+7708a7866
+> [source]
+7729a7888
+> [source]
+7750a7910
+> [source]
+7757a7918
+> [source]
+7783a7945
+> [source]
+7810a7973
+> [source]
+7825a7989
+> [source]
+7911a8076
+> [source]
+7988a8154
+> [source]
+7996a8163
+> [source]
+8005a8173
+> [source]
+8012a8181
+> [source]
+8037a8207
+> [source]
+8092a8263
+> [source]
+8155a8327
+> [source]
+8165a8338
+> [source]
+8182a8356
+> [source]
+8199a8374
+> [source]
+8245a8421
+> [source]
+8262a8439
+> [source]
+8303a8481
+> [source]
+8332a8511
+> [source]
+8413a8593
+> [source]
+8613a8794
+> [source]
+8642a8824
+> [source]
+8665a8848
+> [source]
+8672a8856
+> [source]
+8742a8927
+> [source]
+8769a8955
+> [source]
+8817a9004
+> [source]
+8836a9024
+> [source]
+8882a9071
+> [source]
+8892a9082
+> [source]
+8912a9103
+> [source]
+8976a9168
+> [source]
+9014a9207
+> [source]
+9047a9241
+> [source]
+9061a9256
+> [source]
+9187a9383,9387
+> 
+> ifndef::backend-html5[]
+> [index]
+> == Index
+> endif::[]
