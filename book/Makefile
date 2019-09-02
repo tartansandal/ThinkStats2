@@ -1,4 +1,4 @@
-
+#!/usr/bin/env lua
 all: book.tex
 	pdflatex book
 	makeindex book.idx
@@ -30,12 +30,22 @@ lint:
 
 # Use pandoc to generate DocBook
 book.xml: book.tex Makefile
+	perl -pe 's/{\\tt ([^}]+)}/\\verb"\1"/g' book.tex | \
 	pandoc                \
 		--standalone      \
 		--from latex      \
 		--to docbook5 	  \
-		--output book.xml \
-		book.tex
+		--mathml          \
+		--output - | \
+	perl -pe 's{(<imagedata fileref="figs/\w+)\.pdf"}{\1.png"}' > book.xml
+
+book2.adoc: book.xml Makefile
+	pandoc                  \
+		--standalone        \
+		--from docbook      \
+		--to asciidoctor    \
+		--output book2.adoc \
+		book.xml
 
 # Use pandoc to generate AsciiDoc
 new-book.adoc: book.tex Makefile
