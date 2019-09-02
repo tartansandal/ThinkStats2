@@ -8,9 +8,6 @@ v2.0.38
 :sectlinks:
 :sectanchors:
 :xrefstyle: short
-:section-refsig!:
-:chapter-refsig!:
-:figure-refsig!:
 :source-highlighter: highlightjs
 :source-language: python
 
@@ -413,7 +410,7 @@ http://www.cdc.gov/nchs/nsfg/nsfg_cycle6.htm
 
 The code and data used in this book are available from
 https://github.com/AllenDowney/ThinkStats2. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 Once you download the code, you should have a file called
 ThinkStats2/code/nsfg.py. If you run it, it should read a data file, run
@@ -570,20 +567,20 @@ We have already seen two variables in the NSFG dataset, caseid and
 pregordr, and we have seen that there are 244 variables in total. For
 the explorations in this book, I use the following variables:
 
-* caseid is the integer ID of the respondent.
-* prglngth is the integer duration of the pregnancy in weeks.
-* outcome is an integer code for the outcome of the pregnancy. The code
+* `+caseid+` is the integer ID of the respondent.
+* `+prglngth+` is the integer duration of the pregnancy in weeks.
+* `+outcome+` is an integer code for the outcome of the pregnancy. The code
 1 indicates a live birth.
-* pregordr is a pregnancy serial number; for example, the code for a
+* `+pregordr+` is a pregnancy serial number; for example, the code for a
 respondent’s first pregnancy is 1, for the second pregnancy is 2, and so
 on.
-* birthord is a serial number for live births; the code for a
+* `+birthord+` is a serial number for live births; the code for a
 respondent’s first child is 1, and so on. For outcomes other than live
 birth, this field is blank.
 * `+birthwgt_lb+` and `+birthwgt_oz+` contain the pounds and ounces
 parts of the birth weight of the baby.
-* agepreg is the mother’s age at the end of the pregnancy.
-* finalwgt is the statistical weight associated with the respondent. It
+* `+agepreg+` is the mother’s age at the end of the pregnancy.
+* `+finalwgt+` is the statistical weight associated with the respondent. It
 is a floating-point value that indicates the number of people in the
 U.S. population this respondent represents.
 
@@ -1057,7 +1054,7 @@ image::figs/first_wgt_lb_hist.png[height=240]
 For this book I wrote a module called thinkplot.py that provides
 functions for plotting Hists and other objects defined in
 thinkstats2.py. It is based on pyplot, which is part of the matplotlib
-package. See Section <<code>> for information about installing
+package. See <<code>> for information about installing
 matplotlib.
 
 To plot hist with thinkplot, try this:
@@ -1079,13 +1076,13 @@ image::figs/first_wgt_oz_hist.png[height=240]
 
 Now let’s get back to the data from the NSFG. The code in this chapter
 is in first.py. For information about downloading and working with this
-code, see Section <<code>>.
+code, see <<code>>.
 
 When you start working with a new dataset, I suggest you explore the
 variables you are planning to use one at a time, and a good way to start
 is by looking at histograms.
 
-In Section <<cleaning>> we transformed agepreg from centiyears to
+In <<cleaning>> we transformed agepreg from centiyears to
 years, and combined `+birthwgt_lb+` and `+birthwgt_oz+` into a single
 quantity, `+totalwgt_lb+`. In this section I use these variables to
 demonstrate some features of histograms.
@@ -1121,27 +1118,27 @@ plotted.
 .Histogram of pregnancy length in weeks.
 image::figs/first_prglngth_hist.png[height=240]
 
-Figure <<first_wgt_lb_hist>> shows the result.
+<<first_wgt_lb_hist>> shows the result.
 The most common value, called the *mode*, is 7 pounds. The distribution
 is approximately bell-shaped, which is the shape of the *normal*
 distribution, also called a *Gaussian* distribution. But unlike a true
 normal distribution, this distribution is asymmetric; it has a *tail*
 that extends farther to the left than to the right.
 
-Figure <<first_wgt_oz_hist>> shows the histogram
+<<first_wgt_oz_hist>> shows the histogram
 of `+birthwgt_oz+`, which is the ounces part of birth weight. In theory
 we expect this distribution to be *uniform*; that is, all values should
 have the same frequency. In fact, 0 is more common than the other
 values, and 1 and 15 are less common, probably because respondents round
 off birth weights that are close to an integer value.
 
-Figure <<first_agepreg_hist>> shows the
+<<first_agepreg_hist>> shows the
 histogram of `+agepreg+`, the mother’s age at the end of pregnancy. The
 mode is 21 years. The distribution is very roughly bell-shaped, but in
 this case the tail extends farther to the right than left; most mothers
 are in their 20s, fewer in their 30s.
 
-Figure <<first_prglngth_hist>> shows the
+<<first_prglngth_hist>> shows the
 histogram of `+prglngth+`, the length of the pregnancy in weeks. By far
 the most common value is 39 weeks. The left tail is longer than the
 right; early babies are common, but pregnancies seldom go past 43 weeks,
@@ -1241,7 +1238,7 @@ With width=0.45, the total width of the two bars is 0.9, leaving some
 space between each pair.
 
 Finally, I adjust the axis to show only data between 27 and 46 weeks.
-Figure <<first_nsfg_hist>> shows the result.
+<<first_nsfg_hist>> shows the result.
 
 Histograms are useful because they make the most frequent values
 immediately apparent. But they are not the best choice for comparing two
@@ -1324,7 +1321,7 @@ variance, latexmath:[S], is the *standard deviation*.
 If you have prior experience, you might have seen a formula for variance
 with latexmath:[n-1] in the denominator, rather than n. This statistic
 is used to estimate the variance in a population using a sample. We will
-come back to this in Chapter <<estimation>>.
+come back to this in <<estimation>>.
 
 Pandas data structures provides methods to compute mean, variance and
 standard deviation:
@@ -1485,7 +1482,7 @@ that is relevant in practice.
 == Probability mass functions
 
 The code for this chapter is in probability.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === Pmfs
 
@@ -1599,7 +1596,7 @@ objects, I usually don’t use pyplot.hist.
 .PMF of pregnancy lengths for first babies and others, using bar graphs and step functions.
 image::figs/probability_nsfg_pmf.png[height=288]
 
-Figure <<probability_nsfg_pmf>> shows PMFs of
+<<probability_nsfg_pmf>> shows PMFs of
 pregnancy length for first babies and others using bar graphs (left) and
 step functions (right).
 
@@ -1609,7 +1606,7 @@ Based on this figure, first babies seem to be less likely than others to
 arrive on time (week 39) and more likely to be a late (weeks 41 and 42).
 
 Here’s the code that generates
-Figure <<probability_nsfg_pmf>>:
+<<probability_nsfg_pmf>>:
 
 [source]
 ....
@@ -1664,7 +1661,7 @@ transform the data to emphasize differences:
 
 In this code, weeks is the range of weeks; diffs is the difference
 between the two PMFs in percentage points.
-Figure <<probability_nsfg_diffs>> shows the
+<<probability_nsfg_diffs>> shows the
 result as a bar chart. This figure makes the pattern clearer: first
 babies are less likely to be born in week 39, and somewhat more likely
 to be born in weeks 41 and 42.
@@ -1763,7 +1760,7 @@ Now we can plot the actual and observed distributions:
 .Distribution of class sizes, actual and as observed by students.
 image::figs/class_size1.png[height=288]
 
-Figure <<class_size1>> shows the result. In the biased
+<<class_size1>> shows the result. In the biased
 distribution there are fewer small classes and more large ones. The mean
 of the biased distribution is 29.1, almost 25% higher than the actual
 mean.
@@ -1794,7 +1791,7 @@ probability by x instead of multiplying.
 
 === DataFrame indexing
 
-In Section <<dataframe>> we read a pandas DataFrame and used it
+In <<dataframe>> we read a pandas DataFrame and used it
 to select and modify data columns. Now let’s look at row selection. To
 start, I create a NumPy array of random numbers and use it to initialize
 a DataFrame:
@@ -1928,7 +1925,7 @@ themselves) are in their household.
 Plot the actual and biased distributions, and compute their means. As a
 starting place, you can use `+chap03ex.ipynb+`.
 
-In Section <<mean>> we computed the mean of a sample by adding up
+In <<mean>> we computed the mean of a sample by adding up
 the elements and dividing by n. If you are given a PMF, you can still
 compute the mean, but the process is slightly different:
 
@@ -2016,7 +2013,7 @@ contains the row labels.
 == Cumulative distribution functions
 
 The code for this chapter is in cumulative.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === The limits of PMFs
 
@@ -2026,7 +2023,7 @@ smaller and the effect of random noise increases.
 
 For example, we might be interested in the distribution of birth
 weights. In the NSFG data, the variable `+totalwgt_lb+` records weight
-at birth in pounds. Figure <<nsfg_birthwgt_pmf>>
+at birth in pounds. <<nsfg_birthwgt_pmf>>
 shows the PMF of these values for first babies and others.
 
 [[nsfg_birthwgt_pmf]]
@@ -2188,7 +2185,7 @@ is greater than the largest value, latexmath:[\mathrm{CDF}(x)] is 1.
 image::figs/cumulative_example_cdf.png[Example of a CDF.,height=240]
 
 
-Figure <<example_cdf>> is a graphical representation of
+<<example_cdf>> is a graphical representation of
 this CDF. The CDF of a sample is a step function.
 
 === Representing CDFs
@@ -2224,7 +2221,7 @@ thinkplot provides a function named Cdf that plots Cdfs as lines:
     thinkplot.Show(xlabel='weeks', ylabel='CDF')
 ....
 
-Figure <<cumulative_prglngth_cdf>> shows
+<<cumulative_prglngth_cdf>> shows
 the result. One way to read a CDF is to look up percentiles. For
 example, it looks like about 10% of pregnancies are shorter than 36
 weeks, and about 90% are shorter than 41 weeks. The CDF also provides a
@@ -2257,9 +2254,9 @@ others.
 image::figs/cumulative_birthwgt_cdf.png[CDF of birth weights for first
 babies and others.,height=240]
 
-Figure <<cumulative_birthwgt_cdf>> shows
+<<cumulative_birthwgt_cdf>> shows
 the result. Compared to
-Figure <<nsfg_birthwgt_pmf>>, this figure makes
+<<nsfg_birthwgt_pmf>>, this figure makes
 the shape of the distributions, and the differences between them, much
 clearer. We can see that first babies are slightly lighter throughout
 the distribution, with a larger discrepancy above the mean.
@@ -2337,7 +2334,7 @@ Finally we make and plot the Cdf of the percentile ranks.
 image::figs/cumulative_random.png[CDF of percentile ranks for a random
 sample of birth weights.,height=240]
 
-Figure <<cumulative_random>> shows the result.
+<<cumulative_random>> shows the result.
 The CDF is approximately a straight line, which means that the
 distribution is uniform.
 
@@ -2470,7 +2467,7 @@ common analytic distributions and uses them to model data from a variety
 of sources.
 
 The code for this chapter is in analytic.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 [[exponential]]
 === The exponential distribution
@@ -2487,7 +2484,7 @@ simple. The CDF of the exponential distribution is
 \mathrm{CDF}(x) = 1 - e^{-\lambda x}
 ++++
 The parameter, latexmath:[\lambda], determines the shape of the
-distribution. Figure <<analytic_expo_cdf>> shows
+distribution. <<analytic_expo_cdf>> shows
 what this CDF looks like with latexmath:[\lambda =] 0.5, 1, and 2.
 
 In the real world, exponential distributions come up when we look at a
@@ -2524,7 +2521,7 @@ and CCDF on a log-y scale (right).,height=240]
 
 diffs is the difference between consecutive birth times, and cdf is the
 distribution of these interarrival times.
-Figure <<analytic_interarrival_cdf>>
+<<analytic_interarrival_cdf>>
 (left) shows the CDF. It seems to have the general shape of an
 exponential distribution, but how can we tell?
 
@@ -2561,7 +2558,7 @@ With the argument complement=True, thinkplot.Cdf computes the
 complementary CDF before plotting. And with yscale=’log’, thinkplot.Show
 sets the y axis to a logarithmic scale.
 
-Figure <<analytic_interarrival_cdf>>
+<<analytic_interarrival_cdf>>
 (right) shows the result. It is not exactly straight, which indicates
 that the exponential distribution is not a perfect model for this data.
 Most likely the underlying assumption—that a birth is equally likely at
@@ -2583,7 +2580,7 @@ latexmath:[1/\lambda], so the mean time between births is 32.7 minutes.
 The *normal distribution*, also called Gaussian, is commonly used
 because it describes many phenomena, at least approximately. It turns
 out that there is a good reason for its ubiquity, which we will get to
-in Section <<CLT>>.
+in <<CLT>>.
 
 [[analytic_gaussian_cdf]]
 image::figs/analytic_gaussian_cdf.png[CDF of normal distributions with a
@@ -2622,14 +2619,14 @@ def EvalNormalCdf(x, mu=0, sigma=1):
     return scipy.stats.norm.cdf(x, loc=mu, scale=sigma)
 ....
 
-Figure <<analytic_gaussian_cdf>> shows CDFs
+<<analytic_gaussian_cdf>> shows CDFs
 for normal distributions with a range of parameters. The sigmoid shape
 of these curves is a recognizable characteristic of a normal
 distribution.
 
 In the previous chapter we looked at the distribution of birth weights
 in the NSFG.
-Figure <<analytic_birthwgt_model>> shows
+<<analytic_birthwgt_model>> shows
 the empirical CDF of weights for all live births and the CDF of a normal
 distribution with the same mean and variance.
 
@@ -2686,7 +2683,7 @@ from the standard normal distribution.
 
 To test NormalProbability I generated some fake samples that were
 actually drawn from normal distributions with various parameters.
-Figure <<analytic_normal_prob_example>>
+<<analytic_normal_prob_example>>
 shows the results. The lines are approximately straight, with values in
 the tails deviating more than values near the mean.
 
@@ -2725,7 +2722,7 @@ image::figs/analytic_birthwgt_normal.png[Normal probability plot of birth
 weights.,height=240]
 
 
-Figure <<analytic_birthwgt_normal>> shows
+<<analytic_birthwgt_normal>> shows
 the results for all live births, and also for full term births
 (pregnancy length greater than 36 weeks). Both curves match the model
 near the mean and deviate in the tails. The heaviest babies are heavier
@@ -2798,14 +2795,14 @@ image::figs/brfss_weight_normal.png[Normal probability plots for adult
 weight on a linear scale (left) and log scale (right).,height=240]
 
 
-Figure <<brfss_weight>> (left) shows the distribution
+<<brfss_weight>> (left) shows the distribution
 of adult weights on a linear scale with a normal model.
-Figure <<brfss_weight>> (right) shows the same
+<<brfss_weight>> (right) shows the same
 distribution on a log scale with a lognormal model. The lognormal model
 is a better fit, but this representation of the data does not make the
 difference particularly dramatic.
 
-Figure <<brfss_weight_normal>> shows normal
+<<brfss_weight_normal>> shows normal
 probability plots for adult weights, latexmath:[w], and for their
 logarithms, latexmath:[\log_{10} w]. Now it is apparent that the data
 deviate substantially from the normal model. On the other hand, the
@@ -2828,7 +2825,7 @@ CDF(x) = 1 - \left( \frac{x}{x_m} \right) ^{-\alpha}
 ++++
 The parameters latexmath:[x_{m}] and latexmath:[\alpha] determine the
 location and shape of the distribution. latexmath:[x_{m}] is the minimum
-possible value. Figure <<analytic_pareto_cdf>>
+possible value. <<analytic_pareto_cdf>>
 shows CDFs of Pareto distributions with latexmath:[x_{m} = 0.5] and
 different values of latexmath:[\alpha].
 
@@ -2874,14 +2871,14 @@ it is in the repository for this book in a file named
 populations.py, which reads the file and plots the distribution of
 populations.
 
-Figure <<populations_pareto>> shows the CCDF of
+<<populations_pareto>> shows the CCDF of
 populations on a log-log scale. The largest 1% of cities and towns,
 below latexmath:[10^{-2}], fall along a straight line. So we could
 conclude, as some researchers have, that the tail of this distribution
 fits a Pareto model.
 
 On the other hand, a lognormal distribution also models the data well.
-Figure <<populations_normal>> shows the CDF of
+<<populations_normal>> shows the CDF of
 populations and a lognormal model (left), and a normal probability plot
 (right). Both plots show good agreement between the data and the model.
 
@@ -2959,7 +2956,7 @@ preferential attachment processes: see
 http://wikipedia.org/wiki/Preferential_attachment.).
 
 Also, analytic distributions lend themselves to mathematical analysis,
-as we will see in Chapter <<analysis>>.
+as we will see in <<analysis>>.
 
 But it is important to remember that all models are imperfect. Data from
 the real world never fit an analytic distribution perfectly. People
@@ -2978,7 +2975,7 @@ depends on what you are planning to use the model for.
 For the following exercises, you can start with `+chap05ex.ipynb+`. My
 solution is in `+chap05soln.ipynb+`.
 
-In the BRFSS (see Section <<lognormal>>), the
+In the BRFSS (see <<lognormal>>), the
 distribution of heights is roughly normal with parameters
 latexmath:[\mu = 178] cm and latexmath:[\sigma = 7.7] cm for men, and
 latexmath:[\mu = 163] cm and latexmath:[\sigma = 7.3] cm for women.
@@ -3019,7 +3016,7 @@ distribution to fit an analytic distribution exactly. One way to
 evaluate the quality of fit is to generate a sample from an analytic
 distribution and see how well it matches the data.
 
-For example, in Section <<exponential>> we plotted the
+For example, in <<exponential>> we plotted the
 distribution of time between births and saw that it is approximately
 exponential. But the distribution is based on only 44 data points. To
 see whether the data might have come from an exponential distribution,
@@ -3084,7 +3081,7 @@ random values from a standard normal distribution.
 == Probability density functions
 
 The code for this chapter is in density.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === PDFs
 
@@ -3155,11 +3152,11 @@ class NormalPdf(Pdf):
 The NormalPdf object contains the parameters mu and sigma. Density uses
 scipy.stats.norm, which is an object that represents a normal
 distribution and provides cdf and pdf, among other methods (see
-Section <<normal>>).
+<<normal>>).
 
 The following example creates a NormalPdf with the mean and variance of
 adult female heights, in cm, from the BRFSS (see
-Section <<lognormal>>). Then it computes the density of the
+<<lognormal>>). Then it computes the density of the
 distribution at a location one standard deviation from the mean.
 
 ....
@@ -3181,7 +3178,7 @@ we can see the shape of the distribution:
 
 thinkplot.Pdf plots the Pdf as a smooth function, as contrasted with
 thinkplot.Pmf, which renders a Pmf as a step function.
-Figure <<pdf_example>> shows the result, as well as a
+<<pdf_example>> shows the result, as well as a
 PDF estimated from a sample, which we’ll compute in the next section.
 
 You can use MakePmf to approximate the Pdf:
@@ -3239,7 +3236,7 @@ then makes an EstimatedPdf to fit it:
 `+sample+` is a list of 500 random heights. `+sample_pdf+` is a Pdf
 object that contains the estimated KDE of the sample.
 
-Figure <<pdf_example>> shows the normal density
+<<pdf_example>> shows the normal density
 function and a KDE based on a sample of 500 random heights. The estimate
 is a good match for the original distribution.
 
@@ -3267,7 +3264,7 @@ image::figs/distribution_functions.png[A framework that relates
 representations of distribution functions.,height=211]
 
 At this point we have seen PMFs, CDFs and PDFs; let’s take a minute to
-review. Figure <<dist_framework>> shows how these
+review. <<dist_framework>> shows how these
 functions relate to each other.
 
 We started with PMFs, which represent the probabilities for a discrete
@@ -3602,7 +3599,7 @@ pregnancy data. Here’s the code to estimate and plot the PDF:
     thinkplot.Pdf(pdf, label='birth weight')
 ....
 
-Figure <<density_totalwgt_kde>> shows the
+<<density_totalwgt_kde>> shows the
 result. The left tail appears longer than the right, so we suspect the
 distribution is skewed left. The mean, 7.27 lbs, is a bit less than the
 median, 7.38 lbs, so that is consistent with left skew. And both
@@ -3624,7 +3621,7 @@ in the BRFSS. Again, here’s the code:
     thinkplot.Pdf(pdf, label='adult weight')
 ....
 
-Figure <<density_wtkg2_kde>> shows the result.
+<<density_wtkg2_kde>> shows the result.
 The distribution appears skewed to the right. Sure enough, the mean,
 79.0, is bigger than the median, 77.3. The sample skewness is 1.1 and
 Pearson’s median skewness is 0.26.
@@ -3716,14 +3713,14 @@ and tall light ones. But if you are trying to guess someone’s weight,
 you will be more accurate if you know their height than if you don’t.
 
 The code for this chapter is in scatter.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === Scatter plots
 
 The simplest way to check for a relationship between two variables is a
 *scatter plot*, but making a good scatter plot is not always easy. As an
 example, I’ll plot weight versus height for the respondents in the BRFSS
-(see Section <<lognormal>>).
+(see <<lognormal>>).
 
 Here’s the code that reads the data file and extracts height and weight:
 
@@ -3759,7 +3756,7 @@ thinkplot provides Scatter, which makes scatter plots:
                    axis=[140, 210, 20, 200])
 ....
 
-The result, in Figure <<scatter1>> (left), shows the shape of the
+The result, in <<scatter1>> (left), shows the shape of the
 relationship. As we expected, taller people tend to be heavier.
 
 image::figs/scatter1.png[Scatter plots of weight versus height for the
@@ -3794,7 +3791,7 @@ def Jitter(values, jitter=0.5):
 
 The values can be any sequence; the result is a NumPy array.
 
-Figure <<scatter1>> (right) shows the result. Jittering reduces
+<<scatter1>> (right) shows the result. Jittering reduces
 the visual effect of rounding and makes the shape of the relationship
 clearer. But in general you should only jitter data for purposes of
 visualization and avoid using jittered data for analysis.
@@ -3815,7 +3812,7 @@ points partly transparent:
     thinkplot.Scatter(heights, weights, alpha=0.2)
 ....
 
-Figure <<scatter2>> (left) shows the result. Overlapping data
+<<scatter2>> (left) shows the result. Overlapping data
 points look darker, so darkness is proportional to density. In this
 version of the plot we can see two details that were not apparent
 before: vertical clusters at several heights and a horizontal line near
@@ -3836,7 +3833,7 @@ how many data points fall in it. thinkplot provides HexBin:
     thinkplot.HexBin(heights, weights)
 ....
 
-Figure <<scatter2>> (right) shows the result. An advantage of a
+<<scatter2>> (right) shows the result. An advantage of a
 hexbin is that it shows the shape of the relationship well, and it is
 efficient for large datasets, both in time and in the size of the file
 it generates. A drawback is that it makes the outliers invisible.
@@ -3904,7 +3901,7 @@ Finally, we can plot percentiles of weight versus height:
         thinkplot.Plot(heights, weights, label=label)
 ....
 
-Figure <<scatter3>> shows the result. Between 140 and 200 cm the
+<<scatter3>> shows the result. Between 140 and 200 cm the
 relationship between these variables is roughly linear. This range
 includes more than 99% of the data, so we don’t have to worry too much
 about the extremes.
@@ -4089,7 +4086,7 @@ strength.
 image::figs/Correlation_examples.png[Examples of datasets with a range of
 correlations.,height=240]
 
-Figure <<corr_examples>> is from
+<<corr_examples>> is from
 http://wikipedia.org/wiki/Correlation_and_dependence. It shows scatter
 plots and correlation coefficients for several carefully constructed
 datasets.
@@ -4219,7 +4216,7 @@ http://wikipedia.org/wiki/Natural_experiment.
 
 In some cases it is possible to infer causal relationships using
 *regression analysis*, which is the topic of
-Chapter <<regression>>.
+<<regression>>.
 
 === Exercises
 
@@ -4261,7 +4258,7 @@ approximately random.
 == Estimation
 
 The code for this chapter is in estimation.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === The estimation game
 
@@ -4528,7 +4525,7 @@ with confidence interval.,height=240]
 In each iteration, we choose n values from a normal distribution with
 the given parameters, and compute the sample mean, xbar. We run 1000
 simulations and then compute the distribution, cdf, of the estimates.
-The result is shown in Figure <<estimation1>>. This distribution
+The result is shown in <<estimation1>>. This distribution
 is called the *sampling distribution* of the estimator. It shows how
 much the estimates would vary if we ran the experiment over and over.
 
@@ -4757,7 +4754,7 @@ an estimator if an experiment is repeated many times.
 == Hypothesis testing
 
 The code for this chapter is in hypothesis.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === Classical hypothesis testing
 
@@ -4997,7 +4994,7 @@ test statistic and a gray line indicating the observed effect size:
                    ylabel='CDF')
 ....
 
-Figure <<hypothesis1>> shows the result. The CDF intersects the
+<<hypothesis1>> shows the result. The CDF intersects the
 observed difference at 0.83, which is the complement of the p-value,
 0.17.
 
@@ -5044,7 +5041,7 @@ even for the stronger hypothesis, the difference is not statistically
 significant.
 
 We can use the same framework to test for a difference in standard
-deviation. In Section <<visualization>>, we saw some evidence
+deviation. In <<visualization>>, we saw some evidence
 that first babies are more likely to be early or late, and less likely
 to be on time. So we might hypothesize that the standard deviation is
 higher. Here’s how we can test that:
@@ -5230,7 +5227,7 @@ significant or not.
 Earlier in this chapter we looked at pregnancy lengths for first babies
 and others, and concluded that the apparent differences in mean and
 standard deviation are not statistically significant. But in
-Section <<visualization>>, we saw several apparent differences in
+<<visualization>>, we saw several apparent differences in
 the distribution of pregnancy length, especially in the range from 35 to
 43 weeks. To see whether those differences are statistically
 significant, we can use a test based on a chi-squared statistic.
@@ -5468,7 +5465,7 @@ to select a random subset of the rows in a DataFrame.
 What happens to the p-values of these tests as sample size decreases?
 What is the smallest sample size that yields a positive test?
 
-In Section <<testdiff>>, we simulated the null hypothesis by
+In <<testdiff>>, we simulated the null hypothesis by
 permutation; that is, we treated the observed values as if they
 represented the entire population, and randomly assigned the members of
 the population to the two groups.
@@ -5477,7 +5474,7 @@ An alternative is to use the sample to estimate the distribution for the
 population, then draw a random sample from that distribution. This
 process is called *resampling*. There are several ways to implement
 resampling, but one of the simplest is to draw a sample with replacement
-from the observed values, as in Section <<power>>.
+from the observed values, as in <<power>>.
 
 Write a class named DiffMeansResample that inherits from
 DiffMeansPermute and overrides RunModel to implement resampling, rather
@@ -5516,7 +5513,7 @@ false.
 == Linear least squares
 
 The code for this chapter is in linear.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === Least squares fit
 
@@ -5637,7 +5634,7 @@ year old mother is 7.3 pounds. The slope is 0.27 ounces per year, or
 image::figs/linear1.png[Scatter plot of birth weight and mother’s age
 with a linear fit.,height=240]
 
-Figure <<linear1>> shows a scatter plot of birth weight and age
+<<linear1>> shows a scatter plot of birth weight and age
 along with the fitted line. It’s a good idea to look at a figure like
 this to assess whether the relationship is linear and whether the fitted
 line seems like a good model of the relationship.
@@ -5664,7 +5661,7 @@ image::figs/linear2.png[Residuals of the linear fit.,height=240]
 
 To visualize the residuals, I group respondents by age and compute
 percentiles in each group, as we saw in
-Section <<characterizing>>. Figure <<linear2>> shows the
+<<characterizing>>. Figure <<linear2>> shows the
 25th, 50th and 75th percentiles of the residuals for each age group. The
 median is near zero, as expected, and the interquartile range is about 2
 pounds. So if we know the mother’s age, we can guess the baby’s weight
@@ -5682,7 +5679,7 @@ model that is probably good enough for some purposes.
 
 The parameters slope and inter are estimates based on a sample; like
 other estimates, they are vulnerable to sampling bias, measurement
-error, and sampling error. As discussed in Chapter <<estimation>>,
+error, and sampling error. As discussed in <<estimation>>,
 sampling bias is caused by non-representative sampling, measurement
 error is caused by errors in collecting and recording data, and sampling
 error is the result of measuring a sample rather than the entire
@@ -5785,7 +5782,7 @@ image::figs/linear3.png[50% and 90% confidence intervals showing
 variability in the fitted line due to sampling error of inter and
 slope.,height=240]
 
-Figure <<linear3>> shows the 50% and 90% confidence intervals
+<<linear3>> shows the 50% and 90% confidence intervals
 for curves fitted to birth weight as a function of mother’s age. The
 vertical width of the region represents the effect of sampling error;
 the effect is smaller for values near the mean and larger for the
@@ -5875,7 +5872,7 @@ One option is to test whether the apparent reduction in MSE is due to
 chance. In that case, the test statistic is latexmath:[R^2] and the null
 hypothesis is that there is no relationship between the variables. We
 can simulate the null hypothesis by permutation, as in
-Section <<corrtest>>, when we tested the correlation between
+<<corrtest>>, when we tested the correlation between
 mother’s age and birth weight. In fact, because
 latexmath:[R^2 = \rho^2], a one-sided test of latexmath:[R^2] is
 equivalent to a two-sided test of latexmath:[\rho]. We’ve already done
@@ -5930,16 +5927,16 @@ slope is small, it is unlikely to be due to chance.
 Estimating the p-value by simulating the null hypothesis is strictly
 correct, but there is a simpler alternative. Remember that we already
 computed the sampling distribution of the slope, in
-Section <<regest>>. To do that, we assumed that the observed
+<<regest>>. To do that, we assumed that the observed
 slope was correct and simulated experiments by resampling.
 
-Figure <<linear4>> shows the sampling distribution of the slope,
-from Section <<regest>>, and the distribution of slopes
+<<linear4>> shows the sampling distribution of the slope,
+from <<regest>>, and the distribution of slopes
 generated under the null hypothesis. The sampling distribution is
 centered about the estimated slope, 0.017 lbs/year, and the slopes under
 the null hypothesis are centered around 0; but other than that, the
 distributions are identical. The distributions are also symmetric, for
-reasons we will see in Section <<CLT>>.
+reasons we will see in <<CLT>>.
 
 image::figs/linear4.png[The sampling distribution of the estimated slope
 and the distribution of slopes generated under the null hypothesis. The
@@ -5976,7 +5973,7 @@ Again, we find latexmath:[p < 0.001].
 === Weighted resampling
 
 So far we have treated the NSFG data as if it were a representative
-sample, but as I mentioned in Section <<nsfg>>, it is not. The
+sample, but as I mentioned in <<nsfg>>, it is not. The
 survey deliberately oversamples several groups in order to improve the
 chance of getting statistically significant results; that is, in order
 to improve the power of tests involving these groups.
@@ -6002,7 +5999,7 @@ sampling distributions, standard errors, and confidence intervals. As an
 example, I will estimate mean birth weight with and without sampling
 weights.
 
-In Section <<regest>>, we saw ResampleRows, which chooses rows
+In <<regest>>, we saw ResampleRows, which chooses rows
 from a DataFrame, giving each row the same probability. Now we need to
 do the same thing using probabilities proportional to sampling weights.
 ResampleRowsWeighted takes a DataFrame, resamples rows according to the
@@ -6134,7 +6131,7 @@ explanatory variable. You can find the details at
 https://en.wikipedia.org/wiki/Ordinary_least_squares
 
 The code for this chapter is in regression.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === StatsModels
 
@@ -6234,7 +6231,7 @@ no substantial improvement to the predictions.
 [[multiple]]
 === Multiple regression
 
-In Section <<birth_weights>> we saw that first babies tend to be
+In <<birth_weights>> we saw that first babies tend to be
 lighter than others, and this effect is statistically significant. But
 it is a strange result because there is no obvious mechanism that would
 cause first babies to be lighter. So we might wonder whether this
@@ -6374,7 +6371,7 @@ R^2 0.007462
 
 The parameter of agepreg2 is negative, so the parabola curves downward,
 which is consistent with the shape of the lines in
-Figure <<linear2>>.
+<<linear2>>.
 
 The quadratic model of agepreg accounts for more of the variability in
 birth weight; the parameter for isfirst is smaller in this model, and no
@@ -6613,7 +6610,7 @@ other multiplets are lighter by 1.4 lbs.
 
 People who own their homes have heavier babies by about 0.12 lbs, even
 when we control for income. The parameter for mother’s age is smaller
-than what we saw in Section <<multiple>>, which suggests that
+than what we saw in <<multiple>>, which suggests that
 some of the other variables are correlated with age, probably including
 paydu and totincr.
 
@@ -7043,7 +7040,7 @@ important and difficult public policy questions; our decisions should be
 informed by accurate data reported honestly.
 
 The code for this chapter is in timeseries.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 === Importing and cleaning
 
@@ -7166,7 +7163,7 @@ the "`ticks`" 30 degrees, making them more readable.
 image::figs/timeseries1.png[Time series of daily price per gram for high,
 medium, and low quality cannabis.,width=336]
 
-Figure <<timeseries1>> shows the result. One apparent feature in
+<<timeseries1>> shows the result. One apparent feature in
 these plots is a gap around November 2013. It’s possible that data
 collection was not active during this time, or the data might not be
 available. We will consider ways to deal with this missing data later.
@@ -7238,7 +7235,7 @@ def PlotFittedValues(model, results, label=''):
     thinkplot.Plot(years, results.fittedvalues, label='model')
 ....
 
-As we saw in Section <<implementation>>, model contains exog and
+As we saw in <<implementation>>, model contains exog and
 endog, NumPy arrays with the exogenous (explanatory) and endogenous
 (dependent) variables.
 
@@ -7246,7 +7243,7 @@ image::figs/timeseries2.png[Time series of daily price per gram for high
 quality cannabis, and a linear least squares fit.,height=240]
 
 PlotFittedValues makes a scatter plot of the data points and a line plot
-of the fitted values. Figure <<timeseries2>> shows the results
+of the fitted values. <<timeseries2>> shows the results
 for high quality cannabis. The model seems like a good linear fit for
 the data; nevertheless, linear regression is not the most appropriate
 choice for this data:
@@ -7335,7 +7332,7 @@ values from reindexed.ppg.
 image::figs/timeseries10.png[Daily price and a rolling mean (left) and
 exponentially-weighted moving average (right).,height=240]
 
-Figure <<timeseries10>> (left) shows the result. The rolling
+<<timeseries10>> (left) shows the result. The rolling
 mean seems to do a good job of smoothing out the noise and extracting
 the trend. The first 29 values are nan, and wherever there’s a missing
 value, it’s followed by another 29 nans. There are ways to fill in these
@@ -7358,7 +7355,7 @@ average; it controls how fast the weights drop off, so it determines the
 number of points that make a non-negligible contribution to each
 average.
 
-Figure <<timeseries10>> (right) shows the EWMA for the same
+<<timeseries10>> (right) shows the EWMA for the same
 data. It is similar to the rolling mean, where they are both defined,
 but it has no missing values, which makes it easier to work with. The
 values are noisy at the beginning of the time series, because they are
@@ -7402,7 +7399,7 @@ of residuals. Finally, fillna replaces nan with values from
 
 image::figs/timeseries8.png[Daily price with filled data.,height=240]
 
-Figure <<timeseries8>> shows the result. The filled data is
+<<timeseries8>> shows the result. The filled data is
 visually similar to the actual values. Since the resampled residuals are
 random, the results are different every time; later we’ll see how to
 characterize the error created by missing values.
@@ -7480,7 +7477,7 @@ with the given lag. "`Autocorrelation`" is another name for serial
 correlation, used more often when the lag is not 1.
 
 StatsModels, which we used for linear regression in
-Section <<statsmodels>>, also provides functions for time series
+<<statsmodels>>, also provides functions for time series
 analysis, including acf, which computes the autocorrelation function:
 
 [source]
@@ -7508,7 +7505,7 @@ image::figs/timeseries9.png[Autocorrelation function for daily prices
 (left), and daily prices with a simulated weekly seasonality
 (right).,height=240]
 
-Figure <<timeseries9>> (left) shows autocorrelation functions
+<<timeseries9>> (left) shows autocorrelation functions
 for the three quality categories, with nlags=40. The gray region shows
 the normal variability we would expect if there is no actual
 autocorrelation; anything that falls outside this range is statistically
@@ -7543,7 +7540,7 @@ modify by adding random values to ppg. frisat.sum() is the total number
 of Fridays and Saturdays, which is the number of random values we have
 to generate.
 
-Figure <<timeseries9>> (right) shows autocorrelation functions
+<<timeseries9>> (right) shows autocorrelation functions
 for prices with this simulated seasonality. As expected, the
 correlations are highest when the lag is a multiple of 7. For high and
 medium quality, the new correlations are statistically significant. For
@@ -7555,7 +7552,7 @@ the effect would have to be bigger to be visible through the noise.
 Time series analysis can be used to investigate, and sometimes explain,
 the behavior of systems that vary in time. It can also make predictions.
 
-The linear regressions we used in Section <<timeregress>> can be
+The linear regressions we used in <<timeregress>> can be
 used for prediction. The RegressionResults class provides predict, which
 takes a DataFrame containing the explanatory variables and returns a
 sequence of predictions. Here’s the code:
@@ -7603,7 +7600,7 @@ Sampling error and random variation are easier to deal with, so we’ll do
 that first.
 
 To quantify sampling error, I use resampling, as we did in
-Section <<regest>>. As always, the goal is to use the actual
+<<regest>>. As always, the goal is to use the actual
 observations to simulate what would happen if we ran the experiment
 again. The simulations are based on the assumption that the estimated
 parameters are correct, but the random residuals could have been
@@ -7628,7 +7625,7 @@ daily is a DataFrame containing the observed prices; iters is the number
 of simulations to run.
 
 SimulateResults uses RunLinearModel, from
-Section <<timeregress>>, to estimate the slope and intercept of
+<<timeregress>>, to estimate the slope and intercept of
 the observed values.
 
 Each time through the loop, it generates a "`fake`" dataset by
@@ -7689,7 +7686,7 @@ PlotPredictions calls GeneratePredictions twice: once with
 PercentileRows to select the 5th and 95th percentiles for each year,
 then plots a gray region between these bounds.
 
-Figure <<timeseries4>> shows the result. The dark gray region
+<<timeseries4>> shows the result. The dark gray region
 represents a 90% confidence interval for the sampling error; that is,
 uncertainty about the estimated slope and intercept due to sampling.
 
@@ -7706,7 +7703,7 @@ The regression model is based on the assumption that the system is
 over time. Specifically, it assumes that the slope and intercept are
 constant, as well as the distribution of residuals.
 
-But looking at the moving averages in Figure <<timeseries10>>,
+But looking at the moving averages in <<timeseries10>>,
 it seems like the slope changes at least once during the observed
 interval, and the variance of the residuals seems bigger in the first
 half than the second.
@@ -7719,7 +7716,7 @@ end dates. My implementation is in timeseries.py.
 image::figs/timeseries5.png[Predictions based on linear fits, showing
 variation due to the interval of observation.,height=240]
 
-Figure <<timeseries5>> shows the result for the medium quality
+<<timeseries5>> shows the result for the medium quality
 category. The lightest gray area shows a confidence interval that
 includes uncertainty due to sampling error, random variation, and
 variation in the interval of observation.
@@ -7750,7 +7747,7 @@ My solution to these exercises is in `+chap12soln.py+`.
 The linear model I used in this chapter has the obvious drawback that it
 is linear, and there is no reason to expect prices to change linearly
 over time. We can add flexibility to the model by adding a quadratic
-term, as we did in Section <<nonlinear>>.
+term, as we did in <<nonlinear>>.
 
 Use a quadratic model to fit the time series of daily prices, and use
 the model to generate predictions. You will have to write a version of
@@ -7758,7 +7755,7 @@ RunLinearModel that runs that quadratic model, but after that you should
 be able to reuse code in timeseries.py to generate predictions.
 
 Write a definition for a class named SerialCorrelationTest that extends
-HypothesisTest from Section <<hypotest>>. It should take a
+HypothesisTest from <<hypotest>>. It should take a
 series and a lag as data, compute the serial correlation of the series
 with the given lag, and then compute the p-value of the observed
 correlation.
@@ -7827,7 +7824,7 @@ of surviving five years after diagnosis. That estimate and related
 statistics are the result of survival analysis.
 
 The code in this chapter is in survival.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 [[survival]]
 === Survival curves
@@ -7867,7 +7864,7 @@ for each row, selecting the rows that yield True.
 image::figs/survival1.png[Cdf and survival curve for pregnancy length
 (top), hazard curve (bottom).,height=288]
 
-Figure <<survival1>> (top) shows the CDF of pregnancy length and
+<<survival1>> (top) shows the CDF of pregnancy length and
 its complement, the survival curve. To represent the survival curve, I
 define an object that wraps a Cdf and adapts the interface:
 
@@ -7933,7 +7930,7 @@ in thinkplot:
     thinkplot.Plot(sf)
 ....
 
-Figure <<survival1>> (top) shows the result. The curve is nearly
+<<survival1>> (top) shows the result. The curve is nearly
 flat between 13 and 26 weeks, which shows that few pregnancies end in
 the second trimester. And the curve is steepest around 39 weeks, which
 is the most common pregnancy length.
@@ -7997,7 +7994,7 @@ this:
 So of all pregnancies that proceed until week 39, about 50% end in week
 39.
 
-Figure <<survival1>> (bottom) shows the hazard function for
+<<survival1>> (bottom) shows the hazard function for
 pregnancy lengths. For times after week 42, the hazard function is
 erratic because it is based on a small number of cases. Other than that
 the shape of the curve is as expected: it is highest around 39 weeks,
@@ -8169,7 +8166,7 @@ Finally we compute the hazard function.
     hf = EstimateHazardFunction(complete, ongoing)
 ....
 
-Figure <<survival2>> (top) shows the estimated hazard function;
+<<survival2>> (top) shows the estimated hazard function;
 it is low in the teens, higher in the 20s, and declining in the 30s. It
 increases again in the 40s, but that is an artifact of the estimation
 process; as the number of respondents "`at risk`" decreases, a small
@@ -8213,7 +8210,7 @@ SurvivalFunction object.
 image::figs/survival2.png[Hazard function for age at first marriage (top)
 and survival curve (bottom).,height=240]
 
-Figure <<survival2>> (bottom) shows the result. The survival
+<<survival2>> (bottom) shows the result. The survival
 curve is steepest between 25 and 35, when most women get married.
 Between 35 and 45, the curve is nearly flat, indicating that women who
 do not marry before age 35 are unlikely to get married.
@@ -8269,7 +8266,7 @@ ages where we will evaluate the survival curves.
 Inside the loop, ResampleSurvival:
 
 * Resamples the respondents using ResampleRowsWeighted, which we saw in
-Section <<weighted>>.
+<<weighted>>.
 * Calls EstimateSurvival, which uses the process in the previous
 sections to estimate the hazard and survival curves, and
 * Evaluates the survival curve at each age in ts.
@@ -8282,7 +8279,7 @@ image::figs/survival3.png[Survival curve for age at first marriage (dark
 line) and a 90% confidence interval based on weighted resampling (gray
 line).,height=240]
 
-Figure <<survival3>> shows the result along with the survival
+<<survival3>> shows the result along with the survival
 curve we estimated in the previous section. The confidence interval
 takes into account the sampling weights, unlike the estimated curve. The
 discrepancy between them indicates that the sampling weights have a
@@ -8307,7 +8304,7 @@ called *cohort effects*.
 
 To investigate cohort effects in the NSFG marriage data, I gathered the
 Cycle 6 data from 2002 used throughout this book; the Cycle 7 data from
-2006–2010 used in Section <<replication>>; and the Cycle 5 data
+2006–2010 used in <<replication>>; and the Cycle 5 data
 from 1995. In total these datasets include 30,769 respondents.
 
 [source]
@@ -8368,7 +8365,7 @@ def EstimateSurvivalByDecade(resp):
 image::figs/survival4.png[Survival curves for respondents born during
 different decades.,height=240]
 
-Figure <<survival4>> shows the results. Several patterns are
+<<survival4>> shows the results. Several patterns are
 visible:
 
 * Women born in the 50s married earliest, with successive cohorts
@@ -8414,7 +8411,7 @@ from another longer HazardFunction:
         self.series = pandas.concat([self.series, more])
 ....
 
-As we saw in Section <<hazard>>, the HazardFunction contains a
+As we saw in <<hazard>>, the HazardFunction contains a
 Series that maps from latexmath:[t] to latexmath:[\lambda(t)]. Extend
 finds last, which is the last index in self.series, selects values from
 other that come later than last, and appends them onto self.series.
@@ -8449,7 +8446,7 @@ it.
 image::figs/survival5.png[Survival curves for respondents born during
 different decades, with predictions for the later cohorts.,height=240]
 
-Figure <<survival5>> shows the results; I’ve removed the 50s
+<<survival5>> shows the results; I’ve removed the 50s
 cohort to make the predictions more visible. These results suggest that
 by age 40, the most recent cohorts will converge with the 60s cohort,
 with fewer than 20% never married.
@@ -8458,7 +8455,7 @@ with fewer than 20% never married.
 
 Given a survival curve, we can compute the expected remaining lifetime
 as a function of current age. For example, given the survival curve of
-pregnancy length from Section <<survival>>, we can compute the
+pregnancy length from <<survival>>, we can compute the
 expected time until delivery.
 
 The first step is to extract the PMF of lifetimes. SurvivalFunction
@@ -8529,7 +8526,7 @@ exceeds t. By subtracting t we get the mean remaining pregnancy length.
 image::figs/survival6.png[Expected remaining pregnancy length (left) and
 years until first marriage (right).,height=240]
 
-Figure <<survival6>> (left) shows the expected remaining
+<<survival6>> (left) shows the expected remaining
 pregnancy length as a function of the current duration. For example,
 during Week 0, the expected remaining duration is about 34 weeks. That’s
 less than full term (39 weeks) because terminations of pregnancy in the
@@ -8546,7 +8543,7 @@ Processes with this property are called *memoryless* because the past
 has no effect on the predictions. This behavior is the mathematical
 basis of the infuriating mantra of obstetrics nurses: "`any day now.`"
 
-Figure <<survival6>> (right) shows the median remaining time
+<<survival6>> (right) shows the median remaining time
 until first marriage, as a function of age. For an 11 year-old girl, the
 median time until first marriage is about 14 years. The curve decreases
 until age 22 when the median remaining time is about 7 years. After that
@@ -8640,13 +8637,13 @@ work. At the end of the chapter, I make suggestions for integrating
 computational and analytic methods for exploratory data analysis.
 
 The code in this chapter is in normal.py. For information about
-downloading and working with this code, see Section <<code>>.
+downloading and working with this code, see <<code>>.
 
 [[why_normal]]
 === Normal distributions
 
 As a motivating example, let’s review the problem from
-Section <<gorilla>>:
+<<gorilla>>:
 
 ____
 Suppose you are a scientist studying gorillas in a wildlife preserve.
@@ -8657,7 +8654,7 @@ standard error of the estimate?
 ____
 
 To answer that question, we need the sampling distribution of
-latexmath:[\bar{x}]. In Section <<gorilla>> we approximated this
+latexmath:[\bar{x}]. In <<gorilla>> we approximated this
 distribution by simulating the experiment (weighing 9 gorillas),
 computing latexmath:[\bar{x}] for each simulated experiment, and
 accumulating the distribution of estimates.
@@ -8774,7 +8771,7 @@ evaluating the inverse CDF.
 
 There is no closed form for the CDF of the normal distribution or its
 inverse, but there are fast numerical methods and they are implemented
-in SciPy, as we saw in Section <<normal>>. thinkstats2 provides a
+in SciPy, as we saw in <<normal>>. thinkstats2 provides a
 wrapper function that makes the SciPy function a little easier to use:
 
 [source]
@@ -8955,13 +8952,13 @@ generates a row of normal probability plots.
 image::figs/normal1.png[Distributions of sums of exponential values (top
 row) and lognormal values (bottom row).,height=336]
 
-Figure <<normal1>> (top row) shows the results. With n=1, the
+<<normal1>> (top row) shows the results. With n=1, the
 distribution of the sum is still exponential, so the normal probability
 plot is not a straight line. But with n=10 the distribution of the sum
 is approximately normal, and with n=100 it is all but indistinguishable
 from normal.
 
-Figure <<normal1>> (bottom row) shows similar results for a
+<<normal1>> (bottom row) shows similar results for a
 lognormal distribution. Lognormal distributions are generally more
 skewed than exponential distributions, so the distribution of sums takes
 longer to converge. With n=10 the normal probability plot is nowhere
@@ -8973,7 +8970,7 @@ and correlated exponential values (bottom row).,height=336]
 Pareto distributions are even more skewed than lognormal. Depending on
 the parameters, many Pareto distributions do not have finite mean and
 variance. As a result, the Central Limit Theorem does not apply.
-Figure <<normal2>> (top row) shows distributions of sums of
+<<normal2>> (top row) shows distributions of sums of
 Pareto values. Even with n=100 the normal probability plot is far from
 straight.
 
@@ -9021,7 +9018,7 @@ uniform values between 0 and 1. expo is a correlated sequence of
 exponential values. ppf stands for "`percent point function,`" which is
 another name for the inverse CDF.
 
-Figure <<normal2>> (bottom row) shows distributions of sums of
+<<normal2>> (bottom row) shows distributions of sums of
 correlated exponential values with rho=0.9. The correlation slows the
 rate of convergence; nevertheless, with n=100 the normal probability
 plot is nearly straight. So even though CLT does not strictly apply when
@@ -9035,7 +9032,7 @@ and what happens when it doesn’t. Now let’s see how we can use it.
 === Applying the CLT
 
 To see why the Central Limit Theorem is useful, let’s get back to the
-example in Section <<testdiff>>: testing the apparent difference
+example in <<testdiff>>: testing the apparent difference
 in mean pregnancy length for first babies and others. As we’ve seen, the
 apparent difference is about 0.078 weeks:
 
@@ -9123,11 +9120,11 @@ two-sided test we would also compute
 
 Which is the same because the normal distribution is symmetric. The sum
 of the tails is 0.168, which is consistent with the estimate in
-Section <<testdiff>>, which was 0.17.
+<<testdiff>>, which was 0.17.
 
 === Correlation test
 
-In Section <<corrtest>> we used a permutation test for the
+In <<corrtest>> we used a permutation test for the
 correlation between birth weight and mother’s age, and found that it is
 statistically significant, with p-value less than 0.001.
 
@@ -9178,14 +9175,14 @@ transform,
 r = t / \sqrt{n - 2 + t^2}
 ++++
 The result is the sampling distribution of latexmath:[r] under the null
-hypothesis. Figure <<normal4>> shows this distribution along
-with the distribution we generated in Section <<corrtest>> by
+hypothesis. <<normal4>> shows this distribution along
+with the distribution we generated in <<corrtest>> by
 resampling. They are nearly identical. Although the actual distributions
 are not normal, Pearson’s coefficient of correlation is based on sample
 means and variances. By the Central Limit Theorem, these moment-based
 statistics are normally distributed even if the data are not.
 
-From Figure <<normal4>>, we can see that the observed
+From <<normal4>>, we can see that the observed
 correlation, 0.07, is unlikely to occur if the variables are actually
 uncorrelated. Using the analytic distribution, we can compute just how
 unlikely:
@@ -9203,7 +9200,7 @@ small p-values. But in practice it usually doesn’t matter.
 
 === Chi-squared test
 
-In Section <<casino2>> we used the chi-squared statistic to test
+In <<casino2>> we used the chi-squared statistic to test
 whether a die is crooked. The chi-squared statistic measures the total
 normalized deviation from the expected values in a table:
 
@@ -9232,7 +9229,7 @@ def ChiSquaredCdf(n):
     return thinkstats2.Cdf(xs, ps)
 ....
 
-Figure <<normal5>> shows the analytic result along with the
+<<normal5>> shows the analytic result along with the
 distribution we got by resampling. They are very similar, especially in
 the tail, which is the part we usually care most about.
 
@@ -9245,13 +9242,13 @@ statistic, chi2:
 ....
 
 The result is 0.041, which is consistent with the result from
-Section <<casino2>>.
+<<casino2>>.
 
 The parameter of the chi-squared distribution is "`degrees of freedom`"
 again. In this case the correct parameter is n-1, where n is the size of
 the table, 6. Choosing this parameter can be tricky; to be honest, I am
 never confident that I have it right until I generate something like
-Figure <<normal5>> to compare the analytic results to the
+<<normal5>> to compare the analytic results to the
 resampling results.
 
 === Discussion
@@ -9262,7 +9259,7 @@ permutation. These methods have several advantages over analysis:
 * They are easier to explain and understand. For example, one of the
 most difficult topics in an introductory statistics class is hypothesis
 testing. Many students don’t really understand what p-values are. I
-think the approach I presented in Chapter <<testing>>—simulating
+think the approach I presented in <<testing>>—simulating
 the null hypothesis and computing test statistics—makes the fundamental
 idea clearer.
 * They are robust and versatile. Analytic methods are often based on
@@ -9294,7 +9291,7 @@ past Step 1.
 
 A solution to these exercises is in `+chap14soln.py+`
 
-[#log_clt]#[log_clt]# In Section <<lognormal>>, we saw
+[#log_clt]#[log_clt]# In <<lognormal>>, we saw
 that the distribution of adult weights is approximately lognormal. One
 possible explanation is that the weight a person gains each year is
 proportional to their current weight. In that case, adult weight is the
@@ -9324,7 +9321,7 @@ of factors from the distribution of latexmath:[f], and computing the
 product. What value of latexmath:[n] is needed to converge to a
 lognormal distribution?
 
-In Section <<usingCLT>> we used the Central Limit Theorem to
+In <<usingCLT>> we used the Central Limit Theorem to
 find the sampling distribution of the difference in means,
 latexmath:[\delta], under the null hypothesis that both samples are
 drawn from the same population.
