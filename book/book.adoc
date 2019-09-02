@@ -1592,12 +1592,12 @@ In addition, pyplot provides a function called hist that takes a
 sequence of values, computes a histogram, and plots it. Since I use Hist
 objects, I usually don’t use pyplot.hist.
 
+
+[#probability_nsfg_pmf]
 image:figs/probability_nsfg_pmf.png[PMF of pregnancy lengths for first
 babies and others, using bar graphs and step functions.,height=288]
 
-[#probability_nsfg_pmf]#[probability_nsfg_pmf]#
-
-Figure link:#probability_nsfg_pmf[[probability_nsfg_pmf]] shows PMFs of
+Figure <<probability_nsfg_pmf>> shows PMFs of
 pregnancy length for first babies and others using bar graphs (left) and
 step functions (right).
 
@@ -1607,7 +1607,7 @@ Based on this figure, first babies seem to be less likely than others to
 arrive on time (week 39) and more likely to be a late (weeks 41 and 42).
 
 Here’s the code that generates
-Figure link:#probability_nsfg_pmf[[probability_nsfg_pmf]]:
+Figure <<probability_nsfg_pmf>>:
 
 [source]
 ....
@@ -1662,15 +1662,14 @@ transform the data to emphasize differences:
 
 In this code, weeks is the range of weeks; diffs is the difference
 between the two PMFs in percentage points.
-Figure link:#probability_nsfg_diffs[[probability_nsfg_diffs]] shows the
+Figure <<probability_nsfg_diffs>> shows the
 result as a bar chart. This figure makes the pattern clearer: first
 babies are less likely to be born in week 39, and somewhat more likely
 to be born in weeks 41 and 42.
 
+[#probability_nsfg_diffs]
 image:figs/probability_nsfg_diffs.png[Difference, in percentage points,
 by week.,height=240]
-
-[#probability_nsfg_diffs]#[probability_nsfg_diffs]#
 
 For now we should hold this conclusion only tentatively. We used the
 same dataset to identify an apparent difference and then chose a

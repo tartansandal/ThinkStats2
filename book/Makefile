@@ -47,6 +47,7 @@ new-book.adoc: book.tex Makefile
 		book.tex
 	# FIXME write a lua filter to do this
 	perl -i -pe 's{^(image:figs/\w+)\.pdf\[}{\1.png[}' new-book.adoc
+	perl -i -pe 's{link:#(\w+)\[\[\w+\]\]}{<<\1>>}' new-book.adoc
 	# patch in frontmatter and code block fixes
 	patch new-book.adoc < book.adoc.patch
 
@@ -54,6 +55,11 @@ new-book.adoc: book.tex Makefile
 PNG_FILES := $(patsubst %.pdf,%.png,$(wildcard figs/*.pdf))
 book.html: book.adoc $(PNG_FILES)
 	asciidoctor --doctype book --out-file book.html book.adoc
+
+
+new-book.html: new-book.adoc $(PNG_FILES)
+	asciidoctor --doctype book --out-file new-book.html new-book.adoc
+
 
 
 FIGURES = figs/Correlation_examples.png
