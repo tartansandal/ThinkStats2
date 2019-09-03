@@ -1,0 +1,6 @@
+@import "asciidoctor.css";
+
+/* local rules here */
+#content {
+    max-width: 45em;
+}

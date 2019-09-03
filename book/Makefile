@@ -41,7 +41,7 @@ book.xml: book.tex Makefile $(PNG_FILES)
 	perl -pi.orig -e 's{(<imagedata fileref="figs/\w+)\.pdf"}{\1.png"}' book.xml
 
 # Use pandoc to generate AsciiDoc
-new-book.adoc: book.tex Makefile $(PNG_FILES)
+book.adoc: book.tex Makefile $(PNG_FILES)
 	pandoc                 \
 		--standalone       \
 		--from latex       \
@@ -49,23 +49,35 @@ new-book.adoc: book.tex Makefile $(PNG_FILES)
 		--output book.adoc \
 		book.tex
 	# Fix image paths and xrefs
-	perl -pi.orig \
+	perl -pi \
 		-e 's{^image:(figs/\w+)\.pdf\[}{image::\1.png[}g;' \
 	    -e 's{(Chapter|Section|Figure)\W{2}link:#(\w+)\[{1,2}[^]]+\]{1,2}}{<<\2>>}g;' \
 	    book.adoc
+	cp book.adoc book.adoc.orig
 	## Patch frontmatter, image blocks and code blocks
 	patch book.adoc < book.adoc.patch
 
 # new-book.adoc has manual edits that we may patch in later
 # we create the patch manually rather than basing on a dependency
 patch:
-	diff -u book.adoc new-book.adoc > book.adoc.patch
+	diff -u book.adoc.orig new-book.adoc > book.adoc.patch || true
 
-book.html: book.adoc $(PNG_FILES)
-	asciidoctor --doctype book --out-file book.html book.adoc
+# local copy of default style sheet
+asciidoctor.css:
+	echo 'text' | asciidoctor -o tmp.html -a linkcss -a copycss -
+	rm -f tmp.html
 
-new-book.html: new-book.adoc $(PNG_FILES)
-	asciidoctor --doctype book --out-file new-book.html new-book.adoc
+book.html: book.adoc book.css asciidoctor.css $(PNG_FILES) Makefile
+	asciidoctor \
+		--doctype book                  \
+		--attribute stylesheet=book.css \
+		--out-file book.html book.adoc
+
+new-book.html: new-book.adoc book.css asciidoctor.css $(PNG_FILES) Makefile
+	asciidoctor \
+		--doctype book                  \
+		--attribute stylesheet=book.css \
+		--out-file new-book.html new-book.adoc
 
 
 FIGURES = figs/Correlation_examples.png
