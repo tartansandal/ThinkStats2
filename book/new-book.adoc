@@ -1342,7 +1342,7 @@ standard deviation is 2.7 weeks, which means we should expect deviations
 of 2-3 weeks to be common.
 
 Variance of pregnancy length is 7.3, which is hard to interpret,
-especially since the units are weekslatexmath:[^2], or "`square weeks.`"
+especially since the units are weeks{}latexmath:[^2], or "`square weeks.`"
 Variance is useful in some calculations, but it is not a good summary
 statistic.
 
@@ -3518,7 +3518,7 @@ see http://en.wikipedia.org/wiki/Moment_of_inertia.
 When you report moment-based statistics, it is important to think about
 the units. For example, if the values latexmath:[x_i] are in cm, the
 first raw moment is also in cm. But the second moment is in
-cmlatexmath:[^2], the third moment is in cmlatexmath:[^3], and so on.
+cm{}latexmath:[^2], the third moment is in cm{}latexmath:[^3], and so on.
 
 Because of these units, moments are hard to interpret by themselves.
 That’s why, for the second moment, it is common to report standard
@@ -4793,7 +4793,7 @@ in the sample by chance.
 
 There are several ways we could formulate this question, including
 Fisher null hypothesis testing, Neyman-Pearson decision theory, and
-Bayesian inferencefootnote:[For more about Bayesian inference, see the
+Bayesian inference{}footnote:[For more about Bayesian inference, see the
 sequel to this book, _Think Bayes_.]. What I present here is a subset of
 all three that makes up most of what people use in practice, which I
 will call *classical hypothesis testing*.
@@ -4882,7 +4882,7 @@ test statistics, and stores them in `+test_stats+`. The result is the
 fraction of elements in `+test_stats+` that exceed or equal the observed
 test statistic, `+self.actual+`.
 
-As a simple examplefootnote:[Adapted from MacKay, _Information Theory,
+As a simple example{}footnote:[Adapted from MacKay, _Information Theory,
 Inference, and Learning Algorithms_, 2003.], suppose we toss a coin 250
 times and see 140 heads and 110 tails. Based on this result, we might
 suspect that the coin is biased; that is, more likely to land heads. To
@@ -5150,7 +5150,7 @@ faces more likely than the others. You apprehend the alleged cheater and
 confiscate the die, but now you have to prove that it is crooked. You
 roll the die 60 times and get the following results:
 
-[cols="<,^,^,^,^,^,^",options="header",]
+[cols="<,^,^,^,^,^,^",options="header,autowidth",]
 |===
 |Value |1 |2 |3 |4 |5 |6
 |Frequency |8 |9 |19 |5 |8 |11
@@ -6066,10 +6066,9 @@ With weights, it looks like this:
 
 The following table summarizes the results:
 
-[cols="<,^,^,^",]
+[cols="<,^,^,^",options="header,autowidth"]
 |===
-| |mean birth |standard |90% CI
-| |weight (lbs) |error |
+| |mean birth weight (lbs) |standard error |90% CI
 |Unweighted |7.27 |0.014 |(7.24, 7.29)
 |Weighted |7.35 |0.014 |(7.32, 7.37)
 |===
@@ -6410,7 +6409,7 @@ variables are nonlinear functions of others.
 
 The following table summarizes the results of these regressions:
 
-[cols="<,^,^,^,^",options="header",]
+[cols="<,^,^,^,^",options="header,autowidth",]
 |===
 | |isfirst |agepreg |agepreg2 |latexmath:[R^2]
 |Model 1 |-0.125 * |– |– |0.002
@@ -7235,7 +7234,7 @@ Then we can iterate through the qualities and fit a model to each:
 
 Here are the results:
 
-[cols="<,<,<,^",options="header",]
+[cols="<,<,<,^",options="header,autowidth",]
 |===
 |quality |intercept |slope |latexmath:[R^2]
 |high |13.450 |-0.708 |0.444
@@ -7486,7 +7485,7 @@ in this series.
 To check for weekly, monthly, and yearly seasonality, I ran the analysis
 again with different lags. Here are the results:
 
-[cols="^,^,^,^",options="header",]
+[cols="^,^,^,^",options="header,autowidth",]
 |===
 |lag |high |medium |low
 |1 |-0.029 |-0.014 |0.034
@@ -8734,20 +8733,20 @@ if latexmath:[X'] is in the same family as latexmath:[X]. The normal
 distribution has this property; if latexmath:[X \sim \mathcal{N}~(\mu,
 \sigma^2)],
 
+[[eq:1,Equation 1]]
 [latexmath]
 ++++
-\label{eq:1}
-    X' \sim \mathcal{N}~(a \mu + b, a^{2} \sigma^2) \tag{1}
+    X' \sim \mathcal{N}~(a \mu + b, a^{2} \sigma^2) \tag*{1}
 ++++
 Normal distributions are also closed under addition. If
 latexmath:[Z = X + Y] and
 latexmath:[X \sim \mathcal{N}~(\mu_{X}, \sigma_{X}^{2})] and
 latexmath:[Y \sim \mathcal{N}~(\mu_{Y}, \sigma_{Y}^{2})] then
 
+[[eq:2,Equation 2]]
 [latexmath]
 ++++
-\label{eq:2}
-    Z \sim \mathcal{N}~(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2) \tag{2}
+    Z \sim \mathcal{N}~(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2) \tag*{2}
 ++++
 In the special case latexmath:[Z = X + X], we have
 
@@ -8758,10 +8757,10 @@ Z \sim \mathcal{N}~(2 \mu_X, 2 \sigma_X^2)
 and in general if we draw latexmath:[n] values of latexmath:[X] and add
 them up, we have
 
+[[eq:3,Equation 3]]
 [latexmath]
 ++++
-\label{eq:3}
-    Z \sim \mathcal{N}~(n \mu_X, n \sigma_X^2) \tag{3}
+    Z \sim \mathcal{N}~(n \mu_X, n \sigma_X^2) \tag*{3}
 ++++
 
 [[sampling-distributions]]
@@ -8786,14 +8785,14 @@ distributed
 ++++
 Y \sim \mathcal{N}~(n \mu, n \sigma^2)
 ++++
-using Equation #eq:3[[eq:3]]. And if we divide by latexmath:[n], the
+using <<eq:3>>. And if we divide by latexmath:[n], the
 sample mean, latexmath:[Z], is distributed
 
 [latexmath]
 ++++
 Z \sim \mathcal{N}~(\mu, \sigma^2/n)
 ++++
-using Equation #eq:1[[eq:1]] with latexmath:[a = 1/n].
+using <<eq:1>> with latexmath:[a = 1/n].
 
 The distribution of latexmath:[Z] is the sampling distribution of
 latexmath:[\bar{x}]. The mean of latexmath:[Z] is latexmath:[\mu], which
@@ -8871,16 +8870,16 @@ N(90, 56.25)
 ....
 
 `+Normal+` provides `+Sum+`, which takes a sample size, `+n+`, and
-returns the distribution of the sum of `+n+` values, using Equation
-#eq:3[[eq:3]]:
+returns the distribution of the sum of `+n+` values, using 
+<<eq:3>>:
 
 ....
     def Sum(self, n):
         return Normal(n * self.mu, n * self.sigma2)
 ....
 
-Normal also knows how to multiply and divide using Equation
-#eq:1[[eq:1]]:
+Normal also knows how to multiply and divide using 
+<<eq:1>>:
 
 [source]
 ....
@@ -9129,7 +9128,7 @@ mean is, by the Central Limit Theorem.
 
 Next, we compute the sampling distribution of the difference in the
 means. The `+Normal+` class knows how to perform subtraction using
-Equation #eq:2[[eq:2]]:
+<<eq:2>>:
 
 [source]
 ....
@@ -9258,7 +9257,7 @@ normalized deviation from the expected values in a table:
 ++++
 One reason the chi-squared statistic is widely used is that its sampling
 distribution under the null hypothesis is analytic; by a remarkable
-coincidencefootnote:[Not really.], it is called the chi-squared
+coincidence{}footnote:[Not really.], it is called the chi-squared
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.
 
@@ -9383,7 +9382,7 @@ are drawn from different populations.
 Compute this distribution and use it to calculate the standard error and
 a 90% confidence interval for the difference in means.
 
-In a recent paperfootnote:["`Evidence for the persistent effects of an
+In a recent paper{}footnote:["`Evidence for the persistent effects of an
 intervention to mitigate gender-sterotypical task allocation within
 student engineering teams,`" Proceedings of the IEEE Frontiers in
 Education Conference, 2014.], Stein et al. investigate the effects of an
