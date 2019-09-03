@@ -1,4 +1,2 @@
 fix `weekslatexmath` anomaly
-fix xrefs
-
-Replace all Capter/Section/Figures ref prefixes
+fix `paperfootnote` anomaly

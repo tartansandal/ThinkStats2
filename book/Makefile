@@ -28,42 +28,36 @@ lint:
 	pdftoppm -png -singlefile $< $*
 	pngquant --force --ext .png --skip-if-larger --quality 70-95 $@
 
+# Use asciidoctor to generate HTML5
+PNG_FILES := $(patsubst %.pdf,%.png,$(wildcard figs/*.pdf))
+
 # Use pandoc to generate DocBook
-book.xml: book.tex Makefile
-	perl -pe 's/{\\tt ([^}]+)}/\\verb"\1"/g' book.tex | \
+book.xml: book.tex Makefile $(PNG_FILES)
 	pandoc                \
 		--standalone      \
 		--from latex      \
 		--to docbook5 	  \
 		--mathml          \
-		--output - | \
-	perl -pe 's{(<imagedata fileref="figs/\w+)\.pdf"}{\1.png"}' > book.xml
-
-book2.adoc: book.xml Makefile
-	pandoc                  \
-		--standalone        \
-		--from docbook      \
-		--to asciidoctor    \
-		--output book2.adoc \
-		book.xml
+		--output book.xml \
+		book.tex
+	perl -pi.orig -e 's{(<imagedata fileref="figs/\w+)\.pdf"}{\1.png"}' book.xml
 
 # Use pandoc to generate AsciiDoc
-new-book.adoc: book.tex Makefile
-	pandoc                     \
-		--standalone           \
-		--from latex           \
-		--to asciidoctor       \
-		--output new-book.adoc \
+book.adoc: book.tex Makefile $(PNG_FILES)
+	pandoc                 \
+		--standalone       \
+		--from latex       \
+		--to asciidoctor   \
+		--output book.adoc \
 		book.tex
-	# FIXME write a lua filter to do this
-	perl -pi -e 's{^image:(figs/\w+)\.pdf\[}{image::\1.png[}' \
-			 -e 's{(Chapter|Section|Figure)\u00a0link:#(\w+)\[\[\w+\]\]}{<<\1>>}' \
-			 new-book.adoc
-	# patch in frontmatter and code block fixes
-	patch new-book.adoc < book.adoc.patch
+	# Fix image paths and xrefs
+	perl -pi.orig \
+		-e 's{^image:(figs/\w+)\.pdf\[}{image::\1.png[}g;' \
+	    -e 's{(Chapter|Section|Figure)\W{2}link:#(\w+)\[{1,2}[^]]+\]{1,2}}{<<\2>>}g;' \
+	    book.adoc
+	## Patch frontmatter, image blocks and code blocks
+	#patch book.adoc < book.adoc.patch
 
-# Use asciidoctor to generate HTML5
-PNG_FILES := $(patsubst %.pdf,%.png,$(wildcard figs/*.pdf))
 book.html: book.adoc $(PNG_FILES)
 	asciidoctor --doctype book --out-file book.html book.adoc
 
