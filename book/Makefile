@@ -1,11 +1,9 @@
-#!/usr/bin/env lua
 all: book.tex
 	pdflatex book
 	makeindex book.idx
 	pdflatex book
 	mv book.pdf thinkstats2.pdf
 	evince thinkstats2.pdf
-
 
 DEST = /home/downey/public_html/greent/thinkstats2
 
@@ -43,7 +41,7 @@ book.xml: book.tex Makefile $(PNG_FILES)
 	perl -pi.orig -e 's{(<imagedata fileref="figs/\w+)\.pdf"}{\1.png"}' book.xml
 
 # Use pandoc to generate AsciiDoc
-book.adoc: book.tex Makefile $(PNG_FILES)
+new-book.adoc: book.tex Makefile $(PNG_FILES)
 	pandoc                 \
 		--standalone       \
 		--from latex       \
@@ -56,15 +54,18 @@ book.adoc: book.tex Makefile $(PNG_FILES)
 	    -e 's{(Chapter|Section|Figure)\W{2}link:#(\w+)\[{1,2}[^]]+\]{1,2}}{<<\2>>}g;' \
 	    book.adoc
 	## Patch frontmatter, image blocks and code blocks
-	#patch book.adoc < book.adoc.patch
+	patch book.adoc < book.adoc.patch
+
+# new-book.adoc has manual edits that we may patch in later
+# we create the patch manually rather than basing on a dependency
+patch:
+	diff -u book.adoc new-book.adoc > book.adoc.patch
 
 book.html: book.adoc $(PNG_FILES)
 	asciidoctor --doctype book --out-file book.html book.adoc
 
-
 new-book.html: new-book.adoc $(PNG_FILES)
 	asciidoctor --doctype book --out-file new-book.html new-book.adoc
-
 
 
 FIGURES = figs/Correlation_examples.png
