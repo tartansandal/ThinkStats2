@@ -2035,8 +2035,8 @@ at birth in pounds. <<nsfg_birthwgt_pmf>>
 shows the PMF of these values for first babies and others.
 
 [[nsfg_birthwgt_pmf]]
-image::figs/nsfg_birthwgt_pmf.png[PMF of birth weights. This figure shows
-a limitation of PMFs: they are hard to compare visually.,height=240]
+.PMF of birth weights. This figure shows a limitation of PMFs: they are hard to compare visually.
+image::figs/nsfg_birthwgt_pmf.png[height=240]
 
 Overall, these distributions resemble the bell shape of a normal
 distribution, with many values near the mean and a few values much
@@ -2189,8 +2189,8 @@ value in the sample, latexmath:[\mathrm{CDF}(x)] is 0. If latexmath:[x]
 is greater than the largest value, latexmath:[\mathrm{CDF}(x)] is 1.
 
 [[example_cdf]]
-image::figs/cumulative_example_cdf.png[Example of a CDF.,height=240]
-
+.Example of a CDF.
+image::figs/cumulative_example_cdf.png[height=240]
 
 <<example_cdf>> is a graphical representation of
 this CDF. The CDF of a sample is a step function.
@@ -2207,8 +2207,8 @@ latexmath:[p = \mathrm{CDF}(x)]. The bracket operator is equivalent to
 value, `+x+`; that is, the *inverse CDF* of `+p+`.
 
 [[cumulative_prglngth_cdf]]
-image::figs/cumulative_prglngth_cdf.png[CDF of pregnancy length.,height=240]
-
+.CDF of pregnancy length.
+image::figs/cumulative_prglngth_cdf.png[height=240]
 
 The Cdf constructor can take as an argument a list of values, a pandas
 Series, a Hist, Pmf, or another Cdf. The following code makes a Cdf for
@@ -2259,8 +2259,8 @@ others.
 ....
 
 [[cumulative_birthwgt_cdf]]
-image::figs/cumulative_birthwgt_cdf.png[CDF of birth weights for first
-babies and others.,height=240]
+.CDF of birth weights for first babies and others.
+image::figs/cumulative_birthwgt_cdf.png[height=240]
 
 <<cumulative_birthwgt_cdf>> shows
 the result. Compared to
@@ -2339,8 +2339,8 @@ Finally we make and plot the Cdf of the percentile ranks.
 ....
 
 [[cumulative_random]]
-image::figs/cumulative_random.png[CDF of percentile ranks for a random
-sample of birth weights.,height=240]
+.CDF of percentile ranks for a random sample of birth weights.
+image::figs/cumulative_random.png[height=240]
 
 <<cumulative_random>> shows the result.
 The CDF is approximately a straight line, which means that the
@@ -2481,8 +2481,8 @@ downloading and working with this code, see <<code>>.
 === The exponential distribution
 
 [[analytic_expo_cdf]]
-image::figs/analytic_expo_cdf.png[CDFs of exponential distributions with
-various parameters.,height=240]
+.CDFs of exponential distributions with various parameters.
+image::figs/analytic_expo_cdf.png[height=240]
 
 I’ll start with the *exponential distribution* because it is relatively
 simple. The CDF of the exponential distribution is
@@ -2524,8 +2524,8 @@ columns `+time+`, `+sex+`, `+weight_g+`, and `+minutes+`, where
 `+minutes+` is time of birth converted to minutes since midnight.
 
 [[analytic_interarrival_cdf]]
-image::figs/analytic_interarrivals.png[CDF of interarrival times (left)
-and CCDF on a log-y scale (right).,height=240]
+.CDF of interarrival times (left) and CCDF on a log-y scale (right).
+image::figs/analytic_interarrivals.png[height=240]
 
 `+diffs+` is the difference between consecutive birth times, and `+cdf+`
 is the distribution of these interarrival times.
@@ -2591,8 +2591,8 @@ out that there is a good reason for its ubiquity, which we will get to
 in <<CLT>>.
 
 [[analytic_gaussian_cdf]]
-image::figs/analytic_gaussian_cdf.png[CDF of normal distributions with a
-range of parameters.,height=240]
+.CDF of normal distributions with a range of parameters.
+image::figs/analytic_gaussian_cdf.png[height=240]
 
 
 The normal distribution is characterized by two parameters: the mean,
@@ -2639,8 +2639,8 @@ the empirical CDF of weights for all live births and the CDF of a normal
 distribution with the same mean and variance.
 
 [[analytic_birthwgt_model]]
-image::figs/analytic_birthwgt_model.png[CDF of birth weights with a
-normal model.,height=240]
+.CDF of birth weights with a normal model.
+image::figs/analytic_birthwgt_model.png[height=240]
 
 The normal distribution is a good model for this dataset, so if we
 summarize the distribution with the parameters latexmath:[\mu = 7.28]
@@ -2683,8 +2683,8 @@ xs, ys = thinkstats2.NormalProbability(sample)
 ....
 
 [[analytic_normal_prob_example]]
-image::figs/analytic_normal_prob_example.png[Normal probability plot for
-random samples from normal distributions.,height=240]
+.Normal probability plot for random samples from normal distributions.
+image::figs/analytic_normal_prob_example.png[height=240]
 
 
 `+ys+` contains the sorted values from `+sample+`; `+xs+` contains the
@@ -2766,9 +2766,8 @@ standard deviation is ugly (see
 http://wikipedia.org/wiki/Log-normal_distribution).
 
 [[brfss_weight]]
-image::figs/brfss_weight.png[CDF of adult weights on a linear scale
-(left) and log scale (right).,height=240]
-
+.CDF of adult weights on a linear scale (left) and log scale (right).
+image::figs/brfss_weight.png[height=240]
 
 If a sample is approximately lognormal and you plot its CDF on a log-x
 scale, it will have the characteristic shape of a normal distribution.
@@ -3202,9 +3201,8 @@ By default, the resulting Pmf contains 101 points equally spaced from
 `+Render+` can take keyword arguments `+low+`, `+high+`, and `+n+`.
 
 [[pdf_example]]
-image::figs/pdf_example.png[A normal PDF that models adult female height
-in the U.S., and the kernel density estimate of a sample with
-latexmath:[n=500].,height=211]
+.A normal PDF that models adult female height in the U.S., and the kernel density estimate of a sample with latexmath:[n=500].
+image::figs/pdf_example.png[height=211]
 
 === Kernel density estimation
 
@@ -3271,8 +3269,7 @@ data.
 === The distribution framework
 
 [[dist_framework]]
-.A framework that relates
-representations of distribution functions.
+.A framework that relates representations of distribution functions.
 image::figs/distribution_functions.png[height=211]
 
 At this point we have seen PMFs, CDFs and PDFs; let’s take a minute to
@@ -3773,6 +3770,7 @@ than once.
 The result, in <<scatter1>> (left), shows the shape of the
 relationship. As we expected, taller people tend to be heavier.
 
+[[scatter1]]
 .Scatter plots of weight versus height for the respondents in the BRFSS, unjittered (left), jittered (right).
 image::figs/scatter1.png[height=288]
 
@@ -3814,6 +3812,7 @@ There are many overlapping points, which hides data in the dense parts
 of the figure and gives disproportionate emphasis to outliers. This
 effect is called *saturation*.
 
+[[scatter2]]
 .Scatter plot with jittering and transparency (left), hexbin plot (right).
 image::figs/scatter2.png[height=288]
 
@@ -3882,6 +3881,7 @@ NumPy and pandas provide functions for binning data:
 fall below the lowest bin are mapped to index 0. Values above the
 highest bin are mapped to `+len(bins)+`.
 
+[[scatter3]]
 .Percentiles of weight for a range of height bins.
 image::figs/scatter3.png[height=240]
 
@@ -4538,6 +4538,7 @@ def SimulateSample(mu=90, sigma=7.5, n=9, m=1000):
 `+n+` is the sample size, the number of gorillas we measured. `+m+` is
 the number of times we run the simulation.
 
+[[estimation1]]
 .Sampling distribution of latexmath:[\bar{x}], with confidence interval.
 image::figs/estimation1.png[height=240]
 
@@ -5004,6 +5005,7 @@ the p-value. The result is about 0.17, which means that we expect to see
 a difference as big as the observed effect about 17% of the time. So
 this effect is not statistically significant.
 
+[[hypothesis1]]
 .CDF of difference in mean pregnancy length under the null hypothesis.
 image::figs/hypothesis1.png[height=240]
 
@@ -5657,6 +5659,7 @@ case the mean age is about 25 years and the mean baby weight for a 25
 year old mother is 7.3 pounds. The slope is 0.27 ounces per year, or
 0.17 pounds per decade.
 
+[[linear1]]
 .Scatter plot of birth weight and mother’s age with a linear fit.
 image::figs/linear1.png[height=240]
 
@@ -5683,6 +5686,7 @@ def Residuals(xs, ys, inter, slope):
 `+inter+` and `+slope+`. It returns the differences between the actual
 values and the fitted line.
 
+[[linear2]]
 .Residuals of the linear fit.
 image::figs/linear2.png[height=240]
 
@@ -5806,6 +5810,7 @@ lower percentiles of `+y+` for each value of `+x+`. For a 90% confidence
 interval, it selects the 5th and 95th percentiles. `+FillBetween+` draws
 a polygon that fills the space between two lines.
 
+[[linear3]]
 .50% and 90% confidence intervals showing variability in the fitted line due to sampling error of `+inter+` and `+slope+`.
 image::figs/linear3.png[height=240]
 
@@ -5965,6 +5970,7 @@ the null hypothesis are centered around 0; but other than that, the
 distributions are identical. The distributions are also symmetric, for
 reasons we will see in <<CLT>>.
 
+[[linear4]]
 .The sampling distribution of the estimated slope and the distribution of slopes generated under the null hypothesis. The vertical lines are at 0 and the observed slope, 0.017 lbs/year.
 image::figs/linear4.png[height=240]
 
@@ -7192,6 +7198,7 @@ lines would not help.
 Since the labels on the x-axis are dates, I use `+pyplot.xticks+` to
 rotate the "`ticks`" 30 degrees, making them more readable.
 
+[[timeseries1]]
 .Time series of daily price per gram for high, medium, and low quality cannabis.
 image::figs/timeseries1.png[width=336]
 
@@ -7271,6 +7278,7 @@ As we saw in <<implementation>>, `+model+` contains
 `+exog+` and `+endog+`, NumPy arrays with the exogenous (explanatory)
 and endogenous (dependent) variables.
 
+[[timeseries2]]
 .Time series of daily price per gram for high quality cannabis, and a linear least squares fit.
 image::figs/timeseries2.png[height=240]
 
@@ -7361,6 +7369,7 @@ Now we can plot the rolling mean like this:
 The window size is 30, so each value in `+roll_mean+` is the mean of 30
 values from `+reindexed.ppg+`.
 
+[[timeseries10]]
 .Daily price and a rolling mean (left) and exponentially-weighted moving average (right).
 image::figs/timeseries10.png[height=240]
 
@@ -7429,6 +7438,7 @@ is `+nan+`. `+fake_data+` contains the sum of the moving average and a
 random sample of residuals. Finally, `+fillna+` replaces `+nan+` with
 values from `+fake_data+`.
 
+[[timeseries8]]
 .Daily price with filled data.
 image::figs/timeseries8.png[height=240]
 
@@ -7535,6 +7545,7 @@ the same results:
 With `+lag=0+`, `+acf+` computes the correlation of the series with
 itself, which is always 1.
 
+[[timeseries9]]
 .Autocorrelation function for daily prices (left), and daily prices with a simulated weekly seasonality (right).
 image::figs/timeseries9.png[height=240]
 
@@ -7693,6 +7704,7 @@ indicates whether it should add resampled residuals to the straight-line
 prediction. `+GeneratePredictions+` iterates through the sequence of
 RegressionResults and generates a sequence of predictions.
 
+[[timeseries4]]
 .Predictions based on linear fits, showing variation due to sampling error and prediction error.
 image::figs/timeseries4.png[height=240]
 
@@ -7747,6 +7759,7 @@ see how much effect this has on the predictions, we can extend
 `+SimulateResults+` to use intervals of observation with different start
 and end dates. My implementation is in `+timeseries.py+`.
 
+[[timeseries5]]
 .Predictions based on linear fits, showing variation due to the interval of observation.
 image::figs/timeseries5.png[height=240]
 
@@ -7899,6 +7912,7 @@ was interviewed.
 The DataFrame method `+query+` takes a boolean expression and evaluates
 it for each row, selecting the rows that yield True.
 
+[[survival1]]
 .Cdf and survival curve for pregnancy length (top), hazard curve (bottom).
 image::figs/survival1.png[height=288]
 
@@ -8248,6 +8262,7 @@ Because of the way `+SurvivalFunction+` is implemented, we have to
 compute the complement of `+ss+`, make a Cdf, and then instantiate a
 SurvivalFunction object.
 
+[[survival2]]
 .Hazard function for age at first marriage (top) and survival curve (bottom).
 image::figs/survival2.png[height=240]
 
@@ -8316,6 +8331,7 @@ sections to estimate the hazard and survival curves, and
 `+PercentileRows+` takes this sequence and computes the 5th and 95th
 percentiles, returning a 90% confidence interval for the survival curve.
 
+[[survival3]]
 .Survival curve for age at first marriage (dark line) and a 90% confidence interval based on weighted resampling (gray line).
 image::figs/survival3.png[height=240]
 
@@ -8404,6 +8420,7 @@ def EstimateSurvivalByDecade(resp):
         thinkplot.Plot(sf)
 ....
 
+[[survival4]]
 .Survival curves for respondents born during different decades.
 image::figs/survival4.png[height=240]
 
@@ -8486,6 +8503,7 @@ predecessor, which might contain values from the previous group, and so
 on. Then it converts each HazardFunction to a SurvivalFunction and plots
 it.
 
+[[survival5]]
 .Survival curves for respondents born during different decades, with predictions for the later cohorts.
 image::figs/survival5.png[height=240]
 
@@ -8567,6 +8585,7 @@ example the result is the mean pregnancy length, given that the length
 exceeds `+t+`. By subtracting `+t+` we get the mean remaining pregnancy
 length.
 
+[[survival6]]
 .Expected remaining pregnancy length (left) and years until first marriage (right).
 image::figs/survival6.png[height=240]
 
@@ -8998,6 +9017,7 @@ def NormalPlotSamples(samples, plot=1, ylabel=''):
 `+NormalPlotSamples+` takes the list of pairs from `+MakeExpoSamples+`
 and generates a row of normal probability plots.
 
+[[normal1]]
 .Distributions of sums of exponential values (top row) and lognormal values (bottom row).
 image::figs/normal1.png[height=336]
 
@@ -9013,6 +9033,7 @@ skewed than exponential distributions, so the distribution of sums takes
 longer to converge. With `+n=10+` the normal probability plot is nowhere
 near straight, but with `+n=100+` it is approximately normal.
 
+[[normal2]]
 .Distributions of sums of Pareto values (top row) and correlated exponential values (bottom row).
 image::figs/normal2.png[height=336]
 
@@ -9215,6 +9236,7 @@ parameter of the t-distribution, `+df+`, stands for "`degrees of
 freedom.`" I won’t explain that term, but you can read about it at
 http://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics).
 
+[[normal4]]
 .Sampling distribution of correlations for uncorrelated normal variables.
 image::figs/normal4.png[height=240]
 
@@ -9265,6 +9287,7 @@ coincidence{}footnote:[Not really.], it is called the chi-squared
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.
 
+[[normal5]]
 .Sampling distribution of chi-squared statistics for a fair six-sided die.
 image::figs/normal5.png[height=240]
 

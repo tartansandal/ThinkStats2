@@ -2929,12 +2929,14 @@ smaller and the effect of random noise increases.</p>
 <div class="paragraph">
 <p>For example, we might be interested in the distribution of birth
 weights. In the NSFG data, the variable <code>totalwgt_lb</code> records weight
-at birth in pounds. <a href="#nsfg_birthwgt_pmf">[nsfg_birthwgt_pmf]</a>
+at birth in pounds. <a href="#nsfg_birthwgt_pmf">Figure 9</a>
 shows the PMF of these values for first babies and others.</p>
 </div>
-<div id="nsfg_birthwgt_pmf" class="paragraph">
-<p>image::figs/nsfg_birthwgt_pmf.png[PMF of birth weights. This figure shows
-a limitation of PMFs: they are hard to compare visually.,height=240]</p>
+<div id="nsfg_birthwgt_pmf" class="imageblock">
+<div class="content">
+<img src="figs/nsfg_birthwgt_pmf.png" alt="nsfg birthwgt pmf" height="240">
+</div>
+<div class="title">Figure 9. PMF of birth weights. This figure shows a limitation of PMFs: they are hard to compare visually.</div>
 </div>
 <div class="paragraph">
 <p>Overall, these distributions resemble the bell shape of a normal
@@ -3109,11 +3111,12 @@ is greater than the largest value, \(\mathrm{CDF}(x)\) is 1.</p>
 </div>
 <div id="example_cdf" class="imageblock">
 <div class="content">
-<img src="figs/cumulative_example_cdf.png" alt="Example of a CDF." height="240">
+<img src="figs/cumulative_example_cdf.png" alt="cumulative example cdf" height="240">
 </div>
+<div class="title">Figure 10. Example of a CDF.</div>
 </div>
 <div class="paragraph">
-<p><a href="#example_cdf">[example_cdf]</a> is a graphical representation of
+<p><a href="#example_cdf">Figure 10</a> is a graphical representation of
 this CDF. The CDF of a sample is a step function.</p>
 </div>
 </div>
@@ -3138,8 +3141,9 @@ value, <code>x</code>; that is, the <strong>inverse CDF</strong> of <code>p</cod
 </div>
 <div id="cumulative_prglngth_cdf" class="imageblock">
 <div class="content">
-<img src="figs/cumulative_prglngth_cdf.png" alt="CDF of pregnancy length." height="240">
+<img src="figs/cumulative_prglngth_cdf.png" alt="cumulative prglngth cdf" height="240">
 </div>
+<div class="title">Figure 11. CDF of pregnancy length.</div>
 </div>
 <div class="paragraph">
 <p>The Cdf constructor can take as an argument a list of values, a pandas
@@ -3163,7 +3167,7 @@ lines:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#cumulative_prglngth_cdf">[cumulative_prglngth_cdf]</a> shows
+<p><a href="#cumulative_prglngth_cdf">Figure 11</a> shows
 the result. One way to read a CDF is to look up percentiles. For
 example, it looks like about 10% of pregnancies are shorter than 36
 weeks, and about 90% are shorter than 41 weeks. The CDF also provides a
@@ -3194,14 +3198,16 @@ others.</p>
     thinkplot.Show(xlabel='weight (pounds)', ylabel='CDF')</code></pre>
 </div>
 </div>
-<div id="cumulative_birthwgt_cdf" class="paragraph">
-<p>image::figs/cumulative_birthwgt_cdf.png[CDF of birth weights for first
-babies and others.,height=240]</p>
+<div id="cumulative_birthwgt_cdf" class="imageblock">
+<div class="content">
+<img src="figs/cumulative_birthwgt_cdf.png" alt="cumulative birthwgt cdf" height="240">
+</div>
+<div class="title">Figure 12. CDF of birth weights for first babies and others.</div>
 </div>
 <div class="paragraph">
-<p><a href="#cumulative_birthwgt_cdf">[cumulative_birthwgt_cdf]</a> shows
+<p><a href="#cumulative_birthwgt_cdf">Figure 12</a> shows
 the result. Compared to
-<a href="#nsfg_birthwgt_pmf">[nsfg_birthwgt_pmf]</a>, this figure makes
+<a href="#nsfg_birthwgt_pmf">Figure 9</a>, this figure makes
 the shape of the distributions, and the differences between them, much
 clearer. We can see that first babies are slightly lighter throughout
 the distribution, with a larger discrepancy above the mean.</p>
@@ -3293,12 +3299,14 @@ in the sample.</p>
     thinkplot.Show(xlabel='percentile rank', ylabel='CDF')</code></pre>
 </div>
 </div>
-<div id="cumulative_random" class="paragraph">
-<p>image::figs/cumulative_random.png[CDF of percentile ranks for a random
-sample of birth weights.,height=240]</p>
+<div id="cumulative_random" class="imageblock">
+<div class="content">
+<img src="figs/cumulative_random.png" alt="cumulative random" height="240">
+</div>
+<div class="title">Figure 13. CDF of percentile ranks for a random sample of birth weights.</div>
 </div>
 <div class="paragraph">
-<p><a href="#cumulative_random">[cumulative_random]</a> shows the result.
+<p><a href="#cumulative_random">Figure 13</a> shows the result.
 The CDF is approximately a straight line, which means that the
 distribution is uniform.</p>
 </div>
@@ -3485,9 +3493,11 @@ downloading and working with this code, see <a href="#code">Using the code</a>.<
 </div>
 <div class="sect2">
 <h3 id="exponential"><a class="anchor" href="#exponential"></a><a class="link" href="#exponential">5.1. The exponential distribution</a></h3>
-<div id="analytic_expo_cdf" class="paragraph">
-<p>image::figs/analytic_expo_cdf.png[CDFs of exponential distributions with
-various parameters.,height=240]</p>
+<div id="analytic_expo_cdf" class="imageblock">
+<div class="content">
+<img src="figs/analytic_expo_cdf.png" alt="analytic expo cdf" height="240">
+</div>
+<div class="title">Figure 14. CDFs of exponential distributions with various parameters.</div>
 </div>
 <div class="paragraph">
 <p>I’ll start with the <strong>exponential distribution</strong> because it is relatively
@@ -3500,7 +3510,7 @@ simple. The CDF of the exponential distribution is</p>
 </div>
 <div class="paragraph">
 <p>The parameter, \(\lambda\), determines the shape of the
-distribution. <a href="#analytic_expo_cdf">[analytic_expo_cdf]</a> shows
+distribution. <a href="#analytic_expo_cdf">Figure 14</a> shows
 what this CDF looks like with \(\lambda =\) 0.5, 1, and 2.</p>
 </div>
 <div class="paragraph">
@@ -3532,14 +3542,16 @@ in a file called <code>babyboom.dat</code>, in the <code>ThinkStats2</code> repo
 columns <code>time</code>, <code>sex</code>, <code>weight_g</code>, and <code>minutes</code>, where
 <code>minutes</code> is time of birth converted to minutes since midnight.</p>
 </div>
-<div id="analytic_interarrival_cdf" class="paragraph">
-<p>image::figs/analytic_interarrivals.png[CDF of interarrival times (left)
-and CCDF on a log-y scale (right).,height=240]</p>
+<div id="analytic_interarrival_cdf" class="imageblock">
+<div class="content">
+<img src="figs/analytic_interarrivals.png" alt="analytic interarrivals" height="240">
+</div>
+<div class="title">Figure 15. CDF of interarrival times (left) and CCDF on a log-y scale (right).</div>
 </div>
 <div class="paragraph">
 <p><code>diffs</code> is the difference between consecutive birth times, and <code>cdf</code>
 is the distribution of these interarrival times.
-<a href="#analytic_interarrival_cdf">[analytic_interarrival_cdf]</a>
+<a href="#analytic_interarrival_cdf">Figure 15</a>
 (left) shows the CDF. It seems to have the general shape of an
 exponential distribution, but how can we tell?</p>
 </div>
@@ -3584,7 +3596,7 @@ complementary CDF before plotting. And with <code>yscale='log'</code>,
 <code>thinkplot.Show</code> sets the <code>y</code> axis to a logarithmic scale.</p>
 </div>
 <div class="paragraph">
-<p><a href="#analytic_interarrival_cdf">[analytic_interarrival_cdf]</a>
+<p><a href="#analytic_interarrival_cdf">Figure 15</a>
 (right) shows the result. It is not exactly straight, which indicates
 that the exponential distribution is not a perfect model for this data.
 Most likely the underlying assumption—that a birth is equally likely at
@@ -3610,9 +3622,11 @@ because it describes many phenomena, at least approximately. It turns
 out that there is a good reason for its ubiquity, which we will get to
 in <a href="#CLT">Section 14.4</a>.</p>
 </div>
-<div id="analytic_gaussian_cdf" class="paragraph">
-<p>image::figs/analytic_gaussian_cdf.png[CDF of normal distributions with a
-range of parameters.,height=240]</p>
+<div id="analytic_gaussian_cdf" class="imageblock">
+<div class="content">
+<img src="figs/analytic_gaussian_cdf.png" alt="analytic gaussian cdf" height="240">
+</div>
+<div class="title">Figure 16. CDF of normal distributions with a range of parameters.</div>
 </div>
 <div class="paragraph">
 <p>The normal distribution is characterized by two parameters: the mean,
@@ -3652,7 +3666,7 @@ evaluates the CDF at <code>x</code>:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#analytic_gaussian_cdf">[analytic_gaussian_cdf]</a> shows CDFs
+<p><a href="#analytic_gaussian_cdf">Figure 16</a> shows CDFs
 for normal distributions with a range of parameters. The sigmoid shape
 of these curves is a recognizable characteristic of a normal
 distribution.</p>
@@ -3660,13 +3674,15 @@ distribution.</p>
 <div class="paragraph">
 <p>In the previous chapter we looked at the distribution of birth weights
 in the NSFG.
-<a href="#analytic_birthwgt_model">[analytic_birthwgt_model]</a> shows
+<a href="#analytic_birthwgt_model">Figure 17</a> shows
 the empirical CDF of weights for all live births and the CDF of a normal
 distribution with the same mean and variance.</p>
 </div>
-<div id="analytic_birthwgt_model" class="paragraph">
-<p>image::figs/analytic_birthwgt_model.png[CDF of birth weights with a
-normal model.,height=240]</p>
+<div id="analytic_birthwgt_model" class="imageblock">
+<div class="content">
+<img src="figs/analytic_birthwgt_model.png" alt="analytic birthwgt model" height="240">
+</div>
+<div class="title">Figure 17. CDF of birth weights with a normal model.</div>
 </div>
 <div class="paragraph">
 <p>The normal distribution is a good model for this dataset, so if we
@@ -3723,9 +3739,11 @@ returns two NumPy arrays:</p>
 <pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">xs, ys = thinkstats2.NormalProbability(sample)</code></pre>
 </div>
 </div>
-<div id="analytic_normal_prob_example" class="paragraph">
-<p>image::figs/analytic_normal_prob_example.png[Normal probability plot for
-random samples from normal distributions.,height=240]</p>
+<div id="analytic_normal_prob_example" class="imageblock">
+<div class="content">
+<img src="figs/analytic_normal_prob_example.png" alt="analytic normal prob example" height="240">
+</div>
+<div class="title">Figure 18. Normal probability plot for random samples from normal distributions.</div>
 </div>
 <div class="paragraph">
 <p><code>ys</code> contains the sorted values from <code>sample</code>; <code>xs</code> contains the
@@ -3734,7 +3752,7 @@ random values from the standard normal distribution.</p>
 <div class="paragraph">
 <p>To test <code>NormalProbability</code> I generated some fake samples that were
 actually drawn from normal distributions with various parameters.
-<a href="#analytic_normal_prob_example">[analytic_normal_prob_example]</a>
+<a href="#analytic_normal_prob_example">Figure 18</a>
 shows the results. The lines are approximately straight, with values in
 the tails deviating more than values near the mean.</p>
 </div>
@@ -3776,10 +3794,10 @@ distribution of weights is normal, the data should match the model.</p>
 <div class="content">
 <img src="figs/analytic_birthwgt_normal.png" alt="analytic birthwgt normal" height="240">
 </div>
-<div class="title">Figure 9. Normal probability plot of birth weights.</div>
+<div class="title">Figure 19. Normal probability plot of birth weights.</div>
 </div>
 <div class="paragraph">
-<p><a href="#analytic_birthwgt_normal">Figure 9</a> shows
+<p><a href="#analytic_birthwgt_normal">Figure 19</a> shows
 the results for all live births, and also for full term births
 (pregnancy length greater than 36 weeks). Both curves match the model
 near the mean and deviate in the tails. The heaviest babies are heavier
@@ -3818,9 +3836,11 @@ lognormal distribution is \(\exp(\mu +\sigma^2/2)\) and the
 standard deviation is ugly (see
 <a href="http://wikipedia.org/wiki/Log-normal_distribution" class="bare">http://wikipedia.org/wiki/Log-normal_distribution</a>).</p>
 </div>
-<div id="brfss_weight" class="paragraph">
-<p>image::figs/brfss_weight.png[CDF of adult weights on a linear scale
-(left) and log scale (right).,height=240]</p>
+<div id="brfss_weight" class="imageblock">
+<div class="content">
+<img src="figs/brfss_weight.png" alt="brfss weight" height="240">
+</div>
+<div class="title">Figure 20. CDF of adult weights on a linear scale (left) and log scale (right).</div>
 </div>
 <div class="paragraph">
 <p>If a sample is approximately lognormal and you plot its CDF on a log-x
@@ -3849,18 +3869,18 @@ reads the file and analyzes the data.</p>
 <div class="content">
 <img src="figs/brfss_weight_normal.png" alt="brfss weight normal" height="240">
 </div>
-<div class="title">Figure 10. Normal probability plots for adult weight on a linear scale (left) and log scale (right).</div>
+<div class="title">Figure 21. Normal probability plots for adult weight on a linear scale (left) and log scale (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#brfss_weight">[brfss_weight]</a> (left) shows the distribution
+<p><a href="#brfss_weight">Figure 20</a> (left) shows the distribution
 of adult weights on a linear scale with a normal model.
-<a href="#brfss_weight">[brfss_weight]</a> (right) shows the same
+<a href="#brfss_weight">Figure 20</a> (right) shows the same
 distribution on a log scale with a lognormal model. The lognormal model
 is a better fit, but this representation of the data does not make the
 difference particularly dramatic.</p>
 </div>
 <div class="paragraph">
-<p><a href="#brfss_weight_normal">Figure 10</a> shows normal
+<p><a href="#brfss_weight_normal">Figure 21</a> shows normal
 probability plots for adult weights, \(w\), and for their
 logarithms, \(\log_{10} w\). Now it is apparent that the data
 deviate substantially from the normal model. On the other hand, the
@@ -3888,7 +3908,7 @@ and earthquakes.</p>
 <div class="paragraph">
 <p>The parameters \(x_{m}\) and \(\alpha\) determine the
 location and shape of the distribution. \(x_{m}\) is the minimum
-possible value. <a href="#analytic_pareto_cdf">Figure 11</a>
+possible value. <a href="#analytic_pareto_cdf">Figure 22</a>
 shows CDFs of Pareto distributions with \(x_{m} = 0.5\) and
 different values of \(\alpha\).</p>
 </div>
@@ -3896,7 +3916,7 @@ different values of \(\alpha\).</p>
 <div class="content">
 <img src="figs/analytic_pareto_cdf.png" alt="analytic pareto cdf" height="240">
 </div>
-<div class="title">Figure 11. CDFs of Pareto distributions with different parameters.</div>
+<div class="title">Figure 22. CDFs of Pareto distributions with different parameters.</div>
 </div>
 <div class="paragraph">
 <p>There is a simple visual test that indicates whether an empirical
@@ -3934,7 +3954,7 @@ and town in the United States.</p>
 <div class="content">
 <img src="figs/populations_pareto.png" alt="populations pareto" height="240">
 </div>
-<div class="title">Figure 12. CCDFs of city and town populations, on a log-log scale.</div>
+<div class="title">Figure 23. CCDFs of city and town populations, on a log-log scale.</div>
 </div>
 <div class="paragraph">
 <p>I downloaded their data from
@@ -3945,7 +3965,7 @@ it is in the repository for this book in a file named
 populations.</p>
 </div>
 <div class="paragraph">
-<p><a href="#populations_pareto">Figure 12</a> shows the CCDF of
+<p><a href="#populations_pareto">Figure 23</a> shows the CCDF of
 populations on a log-log scale. The largest 1% of cities and towns,
 below \(10^{-2}\), fall along a straight line. So we could
 conclude, as some researchers have, that the tail of this distribution
@@ -3953,7 +3973,7 @@ fits a Pareto model.</p>
 </div>
 <div class="paragraph">
 <p>On the other hand, a lognormal distribution also models the data well.
-<a href="#populations_normal">Figure 13</a> shows the CDF of
+<a href="#populations_normal">Figure 24</a> shows the CDF of
 populations and a lognormal model (left), and a normal probability plot
 (right). Both plots show good agreement between the data and the model.</p>
 </div>
@@ -3967,7 +3987,7 @@ appropriate depends on which part of the distribution is relevant.</p>
 <div class="content">
 <img src="figs/populations_normal.png" alt="populations normal" height="240">
 </div>
-<div class="title">Figure 13. CDF of city and town populations on a log-x scale (left), and normal probability plot of log-transformed populations (right).</div>
+<div class="title">Figure 24. CDF of city and town populations on a log-x scale (left), and normal probability plot of log-transformed populations (right).</div>
 </div>
 </div>
 <div class="sect2">
@@ -4339,7 +4359,7 @@ we can see the shape of the distribution:</p>
 <div class="paragraph">
 <p><code>thinkplot.Pdf</code> plots the Pdf as a smooth function, as contrasted with
 <code>thinkplot.Pmf</code>, which renders a Pmf as a step function.
-<a href="#pdf_example">[pdf_example]</a> shows the result, as well as a
+<a href="#pdf_example">Figure 25</a> shows the result, as well as a
 PDF estimated from a sample, which we’ll compute in the next section.</p>
 </div>
 <div class="paragraph">
@@ -4355,10 +4375,11 @@ PDF estimated from a sample, which we’ll compute in the next section.</p>
 <code>mu - 3*sigma</code> to <code>mu + 3*sigma</code>. Optionally, <code>MakePmf</code> and
 <code>Render</code> can take keyword arguments <code>low</code>, <code>high</code>, and <code>n</code>.</p>
 </div>
-<div id="pdf_example" class="paragraph">
-<p>image::figs/pdf_example.png[A normal PDF that models adult female height
-in the U.S., and the kernel density estimate of a sample with
-\(n=500\).,height=211]</p>
+<div id="pdf_example" class="imageblock">
+<div class="content">
+<img src="figs/pdf_example.png" alt="pdf example" height="211">
+</div>
+<div class="title">Figure 25. A normal PDF that models adult female height in the U.S., and the kernel density estimate of a sample with \(n=500\).</div>
 </div>
 </div>
 <div class="sect2">
@@ -4410,7 +4431,7 @@ then makes an EstimatedPdf to fit it:</p>
 object that contains the estimated KDE of the sample.</p>
 </div>
 <div class="paragraph">
-<p><a href="#pdf_example">[pdf_example]</a> shows the normal density
+<p><a href="#pdf_example">Figure 25</a> shows the normal density
 function and a KDE based on a sample of 500 random heights. The estimate
 is a good match for the original distribution.</p>
 </div>
@@ -4444,14 +4465,15 @@ data.</p>
 </div>
 <div class="sect2">
 <h3 id="_the_distribution_framework"><a class="anchor" href="#_the_distribution_framework"></a><a class="link" href="#_the_distribution_framework">6.3. The distribution framework</a></h3>
-<div id="dist_framework" class="paragraph">
-<div class="title">A framework that relates</div>
-<p>representations of distribution functions.
-image::figs/distribution_functions.png[height=211]</p>
+<div id="dist_framework" class="imageblock">
+<div class="content">
+<img src="figs/distribution_functions.png" alt="distribution functions" height="211">
+</div>
+<div class="title">Figure 26. A framework that relates representations of distribution functions.</div>
 </div>
 <div class="paragraph">
 <p>At this point we have seen PMFs, CDFs and PDFs; let’s take a minute to
-review. <a href="#dist_framework">A framework that relates</a> shows how these
+review. <a href="#dist_framework">Figure 26</a> shows how these
 functions relate to each other.</p>
 </div>
 <div class="paragraph">
@@ -4829,7 +4851,7 @@ the effect of outliers.</p>
 <div class="content">
 <img src="figs/density_totalwgt_kde.png" alt="density totalwgt kde" height="211">
 </div>
-<div class="title">Figure 14. Estimated PDF of birthweight data from the NSFG.</div>
+<div class="title">Figure 27. Estimated PDF of birthweight data from the NSFG.</div>
 </div>
 <div class="paragraph">
 <p>As an example, let’s look at the skewness of birth weights in the NSFG
@@ -4844,7 +4866,7 @@ pregnancy data. Here’s the code to estimate and plot the PDF:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#density_totalwgt_kde">Figure 14</a> shows the
+<p><a href="#density_totalwgt_kde">Figure 27</a> shows the
 result. The left tail appears longer than the right, so we suspect the
 distribution is skewed left. The mean, 7.27 lbs, is a bit less than the
 median, 7.38 lbs, so that is consistent with left skew. And both
@@ -4855,7 +4877,7 @@ median skewness is -0.23.</p>
 <div class="content">
 <img src="figs/density_wtkg2_kde.png" alt="density wtkg2 kde" height="211">
 </div>
-<div class="title">Figure 15. Estimated PDF of adult weight data from the BRFSS.</div>
+<div class="title">Figure 28. Estimated PDF of adult weight data from the BRFSS.</div>
 </div>
 <div class="paragraph">
 <p>Now let’s compare this distribution to the distribution of adult weight
@@ -4870,7 +4892,7 @@ in the BRFSS. Again, here’s the code:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#density_wtkg2_kde">Figure 15</a> shows the result.
+<p><a href="#density_wtkg2_kde">Figure 28</a> shows the result.
 The distribution appears skewed to the right. Sure enough, the mean,
 79.0, is bigger than the median, 77.3. The sample skewness is 1.1 and
 Pearson’s median skewness is 0.26.</p>
@@ -5055,14 +5077,14 @@ than once.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The result, in <a href="#scatter1">[scatter1]</a> (left), shows the shape of the
+<p>The result, in <a href="#scatter1">Figure 29</a> (left), shows the shape of the
 relationship. As we expected, taller people tend to be heavier.</p>
 </div>
-<div class="imageblock">
+<div id="scatter1" class="imageblock">
 <div class="content">
 <img src="figs/scatter1.png" alt="scatter1" height="288">
 </div>
-<div class="title">Figure 16. Scatter plots of weight versus height for the respondents in the BRFSS, unjittered (left), jittered (right).</div>
+<div class="title">Figure 29. Scatter plots of weight versus height for the respondents in the BRFSS, unjittered (left), jittered (right).</div>
 </div>
 <div class="paragraph">
 <p>But this is not the best representation of the data, because the data
@@ -5097,7 +5119,7 @@ or 1.3 cm. Similarly, the weights might be off by 0.5 kg.</p>
 <p>The values can be any sequence; the result is a NumPy array.</p>
 </div>
 <div class="paragraph">
-<p><a href="#scatter1">[scatter1]</a> (right) shows the result. Jittering reduces
+<p><a href="#scatter1">Figure 29</a> (right) shows the result. Jittering reduces
 the visual effect of rounding and makes the shape of the relationship
 clearer. But in general you should only jitter data for purposes of
 visualization and avoid using jittered data for analysis.</p>
@@ -5108,11 +5130,11 @@ There are many overlapping points, which hides data in the dense parts
 of the figure and gives disproportionate emphasis to outliers. This
 effect is called <strong>saturation</strong>.</p>
 </div>
-<div class="imageblock">
+<div id="scatter2" class="imageblock">
 <div class="content">
 <img src="figs/scatter2.png" alt="scatter2" height="288">
 </div>
-<div class="title">Figure 17. Scatter plot with jittering and transparency (left), hexbin plot (right).</div>
+<div class="title">Figure 30. Scatter plot with jittering and transparency (left), hexbin plot (right).</div>
 </div>
 <div class="paragraph">
 <p>We can solve this problem with the <code>alpha</code> parameter, which makes the
@@ -5124,7 +5146,7 @@ points partly transparent:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#scatter2">[scatter2]</a> (left) shows the result. Overlapping data
+<p><a href="#scatter2">Figure 30</a> (left) shows the result. Overlapping data
 points look darker, so darkness is proportional to density. In this
 version of the plot we can see two details that were not apparent
 before: vertical clusters at several heights and a horizontal line near
@@ -5148,7 +5170,7 @@ how many data points fall in it. <code>thinkplot</code> provides <code>HexBin</c
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#scatter2">[scatter2]</a> (right) shows the result. An advantage of a
+<p><a href="#scatter2">Figure 30</a> (right) shows the result. An advantage of a
 hexbin is that it shows the shape of the relationship well, and it is
 efficient for large datasets, both in time and in the size of the file
 it generates. A drawback is that it makes the outliers invisible.</p>
@@ -5189,11 +5211,11 @@ and plot percentiles of the other.</p>
 fall below the lowest bin are mapped to index 0. Values above the
 highest bin are mapped to <code>len(bins)</code>.</p>
 </div>
-<div class="imageblock">
+<div id="scatter3" class="imageblock">
 <div class="content">
 <img src="figs/scatter3.png" alt="scatter3" height="240">
 </div>
-<div class="title">Figure 18. Percentiles of weight for a range of height bins.</div>
+<div class="title">Figure 31. Percentiles of weight for a range of height bins.</div>
 </div>
 <div class="paragraph">
 <p><code>groupby</code> is a DataFrame method that returns a GroupBy object; used in
@@ -5228,7 +5250,7 @@ of rows in each group like this:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#scatter3">[scatter3]</a> shows the result. Between 140 and 200 cm the
+<p><a href="#scatter3">Figure 31</a> shows the result. Between 140 and 200 cm the
 relationship between these variables is roughly linear. This range
 includes more than 99% of the data, so we don’t have to worry too much
 about the extremes.</p>
@@ -5454,10 +5476,10 @@ strength.</p>
 <div class="content">
 <img src="figs/Correlation_examples.png" alt="Correlation examples" height="240">
 </div>
-<div class="title">Figure 19. Examples of datasets with a range of correlations.</div>
+<div class="title">Figure 32. Examples of datasets with a range of correlations.</div>
 </div>
 <div class="paragraph">
-<p><a href="#corr_examples">Figure 19</a> is from
+<p><a href="#corr_examples">Figure 32</a> is from
 <a href="http://wikipedia.org/wiki/Correlation_and_dependence" class="bare">http://wikipedia.org/wiki/Correlation_and_dependence</a>. It shows scatter
 plots and correlation coefficients for several carefully constructed
 datasets.</p>
@@ -6009,17 +6031,17 @@ the estimated mean, \(\bar{x}\), vary?&#8221;</p>
 <code>n</code> is the sample size, the number of gorillas we measured. <code>m</code> is
 the number of times we run the simulation.</p>
 </div>
-<div class="imageblock">
+<div id="estimation1" class="imageblock">
 <div class="content">
 <img src="figs/estimation1.png" alt="estimation1" height="240">
 </div>
-<div class="title">Figure 20. Sampling distribution of \(\bar{x}\), with confidence interval.</div>
+<div class="title">Figure 33. Sampling distribution of \(\bar{x}\), with confidence interval.</div>
 </div>
 <div class="paragraph">
 <p>In each iteration, we choose <code>n</code> values from a normal distribution
 with the given parameters, and compute the sample mean, <code>xbar</code>. We run
 1000 simulations and then compute the distribution, <code>cdf</code>, of the
-estimates. The result is shown in <a href="#estimation1">[estimation1]</a>. This
+estimates. The result is shown in <a href="#estimation1">Figure 33</a>. This
 distribution is called the <strong>sampling distribution</strong> of the estimator. It
 shows how much the estimates would vary if we ran the experiment over
 and over.</p>
@@ -6598,11 +6620,11 @@ the p-value. The result is about 0.17, which means that we expect to see
 a difference as big as the observed effect about 17% of the time. So
 this effect is not statistically significant.</p>
 </div>
-<div class="imageblock">
+<div id="hypothesis1" class="imageblock">
 <div class="content">
 <img src="figs/hypothesis1.png" alt="hypothesis1" height="240">
 </div>
-<div class="title">Figure 21. CDF of difference in mean pregnancy length under the null hypothesis.</div>
+<div class="title">Figure 34. CDF of difference in mean pregnancy length under the null hypothesis.</div>
 </div>
 <div class="paragraph">
 <p><code>HypothesisTest</code> provides <code>PlotCdf</code>, which plots the distribution of
@@ -6616,7 +6638,7 @@ the test statistic and a gray line indicating the observed effect size:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#hypothesis1">[hypothesis1]</a> shows the result. The CDF intersects the
+<p><a href="#hypothesis1">Figure 34</a> shows the result. The CDF intersects the
 observed difference at 0.83, which is the complement of the p-value,
 0.17.</p>
 </div>
@@ -7442,14 +7464,14 @@ case the mean age is about 25 years and the mean baby weight for a 25
 year old mother is 7.3 pounds. The slope is 0.27 ounces per year, or
 0.17 pounds per decade.</p>
 </div>
-<div class="imageblock">
+<div id="linear1" class="imageblock">
 <div class="content">
 <img src="figs/linear1.png" alt="linear1" height="240">
 </div>
-<div class="title">Figure 22. Scatter plot of birth weight and mother’s age with a linear fit.</div>
+<div class="title">Figure 35. Scatter plot of birth weight and mother’s age with a linear fit.</div>
 </div>
 <div class="paragraph">
-<p><a href="#linear1">[linear1]</a> shows a scatter plot of birth weight and age
+<p><a href="#linear1">Figure 35</a> shows a scatter plot of birth weight and age
 along with the fitted line. It’s a good idea to look at a figure like
 this to assess whether the relationship is linear and whether the fitted
 line seems like a good model of the relationship.</p>
@@ -7475,16 +7497,16 @@ function that computes residuals:</p>
 <code>inter</code> and <code>slope</code>. It returns the differences between the actual
 values and the fitted line.</p>
 </div>
-<div class="imageblock">
+<div id="linear2" class="imageblock">
 <div class="content">
 <img src="figs/linear2.png" alt="linear2" height="240">
 </div>
-<div class="title">Figure 23. Residuals of the linear fit.</div>
+<div class="title">Figure 36. Residuals of the linear fit.</div>
 </div>
 <div class="paragraph">
 <p>To visualize the residuals, I group respondents by age and compute
 percentiles in each group, as we saw in
-<a href="#characterizing">Section 7.2</a>. <a href="#linear2">[linear2]</a> shows the
+<a href="#characterizing">Section 7.2</a>. <a href="#linear2">Figure 36</a> shows the
 25th, 50th and 75th percentiles of the residuals for each age group. The
 median is near zero, as expected, and the interquartile range is about 2
 pounds. So if we know the mother’s age, we can guess the baby’s weight
@@ -7614,14 +7636,14 @@ lower percentiles of <code>y</code> for each value of <code>x</code>. For a 90% 
 interval, it selects the 5th and 95th percentiles. <code>FillBetween</code> draws
 a polygon that fills the space between two lines.</p>
 </div>
-<div class="imageblock">
+<div id="linear3" class="imageblock">
 <div class="content">
 <img src="figs/linear3.png" alt="linear3" height="240">
 </div>
-<div class="title">Figure 24. 50% and 90% confidence intervals showing variability in the fitted line due to sampling error of <code>inter</code> and <code>slope</code>.</div>
+<div class="title">Figure 37. 50% and 90% confidence intervals showing variability in the fitted line due to sampling error of <code>inter</code> and <code>slope</code>.</div>
 </div>
 <div class="paragraph">
-<p><a href="#linear3">[linear3]</a> shows the 50% and 90% confidence intervals
+<p><a href="#linear3">Figure 37</a> shows the 50% and 90% confidence intervals
 for curves fitted to birth weight as a function of mother’s age. The
 vertical width of the region represents the effect of sampling error;
 the effect is smaller for values near the mean and larger for the
@@ -7792,7 +7814,7 @@ computed the sampling distribution of the slope, in
 slope was correct and simulated experiments by resampling.</p>
 </div>
 <div class="paragraph">
-<p><a href="#linear4">[linear4]</a> shows the sampling distribution of the slope,
+<p><a href="#linear4">Figure 38</a> shows the sampling distribution of the slope,
 from <a href="#regest">Section 10.4</a>, and the distribution of slopes
 generated under the null hypothesis. The sampling distribution is
 centered about the estimated slope, 0.017 lbs/year, and the slopes under
@@ -7800,11 +7822,11 @@ the null hypothesis are centered around 0; but other than that, the
 distributions are identical. The distributions are also symmetric, for
 reasons we will see in <a href="#CLT">Section 14.4</a>.</p>
 </div>
-<div class="imageblock">
+<div id="linear4" class="imageblock">
 <div class="content">
 <img src="figs/linear4.png" alt="linear4" height="240">
 </div>
-<div class="title">Figure 25. The sampling distribution of the estimated slope and the distribution of slopes generated under the null hypothesis. The vertical lines are at 0 and the observed slope, 0.017 lbs/year.</div>
+<div class="title">Figure 38. The sampling distribution of the estimated slope and the distribution of slopes generated under the null hypothesis. The vertical lines are at 0 and the observed slope, 0.017 lbs/year.</div>
 </div>
 <div class="paragraph">
 <p>So we could estimate the p-value two ways:</p>
@@ -8352,7 +8374,7 @@ R^2 0.007462</pre>
 <div class="paragraph">
 <p>The parameter of <code>agepreg2</code> is negative, so the parabola curves
 downward, which is consistent with the shape of the lines in
-<a href="#linear2">[linear2]</a>.</p>
+<a href="#linear2">Figure 36</a>.</p>
 </div>
 <div class="paragraph">
 <p>The quadratic model of <code>agepreg</code> accounts for more of the variability
@@ -9374,14 +9396,14 @@ lines would not help.</p>
 <p>Since the labels on the x-axis are dates, I use <code>pyplot.xticks</code> to
 rotate the &#8220;ticks&#8221; 30 degrees, making them more readable.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries1" class="imageblock">
 <div class="content">
 <img src="figs/timeseries1.png" alt="timeseries1" width="336">
 </div>
-<div class="title">Figure 26. Time series of daily price per gram for high, medium, and low quality cannabis.</div>
+<div class="title">Figure 39. Time series of daily price per gram for high, medium, and low quality cannabis.</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries1">[timeseries1]</a> shows the result. One apparent feature in
+<p><a href="#timeseries1">Figure 39</a> shows the result. One apparent feature in
 these plots is a gap around November 2013. It’s possible that data
 collection was not active during this time, or the data might not be
 available. We will consider ways to deal with this missing data later.</p>
@@ -9493,15 +9515,15 @@ smaller, and variability in prices is higher, so the values of
 <code>exog</code> and <code>endog</code>, NumPy arrays with the exogenous (explanatory)
 and endogenous (dependent) variables.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries2" class="imageblock">
 <div class="content">
 <img src="figs/timeseries2.png" alt="timeseries2" height="240">
 </div>
-<div class="title">Figure 27. Time series of daily price per gram for high quality cannabis, and a linear least squares fit.</div>
+<div class="title">Figure 40. Time series of daily price per gram for high quality cannabis, and a linear least squares fit.</div>
 </div>
 <div class="paragraph">
 <p><code>PlotFittedValues</code> makes a scatter plot of the data points and a line
-plot of the fitted values. <a href="#timeseries2">[timeseries2]</a> shows the
+plot of the fitted values. <a href="#timeseries2">Figure 40</a> shows the
 results for high quality cannabis. The model seems like a good linear
 fit for the data; nevertheless, linear regression is not the most
 appropriate choice for this data:</p>
@@ -9618,14 +9640,14 @@ for all dates, filled with <code>nan</code>.</p>
 <p>The window size is 30, so each value in <code>roll_mean</code> is the mean of 30
 values from <code>reindexed.ppg</code>.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries10" class="imageblock">
 <div class="content">
 <img src="figs/timeseries10.png" alt="timeseries10" height="240">
 </div>
-<div class="title">Figure 28. Daily price and a rolling mean (left) and exponentially-weighted moving average (right).</div>
+<div class="title">Figure 41. Daily price and a rolling mean (left) and exponentially-weighted moving average (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries10">[timeseries10]</a> (left) shows the result. The rolling
+<p><a href="#timeseries10">Figure 41</a> (left) shows the result. The rolling
 mean seems to do a good job of smoothing out the noise and extracting
 the trend. The first 29 values are <code>nan</code>, and wherever there’s a
 missing value, it’s followed by another 29 `nan`s. There are ways to
@@ -9651,7 +9673,7 @@ number of points that make a non-negligible contribution to each
 average.</p>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries10">[timeseries10]</a> (right) shows the EWMA for the same
+<p><a href="#timeseries10">Figure 41</a> (right) shows the EWMA for the same
 data. It is similar to the rolling mean, where they are both defined,
 but it has no missing values, which makes it easier to work with. The
 values are noisy at the beginning of the time series, because they are
@@ -9699,14 +9721,14 @@ is <code>nan</code>. <code>fake_data</code> contains the sum of the moving avera
 random sample of residuals. Finally, <code>fillna</code> replaces <code>nan</code> with
 values from <code>fake_data</code>.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries8" class="imageblock">
 <div class="content">
 <img src="figs/timeseries8.png" alt="timeseries8" height="240">
 </div>
-<div class="title">Figure 29. Daily price with filled data.</div>
+<div class="title">Figure 42. Daily price with filled data.</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries8">[timeseries8]</a> shows the result. The filled data is
+<p><a href="#timeseries8">Figure 42</a> shows the result. The filled data is
 visually similar to the actual values. Since the resampled residuals are
 random, the results are different every time; later we’ll see how to
 characterize the error created by missing values.</p>
@@ -9857,14 +9879,14 @@ the same results:</p>
 <p>With <code>lag=0</code>, <code>acf</code> computes the correlation of the series with
 itself, which is always 1.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries9" class="imageblock">
 <div class="content">
 <img src="figs/timeseries9.png" alt="timeseries9" height="240">
 </div>
-<div class="title">Figure 30. Autocorrelation function for daily prices (left), and daily prices with a simulated weekly seasonality (right).</div>
+<div class="title">Figure 43. Autocorrelation function for daily prices (left), and daily prices with a simulated weekly seasonality (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries9">[timeseries9]</a> (left) shows autocorrelation functions
+<p><a href="#timeseries9">Figure 43</a> (left) shows autocorrelation functions
 for the three quality categories, with <code>nlags=40</code>. The gray region
 shows the normal variability we would expect if there is no actual
 autocorrelation; anything that falls outside this range is statistically
@@ -9904,7 +9926,7 @@ Friday or Saturday. <code>fake</code> is a new DataFrame, initially a copy of
 the number of random values we have to generate.</p>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries9">[timeseries9]</a> (right) shows autocorrelation functions
+<p><a href="#timeseries9">Figure 43</a> (right) shows autocorrelation functions
 for prices with this simulated seasonality. As expected, the
 correlations are highest when the lag is a multiple of 7. For high and
 medium quality, the new correlations are statistically significant. For
@@ -10046,11 +10068,11 @@ indicates whether it should add resampled residuals to the straight-line
 prediction. <code>GeneratePredictions</code> iterates through the sequence of
 RegressionResults and generates a sequence of predictions.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries4" class="imageblock">
 <div class="content">
 <img src="figs/timeseries4.png" alt="timeseries4" height="240">
 </div>
-<div class="title">Figure 31. Predictions based on linear fits, showing variation due to sampling error and prediction error.</div>
+<div class="title">Figure 44. Predictions based on linear fits, showing variation due to sampling error and prediction error.</div>
 </div>
 <div class="paragraph">
 <p>Finally, here’s the code that plots a 90% confidence interval for the
@@ -10079,7 +10101,7 @@ predictions:</p>
 then plots a gray region between these bounds.</p>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries4">[timeseries4]</a> shows the result. The dark gray region
+<p><a href="#timeseries4">Figure 44</a> shows the result. The dark gray region
 represents a 90% confidence interval for the sampling error; that is,
 uncertainty about the estimated slope and intercept due to sampling.</p>
 </div>
@@ -10100,7 +10122,7 @@ over time. Specifically, it assumes that the slope and intercept are
 constant, as well as the distribution of residuals.</p>
 </div>
 <div class="paragraph">
-<p>But looking at the moving averages in <a href="#timeseries10">[timeseries10]</a>,
+<p>But looking at the moving averages in <a href="#timeseries10">Figure 41</a>,
 it seems like the slope changes at least once during the observed
 interval, and the variance of the residuals seems bigger in the first
 half than the second.</p>
@@ -10111,14 +10133,14 @@ see how much effect this has on the predictions, we can extend
 <code>SimulateResults</code> to use intervals of observation with different start
 and end dates. My implementation is in <code>timeseries.py</code>.</p>
 </div>
-<div class="imageblock">
+<div id="timeseries5" class="imageblock">
 <div class="content">
 <img src="figs/timeseries5.png" alt="timeseries5" height="240">
 </div>
-<div class="title">Figure 32. Predictions based on linear fits, showing variation due to the interval of observation.</div>
+<div class="title">Figure 45. Predictions based on linear fits, showing variation due to the interval of observation.</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries5">[timeseries5]</a> shows the result for the medium quality
+<p><a href="#timeseries5">Figure 45</a> shows the result for the medium quality
 category. The lightest gray area shows a confidence interval that
 includes uncertainty due to sampling error, random variation, and
 variation in the interval of observation.</p>
@@ -10337,14 +10359,14 @@ was interviewed.</p>
 <p>The DataFrame method <code>query</code> takes a boolean expression and evaluates
 it for each row, selecting the rows that yield True.</p>
 </div>
-<div class="imageblock">
+<div id="survival1" class="imageblock">
 <div class="content">
 <img src="figs/survival1.png" alt="survival1" height="288">
 </div>
-<div class="title">Figure 33. Cdf and survival curve for pregnancy length (top), hazard curve (bottom).</div>
+<div class="title">Figure 46. Cdf and survival curve for pregnancy length (top), hazard curve (bottom).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival1">[survival1]</a> (top) shows the CDF of pregnancy length and
+<p><a href="#survival1">Figure 46</a> (top) shows the CDF of pregnancy length and
 its complement, the survival curve. To represent the survival curve, I
 define an object that wraps a Cdf and adapts the interface:</p>
 </div>
@@ -10420,7 +10442,7 @@ the functions in <code>thinkplot</code>:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#survival1">[survival1]</a> (top) shows the result. The curve is nearly
+<p><a href="#survival1">Figure 46</a> (top) shows the result. The curve is nearly
 flat between 13 and 26 weeks, which shows that few pregnancies end in
 the second trimester. And the curve is steepest around 39 weeks, which
 is the most common pregnancy length.</p>
@@ -10494,7 +10516,7 @@ this:</p>
 39.</p>
 </div>
 <div class="paragraph">
-<p><a href="#survival1">[survival1]</a> (bottom) shows the hazard function for
+<p><a href="#survival1">Figure 46</a> (bottom) shows the hazard function for
 pregnancy lengths. For times after week 42, the hazard function is
 erratic because it is based on a small number of cases. Other than that
 the shape of the curve is as expected: it is highest around 39 weeks,
@@ -10707,7 +10729,7 @@ women who have not:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#survival2">[survival2]</a> (top) shows the estimated hazard function;
+<p><a href="#survival2">Figure 47</a> (top) shows the estimated hazard function;
 it is low in the teens, higher in the 20s, and declining in the 30s. It
 increases again in the 40s, but that is an artifact of the estimation
 process; as the number of respondents &#8220;at risk&#8221; decreases, a small
@@ -10754,14 +10776,14 @@ so it is the survival curve.</p>
 compute the complement of <code>ss</code>, make a Cdf, and then instantiate a
 SurvivalFunction object.</p>
 </div>
-<div class="imageblock">
+<div id="survival2" class="imageblock">
 <div class="content">
 <img src="figs/survival2.png" alt="survival2" height="240">
 </div>
-<div class="title">Figure 34. Hazard function for age at first marriage (top) and survival curve (bottom).</div>
+<div class="title">Figure 47. Hazard function for age at first marriage (top) and survival curve (bottom).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival2">[survival2]</a> (bottom) shows the result. The survival
+<p><a href="#survival2">Figure 47</a> (bottom) shows the result. The survival
 curve is steepest between 25 and 35, when most women get married.
 Between 35 and 45, the curve is nearly flat, indicating that women who
 do not marry before age 35 are unlikely to get married.</p>
@@ -10844,14 +10866,14 @@ sections to estimate the hazard and survival curves, and</p>
 <code>PercentileRows</code> takes this sequence and computes the 5th and 95th
 percentiles, returning a 90% confidence interval for the survival curve.</p>
 </div>
-<div class="imageblock">
+<div id="survival3" class="imageblock">
 <div class="content">
 <img src="figs/survival3.png" alt="survival3" height="240">
 </div>
-<div class="title">Figure 35. Survival curve for age at first marriage (dark line) and a 90% confidence interval based on weighted resampling (gray line).</div>
+<div class="title">Figure 48. Survival curve for age at first marriage (dark line) and a 90% confidence interval based on weighted resampling (gray line).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival3">[survival3]</a> shows the result along with the survival
+<p><a href="#survival3">Figure 48</a> shows the result along with the survival
 curve we estimated in the previous section. The confidence interval
 takes into account the sampling weights, unlike the estimated curve. The
 discrepancy between them indicates that the sampling weights have a
@@ -10945,14 +10967,14 @@ match up respondents by index; instead it creates a new index from 0 to
         thinkplot.Plot(sf)</code></pre>
 </div>
 </div>
-<div class="imageblock">
+<div id="survival4" class="imageblock">
 <div class="content">
 <img src="figs/survival4.png" alt="survival4" height="240">
 </div>
-<div class="title">Figure 36. Survival curves for respondents born during different decades.</div>
+<div class="title">Figure 49. Survival curves for respondents born during different decades.</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival4">[survival4]</a> shows the results. Several patterns are
+<p><a href="#survival4">Figure 49</a> shows the results. Several patterns are
 visible:</p>
 </div>
 <div class="ulist">
@@ -11051,14 +11073,14 @@ predecessor, which might contain values from the previous group, and so
 on. Then it converts each HazardFunction to a SurvivalFunction and plots
 it.</p>
 </div>
-<div class="imageblock">
+<div id="survival5" class="imageblock">
 <div class="content">
 <img src="figs/survival5.png" alt="survival5" height="240">
 </div>
-<div class="title">Figure 37. Survival curves for respondents born during different decades, with predictions for the later cohorts.</div>
+<div class="title">Figure 50. Survival curves for respondents born during different decades, with predictions for the later cohorts.</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival5">[survival5]</a> shows the results; I’ve removed the 50s
+<p><a href="#survival5">Figure 50</a> shows the results; I’ve removed the 50s
 cohort to make the predictions more visible. These results suggest that
 by age 40, the most recent cohorts will converge with the 60s cohort,
 with fewer than 20% never married.</p>
@@ -11147,14 +11169,14 @@ example the result is the mean pregnancy length, given that the length
 exceeds <code>t</code>. By subtracting <code>t</code> we get the mean remaining pregnancy
 length.</p>
 </div>
-<div class="imageblock">
+<div id="survival6" class="imageblock">
 <div class="content">
 <img src="figs/survival6.png" alt="survival6" height="240">
 </div>
-<div class="title">Figure 38. Expected remaining pregnancy length (left) and years until first marriage (right).</div>
+<div class="title">Figure 51. Expected remaining pregnancy length (left) and years until first marriage (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival6">[survival6]</a> (left) shows the expected remaining
+<p><a href="#survival6">Figure 51</a> (left) shows the expected remaining
 pregnancy length as a function of the current duration. For example,
 during Week 0, the expected remaining duration is about 34 weeks. That’s
 less than full term (39 weeks) because terminations of pregnancy in the
@@ -11174,7 +11196,7 @@ has no effect on the predictions. This behavior is the mathematical
 basis of the infuriating mantra of obstetrics nurses: &#8220;any day now.&#8221;</p>
 </div>
 <div class="paragraph">
-<p><a href="#survival6">[survival6]</a> (right) shows the median remaining time
+<p><a href="#survival6">Figure 51</a> (right) shows the median remaining time
 until first marriage, as a function of age. For an 11 year-old girl, the
 median time until first marriage is about 14 years. The curve decreases
 until age 22 when the median remaining time is about 7 years. After that
@@ -11694,37 +11716,37 @@ make a normal probability plot:</p>
 <p><code>NormalPlotSamples</code> takes the list of pairs from <code>MakeExpoSamples</code>
 and generates a row of normal probability plots.</p>
 </div>
-<div class="imageblock">
+<div id="normal1" class="imageblock">
 <div class="content">
 <img src="figs/normal1.png" alt="normal1" height="336">
 </div>
-<div class="title">Figure 39. Distributions of sums of exponential values (top row) and lognormal values (bottom row).</div>
+<div class="title">Figure 52. Distributions of sums of exponential values (top row) and lognormal values (bottom row).</div>
 </div>
 <div class="paragraph">
-<p><a href="#normal1">[normal1]</a> (top row) shows the results. With <code>n=1</code>,
+<p><a href="#normal1">Figure 52</a> (top row) shows the results. With <code>n=1</code>,
 the distribution of the sum is still exponential, so the normal
 probability plot is not a straight line. But with <code>n=10</code> the
 distribution of the sum is approximately normal, and with <code>n=100</code> it
 is all but indistinguishable from normal.</p>
 </div>
 <div class="paragraph">
-<p><a href="#normal1">[normal1]</a> (bottom row) shows similar results for a
+<p><a href="#normal1">Figure 52</a> (bottom row) shows similar results for a
 lognormal distribution. Lognormal distributions are generally more
 skewed than exponential distributions, so the distribution of sums takes
 longer to converge. With <code>n=10</code> the normal probability plot is nowhere
 near straight, but with <code>n=100</code> it is approximately normal.</p>
 </div>
-<div class="imageblock">
+<div id="normal2" class="imageblock">
 <div class="content">
 <img src="figs/normal2.png" alt="normal2" height="336">
 </div>
-<div class="title">Figure 40. Distributions of sums of Pareto values (top row) and correlated exponential values (bottom row).</div>
+<div class="title">Figure 53. Distributions of sums of Pareto values (top row) and correlated exponential values (bottom row).</div>
 </div>
 <div class="paragraph">
 <p>Pareto distributions are even more skewed than lognormal. Depending on
 the parameters, many Pareto distributions do not have finite mean and
 variance. As a result, the Central Limit Theorem does not apply.
-<a href="#normal2">[normal2]</a> (top row) shows distributions of sums of
+<a href="#normal2">Figure 53</a> (top row) shows distributions of sums of
 Pareto values. Even with <code>n=100</code> the normal probability plot is far
 from straight.</p>
 </div>
@@ -11779,7 +11801,7 @@ sequence of exponential values. <code>ppf</code> stands for &#8220;percent point
 function,&#8221; which is another name for the inverse CDF.</p>
 </div>
 <div class="paragraph">
-<p><a href="#normal2">[normal2]</a> (bottom row) shows distributions of sums of
+<p><a href="#normal2">Figure 53</a> (bottom row) shows distributions of sums of
 correlated exponential values with <code>rho=0.9</code>. The correlation slows
 the rate of convergence; nevertheless, with <code>n=100</code> the normal
 probability plot is nearly straight. So even though CLT does not
@@ -11950,11 +11972,11 @@ parameter of the t-distribution, <code>df</code>, stands for &#8220;degrees of
 freedom.&#8221; I won’t explain that term, but you can read about it at
 <a href="http://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics" class="bare">http://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics</a>).</p>
 </div>
-<div class="imageblock">
+<div id="normal4" class="imageblock">
 <div class="content">
 <img src="figs/normal4.png" alt="normal4" height="240">
 </div>
-<div class="title">Figure 41. Sampling distribution of correlations for uncorrelated normal variables.</div>
+<div class="title">Figure 54. Sampling distribution of correlations for uncorrelated normal variables.</div>
 </div>
 <div class="paragraph">
 <p>To get from <code>ts</code> to the correlation coefficients, <code>rs</code>, we apply the
@@ -11967,7 +11989,7 @@ inverse transform,</p>
 </div>
 <div class="paragraph">
 <p>The result is the sampling distribution of \(r\) under the null
-hypothesis. <a href="#normal4">[normal4]</a> shows this distribution along
+hypothesis. <a href="#normal4">Figure 54</a> shows this distribution along
 with the distribution we generated in <a href="#corrtest">Section 9.5</a> by
 resampling. They are nearly identical. Although the actual distributions
 are not normal, Pearson’s coefficient of correlation is based on sample
@@ -11975,7 +11997,7 @@ means and variances. By the Central Limit Theorem, these moment-based
 statistics are normally distributed even if the data are not.</p>
 </div>
 <div class="paragraph">
-<p>From <a href="#normal4">[normal4]</a>, we can see that the observed
+<p>From <a href="#normal4">Figure 54</a>, we can see that the observed
 correlation, 0.07, is unlikely to occur if the variables are actually
 uncorrelated. Using the analytic distribution, we can compute just how
 unlikely:</p>
@@ -12012,11 +12034,11 @@ coincidence{}<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.</p>
 </div>
-<div class="imageblock">
+<div id="normal5" class="imageblock">
 <div class="content">
 <img src="figs/normal5.png" alt="normal5" height="240">
 </div>
-<div class="title">Figure 42. Sampling distribution of chi-squared statistics for a fair six-sided die.</div>
+<div class="title">Figure 55. Sampling distribution of chi-squared statistics for a fair six-sided die.</div>
 </div>
 <div class="paragraph">
 <p>SciPy provides an implementation of the chi-squared distribution, which
@@ -12032,7 +12054,7 @@ statistic:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#normal5">[normal5]</a> shows the analytic result along with the
+<p><a href="#normal5">Figure 55</a> shows the analytic result along with the
 distribution we got by resampling. They are very similar, especially in
 the tail, which is the part we usually care most about.</p>
 </div>
@@ -12054,7 +12076,7 @@ statistic, <code>chi2</code>:</p>
 again. In this case the correct parameter is <code>n-1</code>, where <code>n</code> is the
 size of the table, 6. Choosing this parameter can be tricky; to be
 honest, I am never confident that I have it right until I generate
-something like <a href="#normal5">[normal5]</a> to compare the analytic
+something like <a href="#normal5">Figure 55</a> to compare the analytic
 results to the resampling results.</p>
 </div>
 </div>
@@ -12277,7 +12299,7 @@ Complexity</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=g
 <div id="footer">
 <div id="footer-text">
 Version 2.0.38<br>
-Last updated 2019-09-04 14:15:54 AEST
+Last updated 2019-09-04 14:40:39 AEST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
