@@ -844,7 +844,13 @@ to answer statistical questions about family life, reproduction, and
 health. At the same time, we have an obligation to consider the people
 represented by the data, and to afford them respect and gratitude.
 
+
 === Exercises
+
+:!exercise:
+{counter2:exercise-chapter}
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In the repository you downloaded, you should find a file named
 `+chap01ex.ipynb+`, which is an IPython notebook. You can launch IPython
@@ -875,6 +881,8 @@ should try.
 
 A solution to this exercise is in `+chap01soln.ipynb+`
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 In the repository you downloaded, you should find a file named
 `+chap01ex.py+`; using this file as a starting place, write a function
 that reads the respondent file, `+2002FemResp.dat.gz+`.
@@ -891,6 +899,8 @@ You can use `+nsfg.MakePregMap+` to make a dictionary that maps from
 each `+caseid+` to a list of indices into the pregnancy DataFrame.
 
 A solution to this exercise is in `+chap01soln.py+`
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The best way to learn about statistics is to work on a project you are
 interested in. Is there a question like, "`Do first babies arrive
@@ -1420,6 +1430,11 @@ limitations.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Based on the results in this chapter, suppose you were asked to
 summarize what you learned about whether first babies arrive late.
 
@@ -1432,6 +1447,8 @@ Finally, imagine that you are Cecil Adams, author of _The Straight Dope_
 first babies arrive late?`" Write a paragraph that uses the results in
 this chapter to answer the question clearly, precisely, and honestly.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 In the repository you downloaded, you should find a file named
 `+chap02ex.ipynb+`; open it. Some cells are already filled in, and you
 should execute them. Other cells give you instructions for exercises.
@@ -1439,9 +1456,12 @@ Follow the instructions and fill in the answers.
 
 A solution to this exercise is in `+chap02soln.ipynb+`
 
+
 In the repository you downloaded, you should find a file named
 `+chap02ex.py+`; you can use this file as a starting place for the
 following exercises. My solution is in `+chap02soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The mode of a distribution is the most frequent value; see
 http://wikipedia.org/wiki/Mode_(statistics). Write a function called
@@ -1450,6 +1470,8 @@ http://wikipedia.org/wiki/Mode_(statistics). Write a function called
 As a more challenging exercise, write a function called `+AllModes+`
 that returns a list of value-frequency pairs in descending order of
 frequency.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Using the variable `+totalwgt_lb+`, investigate whether first babies are
 lighter or heavier than others. Compute Cohen’s latexmath:[d] to
@@ -1915,6 +1937,11 @@ the labels consistently and avoid using integer positions.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Solutions to these exercises are in `+chap03soln.ipynb+` and
 `+chap03soln.py+`
 
@@ -1932,6 +1959,8 @@ themselves) are in their household.
 
 Plot the actual and biased distributions, and compute their means. As a
 starting place, you can use `+chap03ex.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In <<mean>> we computed the mean of a sample by adding up
 the elements and dividing by n. If you are given a PMF, you can still
@@ -1953,6 +1982,8 @@ and compute the mean and variance. To test these methods, check that
 they are consistent with the methods `+Mean+` and `+Var+` provided by
 Pmf.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 I started with the question, "`Are first babies more likely to be
 late?`" To address it, I computed the difference in means between groups
 of babies, but I ignored the possibility that there might be a
@@ -1963,6 +1994,8 @@ least two babies and compute pairwise differences. Does this formulation
 of the question yield a different result?
 
 Hint: use `+nsfg.MakePregMap+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 [[relay]]
 
@@ -2421,8 +2454,13 @@ beat to maintain my percentile rank.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 For the following exercises, you can start with `+chap04ex.ipynb+`. My
 solution is in `+chap04soln.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 How much did you weigh at birth? If you don’t know, call your mother or
 someone else who knows. Using the NSFG data (all live births), compute
@@ -2431,6 +2469,8 @@ rank. If you were a first baby, find your percentile rank in the
 distribution for first babies. Otherwise use the distribution for
 others. If you are in the 90th percentile or higher, call your mother
 back and apologize.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The numbers generated by `+random.random+` are supposed to be uniform
 between 0 and 1; that is, every value in the range should have the same
@@ -2980,8 +3020,13 @@ depends on what you are planning to use the model for.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 For the following exercises, you can start with `+chap05ex.ipynb+`. My
 solution is in `+chap05soln.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In the BRFSS (see <<lognormal>>), the
 distribution of heights is roughly normal with parameters
@@ -2992,6 +3037,8 @@ In order to join Blue Man Group, you have to be male between 5’10” and
 6’1” (see http://bluemancasting.com). What percentage of the U.S. male
 population is in this range? Hint: use `+scipy.stats.norm.cdf+`.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 To get a feel for the Pareto distribution, let’s see how different the
 world would be if the distribution of human height were Pareto. With the
 parameters latexmath:[x_{m} = 1] m and latexmath:[\alpha = 1.7], we get
@@ -3001,6 +3048,8 @@ Plot this distribution. What is the mean human height in Pareto world?
 What fraction of the population is shorter than the mean? If there are 7
 billion people in Pareto world, how many do we expect to be taller than
 1 km? How tall do we expect the tallest person to be?
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 [[weibull]]
 
@@ -3019,6 +3068,8 @@ indicate?
 Use `+random.weibullvariate+` to generate a sample from a Weibull
 distribution and use it to test your transformation.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 For small values of latexmath:[n], we don’t expect an empirical
 distribution to fit an analytic distribution exactly. One way to
 evaluate the quality of fit is to generate a sample from an analytic
@@ -3033,6 +3084,8 @@ as the data, about 33 minutes between births.
 
 Plot the distribution of the random values and compare it to the actual
 distribution. You can use `+random.expovariate+` to generate the values.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In the repository for this book, you’ll find a set of data files called
 `+mystery0.dat+`, `+mystery1.dat+`, and so on. Each contains a sequence
@@ -3049,6 +3102,8 @@ $ python test_models.py mystery0.dat
 Based on these plots, you should be able to infer what kind of
 distribution generated each file. If you are stumped, you can look in
 `+mystery.py+`, which contains the code that generated the files.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 [[income]]
 
@@ -3650,7 +3705,12 @@ third moment, it is somewhat more robust.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to this exercise is in `+chap06soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The distribution of income is famously skewed to the right. In this
 exercise, we’ll measure how strong that skew is.
@@ -4234,7 +4294,12 @@ In some cases it is possible to infer causal relationships using
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to this exercise is in `+chap07soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Using data from the NSFG, make a scatter plot of birth weight versus
 mother’s age. Plot percentiles of birth weight versus mother’s age.
@@ -4709,8 +4774,13 @@ not an unbiased estimator of latexmath:[\lambda].
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 For the following exercises, you might want to start with a copy of
 `+estimation.py+`. Solutions are in `+chap08soln.py+`
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In this chapter we used latexmath:[\bar{x}] and median to estimate
 latexmath:[\mu], and found that latexmath:[\bar{x}] yields lower MSE.
@@ -4722,6 +4792,8 @@ Run similar experiments to see if latexmath:[\bar{x}] and median are
 biased estimates of latexmath:[\mu]. Also check whether latexmath:[S^2]
 or latexmath:[S_{n-1}^2] yields a lower MSE.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Suppose you draw a sample with size latexmath:[n=10] from an exponential
 distribution with latexmath:[\lambda=2]. Simulate this experiment 1000
 times and plot the sampling distribution of the estimate latexmath:[L].
@@ -4730,6 +4802,8 @@ interval.
 
 Repeat the experiment with a few different values of latexmath:[n] and
 make a plot of standard error versus latexmath:[n].
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In games like hockey and soccer, the time between goals is roughly
 exponential. So you could estimate a team’s goal-scoring rate by
@@ -5477,7 +5551,12 @@ original, is bigger in the new dataset and significant.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to these exercises is in `+chap09soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 As sample size increases, the power of a hypothesis test increases,
 which means it is more likely to be positive if the effect is real.
@@ -5491,6 +5570,8 @@ DataFrame.
 
 What happens to the p-values of these tests as sample size decreases?
 What is the smallest sample size that yields a positive test?
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In <<testdiff>>, we simulated the null hypothesis by
 permutation; that is, we treated the observed values as if they
@@ -6090,7 +6171,12 @@ difference is not due to chance.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to this exercise is in `+chap10soln.ipynb+`
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Using the data from the BRFSS, compute the linear least squares fit for
 log(weight) versus height. How would you best present the estimated
@@ -6971,7 +7057,12 @@ improves your chances of winning, the difference is very small.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 My solution to these exercises is in `+chap11soln.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Suppose one of your co-workers is expecting a baby and you are
 participating in an office pool to predict the date of birth. Assuming
@@ -6979,6 +7070,8 @@ that bets are placed during the 30th week of pregnancy, what variables
 could you use to make the best prediction? You should limit yourself to
 variables that are known before the birth, and likely to be available to
 the people in the pool.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The Trivers-Willard hypothesis suggests that for many mammals the sex
 ratio depends on "`maternal condition`"; that is, factors like the
@@ -6993,6 +7086,8 @@ As an exercise, use a data mining approach to test the other variables
 in the pregnancy and respondent files. Can you find any factors with a
 substantial effect?
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 If the quantity you want to predict is a count, you can use Poisson
 regression, which is implemented in StatsModels with a function called
 `+poisson+`. It works the same way as `+ols+` and `+logit+`. As an
@@ -7002,6 +7097,8 @@ the NSFG dataset, this variable is called `+numbabes+`.
 Suppose you meet a woman who is 35 years old, black, and a college
 graduate whose annual household income exceeds $75,000. How many
 children would you predict she has born?
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 If the quantity you want to predict is categorical, you can use
 multinomial logistic regression, which is implemented in StatsModels
@@ -7790,7 +7887,12 @@ leaves off.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 My solution to these exercises is in `+chap12soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The linear model I used in this chapter has the obvious drawback that it
 is linear, and there is no reason to expect prices to change linearly
@@ -7803,6 +7905,8 @@ the model to generate predictions. You will have to write a version of
 should be able to reuse code in `+timeseries.py+` to generate
 predictions.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Write a definition for a class named `+SerialCorrelationTest+` that
 extends `+HypothesisTest+` from <<hypotest>>. It should
 take a series and a lag as data, compute the serial correlation of the
@@ -7812,6 +7916,8 @@ correlation.
 Use this class to test whether the serial correlation in raw price data
 is statistically significant. Also test the residuals of the linear
 model and (if you did the previous exercise), the quadratic model.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 There are several ways to extend the EWMA model to generate predictions.
 One of the simplest is something like this:
@@ -8655,7 +8761,12 @@ function that takes a Pmf and computes its median (50th percentile).
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 My solution to this exercise is in `+chap13soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In NSFG Cycles 6 and 7, the variable `+cmdivorcx+` contains the date of
 divorce for the respondent’s first marriage, if applicable, encoded in
@@ -9364,9 +9475,16 @@ past Step 1.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to these exercises is in `+chap14soln.py+`
 
-[#log_clt]#[log_clt]# In <<lognormal>>, we saw
+*Exercise {exercise-chapter}.{counter:exercise}*
+
+[[log_clt]]
+
+In <<lognormal>>, we saw
 that the distribution of adult weights is approximately lognormal. One
 possible explanation is that the weight a person gains each year is
 proportional to their current weight. In that case, adult weight is the
@@ -9396,6 +9514,8 @@ of factors from the distribution of latexmath:[f], and computing the
 product. What value of latexmath:[n] is needed to converge to a
 lognormal distribution?
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 In <<usingCLT>> we used the Central Limit Theorem to
 find the sampling distribution of the difference in means,
 latexmath:[\delta], under the null hypothesis that both samples are
@@ -9409,6 +9529,8 @@ are drawn from different populations.
 
 Compute this distribution and use it to calculate the standard error and
 a 90% confidence interval for the difference in means.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In a recent paper{_}footnote:["`Evidence for the persistent effects of an
 intervention to mitigate gender-sterotypical task allocation within
