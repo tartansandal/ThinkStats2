@@ -1,5 +1,5 @@
---- book.adoc.orig	2019-09-03 15:53:38.462755418 +1000
-+++ new-book.adoc	2019-09-03 22:11:54.084195942 +1000
+--- book.adoc.orig	2019-09-04 14:04:57.972723694 +1000
++++ new-book.adoc	2019-09-04 14:04:58.048724558 +1000
 @@ -1,19 +1,20 @@
 -= Think Stats
 += Think Stats: Exploratory Data Analysis in Python
@@ -2504,10 +2504,19 @@
  intervention to mitigate gender-sterotypical task allocation within
  student engineering teams,`" Proceedings of the IEEE Frontiers in
  Education Conference, 2014.], Stein et al. investigate the effects of an
-@@ -9240,3 +9410,8 @@
+@@ -9240,3 +9410,17 @@
  
  Finally, estimate the change in gender gap; what is the sampling
  distribution of this change, and is it statistically significant?
++
++ifdef::backend-html5[]
++
++:sectnums!:
++
++[role=advert-bar]
++include::advert.adoc[]
++
++endif::[]
 +
 +ifndef::backend-html5[]
 +[index]
