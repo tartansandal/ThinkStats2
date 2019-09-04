@@ -41,8 +41,10 @@ book.xml: book.tex Makefile $(PNG_FILES)
 	perl -pi.orig -e 's{(<imagedata fileref="figs/\w+)\.pdf"}{\1.png"}' book.xml
 
 # Convert footer into AsciiDoc that we can conditionaly include in the final document
-advert.adoc: footer.html
-	pandoc --from html --to asciidoctor --output advert.adoc footer.html
+advert.adoc: footer.html Makefile
+	perl -pe 's/^<br>/<hr>/' footer.html > tmp-footer.html
+	pandoc --from html --to asciidoctor --output advert.adoc tmp-footer.html
+	rm -f tmp-footer.html
 
 # Use pandoc to generate AsciiDoc.
 # Current translation is not perfect so we need to add some filters and patches.
