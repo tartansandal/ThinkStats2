@@ -57,17 +57,17 @@ book.adoc: book.tex Makefile $(PNG_FILES)
 		book.tex
 	@
 	@## Search and replace to fix bugs and anomalies (TODO convert to LUA filters)
-	@#> Fix image paths all images are inline (TODO: --default-image-extension=png)
+	@#> Fix image paths all images are inline
 	perl -pi -e 's{^image:(figs/\w+)\.pdf\[}{image::\1.png[}g;' book.adoc
-	@#> Fix xrefs (TODO: maybe --reference-links)
+	@#> Fix xrefs
 	perl -pi \
 	    -e 's{(Chapter|Section|Figure)\W{2}link:#(\w+)\[{1,2}[^]]+\]{1,2}}{<<\2>>}g;' \
 	    book.adoc
 	@
 	@## Some changes are fundamental and cannot be filter/fix, so we patch
-	@#> frontmatter (TODO convert to docinfo?, or --metadata-file=)
+	@#> frontmatter
 	@#> image blocks (TODO this could be a bug)
-	@#> code blocks (not indicated in source. TODO try --listings option?)
+	@#> code blocks (not indicated in source)
 	cp book.adoc book.adoc.orig
 	patch book.adoc < book.adoc.patch
 

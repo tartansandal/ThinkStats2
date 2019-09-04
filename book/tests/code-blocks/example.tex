@@ -1,0 +1,24 @@
+\documentclass[12pt]{book}
+
+\usepackage{graphicx}
+
+\begin{document}
+
+\chapter{Preface}%
+\label{preface}
+
+This book is an introduction to the practical tools of exploratory data analysis.  The
+organization of the book follows the process I use when I start working with a dataset:
+
+\section{Plotting histograms}%
+\index{pyplot}
+
+\begin{verbatim}
+    hist = thinkstats2.Hist(live.birthwgt_lb, label='birthwgt_lb')
+    thinkplot.Hist(hist)
+    thinkplot.Show(xlabel='pounds', ylabel='frequency')
+\end{verbatim}
+
+Some text after
+
+\end{document}
