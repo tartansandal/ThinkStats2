@@ -10,6 +10,7 @@ v2.0.38
 :xrefstyle: short
 :source-highlighter: highlightjs
 :source-language: python
+:_:
 
 :sectnums!:
 
@@ -1342,7 +1343,7 @@ standard deviation is 2.7 weeks, which means we should expect deviations
 of 2-3 weeks to be common.
 
 Variance of pregnancy length is 7.3, which is hard to interpret,
-especially since the units are weeks{}latexmath:[^2], or "`square weeks.`"
+especially since the units are weeks{_}latexmath:[^2], or "`square weeks.`"
 Variance is useful in some calculations, but it is not a good summary
 statistic.
 
@@ -3516,7 +3517,7 @@ see http://en.wikipedia.org/wiki/Moment_of_inertia.
 When you report moment-based statistics, it is important to think about
 the units. For example, if the values latexmath:[x_i] are in cm, the
 first raw moment is also in cm. But the second moment is in
-cm{}latexmath:[^2], the third moment is in cm{}latexmath:[^3], and so on.
+cm{_}latexmath:[^2], the third moment is in cm{_}latexmath:[^3], and so on.
 
 Because of these units, moments are hard to interpret by themselves.
 That’s why, for the second moment, it is common to report standard
@@ -4795,7 +4796,7 @@ in the sample by chance.
 
 There are several ways we could formulate this question, including
 Fisher null hypothesis testing, Neyman-Pearson decision theory, and
-Bayesian inference{}footnote:[For more about Bayesian inference, see the
+Bayesian inference{_}footnote:[For more about Bayesian inference, see the
 sequel to this book, _Think Bayes_.]. What I present here is a subset of
 all three that makes up most of what people use in practice, which I
 will call *classical hypothesis testing*.
@@ -4884,7 +4885,7 @@ test statistics, and stores them in `+test_stats+`. The result is the
 fraction of elements in `+test_stats+` that exceed or equal the observed
 test statistic, `+self.actual+`.
 
-As a simple example{}footnote:[Adapted from MacKay, _Information Theory,
+As a simple example{_}footnote:[Adapted from MacKay, _Information Theory,
 Inference, and Learning Algorithms_, 2003.], suppose we toss a coin 250
 times and see 140 heads and 110 tails. Based on this result, we might
 suspect that the coin is biased; that is, more likely to land heads. To
@@ -9283,7 +9284,7 @@ normalized deviation from the expected values in a table:
 ++++
 One reason the chi-squared statistic is widely used is that its sampling
 distribution under the null hypothesis is analytic; by a remarkable
-coincidence{}footnote:[Not really.], it is called the chi-squared
+coincidence{_}footnote:[Not really.], it is called the chi-squared
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.
 
@@ -9409,7 +9410,7 @@ are drawn from different populations.
 Compute this distribution and use it to calculate the standard error and
 a 90% confidence interval for the difference in means.
 
-In a recent paper{}footnote:["`Evidence for the persistent effects of an
+In a recent paper{_}footnote:["`Evidence for the persistent effects of an
 intervention to mitigate gender-sterotypical task allocation within
 student engineering teams,`" Proceedings of the IEEE Frontiers in
 Education Conference, 2014.], Stein et al. investigate the effects of an
