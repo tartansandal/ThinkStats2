@@ -1,0 +1,6 @@
+= Theorems not recognized by LaTeX input
+
+Theorem environments specified via `amsthm` and `\newtheorem` are ignored and passed
+through.
+
+Should be transformed into some kind of block with some appropiate attributes.

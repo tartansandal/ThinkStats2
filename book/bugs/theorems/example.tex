@@ -1,0 +1,31 @@
+\documentclass[12pt]{book}
+\usepackage{amsthm}
+
+\newtheoremstyle{exercise}% name of the style to be used
+  {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+  {}% name of font to use in the body of the theorem
+  {}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {}% Manually specify head
+
+\theoremstyle{exercise}
+\newtheorem{exercise}{Exercise}[chapter]
+
+\begin{document}
+
+\chapter{First Chapter}
+
+Some text before.
+
+\begin{exercise}
+
+    This is the excercise.
+
+\end{exercise}
+
+Some text after.
+
+\end{document}
