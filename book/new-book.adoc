@@ -15,7 +15,6 @@ v2.0.38
 // We define an "empty" attribute above so we can provide visual separation between
 // words and adjacent inline macros, e.g., `something{empty}footnote:[...]`.
 
-
 // Turn off section numbering for frontmatter
 :sectnums!:
 
