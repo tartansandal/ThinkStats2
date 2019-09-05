@@ -78,12 +78,15 @@ book.adoc.patch: book.adoc.orig new-book.adoc
 
 patch: book.adoc.patch
 
+# empty rule for working file
+new-book.adoc:
+
 # local copy of default style sheet
 asciidoctor.css:
 	echo 'text' | asciidoctor -o tmp.html -a linkcss -a copycss -
 	rm -f tmp.html
 
-%.html: book.adoc book.css asciidoctor.css $(PNG_FILES)
+%.html: %.adoc book.css asciidoctor.css $(PNG_FILES)
 	asciidoctor \
 		--doctype book                  \
 		--attribute stylesheet=book.css \
@@ -92,13 +95,13 @@ asciidoctor.css:
 book: book.html
 new-book: new-book.html
 
-html: book.adoc book.css asciidoctor.css $(PNG_FILES) Makefile
+html: new-book.html book.css asciidoctor.css $(PNG_FILES) Makefile
 	rm -rf html
 	mkdir html
 	mkdir html/figs
 	cp figs/*.png html/figs
 	cp asciidoctor.css book.css html
-	cp book.html html/index.html
+	cp new-book.html html/index.html
 
 FIGURES = figs/Correlation_examples.png
 

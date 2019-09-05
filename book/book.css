@@ -9,7 +9,7 @@
 
 /* If the screen is wide enough, position the advert-bar to the right */
 @media only screen and (min-width: 1200px) {
-    .sect1.advert-bar {
+    .sidebarblock.advert-bar {
         width: 15em;
         font-size: smaller;
 
@@ -31,7 +31,7 @@
         overflow: auto;
     }
 
-    .sect1.advert-bar h2 {
+    .sidebarblock.advert-bar h2 {
         font-size: 1.3575em;
     }
 

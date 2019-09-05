@@ -1,5 +1,5 @@
 --- book.adoc.orig	2019-09-05 12:15:06.720874705 +1000
-+++ new-book.adoc	2019-09-05 12:08:17.180106193 +1000
++++ new-book.adoc	2019-09-05 13:14:56.382995793 +1000
 @@ -1,19 +1,24 @@
 -= Think Stats
 += Think Stats: Exploratory Data Analysis in Python
@@ -2953,7 +2953,7 @@
 +// Dont number the advert bar
 +:sectnums!:
 +
-+[role=advert-bar]
++[discrete,role=advert-bar]
 +include::advert.adoc[]
 +
 +endif::[]

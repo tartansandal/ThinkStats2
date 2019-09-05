@@ -11,10 +11,13 @@
 @import "asciidoctor.css";
 
 /* local rules here */
+
+/* Make the page width approx the same as the book */
 #content, #header {
     max-width: 45em;
 }
 
+/* If the screen is wide enough, position the advert-bar to the right */
 @media only screen and (min-width: 1200px) {
     .sect1.advert-bar {
         width: 15em;
@@ -42,9 +45,10 @@
         font-size: 1.3575em;
     }
 
+    /* Add some space for the advert-bar */
     #content, #header, #footnotes {
-        padding-right: 15.9375em; /* 15em + 0.9375em */
-        max-width: 60em;          /* 15em + 45em     */
+        padding-right: 15.9375em; /* 0.9375em + 15em */
+        max-width: 60em;          /* 45em     + 15em */
     }
 }
 

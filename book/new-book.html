@@ -11,22 +11,26 @@
 @import "asciidoctor.css";
 
 /* local rules here */
+
+/* Make the page width approx the same as the book */
 #content, #header {
     max-width: 45em;
 }
 
-@media only screen and (min-width: 1260px) {
-    .sect1.advert-bar {
-
-        margin-top: 0!important;
-        background-color: #f8f8f7;
-
-        position: fixed;
+/* If the screen is wide enough, position the advert-bar to the right */
+@media only screen and (min-width: 1200px) {
+    .sidebarblock.advert-bar {
         width: 15em;
+        font-size: smaller;
+
+        position: absolute;
         left: auto;
         right: 0;
         top: 0;
+
         padding: 0em 1em;
+        margin-top: 0!important;
+        background-color: #f8f8f7;
 
         border-right-width: 0;
         border-left: 1px solid #efefed;
@@ -34,18 +38,23 @@
         border-bottom-width: 0!important;
 
         z-index: 1000;
-        height: 100%;
         overflow: auto;
     }
 
-    .sect1.advert-bar h2 {
+    .sidebarblock.advert-bar h2 {
         font-size: 1.3575em;
     }
 
-    #content, #header, #footer {
-        padding-right: 15.9375em; /* 15em + 0.9375em */
-        max-width: 60em;          /* 15em + 45em     */
+    /* Add some space for the advert-bar */
+    #content, #header, #footnotes {
+        padding-right: 15.9375em; /* 0.9375em + 15em */
+        max-width: 60em;          /* 45em     + 15em */
     }
+}
+
+.sidebarblock.advert-bar .paragraph,
+.sidebarblock.advert-bar .paragraph {
+    display: inline-block!important;
 }
 
 </style>
@@ -265,11 +274,53 @@
 <li><a href="#_exercises_14">14.10. Exercises</a></li>
 </ul>
 </li>
-<li><a href="#_are_you_using_one_of_our_books_in_a_class">Are you using one of our books in a class?</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="sidebarblock advert-bar">
+<div class="content">
+<h2 id="_are_you_using_one_of_our_books_in_a_class" class="discrete">Are you using one of our books in a class?</h2>
+<div class="paragraph">
+<p>We&#8217;d like to know about it. Please consider filling out
+<a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA">this
+short survey</a>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/1449370780/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449370780&amp;linkCode=as2&amp;tag=greenteapre01-20">Think
+Bayes</a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449370780" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/1449370780/ref=as_li_qf_sp_asin_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449370780&amp;linkCode=as2&amp;tag=greenteapre01-20"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=1449370780&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449370780" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/144933072X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=144933072X&amp;linkCode=as2&amp;tag=greenteapre01-20">Think
+Python</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=144933072X" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/144933072X/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=144933072X&amp;linkCode=as2&amp;tag=greenteapre01-20"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=144933072X&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=144933072X" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/1491907339/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1491907339&amp;linkCode=as2&amp;tag=greenteapre01-20&amp;linkId=O7WYM6H6YBYUFNWU">Think
+Stats</a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1491907339" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/1491907339/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1491907339&amp;linkCode=as2&amp;tag=greenteapre01-20&amp;linkId=JVSYKQHYSUIEYRHL"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=1491907339&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1491907339" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/1449314635/ref=as_li_tf_tl?ie=UTF8&amp;tag=greenteapre01-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449314635">Think
+Complexity</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449314635" alt="image" width="1" height="1"></span></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.amazon.com/gp/product/1449314635/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449314635&amp;linkCode=as2&amp;tag=greenteapre01-20"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=1449314635&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449314635" alt="image" width="1" height="1"></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_colphon"><a class="anchor" href="#_colphon"></a><a class="link" href="#_colphon">Colphon</a></h2>
 <div class="sectionbody">
@@ -4827,7 +4878,7 @@ see <a href="http://en.wikipedia.org/wiki/Moment_of_inertia" class="bare">http:/
 <p>When you report moment-based statistics, it is important to think about
 the units. For example, if the values \(x_i\) are in cm, the
 first raw moment is also in cm. But the second moment is in
-cm{<em>}\(^2\), the third moment is in cm{</em>}\(^3\), and so on.</p>
+cm\(^2\), the third moment is in cm\(^3\), and so on.</p>
 </div>
 <div class="paragraph">
 <p>Because of these units, moments are hard to interpret by themselves.
@@ -6475,7 +6526,7 @@ in the sample by chance.</p>
 <div class="paragraph">
 <p>There are several ways we could formulate this question, including
 Fisher null hypothesis testing, Neyman-Pearson decision theory, and
-Bayesian inference{<em>}<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnote_4" title="View footnote.">4</a>]</sup>. What I present here is a subset of
+Bayesian inference<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnote_4" title="View footnote.">4</a>]</sup>. What I present here is a subset of
 all three that makes up most of what people use in practice, which I
 will call <strong>classical hypothesis testing</strong>.</p>
 </div>
@@ -6582,7 +6633,7 @@ fraction of elements in <code>test_stats</code> that exceed or equal the observe
 test statistic, <code>self.actual</code>.</p>
 </div>
 <div class="paragraph">
-<p>As a simple example{<em>}<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnote_5" title="View footnote.">5</a>]</sup>, suppose we toss a coin 250
+<p>As a simple example<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnote_5" title="View footnote.">5</a>]</sup>, suppose we toss a coin 250
 times and see 140 heads and 110 tails. Based on this result, we might
 suspect that the coin is biased; that is, more likely to land heads. To
 test this hypothesis, we compute the probability of seeing such a
@@ -12293,8 +12344,8 @@ past Step 1.</p>
 <div class="paragraph">
 <p><strong>Exercise 14.1</strong></p>
 </div>
-<div class="paragraph">
-<p><a id="log_clt"></a>[log_clt] In <a href="#lognormal">Section 5.4</a>, we saw
+<div id="log_clt" class="paragraph">
+<p>In <a href="#lognormal">Section 5.4</a>, we saw
 that the distribution of adult weights is approximately lognormal. One
 possible explanation is that the weight a person gains each year is
 proportional to their current weight. In that case, adult weight is the
@@ -12388,45 +12439,6 @@ distribution of this change, and is it statistically significant?</p>
 </div>
 </div>
 </div>
-<div class="sect1 advert-bar">
-<h2 id="_are_you_using_one_of_our_books_in_a_class"><a class="anchor" href="#_are_you_using_one_of_our_books_in_a_class"></a><a class="link" href="#_are_you_using_one_of_our_books_in_a_class">Are you using one of our books in a class?</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We&#8217;d like to know about it. Please consider filling out
-<a href="http://spreadsheets.google.com/viewform?formkey=dC0tNUZkMjBEdXVoRGljNm9FRmlTMHc6MA">this
-short survey</a>.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/1449370780/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449370780&amp;linkCode=as2&amp;tag=greenteapre01-20">Think
-Bayes</a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449370780" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/1449370780/ref=as_li_qf_sp_asin_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449370780&amp;linkCode=as2&amp;tag=greenteapre01-20"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=1449370780&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449370780" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/144933072X/ref=as_li_tf_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=144933072X&amp;linkCode=as2&amp;tag=greenteapre01-20">Think
-Python</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=144933072X" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/144933072X/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=144933072X&amp;linkCode=as2&amp;tag=greenteapre01-20"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=144933072X&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=144933072X" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/1491907339/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1491907339&amp;linkCode=as2&amp;tag=greenteapre01-20&amp;linkId=O7WYM6H6YBYUFNWU">Think
-Stats</a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1491907339" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/1491907339/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1491907339&amp;linkCode=as2&amp;tag=greenteapre01-20&amp;linkId=JVSYKQHYSUIEYRHL"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=1491907339&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://ir-na.amazon-adsystem.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1491907339" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/1449314635/ref=as_li_tf_tl?ie=UTF8&amp;tag=greenteapre01-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449314635">Think
-Complexity</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449314635" alt="image" width="1" height="1"></span></p>
-</div>
-<div class="paragraph">
-<p><a href="http://www.amazon.com/gp/product/1449314635/ref=as_li_tf_il?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=1449314635&amp;linkCode=as2&amp;tag=greenteapre01-20"><span class="image"><img src="http://ws-na.amazon-adsystem.com/widgets/q?<em>encoding=UTF8&amp;ASIN=1449314635&amp;Format=_SL160</em>&amp;ID=AsinImage&amp;MarketPlace=US&amp;ServiceVersion=20070822&amp;WS=1&amp;tag=greenteapre01-20" alt="image"></span></a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=greenteapre01-20&amp;l=as2&amp;o=1&amp;a=1449314635" alt="image" width="1" height="1"></span></p>
-</div>
-</div>
-</div>
 </div>
 <div id="footnotes">
 <hr>
@@ -12440,10 +12452,10 @@ Complexity</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=g
 <a href="#_footnoteref_3">3</a>. Centers for Disease Control and Prevention (CDC). Behavioral Risk Factor Surveillance System Survey Data. Atlanta, Georgia: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention, 2008.
 </div>
 <div class="footnote" id="_footnote_4">
-<a href="#_footnoteref_4">4</a>. For more about Bayesian inference, see the sequel to this book, _Think Bayes</em>.
+<a href="#_footnoteref_4">4</a>. For more about Bayesian inference, see the sequel to this book, <em>Think Bayes</em>.
 </div>
 <div class="footnote" id="_footnote_5">
-<a href="#_footnoteref_5">5</a>. Adapted from MacKay, _Information Theory, Inference, and Learning Algorithms</em>, 2003.
+<a href="#_footnoteref_5">5</a>. Adapted from MacKay, <em>Information Theory, Inference, and Learning Algorithms</em>, 2003.
 </div>
 <div class="footnote" id="_footnote_6">
 <a href="#_footnoteref_6">6</a>. Not really.
@@ -12455,7 +12467,7 @@ Complexity</a><span class="image"><img src="http://www.assoc-amazon.com/e/ir?t=g
 <div id="footer">
 <div id="footer-text">
 Version 2.0.38<br>
-Last updated 2019-09-05 00:06:05 AEST
+Last updated 2019-09-05 13:51:31 AEST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
