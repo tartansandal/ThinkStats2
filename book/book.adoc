@@ -212,9 +212,9 @@ using Anaconda or one of the other Python distributions that include
 these packages.
 
 After you clone the repository or unzip the zip file, you should have a
-folder called `+ThinkStats2/code+` with a file called nsfg.py. If you
-run nsfg.py, it should read a data file, run some tests, and print a
-message like, "`All tests passed.`" If you get import errors, it
+folder called `+ThinkStats2/code+` with a file called `+nsfg.py+`. If
+you run `+nsfg.py+`, it should read a data file, run some tests, and
+print a message like, "`All tests passed.`" If you get import errors, it
 probably means there are packages you need to install.
 
 Most exercises use Python scripts, but some also use the IPython
@@ -2117,6 +2117,7 @@ or better than 90% of the people who took the exam.
 Here’s how you could compute the percentile rank of a value,
 `+your_score+`, relative to the values in the sequence `+scores+`:
 
+[source]
 ....
 def PercentileRank(scores, your_score):
     count = 0
@@ -3136,7 +3137,7 @@ find `+hinc.py+`, which reads this file.
 
 Extract the distribution of incomes from this dataset. Are any of the
 analytic distributions in this chapter a good model of the data? A
-solution to this exercise is in hinc_soln.py.
+solution to this exercise is in `+hinc_soln.py+`.
 
 === Glossary
 
@@ -5446,6 +5447,7 @@ percentile? 5% of the time.
 So if you perform one hypothesis test with a 5% threshold, you expect a
 false positive 1 time in 20.
 
+[[power]]
 === Power
 
 The false negative rate is harder to compute because it depends on the
@@ -5516,6 +5518,7 @@ In general a negative hypothesis test does not imply that there is no
 difference between the groups; instead it suggests that if there is a
 difference, it is too small to detect with this sample size.
 
+[[replication]]
 === Replication
 
 The hypothesis testing process I demonstrated in this chapter is not,
@@ -6218,6 +6221,7 @@ goodness of fit.
 * *sampling weight*: A value associated with an observation in a sample
 that indicates what part of the population it represents.
 
+[[regression]]
 == Regression
 
 The linear least squares fit in the previous chapter is an example of
@@ -6264,6 +6268,7 @@ https://en.wikipedia.org/wiki/Ordinary_least_squares
 The code for this chapter is in `+regression.py+`. For information about
 downloading and working with this code, see <<code>>.
 
+[[statsmodels]]
 === StatsModels
 
 In the previous chapter I presented `+thinkstats2.LeastSquares+`, an
@@ -9022,6 +9027,7 @@ N(90, 56.25)
 returns the distribution of the sum of `+n+` values, using 
 <<eq:3>>:
 
+[source]
 ....
     def Sum(self, n):
         return Normal(n * self.mu, n * self.sigma2)

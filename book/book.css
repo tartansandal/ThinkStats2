@@ -41,3 +41,26 @@
         max-width: 60em;          /* 45em     + 15em */
     }
 }
+
+/* Match image sizes to the book */
+div.content > img { height: 240pt; }
+
+#scatter2 div.content > img,
+#scatter1 div.content > img,
+#class_size1 div.content > img,
+#survival1 div.content > img,
+#probability_nsfg_pmf div.content > img
+{ height: 288pt; }
+
+#density_wtkg2_kde div.content > img,
+#density_totalwgt_kde div.content > img,
+#dist_framework div.content > img,
+#pdf_example div.content > img
+{ height: 211pt; }
+
+#normal1 div.content > img,
+#normal2 div.content > img
+{ height: 336pt; }
+
+#timeseries1 div.content > img
+{ width: 336pt; }

@@ -196,9 +196,9 @@ using Anaconda or one of the other Python distributions that include
 these packages.
 
 After you clone the repository or unzip the zip file, you should have a
-folder called `+ThinkStats2/code+` with a file called nsfg.py. If you
-run nsfg.py, it should read a data file, run some tests, and print a
-message like, "`All tests passed.`" If you get import errors, it
+folder called `+ThinkStats2/code+` with a file called `+nsfg.py+`. If
+you run `+nsfg.py+`, it should read a data file, run some tests, and
+print a message like, "`All tests passed.`" If you get import errors, it
 probably means there are packages you need to install.
 
 Most exercises use Python scripts, but some also use the IPython
@@ -3040,7 +3040,7 @@ find `+hinc.py+`, which reads this file.
 
 Extract the distribution of incomes from this dataset. Are any of the
 analytic distributions in this chapter a good model of the data? A
-solution to this exercise is in hinc_soln.py.
+solution to this exercise is in `+hinc_soln.py+`.
 
 === Glossary
 

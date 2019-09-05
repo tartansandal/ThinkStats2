@@ -52,10 +52,28 @@
     }
 }
 
-.sidebarblock.advert-bar .paragraph,
-.sidebarblock.advert-bar .paragraph {
-    display: inline-block!important;
-}
+/* Match image sizes to the book */
+div.content > img { height: 240pt; }
+
+#scatter2 div.content > img,
+#scatter1 div.content > img,
+#class_size1 div.content > img,
+#survival1 div.content > img,
+#probability_nsfg_pmf div.content > img
+{ height: 288pt; }
+
+#density_wtkg2_kde div.content > img,
+#density_totalwgt_kde div.content > img,
+#dist_framework div.content > img,
+#pdf_example div.content > img
+{ height: 211pt; }
+
+#normal1 div.content > img,
+#normal2 div.content > img
+{ height: 336pt; }
+
+#timeseries1 div.content > img
+{ width: 336pt; }
 
 </style>
 </head>
@@ -195,8 +213,8 @@
 <li><a href="#casino2">9.7. Chi-squared tests</a></li>
 <li><a href="#_first_babies_again">9.8. First babies again</a></li>
 <li><a href="#_errors">9.9. Errors</a></li>
-<li><a href="#_power">9.10. Power</a></li>
-<li><a href="#_replication">9.11. Replication</a></li>
+<li><a href="#power">9.10. Power</a></li>
+<li><a href="#replication">9.11. Replication</a></li>
 <li><a href="#_exercises_9">9.12. Exercises</a></li>
 <li><a href="#_glossary_9">9.13. Glossary</a></li>
 </ul>
@@ -214,9 +232,9 @@
 <li><a href="#_glossary_10">10.9. Glossary</a></li>
 </ul>
 </li>
-<li><a href="#_regression">11. Regression</a>
+<li><a href="#regression">11. Regression</a>
 <ul class="sectlevel2">
-<li><a href="#_statsmodels">11.1. StatsModels</a></li>
+<li><a href="#statsmodels">11.1. StatsModels</a></li>
 <li><a href="#multiple">11.2. Multiple regression</a></li>
 <li><a href="#nonlinear">11.3. Nonlinear relationships</a></li>
 <li><a href="#mining">11.4. Data mining</a></li>
@@ -600,9 +618,9 @@ these packages.</p>
 </div>
 <div class="paragraph">
 <p>After you clone the repository or unzip the zip file, you should have a
-folder called <code>ThinkStats2/code</code> with a file called nsfg.py. If you
-run nsfg.py, it should read a data file, run some tests, and print a
-message like, &#8220;All tests passed.&#8221; If you get import errors, it
+folder called <code>ThinkStats2/code</code> with a file called <code>nsfg.py</code>. If
+you run <code>nsfg.py</code>, it should read a data file, run some tests, and
+print a message like, &#8220;All tests passed.&#8221; If you get import errors, it
 probably means there are packages you need to install.</p>
 </div>
 <div class="paragraph">
@@ -3069,16 +3087,16 @@ or better than 90% of the people who took the exam.</p>
 <p>Here’s how you could compute the percentile rank of a value,
 <code>your_score</code>, relative to the values in the sequence <code>scores</code>:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>def PercentileRank(scores, your_score):
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PercentileRank(scores, your_score):
     count = 0
     for score in scores:
         if score &lt;= your_score:
             count += 1
 
     percentile_rank = 100.0 * count / len(scores)
-    return percentile_rank</pre>
+    return percentile_rank</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4312,7 +4330,7 @@ find <code>hinc.py</code>, which reads this file.</p>
 <div class="paragraph">
 <p>Extract the distribution of incomes from this dataset. Are any of the
 analytic distributions in this chapter a good model of the data? A
-solution to this exercise is in hinc_soln.py.</p>
+solution to this exercise is in <code>hinc_soln.py</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5772,7 +5790,7 @@ that are not apparent. You can read more about this topic at
 <div class="paragraph">
 <p>In some cases it is possible to infer causal relationships using
 <strong>regression analysis</strong>, which is the topic of
-<a href="#regression">[regression]</a>.</p>
+<a href="#regression">Chapter 11</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -7212,7 +7230,7 @@ false positive 1 time in 20.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_power"><a class="anchor" href="#_power"></a><a class="link" href="#_power">9.10. Power</a></h3>
+<h3 id="power"><a class="anchor" href="#power"></a><a class="link" href="#power">9.10. Power</a></h3>
 <div class="paragraph">
 <p>The false negative rate is harder to compute because it depends on the
 actual effect size, and normally we don’t know that. One option is to
@@ -7292,7 +7310,7 @@ difference, it is too small to detect with this sample size.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_replication"><a class="anchor" href="#_replication"></a><a class="link" href="#_replication">9.11. Replication</a></h3>
+<h3 id="replication"><a class="anchor" href="#replication"></a><a class="link" href="#replication">9.11. Replication</a></h3>
 <div class="paragraph">
 <p>The hypothesis testing process I demonstrated in this chapter is not,
 strictly speaking, good practice.</p>
@@ -7398,7 +7416,7 @@ the population to the two groups.</p>
 population, then draw a random sample from that distribution. This
 process is called <strong>resampling</strong>. There are several ways to implement
 resampling, but one of the simplest is to draw a sample with replacement
-from the observed values, as in <a href="#power">[power]</a>.</p>
+from the observed values, as in <a href="#power">Section 9.10</a>.</p>
 </div>
 <div class="paragraph">
 <p>Write a class named <code>DiffMeansResample</code> that inherits from
@@ -8203,7 +8221,7 @@ that indicates what part of the population it represents.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_regression"><a class="anchor" href="#_regression"></a><a class="link" href="#_regression">11. Regression</a></h2>
+<h2 id="regression"><a class="anchor" href="#regression"></a><a class="link" href="#regression">11. Regression</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The linear least squares fit in the previous chapter is an example of
@@ -8258,7 +8276,7 @@ explanatory variable. You can find the details at
 downloading and working with this code, see <a href="#code">Using the code</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_statsmodels"><a class="anchor" href="#_statsmodels"></a><a class="link" href="#_statsmodels">11.1. StatsModels</a></h3>
+<h3 id="statsmodels"><a class="anchor" href="#statsmodels"></a><a class="link" href="#statsmodels">11.1. StatsModels</a></h3>
 <div class="paragraph">
 <p>In the previous chapter I presented <code>thinkstats2.LeastSquares</code>, an
 implementation of simple linear regression intended to be easy to read.
@@ -10028,7 +10046,7 @@ correlation, used more often when the lag is not 1.</p>
 </div>
 <div class="paragraph">
 <p>StatsModels, which we used for linear regression in
-<a href="#statsmodels">[statsmodels]</a>, also provides functions for time series
+<a href="#statsmodels">Section 11.1</a>, also provides functions for time series
 analysis, including <code>acf</code>, which computes the autocorrelation
 function:</p>
 </div>
@@ -11091,7 +11109,7 @@ called <strong>cohort effects</strong>.</p>
 <div class="paragraph">
 <p>To investigate cohort effects in the NSFG marriage data, I gathered the
 Cycle 6 data from 2002 used throughout this book; the Cycle 7 data from
-2006–2010 used in <a href="#replication">[replication]</a>; and the Cycle 5 data
+2006–2010 used in <a href="#replication">Section 9.11</a>; and the Cycle 5 data
 from 1995. In total these datasets include 30,769 respondents.</p>
 </div>
 <div class="listingblock">
@@ -11760,10 +11778,10 @@ N(90, 56.25)</pre>
 returns the distribution of the sum of <code>n</code> values, using
 <a href="#eq:3">Equation 3</a>:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>    def Sum(self, n):
-        return Normal(n * self.mu, n * self.sigma2)</pre>
+<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    def Sum(self, n):
+        return Normal(n * self.mu, n * self.sigma2)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12467,7 +12485,7 @@ distribution of this change, and is it statistically significant?</p>
 <div id="footer">
 <div id="footer-text">
 Version 2.0.38<br>
-Last updated 2019-09-05 13:51:31 AEST
+Last updated 2019-09-05 16:01:20 AEST
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
