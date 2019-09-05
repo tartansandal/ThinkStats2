@@ -10,8 +10,11 @@ v2.0.38
 :xrefstyle: short
 :source-highlighter: highlightjs
 :source-language: python
+// Define an "empty" attribute.  You can use this to provide visual separation between
+// words and adjacent inline macros, e.g., `something{_}footnote:[...]`.
 :_:
 
+// Turn off section numbering for frontmatter
 :sectnums!:
 
 [colophon]
@@ -277,6 +280,7 @@ Lipták, Dan Kearney, Alexander Gryzlov, Martin Veillette, Haitao Ma,
 Jeff Pickhardt, Rohit Deshpande, Joanne Pratt, Lucian Ursu, Paul Glezen,
 Ting-kuang Lin, Scott Miller, Luigi Patruno.
 
+// Turn on section numbering for mainmatter
 :sectnums:
 
 [[intro]]
@@ -9563,6 +9567,7 @@ distribution of this change, and is it statistically significant?
 
 ifdef::backend-html5[]
 
+// Dont number the advert bar
 :sectnums!:
 
 [role=advert-bar]

@@ -48,6 +48,7 @@ advert.adoc: footer.html Makefile
 
 # Use pandoc to generate AsciiDoc.
 # Current translation is not perfect so we need to add some filters and patches.
+# XXX dont make book.adoc.patch a dependency or you will get bad loops
 book.adoc: book.tex Makefile $(PNG_FILES)
 	pandoc                 \
 		--standalone       \
@@ -75,23 +76,29 @@ book.adoc: book.tex Makefile $(PNG_FILES)
 book.adoc.patch: book.adoc.orig new-book.adoc
 	diff -u book.adoc.orig new-book.adoc > book.adoc.patch || true
 
+patch: book.adoc.patch
+
 # local copy of default style sheet
 asciidoctor.css:
 	echo 'text' | asciidoctor -o tmp.html -a linkcss -a copycss -
 	rm -f tmp.html
 
-book.html: book.adoc book.css asciidoctor.css $(PNG_FILES) Makefile
+%.html: book.adoc book.css asciidoctor.css $(PNG_FILES)
 	asciidoctor \
 		--doctype book                  \
 		--attribute stylesheet=book.css \
-		--out-file book.html book.adoc
+		--out-file $*.html $*.adoc
 
-new-book.html: new-book.adoc book.css asciidoctor.css $(PNG_FILES) Makefile
-	asciidoctor \
-		--doctype book                  \
-		--attribute stylesheet=book.css \
-		--out-file new-book.html new-book.adoc
+book: book.html
+new-book: new-book.html
 
+html: book.adoc book.css asciidoctor.css $(PNG_FILES) Makefile
+	rm -rf html
+	mkdir html
+	mkdir html/figs
+	cp figs/*.png html/figs
+	cp asciidoctor.css book.css html
+	cp book.html html/index.html
 
 FIGURES = figs/Correlation_examples.png
 
@@ -101,3 +108,6 @@ oreilly:
 
 clean:
 	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc
+
+.PHONY: all lint xxe distrib clean oreilly
+.PHONY: book new-book patch html

@@ -10,7 +10,11 @@ v2.0.38
 :xrefstyle: short
 :source-highlighter: highlightjs
 :source-language: python
+// Define an "empty" attribute.  You can use this to provide visual separation between
+// words and adjacent inline macros, e.g., `something{_}footnote:[...]`.
+:_:
 
+// Turn off section numbering for frontmatter
 :sectnums!:
 
 [colophon]
@@ -276,6 +280,7 @@ Lipták, Dan Kearney, Alexander Gryzlov, Martin Veillette, Haitao Ma,
 Jeff Pickhardt, Rohit Deshpande, Joanne Pratt, Lucian Ursu, Paul Glezen,
 Ting-kuang Lin, Scott Miller, Luigi Patruno.
 
+// Turn on section numbering for mainmatter
 :sectnums:
 
 [[intro]]
@@ -843,7 +848,13 @@ to answer statistical questions about family life, reproduction, and
 health. At the same time, we have an obligation to consider the people
 represented by the data, and to afford them respect and gratitude.
 
+
 === Exercises
+
+:!exercise:
+{counter2:exercise-chapter}
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In the repository you downloaded, you should find a file named
 `+chap01ex.ipynb+`, which is an IPython notebook. You can launch IPython
@@ -874,6 +885,8 @@ should try.
 
 A solution to this exercise is in `+chap01soln.ipynb+`
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 In the repository you downloaded, you should find a file named
 `+chap01ex.py+`; using this file as a starting place, write a function
 that reads the respondent file, `+2002FemResp.dat.gz+`.
@@ -890,6 +903,8 @@ You can use `+nsfg.MakePregMap+` to make a dictionary that maps from
 each `+caseid+` to a list of indices into the pregnancy DataFrame.
 
 A solution to this exercise is in `+chap01soln.py+`
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The best way to learn about statistics is to work on a project you are
 interested in. Is there a question like, "`Do first babies arrive
@@ -1342,7 +1357,7 @@ standard deviation is 2.7 weeks, which means we should expect deviations
 of 2-3 weeks to be common.
 
 Variance of pregnancy length is 7.3, which is hard to interpret,
-especially since the units are weeks{}latexmath:[^2], or "`square weeks.`"
+especially since the units are weeks{_}latexmath:[^2], or "`square weeks.`"
 Variance is useful in some calculations, but it is not a good summary
 statistic.
 
@@ -1419,6 +1434,11 @@ limitations.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Based on the results in this chapter, suppose you were asked to
 summarize what you learned about whether first babies arrive late.
 
@@ -1431,6 +1451,8 @@ Finally, imagine that you are Cecil Adams, author of _The Straight Dope_
 first babies arrive late?`" Write a paragraph that uses the results in
 this chapter to answer the question clearly, precisely, and honestly.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 In the repository you downloaded, you should find a file named
 `+chap02ex.ipynb+`; open it. Some cells are already filled in, and you
 should execute them. Other cells give you instructions for exercises.
@@ -1438,9 +1460,12 @@ Follow the instructions and fill in the answers.
 
 A solution to this exercise is in `+chap02soln.ipynb+`
 
+
 In the repository you downloaded, you should find a file named
 `+chap02ex.py+`; you can use this file as a starting place for the
 following exercises. My solution is in `+chap02soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The mode of a distribution is the most frequent value; see
 http://wikipedia.org/wiki/Mode_(statistics). Write a function called
@@ -1449,6 +1474,8 @@ http://wikipedia.org/wiki/Mode_(statistics). Write a function called
 As a more challenging exercise, write a function called `+AllModes+`
 that returns a list of value-frequency pairs in descending order of
 frequency.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Using the variable `+totalwgt_lb+`, investigate whether first babies are
 lighter or heavier than others. Compute Cohen’s latexmath:[d] to
@@ -1914,6 +1941,11 @@ the labels consistently and avoid using integer positions.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Solutions to these exercises are in `+chap03soln.ipynb+` and
 `+chap03soln.py+`
 
@@ -1931,6 +1963,8 @@ themselves) are in their household.
 
 Plot the actual and biased distributions, and compute their means. As a
 starting place, you can use `+chap03ex.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In <<mean>> we computed the mean of a sample by adding up
 the elements and dividing by n. If you are given a PMF, you can still
@@ -1952,6 +1986,8 @@ and compute the mean and variance. To test these methods, check that
 they are consistent with the methods `+Mean+` and `+Var+` provided by
 Pmf.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 I started with the question, "`Are first babies more likely to be
 late?`" To address it, I computed the difference in means between groups
 of babies, but I ignored the possibility that there might be a
@@ -1962,6 +1998,8 @@ least two babies and compute pairwise differences. Does this formulation
 of the question yield a different result?
 
 Hint: use `+nsfg.MakePregMap+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 [[relay]]
 
@@ -2035,8 +2073,8 @@ at birth in pounds. <<nsfg_birthwgt_pmf>>
 shows the PMF of these values for first babies and others.
 
 [[nsfg_birthwgt_pmf]]
-image::figs/nsfg_birthwgt_pmf.png[PMF of birth weights. This figure shows
-a limitation of PMFs: they are hard to compare visually.,height=240]
+.PMF of birth weights. This figure shows a limitation of PMFs: they are hard to compare visually.
+image::figs/nsfg_birthwgt_pmf.png[height=240]
 
 Overall, these distributions resemble the bell shape of a normal
 distribution, with many values near the mean and a few values much
@@ -2189,8 +2227,8 @@ value in the sample, latexmath:[\mathrm{CDF}(x)] is 0. If latexmath:[x]
 is greater than the largest value, latexmath:[\mathrm{CDF}(x)] is 1.
 
 [[example_cdf]]
-image::figs/cumulative_example_cdf.png[Example of a CDF.,height=240]
-
+.Example of a CDF.
+image::figs/cumulative_example_cdf.png[height=240]
 
 <<example_cdf>> is a graphical representation of
 this CDF. The CDF of a sample is a step function.
@@ -2207,8 +2245,8 @@ latexmath:[p = \mathrm{CDF}(x)]. The bracket operator is equivalent to
 value, `+x+`; that is, the *inverse CDF* of `+p+`.
 
 [[cumulative_prglngth_cdf]]
-image::figs/cumulative_prglngth_cdf.png[CDF of pregnancy length.,height=240]
-
+.CDF of pregnancy length.
+image::figs/cumulative_prglngth_cdf.png[height=240]
 
 The Cdf constructor can take as an argument a list of values, a pandas
 Series, a Hist, Pmf, or another Cdf. The following code makes a Cdf for
@@ -2259,8 +2297,8 @@ others.
 ....
 
 [[cumulative_birthwgt_cdf]]
-image::figs/cumulative_birthwgt_cdf.png[CDF of birth weights for first
-babies and others.,height=240]
+.CDF of birth weights for first babies and others.
+image::figs/cumulative_birthwgt_cdf.png[height=240]
 
 <<cumulative_birthwgt_cdf>> shows
 the result. Compared to
@@ -2339,8 +2377,8 @@ Finally we make and plot the Cdf of the percentile ranks.
 ....
 
 [[cumulative_random]]
-image::figs/cumulative_random.png[CDF of percentile ranks for a random
-sample of birth weights.,height=240]
+.CDF of percentile ranks for a random sample of birth weights.
+image::figs/cumulative_random.png[height=240]
 
 <<cumulative_random>> shows the result.
 The CDF is approximately a straight line, which means that the
@@ -2420,8 +2458,13 @@ beat to maintain my percentile rank.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 For the following exercises, you can start with `+chap04ex.ipynb+`. My
 solution is in `+chap04soln.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 How much did you weigh at birth? If you don’t know, call your mother or
 someone else who knows. Using the NSFG data (all live births), compute
@@ -2430,6 +2473,8 @@ rank. If you were a first baby, find your percentile rank in the
 distribution for first babies. Otherwise use the distribution for
 others. If you are in the 90th percentile or higher, call your mother
 back and apologize.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The numbers generated by `+random.random+` are supposed to be uniform
 between 0 and 1; that is, every value in the range should have the same
@@ -2481,8 +2526,8 @@ downloading and working with this code, see <<code>>.
 === The exponential distribution
 
 [[analytic_expo_cdf]]
-image::figs/analytic_expo_cdf.png[CDFs of exponential distributions with
-various parameters.,height=240]
+.CDFs of exponential distributions with various parameters.
+image::figs/analytic_expo_cdf.png[height=240]
 
 I’ll start with the *exponential distribution* because it is relatively
 simple. The CDF of the exponential distribution is
@@ -2524,8 +2569,8 @@ columns `+time+`, `+sex+`, `+weight_g+`, and `+minutes+`, where
 `+minutes+` is time of birth converted to minutes since midnight.
 
 [[analytic_interarrival_cdf]]
-image::figs/analytic_interarrivals.png[CDF of interarrival times (left)
-and CCDF on a log-y scale (right).,height=240]
+.CDF of interarrival times (left) and CCDF on a log-y scale (right).
+image::figs/analytic_interarrivals.png[height=240]
 
 `+diffs+` is the difference between consecutive birth times, and `+cdf+`
 is the distribution of these interarrival times.
@@ -2591,8 +2636,8 @@ out that there is a good reason for its ubiquity, which we will get to
 in <<CLT>>.
 
 [[analytic_gaussian_cdf]]
-image::figs/analytic_gaussian_cdf.png[CDF of normal distributions with a
-range of parameters.,height=240]
+.CDF of normal distributions with a range of parameters.
+image::figs/analytic_gaussian_cdf.png[height=240]
 
 
 The normal distribution is characterized by two parameters: the mean,
@@ -2639,8 +2684,8 @@ the empirical CDF of weights for all live births and the CDF of a normal
 distribution with the same mean and variance.
 
 [[analytic_birthwgt_model]]
-image::figs/analytic_birthwgt_model.png[CDF of birth weights with a
-normal model.,height=240]
+.CDF of birth weights with a normal model.
+image::figs/analytic_birthwgt_model.png[height=240]
 
 The normal distribution is a good model for this dataset, so if we
 summarize the distribution with the parameters latexmath:[\mu = 7.28]
@@ -2683,8 +2728,8 @@ xs, ys = thinkstats2.NormalProbability(sample)
 ....
 
 [[analytic_normal_prob_example]]
-image::figs/analytic_normal_prob_example.png[Normal probability plot for
-random samples from normal distributions.,height=240]
+.Normal probability plot for random samples from normal distributions.
+image::figs/analytic_normal_prob_example.png[height=240]
 
 
 `+ys+` contains the sorted values from `+sample+`; `+xs+` contains the
@@ -2766,9 +2811,8 @@ standard deviation is ugly (see
 http://wikipedia.org/wiki/Log-normal_distribution).
 
 [[brfss_weight]]
-image::figs/brfss_weight.png[CDF of adult weights on a linear scale
-(left) and log scale (right).,height=240]
-
+.CDF of adult weights on a linear scale (left) and log scale (right).
+image::figs/brfss_weight.png[height=240]
 
 If a sample is approximately lognormal and you plot its CDF on a log-x
 scale, it will have the characteristic shape of a normal distribution.
@@ -2980,8 +3024,13 @@ depends on what you are planning to use the model for.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 For the following exercises, you can start with `+chap05ex.ipynb+`. My
 solution is in `+chap05soln.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In the BRFSS (see <<lognormal>>), the
 distribution of heights is roughly normal with parameters
@@ -2992,6 +3041,8 @@ In order to join Blue Man Group, you have to be male between 5’10” and
 6’1” (see http://bluemancasting.com). What percentage of the U.S. male
 population is in this range? Hint: use `+scipy.stats.norm.cdf+`.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 To get a feel for the Pareto distribution, let’s see how different the
 world would be if the distribution of human height were Pareto. With the
 parameters latexmath:[x_{m} = 1] m and latexmath:[\alpha = 1.7], we get
@@ -3001,6 +3052,8 @@ Plot this distribution. What is the mean human height in Pareto world?
 What fraction of the population is shorter than the mean? If there are 7
 billion people in Pareto world, how many do we expect to be taller than
 1 km? How tall do we expect the tallest person to be?
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 [[weibull]]
 
@@ -3019,6 +3072,8 @@ indicate?
 Use `+random.weibullvariate+` to generate a sample from a Weibull
 distribution and use it to test your transformation.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 For small values of latexmath:[n], we don’t expect an empirical
 distribution to fit an analytic distribution exactly. One way to
 evaluate the quality of fit is to generate a sample from an analytic
@@ -3033,6 +3088,8 @@ as the data, about 33 minutes between births.
 
 Plot the distribution of the random values and compare it to the actual
 distribution. You can use `+random.expovariate+` to generate the values.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In the repository for this book, you’ll find a set of data files called
 `+mystery0.dat+`, `+mystery1.dat+`, and so on. Each contains a sequence
@@ -3049,6 +3106,8 @@ $ python test_models.py mystery0.dat
 Based on these plots, you should be able to infer what kind of
 distribution generated each file. If you are stumped, you can look in
 `+mystery.py+`, which contains the code that generated the files.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 [[income]]
 
@@ -3202,9 +3261,8 @@ By default, the resulting Pmf contains 101 points equally spaced from
 `+Render+` can take keyword arguments `+low+`, `+high+`, and `+n+`.
 
 [[pdf_example]]
-image::figs/pdf_example.png[A normal PDF that models adult female height
-in the U.S., and the kernel density estimate of a sample with
-latexmath:[n=500].,height=211]
+.A normal PDF that models adult female height in the U.S., and the kernel density estimate of a sample with latexmath:[n=500].
+image::figs/pdf_example.png[height=211]
 
 === Kernel density estimation
 
@@ -3271,8 +3329,7 @@ data.
 === The distribution framework
 
 [[dist_framework]]
-.A framework that relates
-representations of distribution functions.
+.A framework that relates representations of distribution functions.
 image::figs/distribution_functions.png[height=211]
 
 At this point we have seen PMFs, CDFs and PDFs; let’s take a minute to
@@ -3519,7 +3576,7 @@ see http://en.wikipedia.org/wiki/Moment_of_inertia.
 When you report moment-based statistics, it is important to think about
 the units. For example, if the values latexmath:[x_i] are in cm, the
 first raw moment is also in cm. But the second moment is in
-cm{}latexmath:[^2], the third moment is in cm{}latexmath:[^3], and so on.
+cm{_}latexmath:[^2], the third moment is in cm{_}latexmath:[^3], and so on.
 
 Because of these units, moments are hard to interpret by themselves.
 That’s why, for the second moment, it is common to report standard
@@ -3652,7 +3709,12 @@ third moment, it is somewhat more robust.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to this exercise is in `+chap06soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The distribution of income is famously skewed to the right. In this
 exercise, we’ll measure how strong that skew is.
@@ -3773,6 +3835,7 @@ than once.
 The result, in <<scatter1>> (left), shows the shape of the
 relationship. As we expected, taller people tend to be heavier.
 
+[[scatter1]]
 .Scatter plots of weight versus height for the respondents in the BRFSS, unjittered (left), jittered (right).
 image::figs/scatter1.png[height=288]
 
@@ -3814,6 +3877,7 @@ There are many overlapping points, which hides data in the dense parts
 of the figure and gives disproportionate emphasis to outliers. This
 effect is called *saturation*.
 
+[[scatter2]]
 .Scatter plot with jittering and transparency (left), hexbin plot (right).
 image::figs/scatter2.png[height=288]
 
@@ -3882,6 +3946,7 @@ NumPy and pandas provide functions for binning data:
 fall below the lowest bin are mapped to index 0. Values above the
 highest bin are mapped to `+len(bins)+`.
 
+[[scatter3]]
 .Percentiles of weight for a range of height bins.
 image::figs/scatter3.png[height=240]
 
@@ -4233,7 +4298,12 @@ In some cases it is possible to infer causal relationships using
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to this exercise is in `+chap07soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Using data from the NSFG, make a scatter plot of birth weight versus
 mother’s age. Plot percentiles of birth weight versus mother’s age.
@@ -4538,6 +4608,7 @@ def SimulateSample(mu=90, sigma=7.5, n=9, m=1000):
 `+n+` is the sample size, the number of gorillas we measured. `+m+` is
 the number of times we run the simulation.
 
+[[estimation1]]
 .Sampling distribution of latexmath:[\bar{x}], with confidence interval.
 image::figs/estimation1.png[height=240]
 
@@ -4707,8 +4778,13 @@ not an unbiased estimator of latexmath:[\lambda].
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 For the following exercises, you might want to start with a copy of
 `+estimation.py+`. Solutions are in `+chap08soln.py+`
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In this chapter we used latexmath:[\bar{x}] and median to estimate
 latexmath:[\mu], and found that latexmath:[\bar{x}] yields lower MSE.
@@ -4720,6 +4796,8 @@ Run similar experiments to see if latexmath:[\bar{x}] and median are
 biased estimates of latexmath:[\mu]. Also check whether latexmath:[S^2]
 or latexmath:[S_{n-1}^2] yields a lower MSE.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Suppose you draw a sample with size latexmath:[n=10] from an exponential
 distribution with latexmath:[\lambda=2]. Simulate this experiment 1000
 times and plot the sampling distribution of the estimate latexmath:[L].
@@ -4728,6 +4806,8 @@ interval.
 
 Repeat the experiment with a few different values of latexmath:[n] and
 make a plot of standard error versus latexmath:[n].
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In games like hockey and soccer, the time between goals is roughly
 exponential. So you could estimate a team’s goal-scoring rate by
@@ -4794,7 +4874,7 @@ in the sample by chance.
 
 There are several ways we could formulate this question, including
 Fisher null hypothesis testing, Neyman-Pearson decision theory, and
-Bayesian inference{}footnote:[For more about Bayesian inference, see the
+Bayesian inference{_}footnote:[For more about Bayesian inference, see the
 sequel to this book, _Think Bayes_.]. What I present here is a subset of
 all three that makes up most of what people use in practice, which I
 will call *classical hypothesis testing*.
@@ -4883,7 +4963,7 @@ test statistics, and stores them in `+test_stats+`. The result is the
 fraction of elements in `+test_stats+` that exceed or equal the observed
 test statistic, `+self.actual+`.
 
-As a simple example{}footnote:[Adapted from MacKay, _Information Theory,
+As a simple example{_}footnote:[Adapted from MacKay, _Information Theory,
 Inference, and Learning Algorithms_, 2003.], suppose we toss a coin 250
 times and see 140 heads and 110 tails. Based on this result, we might
 suspect that the coin is biased; that is, more likely to land heads. To
@@ -5004,6 +5084,7 @@ the p-value. The result is about 0.17, which means that we expect to see
 a difference as big as the observed effect about 17% of the time. So
 this effect is not statistically significant.
 
+[[hypothesis1]]
 .CDF of difference in mean pregnancy length under the null hypothesis.
 image::figs/hypothesis1.png[height=240]
 
@@ -5474,7 +5555,12 @@ original, is bigger in the new dataset and significant.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to these exercises is in `+chap09soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 As sample size increases, the power of a hypothesis test increases,
 which means it is more likely to be positive if the effect is real.
@@ -5488,6 +5574,8 @@ DataFrame.
 
 What happens to the p-values of these tests as sample size decreases?
 What is the smallest sample size that yields a positive test?
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In <<testdiff>>, we simulated the null hypothesis by
 permutation; that is, we treated the observed values as if they
@@ -5657,6 +5745,7 @@ case the mean age is about 25 years and the mean baby weight for a 25
 year old mother is 7.3 pounds. The slope is 0.27 ounces per year, or
 0.17 pounds per decade.
 
+[[linear1]]
 .Scatter plot of birth weight and mother’s age with a linear fit.
 image::figs/linear1.png[height=240]
 
@@ -5683,6 +5772,7 @@ def Residuals(xs, ys, inter, slope):
 `+inter+` and `+slope+`. It returns the differences between the actual
 values and the fitted line.
 
+[[linear2]]
 .Residuals of the linear fit.
 image::figs/linear2.png[height=240]
 
@@ -5806,6 +5896,7 @@ lower percentiles of `+y+` for each value of `+x+`. For a 90% confidence
 interval, it selects the 5th and 95th percentiles. `+FillBetween+` draws
 a polygon that fills the space between two lines.
 
+[[linear3]]
 .50% and 90% confidence intervals showing variability in the fitted line due to sampling error of `+inter+` and `+slope+`.
 image::figs/linear3.png[height=240]
 
@@ -5965,6 +6056,7 @@ the null hypothesis are centered around 0; but other than that, the
 distributions are identical. The distributions are also symmetric, for
 reasons we will see in <<CLT>>.
 
+[[linear4]]
 .The sampling distribution of the estimated slope and the distribution of slopes generated under the null hypothesis. The vertical lines are at 0 and the observed slope, 0.017 lbs/year.
 image::figs/linear4.png[height=240]
 
@@ -6083,7 +6175,12 @@ difference is not due to chance.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to this exercise is in `+chap10soln.ipynb+`
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Using the data from the BRFSS, compute the linear least squares fit for
 log(weight) versus height. How would you best present the estimated
@@ -6964,7 +7061,12 @@ improves your chances of winning, the difference is very small.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 My solution to these exercises is in `+chap11soln.ipynb+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 Suppose one of your co-workers is expecting a baby and you are
 participating in an office pool to predict the date of birth. Assuming
@@ -6972,6 +7074,8 @@ that bets are placed during the 30th week of pregnancy, what variables
 could you use to make the best prediction? You should limit yourself to
 variables that are known before the birth, and likely to be available to
 the people in the pool.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The Trivers-Willard hypothesis suggests that for many mammals the sex
 ratio depends on "`maternal condition`"; that is, factors like the
@@ -6986,6 +7090,8 @@ As an exercise, use a data mining approach to test the other variables
 in the pregnancy and respondent files. Can you find any factors with a
 substantial effect?
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 If the quantity you want to predict is a count, you can use Poisson
 regression, which is implemented in StatsModels with a function called
 `+poisson+`. It works the same way as `+ols+` and `+logit+`. As an
@@ -6995,6 +7101,8 @@ the NSFG dataset, this variable is called `+numbabes+`.
 Suppose you meet a woman who is 35 years old, black, and a college
 graduate whose annual household income exceeds $75,000. How many
 children would you predict she has born?
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 If the quantity you want to predict is categorical, you can use
 multinomial logistic regression, which is implemented in StatsModels
@@ -7192,6 +7300,7 @@ lines would not help.
 Since the labels on the x-axis are dates, I use `+pyplot.xticks+` to
 rotate the "`ticks`" 30 degrees, making them more readable.
 
+[[timeseries1]]
 .Time series of daily price per gram for high, medium, and low quality cannabis.
 image::figs/timeseries1.png[width=336]
 
@@ -7271,6 +7380,7 @@ As we saw in <<implementation>>, `+model+` contains
 `+exog+` and `+endog+`, NumPy arrays with the exogenous (explanatory)
 and endogenous (dependent) variables.
 
+[[timeseries2]]
 .Time series of daily price per gram for high quality cannabis, and a linear least squares fit.
 image::figs/timeseries2.png[height=240]
 
@@ -7361,6 +7471,7 @@ Now we can plot the rolling mean like this:
 The window size is 30, so each value in `+roll_mean+` is the mean of 30
 values from `+reindexed.ppg+`.
 
+[[timeseries10]]
 .Daily price and a rolling mean (left) and exponentially-weighted moving average (right).
 image::figs/timeseries10.png[height=240]
 
@@ -7429,6 +7540,7 @@ is `+nan+`. `+fake_data+` contains the sum of the moving average and a
 random sample of residuals. Finally, `+fillna+` replaces `+nan+` with
 values from `+fake_data+`.
 
+[[timeseries8]]
 .Daily price with filled data.
 image::figs/timeseries8.png[height=240]
 
@@ -7535,6 +7647,7 @@ the same results:
 With `+lag=0+`, `+acf+` computes the correlation of the series with
 itself, which is always 1.
 
+[[timeseries9]]
 .Autocorrelation function for daily prices (left), and daily prices with a simulated weekly seasonality (right).
 image::figs/timeseries9.png[height=240]
 
@@ -7693,6 +7806,7 @@ indicates whether it should add resampled residuals to the straight-line
 prediction. `+GeneratePredictions+` iterates through the sequence of
 RegressionResults and generates a sequence of predictions.
 
+[[timeseries4]]
 .Predictions based on linear fits, showing variation due to sampling error and prediction error.
 image::figs/timeseries4.png[height=240]
 
@@ -7747,6 +7861,7 @@ see how much effect this has on the predictions, we can extend
 `+SimulateResults+` to use intervals of observation with different start
 and end dates. My implementation is in `+timeseries.py+`.
 
+[[timeseries5]]
 .Predictions based on linear fits, showing variation due to the interval of observation.
 image::figs/timeseries5.png[height=240]
 
@@ -7776,7 +7891,12 @@ leaves off.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 My solution to these exercises is in `+chap12soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 The linear model I used in this chapter has the obvious drawback that it
 is linear, and there is no reason to expect prices to change linearly
@@ -7789,6 +7909,8 @@ the model to generate predictions. You will have to write a version of
 should be able to reuse code in `+timeseries.py+` to generate
 predictions.
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 Write a definition for a class named `+SerialCorrelationTest+` that
 extends `+HypothesisTest+` from <<hypotest>>. It should
 take a series and a lag as data, compute the serial correlation of the
@@ -7798,6 +7920,8 @@ correlation.
 Use this class to test whether the serial correlation in raw price data
 is statistically significant. Also test the residuals of the linear
 model and (if you did the previous exercise), the quadratic model.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 There are several ways to extend the EWMA model to generate predictions.
 One of the simplest is something like this:
@@ -7899,6 +8023,7 @@ was interviewed.
 The DataFrame method `+query+` takes a boolean expression and evaluates
 it for each row, selecting the rows that yield True.
 
+[[survival1]]
 .Cdf and survival curve for pregnancy length (top), hazard curve (bottom).
 image::figs/survival1.png[height=288]
 
@@ -8248,6 +8373,7 @@ Because of the way `+SurvivalFunction+` is implemented, we have to
 compute the complement of `+ss+`, make a Cdf, and then instantiate a
 SurvivalFunction object.
 
+[[survival2]]
 .Hazard function for age at first marriage (top) and survival curve (bottom).
 image::figs/survival2.png[height=240]
 
@@ -8316,6 +8442,7 @@ sections to estimate the hazard and survival curves, and
 `+PercentileRows+` takes this sequence and computes the 5th and 95th
 percentiles, returning a 90% confidence interval for the survival curve.
 
+[[survival3]]
 .Survival curve for age at first marriage (dark line) and a 90% confidence interval based on weighted resampling (gray line).
 image::figs/survival3.png[height=240]
 
@@ -8404,6 +8531,7 @@ def EstimateSurvivalByDecade(resp):
         thinkplot.Plot(sf)
 ....
 
+[[survival4]]
 .Survival curves for respondents born during different decades.
 image::figs/survival4.png[height=240]
 
@@ -8486,6 +8614,7 @@ predecessor, which might contain values from the previous group, and so
 on. Then it converts each HazardFunction to a SurvivalFunction and plots
 it.
 
+[[survival5]]
 .Survival curves for respondents born during different decades, with predictions for the later cohorts.
 image::figs/survival5.png[height=240]
 
@@ -8567,6 +8696,7 @@ example the result is the mean pregnancy length, given that the length
 exceeds `+t+`. By subtracting `+t+` we get the mean remaining pregnancy
 length.
 
+[[survival6]]
 .Expected remaining pregnancy length (left) and years until first marriage (right).
 image::figs/survival6.png[height=240]
 
@@ -8635,7 +8765,12 @@ function that takes a Pmf and computes its median (50th percentile).
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 My solution to this exercise is in `+chap13soln.py+`.
+
+*Exercise {exercise-chapter}.{counter:exercise}*
 
 In NSFG Cycles 6 and 7, the variable `+cmdivorcx+` contains the date of
 divorce for the respondent’s first marriage, if applicable, encoded in
@@ -8998,6 +9133,7 @@ def NormalPlotSamples(samples, plot=1, ylabel=''):
 `+NormalPlotSamples+` takes the list of pairs from `+MakeExpoSamples+`
 and generates a row of normal probability plots.
 
+[[normal1]]
 .Distributions of sums of exponential values (top row) and lognormal values (bottom row).
 image::figs/normal1.png[height=336]
 
@@ -9013,6 +9149,7 @@ skewed than exponential distributions, so the distribution of sums takes
 longer to converge. With `+n=10+` the normal probability plot is nowhere
 near straight, but with `+n=100+` it is approximately normal.
 
+[[normal2]]
 .Distributions of sums of Pareto values (top row) and correlated exponential values (bottom row).
 image::figs/normal2.png[height=336]
 
@@ -9215,6 +9352,7 @@ parameter of the t-distribution, `+df+`, stands for "`degrees of
 freedom.`" I won’t explain that term, but you can read about it at
 http://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics).
 
+[[normal4]]
 .Sampling distribution of correlations for uncorrelated normal variables.
 image::figs/normal4.png[height=240]
 
@@ -9261,10 +9399,11 @@ normalized deviation from the expected values in a table:
 ++++
 One reason the chi-squared statistic is widely used is that its sampling
 distribution under the null hypothesis is analytic; by a remarkable
-coincidence{}footnote:[Not really.], it is called the chi-squared
+coincidence{_}footnote:[Not really.], it is called the chi-squared
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.
 
+[[normal5]]
 .Sampling distribution of chi-squared statistics for a fair six-sided die.
 image::figs/normal5.png[height=240]
 
@@ -9340,9 +9479,16 @@ past Step 1.
 
 === Exercises
 
+:exercise!:
+{counter2:exercise-chapter}
+
 A solution to these exercises is in `+chap14soln.py+`
 
-[#log_clt]#[log_clt]# In <<lognormal>>, we saw
+*Exercise {exercise-chapter}.{counter:exercise}*
+
+[[log_clt]]
+
+In <<lognormal>>, we saw
 that the distribution of adult weights is approximately lognormal. One
 possible explanation is that the weight a person gains each year is
 proportional to their current weight. In that case, adult weight is the
@@ -9372,6 +9518,8 @@ of factors from the distribution of latexmath:[f], and computing the
 product. What value of latexmath:[n] is needed to converge to a
 lognormal distribution?
 
+*Exercise {exercise-chapter}.{counter:exercise}*
+
 In <<usingCLT>> we used the Central Limit Theorem to
 find the sampling distribution of the difference in means,
 latexmath:[\delta], under the null hypothesis that both samples are
@@ -9386,7 +9534,9 @@ are drawn from different populations.
 Compute this distribution and use it to calculate the standard error and
 a 90% confidence interval for the difference in means.
 
-In a recent paper{}footnote:["`Evidence for the persistent effects of an
+*Exercise {exercise-chapter}.{counter:exercise}*
+
+In a recent paper{_}footnote:["`Evidence for the persistent effects of an
 intervention to mitigate gender-sterotypical task allocation within
 student engineering teams,`" Proceedings of the IEEE Frontiers in
 Education Conference, 2014.], Stein et al. investigate the effects of an
@@ -9417,6 +9567,7 @@ distribution of this change, and is it statistically significant?
 
 ifdef::backend-html5[]
 
+// Dont number the advert bar
 :sectnums!:
 
 [role=advert-bar]
