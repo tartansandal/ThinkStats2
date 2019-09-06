@@ -1,13 +1,6 @@
 = README
 Kahlil Hodgson <kahlil.hodgson999@gmail.com>
 2019-08-28
-:doctype: book
-:stem: latexmath
-:toc: left
-:sectnums:
-:sectlinks:
-:sectanchors:
-
 
 Searching for an optimal toolchain for publishing a books containing mathematical
 equations (STEM).
@@ -68,7 +61,8 @@ May use it as an intermediate format.
 
 Universal printing and electronic display format.
 
-Want to support this as an
+Want to support this as a secondary output format. Should be able to get here from
+DocBook.
 
 === HTML5
 
@@ -81,41 +75,31 @@ Multi-page?
 
 == Tools
 
-=== `asciidoctor`
+`hevea`::
+Good LaTeX to HTML conversion (multi-page). However, maths output is not very attractive,
+neither is the HTML (very particularly modern).
 
-Good modern tool. Supported by .
+`asciidoctor`::
 
-
-=== `plastex`
-
+`plastex`::
 ???
 
-
-=== `lwarp`
-
-
-=== `hevea`
-
-Maths output is not very attractive.
-
-
-=== `pdflatex`
-
-Standard tool for generating PDF output from LaTeX.
-
-
-=== `xsltproc`
-
-Standard XML translation tool. Used to reformat DocBook.
 
 
 == Experiments
 
+=== `pdflatex`::
+
+Standard tool for generating PDF output from LaTeX.
+
 === `lwarp`
+
 
 Got this to work and the output looked pretty good. However could not control the HTML
 output as well as I would have liked.  Could not find an easy way to get extra content
 into the HTML--like sidebars and wrappers.
+
+Difficult to extend and modify. Web output is more modern than `hevea`.
 
 Supported by a single developer. Not on GitHub.
 
@@ -146,6 +130,8 @@ though.
 
 === `xsltproc`
 
+Standard XML translation tool. Used to reformat DocBook.
+
 Used this to unpack DocBook5 to multi-page (chunked) HTML.
 
 Output still looks very old fashioned out of the box. Have the feeling that this is not
@@ -155,19 +141,27 @@ going to be the best approach.
 
 This is a great format and the tool produces very nice HTML5 output. Very easy to style.
 
+Good modern tool. Under active development Supported by GitHub and O'Reilly.
+
 Need to review the experimental multi-page output filter.
 
-==== STEM
+This was the most successful so I delved deep.
 
-Some examples of AsciiDoc stem support.
+==== Outstanding issues
 
-stem:[\frac{\bar{x}}{\lambda}]
+Numbering Figures::
 
-latexmath:[\frac{\bar{x}}{\lambda}]
+Currently we cannot figures to number chapter-wise, e.g., "Figure 3.4". Upstream is
+working on this, but I think the fix depends on another large change in the codebase.
+See https://github.com/asciidoctor/asciidoctor/issues/979.
 
-asciimath:[[[a,b\],[c,d\]\]((n),(k))]
+User-defined Environments::
 
-[asciimath]
-++++
-sqrt(4) = 2
-++++
+Common numbered environments in maths ("theorem", "lemma", "corollary", "exercise") do
+not have a clear expression in AsciiDoc. This ties in with the section numbering issues
+detailed elsewhere.
+
+Multi-page HTML output::
+
+There is experimental support for this. Just waiting on key developer to get some more
+time: https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/multipage-html5-converter.rb
