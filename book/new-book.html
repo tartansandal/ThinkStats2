@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="Allen B. Downey">
 <title>Think Stats: Exploratory Data Analysis in Python</title>
 <style>
@@ -183,9 +183,9 @@ div.content > img { height: 240pt; }
 <li><a href="#characterizing">7.2. Characterizing relationships</a></li>
 <li><a href="#_correlation">7.3. Correlation</a></li>
 <li><a href="#_covariance">7.4. Covariance</a></li>
-<li><a href="#_pearson_s_correlation">7.5. Pearson’s correlation</a></li>
+<li><a href="#_pearsons_correlation">7.5. Pearson’s correlation</a></li>
 <li><a href="#_nonlinear_relationships">7.6. Nonlinear relationships</a></li>
-<li><a href="#_spearman_s_rank_correlation">7.7. Spearman’s rank correlation</a></li>
+<li><a href="#_spearmans_rank_correlation">7.7. Spearman’s rank correlation</a></li>
 <li><a href="#_correlation_and_causation">7.8. Correlation and causation</a></li>
 <li><a href="#_exercises_7">7.9. Exercises</a></li>
 <li><a href="#_glossary_7">7.10. Glossary</a></li>
@@ -764,6 +764,10 @@ Ting-kuang Lin, Scott Miller, Luigi Patruno.</p>
 <h2 id="intro"><a class="anchor" href="#intro"></a><a class="link" href="#intro">1. Exploratory data analysis</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>The thesis of this book is that data combined with practical methods can
 answer questions and guide decisions under uncertainty.</p>
 </div>
@@ -985,7 +989,7 @@ file. Here’s how they are used in <code>nsfg.py</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def ReadFemPreg(dct_file='2002FemPreg.dct',
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def ReadFemPreg(dct_file='2002FemPreg.dct',
                 dat_file='2002FemPreg.dat.gz'):
     dct = thinkstats2.ReadStataDct(dct_file)
     df = dct.ReadFixedWidth(dat_file, compression='gzip')
@@ -1198,7 +1202,7 @@ variables I am planning to use.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def CleanFemPreg(df):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def CleanFemPreg(df):
     df.agepreg /= 100.0
 
     na_vals = [97, 98, 99]
@@ -1260,7 +1264,7 @@ use dictionary syntax, like this</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    # CORRECT
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    # CORRECT
     df['totalwgt_lb'] = df.birthwgt_lb + df.birthwgt_oz / 16.0</code></pre>
 </div>
 </div>
@@ -1269,7 +1273,7 @@ use dictionary syntax, like this</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    # WRONG!
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    # WRONG!
     df.totalwgt_lb = df.birthwgt_lb + df.birthwgt_oz / 16.0</code></pre>
 </div>
 </div>
@@ -1377,7 +1381,7 @@ baby!</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">df.loc[df.birthwgt_lb &gt; 20, 'birthwgt_lb'] = np.nan</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">df.loc[df.birthwgt_lb &gt; 20, 'birthwgt_lb'] = np.nan</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1407,7 +1411,7 @@ Here’s a function that does that:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def MakePregMap(df):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def MakePregMap(df):
     d = defaultdict(list)
     for index, caseid in df.caseid.iteritems():
         d[caseid].append(index)
@@ -1471,9 +1475,6 @@ represented by the data, and to afford them respect and gratitude.</p>
 </div>
 <div class="sect2">
 <h3 id="_exercises"><a class="anchor" href="#_exercises"></a><a class="link" href="#_exercises">1.9. Exercises</a></h3>
-<div class="paragraph">
-<p></p>
-</div>
 <div class="paragraph">
 <p><strong>Exercise 1.1</strong></p>
 </div>
@@ -1642,6 +1643,9 @@ errors, translating between data types and representations, etc.</p>
 <div class="sect1">
 <h2 id="descriptive"><a class="anchor" href="#descriptive"></a><a class="link" href="#descriptive">2. Distributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>:exercise!:</p>
+</div>
 <div class="sect2">
 <h3 id="_histograms"><a class="anchor" href="#_histograms"></a><a class="link" href="#_histograms">2.1. Histograms</a></h3>
 <div class="paragraph">
@@ -1660,7 +1664,7 @@ Given a sequence of values, <code>t</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">hist = {}
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">hist = {}
 for x in t:
     hist[x] = hist.get(x, 0) + 1</code></pre>
 </div>
@@ -1672,7 +1676,7 @@ Alternatively, you could use the <code>Counter</code> class defined in the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">from collections import Counter
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">from collections import Counter
 counter = Counter(t)</code></pre>
 </div>
 </div>
@@ -1743,7 +1747,7 @@ frequency:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">for val in sorted(hist.Values()):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">for val in sorted(hist.Values()):
     print(val, hist.Freq(val))</code></pre>
 </div>
 </div>
@@ -1752,7 +1756,7 @@ frequency:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">for val, freq in hist.Items():
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">for val, freq in hist.Items():
      print(val, freq)</code></pre>
 </div>
 </div>
@@ -1763,7 +1767,10 @@ frequency:</p>
 <div class="content">
 <img src="figs/first_wgt_lb_hist.png" alt="first wgt lb hist" height="240">
 </div>
-<div class="title">Figure 1. Histogram of the pound part of birth weight.</div>
+<div class="title">{figure-label} {chapter}.{figure} 1. Histogram of the pound part of birth weight.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>For this book I wrote a module called <code>thinkplot.py</code> that provides
@@ -1790,7 +1797,10 @@ about installing <code>matplotlib</code>.</p>
 <div class="content">
 <img src="figs/first_wgt_oz_hist.png" alt="first wgt oz hist" height="240">
 </div>
-<div class="title">Figure 2. Histogram of the ounce part of birth weight.</div>
+<div class="title">{figure-label} {chapter}.{figure} 2. Histogram of the ounce part of birth weight.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 </div>
 <div class="sect2">
@@ -1815,14 +1825,17 @@ variables to demonstrate some features of histograms.</p>
 <div class="content">
 <img src="figs/first_agepreg_hist.png" alt="first agepreg hist" height="240">
 </div>
-<div class="title">Figure 3. Histogram of mother’s age at end of pregnancy.</div>
+<div class="title">{figure-label} {chapter}.{figure} 3. Histogram of mother’s age at end of pregnancy.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>I’ll start by reading the data and selecting records for live births:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    preg = nsfg.ReadFemPreg()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    preg = nsfg.ReadFemPreg()
     live = preg[preg.outcome == 1]</code></pre>
 </div>
 </div>
@@ -1833,7 +1846,7 @@ histogram of <code>birthwgt_lb</code> for live births.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    hist = thinkstats2.Hist(live.birthwgt_lb, label='birthwgt_lb')
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    hist = thinkstats2.Hist(live.birthwgt_lb, label='birthwgt_lb')
     thinkplot.Hist(hist)
     thinkplot.Show(xlabel='pounds', ylabel='frequency')</code></pre>
 </div>
@@ -1847,10 +1860,13 @@ Hist is plotted.</p>
 <div class="content">
 <img src="figs/first_prglngth_hist.png" alt="first prglngth hist" height="240">
 </div>
-<div class="title">Figure 4. Histogram of pregnancy length in weeks.</div>
+<div class="title">{figure-label} {chapter}.{figure} 4. Histogram of pregnancy length in weeks.</div>
 </div>
 <div class="paragraph">
-<p><a href="#first_wgt_lb_hist">Figure 1</a> shows the result.
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#first_wgt_lb_hist">{figure-label} {chapter}.{figure} 1</a> shows the result.
 The most common value, called the <strong>mode</strong>, is 7 pounds. The distribution
 is approximately bell-shaped, which is the shape of the <strong>normal</strong>
 distribution, also called a <strong>Gaussian</strong> distribution. But unlike a true
@@ -1858,7 +1874,7 @@ normal distribution, this distribution is asymmetric; it has a <strong>tail</str
 that extends farther to the left than to the right.</p>
 </div>
 <div class="paragraph">
-<p><a href="#first_wgt_oz_hist">Figure 2</a> shows the histogram
+<p><a href="#first_wgt_oz_hist">{figure-label} {chapter}.{figure} 2</a> shows the histogram
 of <code>birthwgt_oz</code>, which is the ounces part of birth weight. In theory
 we expect this distribution to be <strong>uniform</strong>; that is, all values should
 have the same frequency. In fact, 0 is more common than the other
@@ -1866,14 +1882,14 @@ values, and 1 and 15 are less common, probably because respondents round
 off birth weights that are close to an integer value.</p>
 </div>
 <div class="paragraph">
-<p><a href="#first_agepreg_hist">Figure 3</a> shows the
+<p><a href="#first_agepreg_hist">{figure-label} {chapter}.{figure} 3</a> shows the
 histogram of <code>agepreg</code>, the mother’s age at the end of pregnancy. The
 mode is 21 years. The distribution is very roughly bell-shaped, but in
 this case the tail extends farther to the right than left; most mothers
 are in their 20s, fewer in their 30s.</p>
 </div>
 <div class="paragraph">
-<p><a href="#first_prglngth_hist">Figure 4</a> shows the
+<p><a href="#first_prglngth_hist">{figure-label} {chapter}.{figure} 4</a> shows the
 histogram of <code>prglngth</code>, the length of the pregnancy in weeks. By far
 the most common value is 39 weeks. The left tail is longer than the
 right; early babies are common, but pregnancies seldom go past 43 weeks,
@@ -1898,7 +1914,7 @@ histogram:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    for weeks, freq in hist.Smallest(10):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    for weeks, freq in hist.Smallest(10):
         print(weeks, freq)</code></pre>
 </div>
 </div>
@@ -1951,7 +1967,7 @@ babies and others. I divided the DataFrame of live births using
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    firsts = live[live.birthord == 1]
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    firsts = live[live.birthord == 1]
     others = live[live.birthord != 1]
 
     first_hist = thinkstats2.Hist(firsts.prglngth, label='first')
@@ -1963,7 +1979,7 @@ babies and others. I divided the DataFrame of live births using
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    width = 0.45
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    width = 0.45
     thinkplot.PrePlot(2)
     thinkplot.Hist(first_hist, align='right', width=width)
     thinkplot.Hist(other_hist, align='left', width=width)
@@ -1980,7 +1996,10 @@ colors.</p>
 <div class="content">
 <img src="figs/first_nsfg_hist.png" alt="first nsfg hist" height="240">
 </div>
-<div class="title">Figure 5. Histogram of pregnancy lengths.</div>
+<div class="title">{figure-label} {chapter}.{figure} 5. Histogram of pregnancy lengths.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p><code>thinkplot.Hist</code> normally uses <code>align='center'</code> so that each bar is
@@ -1994,7 +2013,7 @@ some space between each pair.</p>
 </div>
 <div class="paragraph">
 <p>Finally, I adjust the axis to show only data between 27 and 46 weeks.
-<a href="#first_nsfg_hist">Figure 5</a> shows the result.</p>
+<a href="#first_nsfg_hist">{figure-label} {chapter}.{figure} 5</a> shows the result.</p>
 </div>
 <div class="paragraph">
 <p>Histograms are useful because they make the most frequent values
@@ -2121,7 +2140,7 @@ standard deviation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    mean = live.prglngth.mean()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    mean = live.prglngth.mean()
     var = live.prglngth.var()
     std = live.prglngth.std()</code></pre>
 </div>
@@ -2173,7 +2192,7 @@ Here’s the Python code that computes Cohen’s \(d\):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def CohenEffectSize(group1, group2):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def CohenEffectSize(group1, group2):
     diff = group1.mean() - group2.mean()
 
     var1 = group1.var()
@@ -2225,10 +2244,7 @@ limitations.</p>
 <div class="sect2">
 <h3 id="_exercises_2"><a class="anchor" href="#_exercises_2"></a><a class="link" href="#_exercises_2">2.11. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
-<p><strong>Exercise 2.1</strong></p>
+<p><strong>Exercise 2.4</strong></p>
 </div>
 <div class="paragraph">
 <p>Based on the results in this chapter, suppose you were asked to
@@ -2246,7 +2262,7 @@ first babies arrive late?&#8221; Write a paragraph that uses the results in
 this chapter to answer the question clearly, precisely, and honestly.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 2.2</strong></p>
+<p><strong>Exercise 2.5</strong></p>
 </div>
 <div class="paragraph">
 <p>In the repository you downloaded, you should find a file named
@@ -2263,7 +2279,7 @@ Follow the instructions and fill in the answers.</p>
 following exercises. My solution is in <code>chap02soln.py</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 2.3</strong></p>
+<p><strong>Exercise 2.6</strong></p>
 </div>
 <div class="paragraph">
 <p>The mode of a distribution is the most frequent value; see
@@ -2276,7 +2292,7 @@ that returns a list of value-frequency pairs in descending order of
 frequency.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 2.4</strong></p>
+<p><strong>Exercise 2.7</strong></p>
 </div>
 <div class="paragraph">
 <p>Using the variable <code>totalwgt_lb</code>, investigate whether first babies are
@@ -2354,6 +2370,10 @@ that is relevant in practice.</p>
 <h2 id="_probability_mass_functions"><a class="anchor" href="#_probability_mass_functions"></a><a class="link" href="#_probability_mass_functions">3. Probability mass functions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>The code for this chapter is in <code>probability.py</code>. For information
 about downloading and working with this code, see
 <a href="#code">Using the code</a>.</p>
@@ -2373,7 +2393,7 @@ probability:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">n = hist.Total()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">n = hist.Total()
 d = {}
 for x, freq in hist.Items():
     d[x] = freq / n</code></pre>
@@ -2500,10 +2520,13 @@ objects, I usually don’t use <code>pyplot.hist</code>.</p>
 <div class="content">
 <img src="figs/probability_nsfg_pmf.png" alt="probability nsfg pmf" height="288">
 </div>
-<div class="title">Figure 6. PMF of pregnancy lengths for first babies and others, using bar graphs and step functions.</div>
+<div class="title">{figure-label} {chapter}.{figure} 6. PMF of pregnancy lengths for first babies and others, using bar graphs and step functions.</div>
 </div>
 <div class="paragraph">
-<p><a href="#probability_nsfg_pmf">Figure 6</a> shows PMFs of
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#probability_nsfg_pmf">{figure-label} {chapter}.{figure} 6</a> shows PMFs of
 pregnancy length for first babies and others using bar graphs (left) and
 step functions (right).</p>
 </div>
@@ -2515,11 +2538,11 @@ arrive on time (week 39) and more likely to be a late (weeks 41 and 42).</p>
 </div>
 <div class="paragraph">
 <p>Here’s the code that generates
-<a href="#probability_nsfg_pmf">Figure 6</a>:</p>
+<a href="#probability_nsfg_pmf">{figure-label} {chapter}.{figure} 6</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.PrePlot(2, cols=2)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.PrePlot(2, cols=2)
     thinkplot.Hist(first_pmf, align='right', width=width)
     thinkplot.Hist(other_pmf, align='left', width=width)
     thinkplot.Config(xlabel='weeks',
@@ -2562,7 +2585,7 @@ transform the data to emphasize differences:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    weeks = range(35, 46)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    weeks = range(35, 46)
     diffs = []
     for week in weeks:
         p1 = first_pmf.Prob(week)
@@ -2576,7 +2599,7 @@ transform the data to emphasize differences:</p>
 <div class="paragraph">
 <p>In this code, <code>weeks</code> is the range of weeks; <code>diffs</code> is the
 difference between the two PMFs in percentage points.
-<a href="#probability_nsfg_diffs">Figure 7</a> shows the
+<a href="#probability_nsfg_diffs">{figure-label} {chapter}.{figure} 7</a> shows the
 result as a bar chart. This figure makes the pattern clearer: first
 babies are less likely to be born in week 39, and somewhat more likely
 to be born in weeks 41 and 42.</p>
@@ -2585,7 +2608,10 @@ to be born in weeks 41 and 42.</p>
 <div class="content">
 <img src="figs/probability_nsfg_diffs.png" alt="probability nsfg diffs" height="240">
 </div>
-<div class="title">Figure 7. Difference, in percentage points, by week.</div>
+<div class="title">{figure-label} {chapter}.{figure} 7. Difference, in percentage points, by week.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>For now we should hold this conclusion only tentatively. We used the
@@ -2646,7 +2672,7 @@ Here’s the code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    d = { 7: 8, 12: 8, 17: 14, 22: 4,
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    d = { 7: 8, 12: 8, 17: 14, 22: 4,
           27: 6, 32: 12, 37: 8, 42: 3, 47: 2 }
 
     pmf = thinkstats2.Pmf(d, label='actual')
@@ -2665,7 +2691,7 @@ of students in the class.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def BiasPmf(pmf, label):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def BiasPmf(pmf, label):
     new_pmf = pmf.Copy(label=label)
 
     for x, p in pmf.Items():
@@ -2685,7 +2711,7 @@ that represents the biased distribution.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    biased_pmf = BiasPmf(pmf, label='observed')
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    biased_pmf = BiasPmf(pmf, label='observed')
     thinkplot.PrePlot(2)
     thinkplot.Pmfs([pmf, biased_pmf])
     thinkplot.Show(xlabel='class size', ylabel='PMF')</code></pre>
@@ -2695,10 +2721,13 @@ that represents the biased distribution.</p>
 <div class="content">
 <img src="figs/class_size1.png" alt="class size1" height="288">
 </div>
-<div class="title">Figure 8. Distribution of class sizes, actual and as observed by students.</div>
+<div class="title">{figure-label} {chapter}.{figure} 8. Distribution of class sizes, actual and as observed by students.</div>
 </div>
 <div class="paragraph">
-<p><a href="#class_size1">Figure 8</a> shows the result. In the biased
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#class_size1">{figure-label} {chapter}.{figure} 8</a> shows the result. In the biased
 distribution there are fewer small classes and more large ones. The mean
 of the biased distribution is 29.1, almost 25% higher than the actual
 mean.</p>
@@ -2716,7 +2745,7 @@ unbiases a Pmf:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def UnbiasPmf(pmf, label):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def UnbiasPmf(pmf, label):
     new_pmf = pmf.Copy(label=label)
 
     for x, p in pmf.Items():
@@ -2871,10 +2900,7 @@ the labels consistently and avoid using integer positions.</p>
 <div class="sect2">
 <h3 id="_exercises_3"><a class="anchor" href="#_exercises_3"></a><a class="link" href="#_exercises_3">3.6. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
-<p><strong>Exercise 3.1</strong></p>
+<p><strong>Exercise 3.8</strong></p>
 </div>
 <div class="paragraph">
 <p>Solutions to these exercises are in <code>chap03soln.ipynb</code> and
@@ -2900,7 +2926,7 @@ themselves) are in their household.</p>
 starting place, you can use <code>chap03ex.ipynb</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 3.2</strong></p>
+<p><strong>Exercise 3.9</strong></p>
 </div>
 <div class="paragraph">
 <p>In <a href="#mean">Section 2.7</a> we computed the mean of a sample by adding up
@@ -2928,7 +2954,7 @@ they are consistent with the methods <code>Mean</code> and <code>Var</code> prov
 Pmf.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 3.3</strong></p>
+<p><strong>Exercise 3.10</strong></p>
 </div>
 <div class="paragraph">
 <p>I started with the question, &#8220;Are first babies more likely to be
@@ -2945,7 +2971,7 @@ of the question yield a different result?</p>
 <p>Hint: use <code>nsfg.MakePregMap</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 3.4</strong></p>
+<p><strong>Exercise 3.11</strong></p>
 </div>
 <div id="relay" class="paragraph">
 <p>In most foot races, everyone starts at the same time. If you are a fast
@@ -3027,6 +3053,10 @@ contains the row labels.</p>
 <h2 id="cumulative"><a class="anchor" href="#cumulative"></a><a class="link" href="#cumulative">4. Cumulative distribution functions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>The code for this chapter is in <code>cumulative.py</code>. For information about
 downloading and working with this code, see <a href="#code">Using the code</a>.</p>
 </div>
@@ -3040,14 +3070,17 @@ smaller and the effect of random noise increases.</p>
 <div class="paragraph">
 <p>For example, we might be interested in the distribution of birth
 weights. In the NSFG data, the variable <code>totalwgt_lb</code> records weight
-at birth in pounds. <a href="#nsfg_birthwgt_pmf">Figure 9</a>
+at birth in pounds. <a href="#nsfg_birthwgt_pmf">{figure-label} {chapter}.{figure} 9</a>
 shows the PMF of these values for first babies and others.</p>
 </div>
 <div id="nsfg_birthwgt_pmf" class="imageblock">
 <div class="content">
 <img src="figs/nsfg_birthwgt_pmf.png" alt="nsfg birthwgt pmf" height="240">
 </div>
-<div class="title">Figure 9. PMF of birth weights. This figure shows a limitation of PMFs: they are hard to compare visually.</div>
+<div class="title">{figure-label} {chapter}.{figure} 9. PMF of birth weights. This figure shows a limitation of PMFs: they are hard to compare visually.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>Overall, these distributions resemble the bell shape of a normal
@@ -3089,7 +3122,7 @@ or better than 90% of the people who took the exam.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PercentileRank(scores, your_score):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PercentileRank(scores, your_score):
     count = 0
     for score in scores:
         if score &lt;= your_score:
@@ -3112,7 +3145,7 @@ values and search for the one you want:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Percentile(scores, percentile_rank):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Percentile(scores, percentile_rank):
     scores.sort()
     for score in scores:
         if PercentileRank(scores, score) &gt;= percentile_rank:
@@ -3131,7 +3164,7 @@ corresponding percentile:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Percentile2(scores, percentile_rank):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Percentile2(scores, percentile_rank):
     scores.sort()
     index = percentile_rank * (len(scores)-1) // 100
     return scores[index]</code></pre>
@@ -3165,7 +3198,7 @@ compute the fraction of values in the distribution less than or equal to
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def EvalCdf(sample, x):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def EvalCdf(sample, x):
     count = 0.0
     for value in sample:
         if value &lt;= x:
@@ -3224,10 +3257,13 @@ is greater than the largest value, \(\mathrm{CDF}(x)\) is 1.</p>
 <div class="content">
 <img src="figs/cumulative_example_cdf.png" alt="cumulative example cdf" height="240">
 </div>
-<div class="title">Figure 10. Example of a CDF.</div>
+<div class="title">{figure-label} {chapter}.{figure} 10. Example of a CDF.</div>
 </div>
 <div class="paragraph">
-<p><a href="#example_cdf">Figure 10</a> is a graphical representation of
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#example_cdf">{figure-label} {chapter}.{figure} 10</a> is a graphical representation of
 this CDF. The CDF of a sample is a step function.</p>
 </div>
 </div>
@@ -3254,7 +3290,10 @@ value, <code>x</code>; that is, the <strong>inverse CDF</strong> of <code>p</cod
 <div class="content">
 <img src="figs/cumulative_prglngth_cdf.png" alt="cumulative prglngth cdf" height="240">
 </div>
-<div class="title">Figure 11. CDF of pregnancy length.</div>
+<div class="title">{figure-label} {chapter}.{figure} 11. CDF of pregnancy length.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>The Cdf constructor can take as an argument a list of values, a pandas
@@ -3263,7 +3302,7 @@ the distribution of pregnancy lengths in the NSFG:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     cdf = thinkstats2.Cdf(live.prglngth, label='prglngth')</code></pre>
 </div>
 </div>
@@ -3273,12 +3312,12 @@ lines:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.Cdf(cdf)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.Cdf(cdf)
     thinkplot.Show(xlabel='weeks', ylabel='CDF')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#cumulative_prglngth_cdf">Figure 11</a> shows
+<p><a href="#cumulative_prglngth_cdf">{figure-label} {chapter}.{figure} 11</a> shows
 the result. One way to read a CDF is to look up percentiles. For
 example, it looks like about 10% of pregnancies are shorter than 36
 weeks, and about 90% are shorter than 41 weeks. The CDF also provides a
@@ -3301,7 +3340,7 @@ others.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    first_cdf = thinkstats2.Cdf(firsts.totalwgt_lb, label='first')
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    first_cdf = thinkstats2.Cdf(firsts.totalwgt_lb, label='first')
     other_cdf = thinkstats2.Cdf(others.totalwgt_lb, label='other')
 
     thinkplot.PrePlot(2)
@@ -3313,12 +3352,15 @@ others.</p>
 <div class="content">
 <img src="figs/cumulative_birthwgt_cdf.png" alt="cumulative birthwgt cdf" height="240">
 </div>
-<div class="title">Figure 12. CDF of birth weights for first babies and others.</div>
+<div class="title">{figure-label} {chapter}.{figure} 12. CDF of birth weights for first babies and others.</div>
 </div>
 <div class="paragraph">
-<p><a href="#cumulative_birthwgt_cdf">Figure 12</a> shows
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#cumulative_birthwgt_cdf">{figure-label} {chapter}.{figure} 12</a> shows
 the result. Compared to
-<a href="#nsfg_birthwgt_pmf">Figure 9</a>, this figure makes
+<a href="#nsfg_birthwgt_pmf">{figure-label} {chapter}.{figure} 9</a>, this figure makes
 the shape of the distributions, and the differences between them, much
 clearer. We can see that first babies are slightly lighter throughout
 the distribution, with a larger discrepancy above the mean.</p>
@@ -3381,7 +3423,7 @@ distribution will look like?</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    weights = live.totalwgt_lb
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    weights = live.totalwgt_lb
     cdf = thinkstats2.Cdf(weights, label='totalwgt_lb')</code></pre>
 </div>
 </div>
@@ -3391,7 +3433,7 @@ in the sample.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    sample = np.random.choice(weights, 100, replace=True)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    sample = np.random.choice(weights, 100, replace=True)
     ranks = [cdf.PercentileRank(x) for x in sample]</code></pre>
 </div>
 </div>
@@ -3405,7 +3447,7 @@ in the sample.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    rank_cdf = thinkstats2.Cdf(ranks)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    rank_cdf = thinkstats2.Cdf(ranks)
     thinkplot.Cdf(rank_cdf)
     thinkplot.Show(xlabel='percentile rank', ylabel='CDF')</code></pre>
 </div>
@@ -3414,10 +3456,13 @@ in the sample.</p>
 <div class="content">
 <img src="figs/cumulative_random.png" alt="cumulative random" height="240">
 </div>
-<div class="title">Figure 13. CDF of percentile ranks for a random sample of birth weights.</div>
+<div class="title">{figure-label} {chapter}.{figure} 13. CDF of percentile ranks for a random sample of birth weights.</div>
 </div>
 <div class="paragraph">
-<p><a href="#cumulative_random">Figure 13</a> shows the result.
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#cumulative_random">{figure-label} {chapter}.{figure} 13</a> shows the result.
 The CDF is approximately a straight line, which means that the
 distribution is uniform.</p>
 </div>
@@ -3449,7 +3494,7 @@ corresponds to the percentile rank you chose.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class Cdf:
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class Cdf:
     def Random(self):
         return self.Percentile(random.uniform(0, 100))</code></pre>
 </div>
@@ -3478,7 +3523,7 @@ rank:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PositionToPercentile(position, field_size):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PositionToPercentile(position, field_size):
     beat = field_size - position + 1
     percentile = 100.0 * beat / field_size
     return percentile</code></pre>
@@ -3500,7 +3545,7 @@ a position in M5059. Here’s the code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PercentileToPosition(percentile, field_size):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PercentileToPosition(percentile, field_size):
     beat = percentile * field_size / 100.0
     position = field_size - beat + 1
     return position</code></pre>
@@ -3516,14 +3561,11 @@ beat to maintain my percentile rank.</p>
 <div class="sect2">
 <h3 id="_exercises_4"><a class="anchor" href="#_exercises_4"></a><a class="link" href="#_exercises_4">4.9. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>For the following exercises, you can start with <code>chap04ex.ipynb</code>. My
 solution is in <code>chap04soln.ipynb</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 4.1</strong></p>
+<p><strong>Exercise 4.12</strong></p>
 </div>
 <div class="paragraph">
 <p>How much did you weigh at birth? If you don’t know, call your mother or
@@ -3535,7 +3577,7 @@ others. If you are in the 90th percentile or higher, call your mother
 back and apologize.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 4.2</strong></p>
+<p><strong>Exercise 4.13</strong></p>
 </div>
 <div class="paragraph">
 <p>The numbers generated by <code>random.random</code> are supposed to be uniform
@@ -3595,6 +3637,10 @@ population.</p>
 <h2 id="modeling"><a class="anchor" href="#modeling"></a><a class="link" href="#modeling">5. Modeling distributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>The distributions we have used so far are called <strong>empirical
 distributions</strong> because they are based on empirical observations, which
 are necessarily finite samples.</p>
@@ -3617,7 +3663,10 @@ downloading and working with this code, see <a href="#code">Using the code</a>.<
 <div class="content">
 <img src="figs/analytic_expo_cdf.png" alt="analytic expo cdf" height="240">
 </div>
-<div class="title">Figure 14. CDFs of exponential distributions with various parameters.</div>
+<div class="title">{figure-label} {chapter}.{figure} 14. CDFs of exponential distributions with various parameters.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>I’ll start with the <strong>exponential distribution</strong> because it is relatively
@@ -3630,7 +3679,7 @@ simple. The CDF of the exponential distribution is</p>
 </div>
 <div class="paragraph">
 <p>The parameter, \(\lambda\), determines the shape of the
-distribution. <a href="#analytic_expo_cdf">Figure 14</a> shows
+distribution. <a href="#analytic_expo_cdf">{figure-label} {chapter}.{figure} 14</a> shows
 what this CDF looks like with \(\lambda =\) 0.5, 1, and 2.</p>
 </div>
 <div class="paragraph">
@@ -3643,13 +3692,13 @@ exponential distribution.</p>
 <div class="paragraph">
 <p>As an example, we will look at the interarrival time of births. On
 December 18, 1997, 44 babies were born in a hospital in Brisbane,
-Australia.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup> The time of birth for
+Australia.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> The time of birth for
 all 44 babies was reported in the local paper; the complete dataset is
 in a file called <code>babyboom.dat</code>, in the <code>ThinkStats2</code> repository.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    df = ReadBabyBoom()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    df = ReadBabyBoom()
     diffs = df.minutes.diff()
     cdf = thinkstats2.Cdf(diffs, label='actual')
 
@@ -3666,12 +3715,15 @@ columns <code>time</code>, <code>sex</code>, <code>weight_g</code>, and <code>mi
 <div class="content">
 <img src="figs/analytic_interarrivals.png" alt="analytic interarrivals" height="240">
 </div>
-<div class="title">Figure 15. CDF of interarrival times (left) and CCDF on a log-y scale (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 15. CDF of interarrival times (left) and CCDF on a log-y scale (right).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p><code>diffs</code> is the difference between consecutive birth times, and <code>cdf</code>
 is the distribution of these interarrival times.
-<a href="#analytic_interarrival_cdf">Figure 15</a>
+<a href="#analytic_interarrival_cdf">{figure-label} {chapter}.{figure} 15</a>
 (left) shows the CDF. It seems to have the general shape of an
 exponential distribution, but how can we tell?</p>
 </div>
@@ -3704,7 +3756,7 @@ exponential, you expect to see a function like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.Cdf(cdf, complement=True)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.Cdf(cdf, complement=True)
     thinkplot.Show(xlabel='minutes',
                    ylabel='CCDF',
                    yscale='log')</code></pre>
@@ -3716,7 +3768,7 @@ complementary CDF before plotting. And with <code>yscale='log'</code>,
 <code>thinkplot.Show</code> sets the <code>y</code> axis to a logarithmic scale.</p>
 </div>
 <div class="paragraph">
-<p><a href="#analytic_interarrival_cdf">Figure 15</a>
+<p><a href="#analytic_interarrival_cdf">{figure-label} {chapter}.{figure} 15</a>
 (right) shows the result. It is not exactly straight, which indicates
 that the exponential distribution is not a perfect model for this data.
 Most likely the underlying assumption—that a birth is equally likely at
@@ -3746,7 +3798,10 @@ in <a href="#CLT">Section 14.4</a>.</p>
 <div class="content">
 <img src="figs/analytic_gaussian_cdf.png" alt="analytic gaussian cdf" height="240">
 </div>
-<div class="title">Figure 16. CDF of normal distributions with a range of parameters.</div>
+<div class="title">{figure-label} {chapter}.{figure} 16. CDF of normal distributions with a range of parameters.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>The normal distribution is characterized by two parameters: the mean,
@@ -3781,12 +3836,12 @@ evaluates the CDF at <code>x</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def EvalNormalCdf(x, mu=0, sigma=1):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def EvalNormalCdf(x, mu=0, sigma=1):
     return scipy.stats.norm.cdf(x, loc=mu, scale=sigma)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#analytic_gaussian_cdf">Figure 16</a> shows CDFs
+<p><a href="#analytic_gaussian_cdf">{figure-label} {chapter}.{figure} 16</a> shows CDFs
 for normal distributions with a range of parameters. The sigmoid shape
 of these curves is a recognizable characteristic of a normal
 distribution.</p>
@@ -3794,7 +3849,7 @@ distribution.</p>
 <div class="paragraph">
 <p>In the previous chapter we looked at the distribution of birth weights
 in the NSFG.
-<a href="#analytic_birthwgt_model">Figure 17</a> shows
+<a href="#analytic_birthwgt_model">{figure-label} {chapter}.{figure} 17</a> shows
 the empirical CDF of weights for all live births and the CDF of a normal
 distribution with the same mean and variance.</p>
 </div>
@@ -3802,7 +3857,10 @@ distribution with the same mean and variance.</p>
 <div class="content">
 <img src="figs/analytic_birthwgt_model.png" alt="analytic birthwgt model" height="240">
 </div>
-<div class="title">Figure 17. CDF of birth weights with a normal model.</div>
+<div class="title">{figure-label} {chapter}.{figure} 17. CDF of birth weights with a normal model.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>The normal distribution is a good model for this dataset, so if we
@@ -3856,14 +3914,17 @@ returns two NumPy arrays:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">xs, ys = thinkstats2.NormalProbability(sample)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">xs, ys = thinkstats2.NormalProbability(sample)</code></pre>
 </div>
 </div>
 <div id="analytic_normal_prob_example" class="imageblock">
 <div class="content">
 <img src="figs/analytic_normal_prob_example.png" alt="analytic normal prob example" height="240">
 </div>
-<div class="title">Figure 18. Normal probability plot for random samples from normal distributions.</div>
+<div class="title">{figure-label} {chapter}.{figure} 18. Normal probability plot for random samples from normal distributions.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p><code>ys</code> contains the sorted values from <code>sample</code>; <code>xs</code> contains the
@@ -3872,7 +3933,7 @@ random values from the standard normal distribution.</p>
 <div class="paragraph">
 <p>To test <code>NormalProbability</code> I generated some fake samples that were
 actually drawn from normal distributions with various parameters.
-<a href="#analytic_normal_prob_example">Figure 18</a>
+<a href="#analytic_normal_prob_example">{figure-label} {chapter}.{figure} 18</a>
 shows the results. The lines are approximately straight, with values in
 the tails deviating more than values near the mean.</p>
 </div>
@@ -3884,7 +3945,7 @@ represents the data.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def MakeNormalPlot(weights):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def MakeNormalPlot(weights):
     mean = weights.mean()
     std = weights.std()
 
@@ -3914,10 +3975,13 @@ distribution of weights is normal, the data should match the model.</p>
 <div class="content">
 <img src="figs/analytic_birthwgt_normal.png" alt="analytic birthwgt normal" height="240">
 </div>
-<div class="title">Figure 19. Normal probability plot of birth weights.</div>
+<div class="title">{figure-label} {chapter}.{figure} 19. Normal probability plot of birth weights.</div>
 </div>
 <div class="paragraph">
-<p><a href="#analytic_birthwgt_normal">Figure 19</a> shows
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#analytic_birthwgt_normal">{figure-label} {chapter}.{figure} 19</a> shows
 the results for all live births, and also for full term births
 (pregnancy length greater than 36 weeks). Both curves match the model
 near the mean and deviate in the tails. The heaviest babies are heavier
@@ -3960,7 +4024,10 @@ standard deviation is ugly (see
 <div class="content">
 <img src="figs/brfss_weight.png" alt="brfss weight" height="240">
 </div>
-<div class="title">Figure 20. CDF of adult weights on a linear scale (left) and log scale (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 20. CDF of adult weights on a linear scale (left) and log scale (right).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>If a sample is approximately lognormal and you plot its CDF on a log-x
@@ -3970,12 +4037,12 @@ normal probability plot using the log of the values in the sample.</p>
 </div>
 <div class="paragraph">
 <p>As an example, let’s look at the distribution of adult weights, which is
-approximately lognormal.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnote_2" title="View footnote.">2</a>]</sup></p>
+approximately lognormal.<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
 </div>
 <div class="paragraph">
 <p>The National Center for Chronic Disease Prevention and Health Promotion
 conducts an annual survey as part of the Behavioral Risk Factor
-Surveillance System (BRFSS).<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnote_3" title="View footnote.">3</a>]</sup> In 2008, they
+Surveillance System (BRFSS).<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup> In 2008, they
 interviewed 414,509 respondents and asked about their demographics,
 health, and health risks. Among the data they collected are the weights
 in kilograms of 398,484 respondents.</p>
@@ -3989,18 +4056,21 @@ reads the file and analyzes the data.</p>
 <div class="content">
 <img src="figs/brfss_weight_normal.png" alt="brfss weight normal" height="240">
 </div>
-<div class="title">Figure 21. Normal probability plots for adult weight on a linear scale (left) and log scale (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 21. Normal probability plots for adult weight on a linear scale (left) and log scale (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#brfss_weight">Figure 20</a> (left) shows the distribution
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#brfss_weight">{figure-label} {chapter}.{figure} 20</a> (left) shows the distribution
 of adult weights on a linear scale with a normal model.
-<a href="#brfss_weight">Figure 20</a> (right) shows the same
+<a href="#brfss_weight">{figure-label} {chapter}.{figure} 20</a> (right) shows the same
 distribution on a log scale with a lognormal model. The lognormal model
 is a better fit, but this representation of the data does not make the
 difference particularly dramatic.</p>
 </div>
 <div class="paragraph">
-<p><a href="#brfss_weight_normal">Figure 21</a> shows normal
+<p><a href="#brfss_weight_normal">{figure-label} {chapter}.{figure} 21</a> shows normal
 probability plots for adult weights, \(w\), and for their
 logarithms, \(\log_{10} w\). Now it is apparent that the data
 deviate substantially from the normal model. On the other hand, the
@@ -4028,7 +4098,7 @@ and earthquakes.</p>
 <div class="paragraph">
 <p>The parameters \(x_{m}\) and \(\alpha\) determine the
 location and shape of the distribution. \(x_{m}\) is the minimum
-possible value. <a href="#analytic_pareto_cdf">Figure 22</a>
+possible value. <a href="#analytic_pareto_cdf">{figure-label} {chapter}.{figure} 22</a>
 shows CDFs of Pareto distributions with \(x_{m} = 0.5\) and
 different values of \(\alpha\).</p>
 </div>
@@ -4036,7 +4106,10 @@ different values of \(\alpha\).</p>
 <div class="content">
 <img src="figs/analytic_pareto_cdf.png" alt="analytic pareto cdf" height="240">
 </div>
-<div class="title">Figure 22. CDFs of Pareto distributions with different parameters.</div>
+<div class="title">{figure-label} {chapter}.{figure} 22. CDFs of Pareto distributions with different parameters.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>There is a simple visual test that indicates whether an empirical
@@ -4074,7 +4147,10 @@ and town in the United States.</p>
 <div class="content">
 <img src="figs/populations_pareto.png" alt="populations pareto" height="240">
 </div>
-<div class="title">Figure 23. CCDFs of city and town populations, on a log-log scale.</div>
+<div class="title">{figure-label} {chapter}.{figure} 23. CCDFs of city and town populations, on a log-log scale.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>I downloaded their data from
@@ -4085,7 +4161,7 @@ it is in the repository for this book in a file named
 populations.</p>
 </div>
 <div class="paragraph">
-<p><a href="#populations_pareto">Figure 23</a> shows the CCDF of
+<p><a href="#populations_pareto">{figure-label} {chapter}.{figure} 23</a> shows the CCDF of
 populations on a log-log scale. The largest 1% of cities and towns,
 below \(10^{-2}\), fall along a straight line. So we could
 conclude, as some researchers have, that the tail of this distribution
@@ -4093,7 +4169,7 @@ fits a Pareto model.</p>
 </div>
 <div class="paragraph">
 <p>On the other hand, a lognormal distribution also models the data well.
-<a href="#populations_normal">Figure 24</a> shows the CDF of
+<a href="#populations_normal">{figure-label} {chapter}.{figure} 24</a> shows the CDF of
 populations and a lognormal model (left), and a normal probability plot
 (right). Both plots show good agreement between the data and the model.</p>
 </div>
@@ -4107,7 +4183,10 @@ appropriate depends on which part of the distribution is relevant.</p>
 <div class="content">
 <img src="figs/populations_normal.png" alt="populations normal" height="240">
 </div>
-<div class="title">Figure 24. CDF of city and town populations on a log-x scale (left), and normal probability plot of log-transformed populations (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 24. CDF of city and town populations on a log-x scale (left), and normal probability plot of log-transformed populations (right).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 </div>
 <div class="sect2">
@@ -4141,7 +4220,7 @@ uniform distribution between 0 and 1, then choosing
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def expovariate(lam):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def expovariate(lam):
     p = random.random()
     x = -math.log(1-p) / lam
     return x</code></pre>
@@ -4208,14 +4287,11 @@ depends on what you are planning to use the model for.</p>
 <div class="sect2">
 <h3 id="_exercises_5"><a class="anchor" href="#_exercises_5"></a><a class="link" href="#_exercises_5">5.8. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>For the following exercises, you can start with <code>chap05ex.ipynb</code>. My
 solution is in <code>chap05soln.ipynb</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 5.1</strong></p>
+<p><strong>Exercise 5.14</strong></p>
 </div>
 <div class="paragraph">
 <p>In the BRFSS (see <a href="#lognormal">Section 5.4</a>), the
@@ -4229,7 +4305,7 @@ distribution of heights is roughly normal with parameters
 population is in this range? Hint: use <code>scipy.stats.norm.cdf</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 5.2</strong></p>
+<p><strong>Exercise 5.15</strong></p>
 </div>
 <div class="paragraph">
 <p>To get a feel for the Pareto distribution, let’s see how different the
@@ -4244,7 +4320,7 @@ billion people in Pareto world, how many do we expect to be taller than
 1 km? How tall do we expect the tallest person to be?</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 5.3</strong></p>
+<p><strong>Exercise 5.16</strong></p>
 </div>
 <div id="weibull" class="paragraph">
 <p>The Weibull distribution is a generalization of the exponential
@@ -4266,7 +4342,7 @@ indicate?</p>
 distribution and use it to test your transformation.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 5.4</strong></p>
+<p><strong>Exercise 5.17</strong></p>
 </div>
 <div class="paragraph">
 <p>For small values of \(n\), we don’t expect an empirical
@@ -4287,7 +4363,7 @@ as the data, about 33 minutes between births.</p>
 distribution. You can use <code>random.expovariate</code> to generate the values.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 5.5</strong></p>
+<p><strong>Exercise 5.18</strong></p>
 </div>
 <div class="paragraph">
 <p>In the repository for this book, you’ll find a set of data files called
@@ -4310,7 +4386,7 @@ distribution generated each file. If you are stumped, you can look in
 <code>mystery.py</code>, which contains the code that generated the files.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 5.6</strong></p>
+<p><strong>Exercise 5.19</strong></p>
 </div>
 <div id="income" class="paragraph">
 <p>The distributions of wealth and income are sometimes modeled using
@@ -4372,6 +4448,10 @@ random values from a standard normal distribution.</p>
 <div class="sect1">
 <h2 id="density"><a class="anchor" href="#density"></a><a class="link" href="#density">6. Probability density functions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
 <div class="paragraph">
 <p>The code for this chapter is in <code>density.py</code>. For information about
 downloading and working with this code, see <a href="#code">Using the code</a>.</p>
@@ -4450,7 +4530,7 @@ evaluates the normal density function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class NormalPdf(Pdf):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class NormalPdf(Pdf):
 
     def __init__(self, mu=0, sigma=1, label=''):
         self.mu = mu
@@ -4500,7 +4580,7 @@ we can see the shape of the distribution:</p>
 <div class="paragraph">
 <p><code>thinkplot.Pdf</code> plots the Pdf as a smooth function, as contrasted with
 <code>thinkplot.Pmf</code>, which renders a Pmf as a step function.
-<a href="#pdf_example">Figure 25</a> shows the result, as well as a
+<a href="#pdf_example">{figure-label} {chapter}.{figure} 25</a> shows the result, as well as a
 PDF estimated from a sample, which we’ll compute in the next section.</p>
 </div>
 <div class="paragraph">
@@ -4520,7 +4600,10 @@ PDF estimated from a sample, which we’ll compute in the next section.</p>
 <div class="content">
 <img src="figs/pdf_example.png" alt="pdf example" height="211">
 </div>
-<div class="title">Figure 25. A normal PDF that models adult female height in the U.S., and the kernel density estimate of a sample with \(n=500\).</div>
+<div class="title">{figure-label} {chapter}.{figure} 25. A normal PDF that models adult female height in the U.S., and the kernel density estimate of a sample with \(n=500\).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 </div>
 <div class="sect2">
@@ -4536,7 +4619,7 @@ a class called <code>EstimatedPdf</code> that uses it:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class EstimatedPdf(Pdf):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class EstimatedPdf(Pdf):
 
     def __init__(self, sample):
         self.kde = scipy.stats.gaussian_kde(sample)
@@ -4572,7 +4655,7 @@ then makes an EstimatedPdf to fit it:</p>
 object that contains the estimated KDE of the sample.</p>
 </div>
 <div class="paragraph">
-<p><a href="#pdf_example">Figure 25</a> shows the normal density
+<p><a href="#pdf_example">{figure-label} {chapter}.{figure} 25</a> shows the normal density
 function and a KDE based on a sample of 500 random heights. The estimate
 is a good match for the original distribution.</p>
 </div>
@@ -4610,11 +4693,14 @@ data.</p>
 <div class="content">
 <img src="figs/distribution_functions.png" alt="distribution functions" height="211">
 </div>
-<div class="title">Figure 26. A framework that relates representations of distribution functions.</div>
+<div class="title">{figure-label} {chapter}.{figure} 26. A framework that relates representations of distribution functions.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>At this point we have seen PMFs, CDFs and PDFs; let’s take a minute to
-review. <a href="#dist_framework">Figure 26</a> shows how these
+review. <a href="#dist_framework">{figure-label} {chapter}.{figure} 26</a> shows how these
 functions relate to each other.</p>
 </div>
 <div class="paragraph">
@@ -4676,7 +4762,7 @@ example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class _DictWrapper
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class _DictWrapper
 
     def Incr(self, x, term=1):
         self.d[x] = self.d.get(x, 0) + term
@@ -4711,7 +4797,7 @@ and divides through by a factor:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class Pmf
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class Pmf
 
     def Normalize(self, fraction=1.0):
         total = self.Total()
@@ -4765,7 +4851,7 @@ Hist. Then it uses the Hist to initialize the attributes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">        self.xs, freqs = zip(*sorted(dw.Items()))
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">        self.xs, freqs = zip(*sorted(dw.Items()))
         self.ps = np.cumsum(freqs, dtype=np.float)
         self.ps /= self.ps[-1]</code></pre>
 </div>
@@ -4783,7 +4869,7 @@ its cumulative probability:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class Cdf
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class Cdf
     def Prob(self, x):
         if x &lt; self.xs[0]:
             return 0.0
@@ -4799,7 +4885,7 @@ probability and returns the corresponding value:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class Cdf
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class Cdf
     def Value(self, p):
         if p &lt; 0 or p &gt; 1:
             raise ValueError('p must be in range [0, 1]')
@@ -4815,7 +4901,7 @@ and pass a Pmf, it computes differences by calling <code>Cdf.Items</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class Cdf
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class Cdf
     def Items(self):
         a = self.ps
         b = np.roll(a, 1)
@@ -4855,7 +4941,7 @@ variance, median, and interquartile range.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def RawMoment(xs, k):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def RawMoment(xs, k):
     return sum(x**k for x in xs) / len(xs)</code></pre>
 </div>
 </div>
@@ -4878,7 +4964,7 @@ moment is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def CentralMoment(xs, k):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def CentralMoment(xs, k):
     mean = RawMoment(xs, 1)
     return sum((x - mean)**k for x in xs) / len(xs)</code></pre>
 </div>
@@ -4925,7 +5011,7 @@ skewness</strong>, \(g_1\), can be computed like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def StandardizedMoment(xs, k):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def StandardizedMoment(xs, k):
     var = CentralMoment(xs, 2)
     std = math.sqrt(var)
     return CentralMoment(xs, k) / std**k
@@ -4971,7 +5057,7 @@ median, and \(S\) is the standard deviation. Or in Python:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Median(xs):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Median(xs):
     cdf = thinkstats2.Cdf(xs)
     return cdf.Value(0.5)
 
@@ -4992,7 +5078,10 @@ the effect of outliers.</p>
 <div class="content">
 <img src="figs/density_totalwgt_kde.png" alt="density totalwgt kde" height="211">
 </div>
-<div class="title">Figure 27. Estimated PDF of birthweight data from the NSFG.</div>
+<div class="title">{figure-label} {chapter}.{figure} 27. Estimated PDF of birthweight data from the NSFG.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>As an example, let’s look at the skewness of birth weights in the NSFG
@@ -5000,14 +5089,14 @@ pregnancy data. Here’s the code to estimate and plot the PDF:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     data = live.totalwgt_lb.dropna()
     pdf = thinkstats2.EstimatedPdf(data)
     thinkplot.Pdf(pdf, label='birth weight')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#density_totalwgt_kde">Figure 27</a> shows the
+<p><a href="#density_totalwgt_kde">{figure-label} {chapter}.{figure} 27</a> shows the
 result. The left tail appears longer than the right, so we suspect the
 distribution is skewed left. The mean, 7.27 lbs, is a bit less than the
 median, 7.38 lbs, so that is consistent with left skew. And both
@@ -5018,7 +5107,10 @@ median skewness is -0.23.</p>
 <div class="content">
 <img src="figs/density_wtkg2_kde.png" alt="density wtkg2 kde" height="211">
 </div>
-<div class="title">Figure 28. Estimated PDF of adult weight data from the BRFSS.</div>
+<div class="title">{figure-label} {chapter}.{figure} 28. Estimated PDF of adult weight data from the BRFSS.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>Now let’s compare this distribution to the distribution of adult weight
@@ -5026,14 +5118,14 @@ in the BRFSS. Again, here’s the code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    df = brfss.ReadBrfss(nrows=None)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    df = brfss.ReadBrfss(nrows=None)
     data = df.wtkg2.dropna()
     pdf = thinkstats2.EstimatedPdf(data)
     thinkplot.Pdf(pdf, label='adult weight')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#density_wtkg2_kde">Figure 28</a> shows the result.
+<p><a href="#density_wtkg2_kde">{figure-label} {chapter}.{figure} 28</a> shows the result.
 The distribution appears skewed to the right. Sure enough, the mean,
 79.0, is bigger than the median, 77.3. The sample skewness is 1.1 and
 Pearson’s median skewness is 0.26.</p>
@@ -5054,13 +5146,10 @@ third moment, it is somewhat more robust.</p>
 <div class="sect2">
 <h3 id="_exercises_6"><a class="anchor" href="#_exercises_6"></a><a class="link" href="#_exercises_6">6.9. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>A solution to this exercise is in <code>chap06soln.py</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 6.1</strong></p>
+<p><strong>Exercise 6.20</strong></p>
 </div>
 <div class="paragraph">
 <p>The distribution of income is famously skewed to the right. In this
@@ -5165,6 +5254,10 @@ effect of outliers.</p>
 <h2 id="_relationships_between_variables"><a class="anchor" href="#_relationships_between_variables"></a><a class="link" href="#_relationships_between_variables">7. Relationships between variables</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>So far we have only looked at one variable at a time. In this chapter we
 look at relationships between variables. Two variables are related if
 knowing one gives you information about the other. For example, height
@@ -5190,7 +5283,7 @@ example, I’ll plot weight versus height for the respondents in the BRFSS
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    df = brfss.ReadBrfss(nrows=None)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    df = brfss.ReadBrfss(nrows=None)
     sample = thinkstats2.SampleRows(df, 5000)
     heights, weights = sample.htm3, sample.wtkg2</code></pre>
 </div>
@@ -5200,7 +5293,7 @@ example, I’ll plot weight versus height for the respondents in the BRFSS
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SampleRows(df, nrows, replace=False):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SampleRows(df, nrows, replace=False):
     indices = np.random.choice(df.index, nrows, replace=replace)
     sample = df.loc[indices]
     return sample</code></pre>
@@ -5217,21 +5310,24 @@ than once.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.Scatter(heights, weights)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.Scatter(heights, weights)
     thinkplot.Show(xlabel='Height (cm)',
                    ylabel='Weight (kg)',
                    axis=[140, 210, 20, 200])</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The result, in <a href="#scatter1">Figure 29</a> (left), shows the shape of the
+<p>The result, in <a href="#scatter1">{figure-label} {chapter}.{figure} 29</a> (left), shows the shape of the
 relationship. As we expected, taller people tend to be heavier.</p>
 </div>
 <div id="scatter1" class="imageblock">
 <div class="content">
 <img src="figs/scatter1.png" alt="scatter1" height="288">
 </div>
-<div class="title">Figure 29. Scatter plots of weight versus height for the respondents in the BRFSS, unjittered (left), jittered (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 29. Scatter plots of weight versus height for the respondents in the BRFSS, unjittered (left), jittered (right).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>But this is not the best representation of the data, because the data
@@ -5248,7 +5344,7 @@ or 1.3 cm. Similarly, the weights might be off by 0.5 kg.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    heights = thinkstats2.Jitter(heights, 1.3)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    heights = thinkstats2.Jitter(heights, 1.3)
     weights = thinkstats2.Jitter(weights, 0.5)</code></pre>
 </div>
 </div>
@@ -5257,7 +5353,7 @@ or 1.3 cm. Similarly, the weights might be off by 0.5 kg.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Jitter(values, jitter=0.5):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Jitter(values, jitter=0.5):
     n = len(values)
     return np.random.uniform(-jitter, +jitter, n) + values</code></pre>
 </div>
@@ -5266,7 +5362,7 @@ or 1.3 cm. Similarly, the weights might be off by 0.5 kg.</p>
 <p>The values can be any sequence; the result is a NumPy array.</p>
 </div>
 <div class="paragraph">
-<p><a href="#scatter1">Figure 29</a> (right) shows the result. Jittering reduces
+<p><a href="#scatter1">{figure-label} {chapter}.{figure} 29</a> (right) shows the result. Jittering reduces
 the visual effect of rounding and makes the shape of the relationship
 clearer. But in general you should only jitter data for purposes of
 visualization and avoid using jittered data for analysis.</p>
@@ -5281,7 +5377,10 @@ effect is called <strong>saturation</strong>.</p>
 <div class="content">
 <img src="figs/scatter2.png" alt="scatter2" height="288">
 </div>
-<div class="title">Figure 30. Scatter plot with jittering and transparency (left), hexbin plot (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 30. Scatter plot with jittering and transparency (left), hexbin plot (right).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>We can solve this problem with the <code>alpha</code> parameter, which makes the
@@ -5289,11 +5388,11 @@ points partly transparent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.Scatter(heights, weights, alpha=0.2)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.Scatter(heights, weights, alpha=0.2)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#scatter2">Figure 30</a> (left) shows the result. Overlapping data
+<p><a href="#scatter2">{figure-label} {chapter}.{figure} 30</a> (left) shows the result. Overlapping data
 points look darker, so darkness is proportional to density. In this
 version of the plot we can see two details that were not apparent
 before: vertical clusters at several heights and a horizontal line near
@@ -5313,11 +5412,11 @@ how many data points fall in it. <code>thinkplot</code> provides <code>HexBin</c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.HexBin(heights, weights)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.HexBin(heights, weights)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#scatter2">Figure 30</a> (right) shows the result. An advantage of a
+<p><a href="#scatter2">{figure-label} {chapter}.{figure} 30</a> (right) shows the result. An advantage of a
 hexbin is that it shows the shape of the relationship well, and it is
 efficient for large datasets, both in time and in the size of the file
 it generates. A drawback is that it makes the outliers invisible.</p>
@@ -5341,7 +5440,7 @@ and plot percentiles of the other.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    df = df.dropna(subset=['htm3', 'wtkg2'])
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    df = df.dropna(subset=['htm3', 'wtkg2'])
     bins = np.arange(135, 210, 5)
     indices = np.digitize(df.htm3, bins)
     groups = df.groupby(indices)</code></pre>
@@ -5362,7 +5461,10 @@ highest bin are mapped to <code>len(bins)</code>.</p>
 <div class="content">
 <img src="figs/scatter3.png" alt="scatter3" height="240">
 </div>
-<div class="title">Figure 31. Percentiles of weight for a range of height bins.</div>
+<div class="title">{figure-label} {chapter}.{figure} 31. Percentiles of weight for a range of height bins.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p><code>groupby</code> is a DataFrame method that returns a GroupBy object; used in
@@ -5372,7 +5474,7 @@ of rows in each group like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">for i, group in groups:
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">for i, group in groups:
     print(i, len(group))</code></pre>
 </div>
 </div>
@@ -5381,7 +5483,7 @@ of rows in each group like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    heights = [group.htm3.mean() for i, group in groups]
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    heights = [group.htm3.mean() for i, group in groups]
     cdfs = [thinkstats2.Cdf(group.wtkg2) for i, group in groups]</code></pre>
 </div>
 </div>
@@ -5390,14 +5492,14 @@ of rows in each group like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    for percent in [75, 50, 25]:
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    for percent in [75, 50, 25]:
         weights = [cdf.Percentile(percent) for cdf in cdfs]
         label = '%dth' % percent
         thinkplot.Plot(heights, weights, label=label)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#scatter3">Figure 31</a> shows the result. Between 140 and 200 cm the
+<p><a href="#scatter3">{figure-label} {chapter}.{figure} 31</a> shows the result. Between 140 and 200 cm the
 relationship between these variables is roughly linear. This range
 includes more than 99% of the data, so we don’t have to worry too much
 about the extremes.</p>
@@ -5501,7 +5603,7 @@ orthogonal, and negative if they point in opposite directions.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Cov(xs, ys, meanx=None, meany=None):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Cov(xs, ys, meanx=None, meany=None):
     xs = np.asarray(xs)
     ys = np.asarray(ys)
 
@@ -5529,7 +5631,7 @@ matrix, which is more than we need for now.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pearson_s_correlation"><a class="anchor" href="#_pearson_s_correlation"></a><a class="link" href="#_pearson_s_correlation">7.5. Pearson’s correlation</a></h3>
+<h3 id="_pearsons_correlation"><a class="anchor" href="#_pearsons_correlation"></a><a class="link" href="#_pearsons_correlation">7.5. Pearson’s correlation</a></h3>
 <div class="paragraph">
 <p>Covariance is useful in some computations, but it is seldom reported as
 a summary statistic because it is hard to interpret. Among other
@@ -5576,7 +5678,7 @@ interpret. Because standard scores are dimensionless, so is
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Corr(xs, ys):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Corr(xs, ys):
     xs = np.asarray(xs)
     ys = np.asarray(ys)
 
@@ -5623,10 +5725,13 @@ strength.</p>
 <div class="content">
 <img src="figs/Correlation_examples.png" alt="Correlation examples" height="240">
 </div>
-<div class="title">Figure 32. Examples of datasets with a range of correlations.</div>
+<div class="title">{figure-label} {chapter}.{figure} 32. Examples of datasets with a range of correlations.</div>
 </div>
 <div class="paragraph">
-<p><a href="#corr_examples">Figure 32</a> is from
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#corr_examples">{figure-label} {chapter}.{figure} 32</a> is from
 <a href="http://wikipedia.org/wiki/Correlation_and_dependence" class="bare">http://wikipedia.org/wiki/Correlation_and_dependence</a>. It shows scatter
 plots and correlation coefficients for several carefully constructed
 datasets.</p>
@@ -5646,7 +5751,7 @@ of your data before blindly computing a correlation coefficient.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spearman_s_rank_correlation"><a class="anchor" href="#_spearman_s_rank_correlation"></a><a class="link" href="#_spearman_s_rank_correlation">7.7. Spearman’s rank correlation</a></h3>
+<h3 id="_spearmans_rank_correlation"><a class="anchor" href="#_spearmans_rank_correlation"></a><a class="link" href="#_spearmans_rank_correlation">7.7. Spearman’s rank correlation</a></h3>
 <div class="paragraph">
 <p>Pearson’s correlation works well if the relationship between variables
 is linear and if the variables are roughly normal. But it is not robust
@@ -5664,7 +5769,7 @@ correlation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SpearmanCorr(xs, ys):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SpearmanCorr(xs, ys):
     xranks = pandas.Series(xs).rank()
     yranks = pandas.Series(ys).rank()
     return Corr(xranks, yranks)</code></pre>
@@ -5680,7 +5785,7 @@ which computes the rank for each value and returns a Series. Then I use
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SpearmanCorr(xs, ys):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SpearmanCorr(xs, ys):
     xs = pandas.Series(xs)
     ys = pandas.Series(ys)
     return xs.corr(ys, method='spearman')</code></pre>
@@ -5713,7 +5818,7 @@ height:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkstats2.Corr(df.htm3, np.log(df.wtkg2)))</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkstats2.Corr(df.htm3, np.log(df.wtkg2)))</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5796,13 +5901,10 @@ that are not apparent. You can read more about this topic at
 <div class="sect2">
 <h3 id="_exercises_7"><a class="anchor" href="#_exercises_7"></a><a class="link" href="#_exercises_7">7.9. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>A solution to this exercise is in <code>chap07soln.py</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 7.1</strong></p>
+<p><strong>Exercise 7.21</strong></p>
 </div>
 <div class="paragraph">
 <p>Using data from the NSFG, make a scatter plot of birth weight versus
@@ -5871,6 +5973,10 @@ approximately random.</p>
 <div class="sect1">
 <h2 id="estimation"><a class="anchor" href="#estimation"></a><a class="link" href="#estimation">8. Estimation</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
 <div class="paragraph">
 <p>The code for this chapter is in <code>estimation.py</code>. For information about
 downloading and working with this code, see <a href="#code">Using the code</a>.</p>
@@ -5944,7 +6050,7 @@ root mean squared error (RMSE), which is the square root of MSE:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Estimate1(n=7, m=1000):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Estimate1(n=7, m=1000):
     mu = 0
     sigma = 1
 
@@ -5971,7 +6077,7 @@ we play the game. <code>means</code> is the list of estimates based on
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def RMSE(estimates, actual):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def RMSE(estimates, actual):
     e2 = [(estimate-actual)**2 for estimate in estimates]
     mse = np.mean(e2)
     return math.sqrt(mse)</code></pre>
@@ -6062,7 +6168,7 @@ performance of \(S^2\) and \(S_{n-1}^2\):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Estimate2(n=7, m=1000):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Estimate2(n=7, m=1000):
     mu = 0
     sigma = 1
 
@@ -6093,7 +6199,7 @@ actual value:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def MeanError(estimates, actual):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def MeanError(estimates, actual):
     errors = [estimate-actual for estimate in estimates]
     return np.mean(errors)</code></pre>
 </div>
@@ -6167,7 +6273,7 @@ the estimated mean, \(\bar{x}\), vary?&#8221;</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SimulateSample(mu=90, sigma=7.5, n=9, m=1000):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SimulateSample(mu=90, sigma=7.5, n=9, m=1000):
     means = []
     for j in range(m):
         xs = np.random.normal(mu, sigma, n)
@@ -6188,13 +6294,16 @@ the number of times we run the simulation.</p>
 <div class="content">
 <img src="figs/estimation1.png" alt="estimation1" height="240">
 </div>
-<div class="title">Figure 33. Sampling distribution of \(\bar{x}\), with confidence interval.</div>
+<div class="title">{figure-label} {chapter}.{figure} 33. Sampling distribution of \(\bar{x}\), with confidence interval.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>In each iteration, we choose <code>n</code> values from a normal distribution
 with the given parameters, and compute the sample mean, <code>xbar</code>. We run
 1000 simulations and then compute the distribution, <code>cdf</code>, of the
-estimates. The result is shown in <a href="#estimation1">Figure 33</a>. This
+estimates. The result is shown in <a href="#estimation1">{figure-label} {chapter}.{figure} 33</a>. This
 distribution is called the <strong>sampling distribution</strong> of the estimator. It
 shows how much the estimates would vary if we ran the experiment over
 and over.</p>
@@ -6364,7 +6473,7 @@ sampling process:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Estimate3(n=7, m=1000):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Estimate3(n=7, m=1000):
     lam = 2
 
     means = []
@@ -6402,14 +6511,11 @@ not an unbiased estimator of \(\lambda\).</p>
 <div class="sect2">
 <h3 id="_exercises_8"><a class="anchor" href="#_exercises_8"></a><a class="link" href="#_exercises_8">8.6. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>For the following exercises, you might want to start with a copy of
 <code>estimation.py</code>. Solutions are in <code>chap08soln.py</code></p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 8.1</strong></p>
+<p><strong>Exercise 8.22</strong></p>
 </div>
 <div class="paragraph">
 <p>In this chapter we used \(\bar{x}\) and median to estimate
@@ -6424,7 +6530,7 @@ biased estimates of \(\mu\). Also check whether \(S^2\)
 or \(S_{n-1}^2\) yields a lower MSE.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 8.2</strong></p>
+<p><strong>Exercise 8.23</strong></p>
 </div>
 <div class="paragraph">
 <p>Suppose you draw a sample with size \(n=10\) from an exponential
@@ -6438,7 +6544,7 @@ interval.</p>
 make a plot of standard error versus \(n\).</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 8.3</strong></p>
+<p><strong>Exercise 8.24</strong></p>
 </div>
 <div class="paragraph">
 <p>In games like hockey and soccer, the time between goals is roughly
@@ -6522,6 +6628,10 @@ of an estimator if an experiment is repeated many times.</p>
 <h2 id="testing"><a class="anchor" href="#testing"></a><a class="link" href="#testing">9. Hypothesis testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>The code for this chapter is in <code>hypothesis.py</code>. For information about
 downloading and working with this code, see <a href="#code">Using the code</a>.</p>
 </div>
@@ -6544,7 +6654,7 @@ in the sample by chance.</p>
 <div class="paragraph">
 <p>There are several ways we could formulate this question, including
 Fisher null hypothesis testing, Neyman-Pearson decision theory, and
-Bayesian inference{<em>}<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnote_4" title="View footnote.">4</a>]</sup>. What I present here is a subset of
+Bayesian inference{<em>}<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>. What I present here is a subset of
 all three that makes up most of what people use in practice, which I
 will call <strong>classical hypothesis testing</strong>.</p>
 </div>
@@ -6606,7 +6716,7 @@ structure of a classical hypothesis test. Here is the definition:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class HypothesisTest(object):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class HypothesisTest(object):
 
     def __init__(self, data):
         self.data = data
@@ -6651,7 +6761,7 @@ fraction of elements in <code>test_stats</code> that exceed or equal the observe
 test statistic, <code>self.actual</code>.</p>
 </div>
 <div class="paragraph">
-<p>As a simple example{<em>}<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnote_5" title="View footnote.">5</a>]</sup>, suppose we toss a coin 250
+<p>As a simple example{<em>}<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>, suppose we toss a coin 250
 times and see 140 heads and 110 tails. Based on this result, we might
 suspect that the coin is biased; that is, more likely to land heads. To
 test this hypothesis, we compute the probability of seeing such a
@@ -6659,7 +6769,7 @@ difference if the coin is actually fair:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class CoinTest(thinkstats2.HypothesisTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class CoinTest(thinkstats2.HypothesisTest):
 
     def TestStatistic(self, data):
         heads, tails = data
@@ -6690,7 +6800,7 @@ of heads and tails, and returns a pair of integers.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    ct = CoinTest((140, 110))
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    ct = CoinTest((140, 110))
     pvalue = ct.PValue()</code></pre>
 </div>
 </div>
@@ -6734,7 +6844,7 @@ and shuffle them, treating the two groups as one big group:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class DiffMeansPermute(thinkstats2.HypothesisTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class DiffMeansPermute(thinkstats2.HypothesisTest):
 
     def TestStatistic(self, data):
         group1, group2 = data
@@ -6771,7 +6881,7 @@ observed data.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     data = firsts.prglngth.values, others.prglngth.values
     ht = DiffMeansPermute(data)
     pvalue = ht.PValue()</code></pre>
@@ -6789,7 +6899,10 @@ this effect is not statistically significant.</p>
 <div class="content">
 <img src="figs/hypothesis1.png" alt="hypothesis1" height="240">
 </div>
-<div class="title">Figure 34. CDF of difference in mean pregnancy length under the null hypothesis.</div>
+<div class="title">{figure-label} {chapter}.{figure} 34. CDF of difference in mean pregnancy length under the null hypothesis.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p><code>HypothesisTest</code> provides <code>PlotCdf</code>, which plots the distribution of
@@ -6797,13 +6910,13 @@ the test statistic and a gray line indicating the observed effect size:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    ht.PlotCdf()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    ht.PlotCdf()
     thinkplot.Show(xlabel='test statistic',
                    ylabel='CDF')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#hypothesis1">Figure 34</a> shows the result. The CDF intersects the
+<p><a href="#hypothesis1">{figure-label} {chapter}.{figure} 34</a> shows the result. The CDF intersects the
 observed difference at 0.83, which is the complement of the p-value,
 0.17.</p>
 </div>
@@ -6830,7 +6943,7 @@ would use this test statistic:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class DiffMeansOneSided(DiffMeansPermute):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class DiffMeansOneSided(DiffMeansPermute):
 
     def TestStatistic(self, data):
         group1, group2 = data
@@ -6865,7 +6978,7 @@ higher. Here’s how we can test that:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class DiffStdPermute(DiffMeansPermute):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class DiffStdPermute(DiffMeansPermute):
 
     def TestStatistic(self, data):
         group1, group2 = data
@@ -6901,7 +7014,7 @@ where the variables are unrelated:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class CorrelationPermute(thinkstats2.HypothesisTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class CorrelationPermute(thinkstats2.HypothesisTest):
 
     def TestStatistic(self, data):
         xs, ys = data
@@ -6924,7 +7037,7 @@ returns simulated data.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     live = live.dropna(subset=['agepreg', 'totalwgt_lb'])
     data = live.agepreg.values, live.totalwgt_lb.values
     ht = CorrelationPermute(data)
@@ -6955,7 +7068,7 @@ faces more likely than the others. You apprehend the alleged cheater and
 confiscate the die, but now you have to prove that it is crooked. You
 roll the die 60 times and get the following results:</p>
 </div>
-<table class="tableblock frame-all grid-all">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
 <col>
@@ -7006,7 +7119,7 @@ would we see such a difference by chance?</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class DiceTest(thinkstats2.HypothesisTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class DiceTest(thinkstats2.HypothesisTest):
 
     def TestStatistic(self, data):
         observed = data
@@ -7058,7 +7171,7 @@ are the expected frequencies. Here’s the Python code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class DiceChiTest(DiceTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class DiceChiTest(DiceTest):
 
     def TestStatistic(self, data):
         observed = data
@@ -7105,7 +7218,7 @@ significant, we can use a test based on a chi-squared statistic.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class PregLengthTest(thinkstats2.HypothesisTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class PregLengthTest(thinkstats2.HypothesisTest):
 
     def MakeModel(self):
         firsts, others = self.data
@@ -7139,7 +7252,7 @@ the pooled distribution.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class PregLengthTest:
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class PregLengthTest:
 
     def TestStatistic(self, data):
         firsts, others = data
@@ -7243,7 +7356,7 @@ and run hypothesis tests with simulated data:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def FalseNegRate(data, num_runs=100):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def FalseNegRate(data, num_runs=100):
     group1, group2 = data
     count = 0
 
@@ -7271,7 +7384,7 @@ with replacement:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Resample(xs):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Resample(xs):
     return np.random.choice(xs, len(xs), replace=True)</code></pre>
 </div>
 </div>
@@ -7280,7 +7393,7 @@ with replacement:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     data = firsts.prglngth.values, others.prglngth.values
     neg_rate = FalseNegRate(data)</code></pre>
 </div>
@@ -7378,13 +7491,10 @@ original, is bigger in the new dataset and significant.</p>
 <div class="sect2">
 <h3 id="_exercises_9"><a class="anchor" href="#_exercises_9"></a><a class="link" href="#_exercises_9">9.12. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>A solution to these exercises is in <code>chap09soln.py</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 9.1</strong></p>
+<p><strong>Exercise 9.25</strong></p>
 </div>
 <div class="paragraph">
 <p>As sample size increases, the power of a hypothesis test increases,
@@ -7403,7 +7513,7 @@ DataFrame.</p>
 What is the smallest sample size that yields a positive test?</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 9.2</strong></p>
+<p><strong>Exercise 9.26</strong></p>
 </div>
 <div class="paragraph">
 <p>In <a href="#testdiff">Section 9.3</a>, we simulated the null hypothesis by
@@ -7491,6 +7601,10 @@ false.</p>
 <h2 id="linear"><a class="anchor" href="#linear"></a><a class="link" href="#linear">10. Linear least squares</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>The code for this chapter is in <code>linear.py</code>. For information about
 downloading and working with this code, see <a href="#code">Using the code</a>.</p>
 </div>
@@ -7516,7 +7630,7 @@ approximate. The vertical deviation from the line, or <strong>residual</strong>,
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">res = ys - (inter + slope * xs)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">res = ys - (inter + slope * xs)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7582,7 +7696,7 @@ squares:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def LeastSquares(xs, ys):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def LeastSquares(xs, ys):
     meanx, varx = MeanVar(xs)
     meany = Mean(ys)
 
@@ -7604,7 +7718,7 @@ works, see
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def FitLine(xs, inter, slope):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def FitLine(xs, inter, slope):
     fit_xs = np.sort(xs)
     fit_ys = inter + slope * fit_xs
     return fit_xs, fit_ys</code></pre>
@@ -7616,7 +7730,7 @@ weight as a function of mother’s age.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     live = live.dropna(subset=['agepreg', 'totalwgt_lb'])
     ages = live.agepreg
     weights = live.totalwgt_lb
@@ -7642,10 +7756,13 @@ year old mother is 7.3 pounds. The slope is 0.27 ounces per year, or
 <div class="content">
 <img src="figs/linear1.png" alt="linear1" height="240">
 </div>
-<div class="title">Figure 35. Scatter plot of birth weight and mother’s age with a linear fit.</div>
+<div class="title">{figure-label} {chapter}.{figure} 35. Scatter plot of birth weight and mother’s age with a linear fit.</div>
 </div>
 <div class="paragraph">
-<p><a href="#linear1">Figure 35</a> shows a scatter plot of birth weight and age
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#linear1">{figure-label} {chapter}.{figure} 35</a> shows a scatter plot of birth weight and age
 along with the fitted line. It’s a good idea to look at a figure like
 this to assess whether the relationship is linear and whether the fitted
 line seems like a good model of the relationship.</p>
@@ -7659,7 +7776,7 @@ function that computes residuals:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Residuals(xs, ys, inter, slope):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Residuals(xs, ys, inter, slope):
     xs = np.asarray(xs)
     ys = np.asarray(ys)
     res = ys - (inter + slope * xs)
@@ -7675,12 +7792,15 @@ values and the fitted line.</p>
 <div class="content">
 <img src="figs/linear2.png" alt="linear2" height="240">
 </div>
-<div class="title">Figure 36. Residuals of the linear fit.</div>
+<div class="title">{figure-label} {chapter}.{figure} 36. Residuals of the linear fit.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>To visualize the residuals, I group respondents by age and compute
 percentiles in each group, as we saw in
-<a href="#characterizing">Section 7.2</a>. <a href="#linear2">Figure 36</a> shows the
+<a href="#characterizing">Section 7.2</a>. <a href="#linear2">{figure-label} {chapter}.{figure} 36</a> shows the
 25th, 50th and 75th percentiles of the residuals for each age group. The
 median is near zero, as expected, and the interquartile range is about 2
 pounds. So if we know the mother’s age, we can guess the baby’s weight
@@ -7719,7 +7839,7 @@ samples, with replacement, from the observed sample.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SamplingDistributions(live, iters=101):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SamplingDistributions(live, iters=101):
     t = []
     for _ in range(iters):
         sample = thinkstats2.ResampleRows(live)
@@ -7742,7 +7862,7 @@ the same size as the original:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def ResampleRows(df):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def ResampleRows(df):
     return SampleRows(df, len(df), replace=True)</code></pre>
 </div>
 </div>
@@ -7757,7 +7877,7 @@ and confidence interval:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def Summarize(estimates, actual=None):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def Summarize(estimates, actual=None):
     mean = thinkstats2.Mean(estimates)
     stderr = thinkstats2.Std(estimates, mu=actual)
     cdf = thinkstats2.Cdf(estimates)
@@ -7784,7 +7904,7 @@ confidence interval for each age. Here’s the code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PlotConfidenceIntervals(xs, inters, slopes,
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PlotConfidenceIntervals(xs, inters, slopes,
                             percent=90, **options):
     fys_seq = []
     for inter, slope in zip(inters, slopes):
@@ -7814,10 +7934,13 @@ a polygon that fills the space between two lines.</p>
 <div class="content">
 <img src="figs/linear3.png" alt="linear3" height="240">
 </div>
-<div class="title">Figure 37. 50% and 90% confidence intervals showing variability in the fitted line due to sampling error of <code>inter</code> and <code>slope</code>.</div>
+<div class="title">{figure-label} {chapter}.{figure} 37. 50% and 90% confidence intervals showing variability in the fitted line due to sampling error of <code>inter</code> and <code>slope</code>.</div>
 </div>
 <div class="paragraph">
-<p><a href="#linear3">Figure 37</a> shows the 50% and 90% confidence intervals
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#linear3">{figure-label} {chapter}.{figure} 37</a> shows the 50% and 90% confidence intervals
 for curves fitted to birth weight as a function of mother’s age. The
 vertical width of the region represents the effect of sampling error;
 the effect is smaller for values near the mean and larger for the
@@ -7849,7 +7972,7 @@ determination</strong>, usually denoted \(R^2\) and called
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def CoefDetermination(ys, res):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def CoefDetermination(ys, res):
     return 1 - Var(res) / Var(ys)</code></pre>
 </div>
 </div>
@@ -7940,7 +8063,7 @@ Here’s a HypothesisTest for this model:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class SlopeTest(thinkstats2.HypothesisTest):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class SlopeTest(thinkstats2.HypothesisTest):
 
     def TestStatistic(self, data):
         ages, weights = data
@@ -7970,7 +8093,7 @@ deviations and add them to the mean.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     live = live.dropna(subset=['agepreg', 'totalwgt_lb'])
     ht = SlopeTest((live.agepreg, live.totalwgt_lb))
     pvalue = ht.PValue()</code></pre>
@@ -7988,7 +8111,7 @@ computed the sampling distribution of the slope, in
 slope was correct and simulated experiments by resampling.</p>
 </div>
 <div class="paragraph">
-<p><a href="#linear4">Figure 38</a> shows the sampling distribution of the slope,
+<p><a href="#linear4">{figure-label} {chapter}.{figure} 38</a> shows the sampling distribution of the slope,
 from <a href="#regest">Section 10.4</a>, and the distribution of slopes
 generated under the null hypothesis. The sampling distribution is
 centered about the estimated slope, 0.017 lbs/year, and the slopes under
@@ -8000,7 +8123,10 @@ reasons we will see in <a href="#CLT">Section 14.4</a>.</p>
 <div class="content">
 <img src="figs/linear4.png" alt="linear4" height="240">
 </div>
-<div class="title">Figure 38. The sampling distribution of the estimated slope and the distribution of slopes generated under the null hypothesis. The vertical lines are at 0 and the observed slope, 0.017 lbs/year.</div>
+<div class="title">{figure-label} {chapter}.{figure} 38. The sampling distribution of the estimated slope and the distribution of slopes generated under the null hypothesis. The vertical lines are at 0 and the observed slope, 0.017 lbs/year.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>So we could estimate the p-value two ways:</p>
@@ -8031,7 +8157,7 @@ sampling distribution:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    inters, slopes = SamplingDistributions(live, iters=1001)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    inters, slopes = SamplingDistributions(live, iters=1001)
     slope_cdf = thinkstats2.Cdf(slopes)
     pvalue = slope_cdf[0]</code></pre>
 </div>
@@ -8084,7 +8210,7 @@ containing the resampled rows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def ResampleRowsWeighted(df, column='finalwgt'):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def ResampleRowsWeighted(df, column='finalwgt'):
     weights = df[column]
     cdf = Cdf(dict(weights))
     indices = cdf.Sample(len(weights))
@@ -8108,7 +8234,7 @@ Without weights, we generate the sampling distribution like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    estimates = [ResampleRows(live).totalwgt_lb.mean()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    estimates = [ResampleRows(live).totalwgt_lb.mean()
                  for _ in range(iters)]</code></pre>
 </div>
 </div>
@@ -8117,14 +8243,14 @@ Without weights, we generate the sampling distribution like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    estimates = [ResampleRowsWeighted(live).totalwgt_lb.mean()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    estimates = [ResampleRowsWeighted(live).totalwgt_lb.mean()
                  for _ in range(iters)]</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The following table summarizes the results:</p>
 </div>
-<table class="tableblock frame-all grid-all">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
 <col>
@@ -8165,13 +8291,10 @@ difference is not due to chance.</p>
 <div class="sect2">
 <h3 id="_exercises_10"><a class="anchor" href="#_exercises_10"></a><a class="link" href="#_exercises_10">10.8. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>A solution to this exercise is in <code>chap10soln.ipynb</code></p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 10.1</strong></p>
+<p><strong>Exercise 10.27</strong></p>
 </div>
 <div class="paragraph">
 <p>Using the data from the BRFSS, compute the linear least squares fit for
@@ -8223,6 +8346,10 @@ that indicates what part of the population it represents.</p>
 <div class="sect1">
 <h2 id="regression"><a class="anchor" href="#regression"></a><a class="link" href="#regression">11. Regression</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
 <div class="paragraph">
 <p>The linear least squares fit in the previous chapter is an example of
 <strong>regression</strong>, which is the more general problem of fitting any kind of
@@ -8291,7 +8418,7 @@ StatsModels:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    import statsmodels.formula.api as smf
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    import statsmodels.formula.api as smf
 
     live, firsts, others = first.MakeFrames()
     formula = 'totalwgt_lb ~ agepreg'
@@ -8322,7 +8449,7 @@ intercept and slope like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    inter = results.params['Intercept']
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    inter = results.params['Intercept']
     slope = results.params['agepreg']</code></pre>
 </div>
 </div>
@@ -8337,7 +8464,7 @@ significant:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    slope_pvalue = results.pvalues['agepreg']</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    slope_pvalue = results.pvalues['agepreg']</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8361,7 +8488,7 @@ in a readable format.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    print(results.summary())</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    print(results.summary())</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8408,7 +8535,7 @@ carefully. First, let’s see how big the difference in weight is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">diff_weight = firsts.totalwgt_lb.mean() - others.totalwgt_lb.mean()</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">diff_weight = firsts.totalwgt_lb.mean() - others.totalwgt_lb.mean()</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8417,7 +8544,7 @@ ages:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">diff_age = firsts.agepreg.mean() - others.agepreg.mean()</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">diff_age = firsts.agepreg.mean() - others.agepreg.mean()</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8426,7 +8553,7 @@ model again, we get the change in birth weight as a function of age:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">results = smf.ols('totalwgt_lb ~ agepreg', data=live).fit()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">results = smf.ols('totalwgt_lb ~ agepreg', data=live).fit()
 slope = results.params['agepreg']</code></pre>
 </div>
 </div>
@@ -8437,7 +8564,7 @@ first babies and others, due to mother’s age:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">slope * diff_age</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">slope * diff_age</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8451,7 +8578,7 @@ systematically.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live['isfirst'] = live.birthord == 1
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live['isfirst'] = live.birthord == 1
     formula = 'totalwgt_lb ~ isfirst'
     results = smf.ols(formula, data=live).fit()</code></pre>
 </div>
@@ -8534,7 +8661,7 @@ squares of the ages:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live['agepreg2'] = live.agepreg**2
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live['agepreg2'] = live.agepreg**2
     formula = 'totalwgt_lb ~ isfirst + agepreg + agepreg2'</code></pre>
 </div>
 </div>
@@ -8554,7 +8681,7 @@ R^2 0.007462</pre>
 <div class="paragraph">
 <p>The parameter of <code>agepreg2</code> is negative, so the parabola curves
 downward, which is consistent with the shape of the lines in
-<a href="#linear2">Figure 36</a>.</p>
+<a href="#linear2">{figure-label} {chapter}.{figure} 36</a>.</p>
 </div>
 <div class="paragraph">
 <p>The quadratic model of <code>agepreg</code> accounts for more of the variability
@@ -8571,7 +8698,7 @@ variables are nonlinear functions of others.</p>
 <div class="paragraph">
 <p>The following table summarizes the results of these regressions:</p>
 </div>
-<table class="tableblock frame-all grid-all">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
 <col>
@@ -8676,7 +8803,7 @@ DataFrame method, so we can perform the operation like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live = live[live.prglngth&gt;30]
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live = live[live.prglngth&gt;30]
     resp = chap01soln.ReadFemResp()
     resp.index = resp.caseid
     join = live.join(resp, on='caseid', rsuffix='_r')</code></pre>
@@ -8713,7 +8840,7 @@ variables.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    t = []
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    t = []
     for name in join.columns:
         try:
             if join[name].var() &lt; 1e-7:
@@ -8757,7 +8884,7 @@ the highest values of \(R^2\).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    t.sort(reverse=True)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    t.sort(reverse=True)
     for mse, name in t[:30]:
         print(name, mse)</code></pre>
 </div>
@@ -8821,7 +8948,7 @@ and settled on this one:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    formula = ('totalwgt_lb ~ agepreg + C(race) + babysex==1 + '
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    formula = ('totalwgt_lb ~ agepreg + C(race) + babysex==1 + '
                'nbrnaliv&gt;1 + paydu==1 + totincr')
     results = smf.ols(formula, data=join).fit()</code></pre>
 </div>
@@ -8950,7 +9077,7 @@ information. Given a probability, you can compute the odds like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    o = p / (1-p)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    o = p / (1-p)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8958,7 +9085,7 @@ information. Given a probability, you can compute the odds like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    p = o / (o+1)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    p = o / (o+1)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8982,7 +9109,7 @@ minute). And suppose we are given values for \(x_1\) and
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    o = np.exp(log_o)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    o = np.exp(log_o)
     p = o / (o+1)</code></pre>
 </div>
 </div>
@@ -9086,7 +9213,7 @@ sex ratio.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    live, firsts, others = first.MakeFrames()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    live, firsts, others = first.MakeFrames()
     df = live[live.prglngth&gt;30]</code></pre>
 </div>
 </div>
@@ -9097,7 +9224,7 @@ to convert to binary integers:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    df['boy'] = (df.babysex==1).astype(int)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    df['boy'] = (df.babysex==1).astype(int)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9108,7 +9235,7 @@ mother’s age:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    import statsmodels.formula.api as smf
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    import statsmodels.formula.api as smf
 
     model = smf.logit('boy ~ agepreg', data=df)
     results = model.fit()
@@ -9126,7 +9253,7 @@ DataFrames:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    endog = pandas.DataFrame(model.endog, columns=[model.endog_names])
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    endog = pandas.DataFrame(model.endog, columns=[model.endog_names])
     exog = pandas.DataFrame(model.exog, columns=model.exog_names)</code></pre>
 </div>
 </div>
@@ -9156,7 +9283,7 @@ factors believed to be associated with sex ratio:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    formula = 'boy ~ agepreg + hpagelb + birthord + C(race)'
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    formula = 'boy ~ agepreg + hpagelb + birthord + C(race)'
     model = smf.logit(formula, data=df)
     results = model.fit()</code></pre>
 </div>
@@ -9197,7 +9324,7 @@ is just the fraction of boys:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    actual = endog['boy']
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    actual = endog['boy']
     baseline = actual.mean()</code></pre>
 </div>
 </div>
@@ -9210,7 +9337,7 @@ of boys, which is 0.507.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    predict = (results.predict() &gt;= 0.5)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    predict = (results.predict() &gt;= 0.5)
     true_pos = predict * actual
     true_neg = (1 - predict) * (1 - actual)</code></pre>
 </div>
@@ -9227,7 +9354,7 @@ get it right. Accuracy is the fraction of correct guesses:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    acc = (sum(true_pos) + sum(true_neg)) / len(actual)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    acc = (sum(true_pos) + sum(true_neg)) / len(actual)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9243,7 +9370,7 @@ and they are expecting their third child:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    columns = ['agepreg', 'hpagelb', 'birthord', 'race']
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    columns = ['agepreg', 'hpagelb', 'birthord', 'race']
     new = pandas.DataFrame([[35, 39, 3, 2]], columns=columns)
     y = results.predict(new)</code></pre>
 </div>
@@ -9258,13 +9385,10 @@ improves your chances of winning, the difference is very small.</p>
 <div class="sect2">
 <h3 id="_exercises_11"><a class="anchor" href="#_exercises_11"></a><a class="link" href="#_exercises_11">11.10. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>My solution to these exercises is in <code>chap11soln.ipynb</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 11.1</strong></p>
+<p><strong>Exercise 11.28</strong></p>
 </div>
 <div class="paragraph">
 <p>Suppose one of your co-workers is expecting a baby and you are
@@ -9275,7 +9399,7 @@ variables that are known before the birth, and likely to be available to
 the people in the pool.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 11.2</strong></p>
+<p><strong>Exercise 11.29</strong></p>
 </div>
 <div class="paragraph">
 <p>The Trivers-Willard hypothesis suggests that for many mammals the sex
@@ -9294,7 +9418,7 @@ in the pregnancy and respondent files. Can you find any factors with a
 substantial effect?</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 11.3</strong></p>
+<p><strong>Exercise 11.30</strong></p>
 </div>
 <div class="paragraph">
 <p>If the quantity you want to predict is a count, you can use Poisson
@@ -9309,7 +9433,7 @@ graduate whose annual household income exceeds $75,000. How many
 children would you predict she has born?</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 11.4</strong></p>
+<p><strong>Exercise 11.31</strong></p>
 </div>
 <div class="paragraph">
 <p>If the quantity you want to predict is categorical, you can use
@@ -9404,6 +9528,10 @@ variable is a non-negative integer, usually a count.</p>
 <h2 id="_time_series_analysis"><a class="anchor" href="#_time_series_analysis"></a><a class="link" href="#_time_series_analysis">12. Time series analysis</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p>A <strong>time series</strong> is a sequence of measurements from a system that varies
 in time. One famous example is the &#8220;hockey stick graph&#8221; that shows
 global average temperature over time (see
@@ -9440,7 +9568,7 @@ this book. The following code reads it into a pandas DataFrame:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    transactions = pandas.read_csv('mj-clean.csv', parse_dates=[5])</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    transactions = pandas.read_csv('mj-clean.csv', parse_dates=[5])</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9499,7 +9627,7 @@ spaced series by computing the mean daily price per gram.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def GroupByQualityAndDay(transactions):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def GroupByQualityAndDay(transactions):
     groups = transactions.groupby('quality')
     dailies = {}
     for name, group in groups:
@@ -9520,7 +9648,7 @@ computes the daily average price and returns a new DataFrame:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def GroupByDay(transactions, func=np.mean):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def GroupByDay(transactions, func=np.mean):
     grouped = transactions[['date', 'ppg']].groupby('date')
     daily = grouped.aggregate(func)
 
@@ -9567,7 +9695,7 @@ series:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.PrePlot(rows=3)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.PrePlot(rows=3)
     for i, (name, daily) in enumerate(dailies.items()):
         thinkplot.SubPlot(i+1)
         title = 'price per gram ($)' if i==0 else ''
@@ -9595,10 +9723,13 @@ rotate the &#8220;ticks&#8221; 30 degrees, making them more readable.</p>
 <div class="content">
 <img src="figs/timeseries1.png" alt="timeseries1" width="336">
 </div>
-<div class="title">Figure 39. Time series of daily price per gram for high, medium, and low quality cannabis.</div>
+<div class="title">{figure-label} {chapter}.{figure} 39. Time series of daily price per gram for high, medium, and low quality cannabis.</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries1">Figure 39</a> shows the result. One apparent feature in
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#timeseries1">{figure-label} {chapter}.{figure} 39</a> shows the result. One apparent feature in
 these plots is a gap around November 2013. It’s possible that data
 collection was not active during this time, or the data might not be
 available. We will consider ways to deal with this missing data later.</p>
@@ -9623,7 +9754,7 @@ and results objects from StatsModels:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def RunLinearModel(daily):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def RunLinearModel(daily):
     model = smf.ols('ppg ~ years', data=daily)
     results = model.fit()
     return model, results</code></pre>
@@ -9634,7 +9765,7 @@ and results objects from StatsModels:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    for name, daily in dailies.items():
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    for name, daily in dailies.items():
         model, results = RunLinearModel(daily)
         print(name)
         regression.SummarizeResults(results)</code></pre>
@@ -9643,7 +9774,7 @@ and results objects from StatsModels:</p>
 <div class="paragraph">
 <p>Here are the results:</p>
 </div>
-<table class="tableblock frame-all grid-all">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
 <col>
@@ -9698,7 +9829,7 @@ smaller, and variability in prices is higher, so the values of
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PlotFittedValues(model, results, label=''):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PlotFittedValues(model, results, label=''):
     years = model.exog[:,1]
     values = model.endog
     thinkplot.Scatter(years, values, s=15, label=label)
@@ -9714,11 +9845,14 @@ and endogenous (dependent) variables.</p>
 <div class="content">
 <img src="figs/timeseries2.png" alt="timeseries2" height="240">
 </div>
-<div class="title">Figure 40. Time series of daily price per gram for high quality cannabis, and a linear least squares fit.</div>
+<div class="title">{figure-label} {chapter}.{figure} 40. Time series of daily price per gram for high quality cannabis, and a linear least squares fit.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p><code>PlotFittedValues</code> makes a scatter plot of the data points and a line
-plot of the fitted values. <a href="#timeseries2">Figure 40</a> shows the
+plot of the fitted values. <a href="#timeseries2">{figure-label} {chapter}.{figure} 40</a> shows the
 results for high quality cannabis. The model seems like a good linear
 fit for the data; nevertheless, linear regression is not the most
 appropriate choice for this data:</p>
@@ -9812,7 +9946,7 @@ the DataFrame:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    dates = pandas.date_range(daily.index.min(), daily.index.max())
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    dates = pandas.date_range(daily.index.min(), daily.index.max())
     reindexed = daily.reindex(dates)</code></pre>
 </div>
 </div>
@@ -9827,7 +9961,7 @@ for all dates, filled with <code>nan</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    roll_mean = pandas.rolling_mean(reindexed.ppg, 30)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    roll_mean = pandas.rolling_mean(reindexed.ppg, 30)
     thinkplot.Plot(roll_mean.index, roll_mean)</code></pre>
 </div>
 </div>
@@ -9839,10 +9973,13 @@ values from <code>reindexed.ppg</code>.</p>
 <div class="content">
 <img src="figs/timeseries10.png" alt="timeseries10" height="240">
 </div>
-<div class="title">Figure 41. Daily price and a rolling mean (left) and exponentially-weighted moving average (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 41. Daily price and a rolling mean (left) and exponentially-weighted moving average (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries10">Figure 41</a> (left) shows the result. The rolling
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#timeseries10">{figure-label} {chapter}.{figure} 41</a> (left) shows the result. The rolling
 mean seems to do a good job of smoothing out the noise and extracting
 the trend. The first 29 values are <code>nan</code>, and wherever there’s a
 missing value, it’s followed by another 29 `nan`s. There are ways to
@@ -9857,7 +9994,7 @@ pandas implementation of EWMA handles missing values better.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    ewma = pandas.ewma(reindexed.ppg, span=30)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    ewma = pandas.ewma(reindexed.ppg, span=30)
     thinkplot.Plot(ewma.index, ewma)</code></pre>
 </div>
 </div>
@@ -9868,7 +10005,7 @@ number of points that make a non-negligible contribution to each
 average.</p>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries10">Figure 41</a> (right) shows the EWMA for the same
+<p><a href="#timeseries10">{figure-label} {chapter}.{figure} 41</a> (right) shows the EWMA for the same
 data. It is similar to the rolling mean, where they are both defined,
 but it has no missing values, which makes it easier to work with. The
 values are noisy at the beginning of the time series, because they are
@@ -9891,7 +10028,7 @@ The Series method <code>fillna</code> does just what we want:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    reindexed.ppg.fillna(ewma, inplace=True)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    reindexed.ppg.fillna(ewma, inplace=True)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9905,7 +10042,7 @@ series. We can solve that problem by adding in resampled residuals:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    resid = (reindexed.ppg - ewma).dropna()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    resid = (reindexed.ppg - ewma).dropna()
     fake_data = ewma + thinkstats2.Resample(resid, len(reindexed))
     reindexed.ppg.fillna(fake_data, inplace=True)</code></pre>
 </div>
@@ -9920,10 +10057,13 @@ values from <code>fake_data</code>.</p>
 <div class="content">
 <img src="figs/timeseries8.png" alt="timeseries8" height="240">
 </div>
-<div class="title">Figure 42. Daily price with filled data.</div>
+<div class="title">{figure-label} {chapter}.{figure} 42. Daily price with filled data.</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries8">Figure 42</a> shows the result. The filled data is
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#timeseries8">{figure-label} {chapter}.{figure} 42</a> shows the result. The filled data is
 visually similar to the actual values. Since the resampled residuals are
 random, the results are different every time; later we’ll see how to
 characterize the error created by missing values.</p>
@@ -9945,7 +10085,7 @@ series with the original:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SerialCorr(series, lag=1):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SerialCorr(series, lag=1):
     xs = series[lag:]
     ys = series.shift(lag)[lag:]
     corr = thinkstats2.Corr(xs, ys)
@@ -9971,7 +10111,7 @@ EWMA and then compute its serial correlation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    ewma = pandas.ewma(reindexed.ppg, span=30)
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    ewma = pandas.ewma(reindexed.ppg, span=30)
     resid = reindexed.ppg - ewma
     corr = SerialCorr(resid, 1)</code></pre>
 </div>
@@ -9986,7 +10126,7 @@ in this series.</p>
 <p>To check for weekly, monthly, and yearly seasonality, I ran the analysis
 again with different lags. Here are the results:</p>
 </div>
-<table class="tableblock frame-all grid-all">
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
 <col>
 <col>
@@ -10052,7 +10192,7 @@ function:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    import statsmodels.tsa.stattools as smtsa
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    import statsmodels.tsa.stattools as smtsa
     acf = smtsa.acf(filled.resid, nlags=365, unbiased=True)</code></pre>
 </div>
 </div>
@@ -10078,10 +10218,13 @@ itself, which is always 1.</p>
 <div class="content">
 <img src="figs/timeseries9.png" alt="timeseries9" height="240">
 </div>
-<div class="title">Figure 43. Autocorrelation function for daily prices (left), and daily prices with a simulated weekly seasonality (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 43. Autocorrelation function for daily prices (left), and daily prices with a simulated weekly seasonality (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries9">Figure 43</a> (left) shows autocorrelation functions
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#timeseries9">{figure-label} {chapter}.{figure} 43</a> (left) shows autocorrelation functions
 for the three quality categories, with <code>nlags=40</code>. The gray region
 shows the normal variability we would expect if there is no actual
 autocorrelation; anything that falls outside this range is statistically
@@ -10106,7 +10249,7 @@ from a uniform distribution from $0 to $2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def AddWeeklySeasonality(daily):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def AddWeeklySeasonality(daily):
     frisat = (daily.index.dayofweek==4) | (daily.index.dayofweek==5)
     fake = daily.copy()
     fake.ppg[frisat] += np.random.uniform(0, 2, frisat.sum())
@@ -10121,7 +10264,7 @@ Friday or Saturday. <code>fake</code> is a new DataFrame, initially a copy of
 the number of random values we have to generate.</p>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries9">Figure 43</a> (right) shows autocorrelation functions
+<p><a href="#timeseries9">{figure-label} {chapter}.{figure} 43</a> (right) shows autocorrelation functions
 for prices with this simulated seasonality. As expected, the
 correlations are highest when the lag is a multiple of 7. For high and
 medium quality, the new correlations are statistically significant. For
@@ -10143,7 +10286,7 @@ a sequence of predictions. Here’s the code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def GenerateSimplePrediction(results, years):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def GenerateSimplePrediction(results, years):
     n = len(years)
     inter = np.ones(n)
     d = dict(Intercept=inter, years=years)
@@ -10207,7 +10350,7 @@ different. Here is a function that runs the simulations:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SimulateResults(daily, iters=101):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SimulateResults(daily, iters=101):
     model, results = RunLinearModel(daily)
     fake = daily.copy()
 
@@ -10240,7 +10383,7 @@ object.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def GeneratePredictions(result_seq, years, add_resid=False):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def GeneratePredictions(result_seq, years, add_resid=False):
     n = len(years)
     d = dict(Intercept=np.ones(n), years=years, years2=years**2)
     predict_df = pandas.DataFrame(d)
@@ -10267,7 +10410,10 @@ RegressionResults and generates a sequence of predictions.</p>
 <div class="content">
 <img src="figs/timeseries4.png" alt="timeseries4" height="240">
 </div>
-<div class="title">Figure 44. Predictions based on linear fits, showing variation due to sampling error and prediction error.</div>
+<div class="title">{figure-label} {chapter}.{figure} 44. Predictions based on linear fits, showing variation due to sampling error and prediction error.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>Finally, here’s the code that plots a 90% confidence interval for the
@@ -10275,7 +10421,7 @@ predictions:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PlotPredictions(daily, years, iters=101, percent=90):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PlotPredictions(daily, years, iters=101, percent=90):
     result_seq = SimulateResults(daily, iters=iters)
     p = (100 - percent) / 2
     percents = p, 100-p
@@ -10296,7 +10442,7 @@ predictions:</p>
 then plots a gray region between these bounds.</p>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries4">Figure 44</a> shows the result. The dark gray region
+<p><a href="#timeseries4">{figure-label} {chapter}.{figure} 44</a> shows the result. The dark gray region
 represents a 90% confidence interval for the sampling error; that is,
 uncertainty about the estimated slope and intercept due to sampling.</p>
 </div>
@@ -10317,7 +10463,7 @@ over time. Specifically, it assumes that the slope and intercept are
 constant, as well as the distribution of residuals.</p>
 </div>
 <div class="paragraph">
-<p>But looking at the moving averages in <a href="#timeseries10">Figure 41</a>,
+<p>But looking at the moving averages in <a href="#timeseries10">{figure-label} {chapter}.{figure} 41</a>,
 it seems like the slope changes at least once during the observed
 interval, and the variance of the residuals seems bigger in the first
 half than the second.</p>
@@ -10332,10 +10478,13 @@ and end dates. My implementation is in <code>timeseries.py</code>.</p>
 <div class="content">
 <img src="figs/timeseries5.png" alt="timeseries5" height="240">
 </div>
-<div class="title">Figure 45. Predictions based on linear fits, showing variation due to the interval of observation.</div>
+<div class="title">{figure-label} {chapter}.{figure} 45. Predictions based on linear fits, showing variation due to the interval of observation.</div>
 </div>
 <div class="paragraph">
-<p><a href="#timeseries5">Figure 45</a> shows the result for the medium quality
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#timeseries5">{figure-label} {chapter}.{figure} 45</a> shows the result for the medium quality
 category. The lightest gray area shows a confidence interval that
 includes uncertainty due to sampling error, random variation, and
 variation in the interval of observation.</p>
@@ -10367,13 +10516,10 @@ leaves off.</p>
 <div class="sect2">
 <h3 id="_exercises_12"><a class="anchor" href="#_exercises_12"></a><a class="link" href="#_exercises_12">12.10. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>My solution to these exercises is in <code>chap12soln.py</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 12.1</strong></p>
+<p><strong>Exercise 12.32</strong></p>
 </div>
 <div class="paragraph">
 <p>The linear model I used in this chapter has the obvious drawback that it
@@ -10389,7 +10535,7 @@ should be able to reuse code in <code>timeseries.py</code> to generate
 predictions.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 12.2</strong></p>
+<p><strong>Exercise 12.33</strong></p>
 </div>
 <div class="paragraph">
 <p>Write a definition for a class named <code>SerialCorrelationTest</code> that
@@ -10404,7 +10550,7 @@ is statistically significant. Also test the residuals of the linear
 model and (if you did the previous exercise), the quadratic model.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 12.3</strong></p>
+<p><strong>Exercise 12.34</strong></p>
 </div>
 <div class="paragraph">
 <p>There are several ways to extend the EWMA model to generate predictions.
@@ -10511,6 +10657,10 @@ distribution of residuals does not change over time.</p>
 <h2 id="_survival_analysis"><a class="anchor" href="#_survival_analysis"></a><a class="link" href="#_survival_analysis">13. Survival analysis</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
+<div class="paragraph">
 <p><strong>Survival analysis</strong> is a way to describe how long things last. It is
 often used to study human lifetimes, but it also applies to &#8220;survival&#8221;
 of mechanical and electronic components, or more generally to intervals
@@ -10551,7 +10701,7 @@ pregnancies. We can read this data and compute the CDF:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    preg = nsfg.ReadFemPreg()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    preg = nsfg.ReadFemPreg()
     complete = preg.query('outcome in [1, 3, 4]').prglngth
     cdf = thinkstats2.Cdf(complete, label='cdf')</code></pre>
 </div>
@@ -10570,16 +10720,19 @@ it for each row, selecting the rows that yield True.</p>
 <div class="content">
 <img src="figs/survival1.png" alt="survival1" height="288">
 </div>
-<div class="title">Figure 46. Cdf and survival curve for pregnancy length (top), hazard curve (bottom).</div>
+<div class="title">{figure-label} {chapter}.{figure} 46. Cdf and survival curve for pregnancy length (top), hazard curve (bottom).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival1">Figure 46</a> (top) shows the CDF of pregnancy length and
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#survival1">{figure-label} {chapter}.{figure} 46</a> (top) shows the CDF of pregnancy length and
 its complement, the survival curve. To represent the survival curve, I
 define an object that wraps a Cdf and adapts the interface:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class SurvivalFunction(object):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class SurvivalFunction(object):
     def __init__(self, cdf, label=''):
         self.cdf = cdf
         self.label = label or cdf.label
@@ -10605,7 +10758,7 @@ lifetimes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    sf = SurvivalFunction(cdf)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    sf = SurvivalFunction(cdf)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10614,7 +10767,7 @@ evaluates the survival curve:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class SurvivalFunction
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class SurvivalFunction
 
     def __getitem__(self, t):
         return self.Prob(t)
@@ -10645,11 +10798,11 @@ the functions in <code>thinkplot</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    thinkplot.Plot(sf)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    thinkplot.Plot(sf)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#survival1">Figure 46</a> (top) shows the result. The curve is nearly
+<p><a href="#survival1">{figure-label} {chapter}.{figure} 46</a> (top) shows the result. The curve is nearly
 flat between 13 and 26 weeks, which shows that few pregnancies end in
 the second trimester. And the curve is steepest around 39 weeks, which
 is the most common pregnancy length.</p>
@@ -10678,7 +10831,7 @@ hazard function:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class SurvivalFunction
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class SurvivalFunction
 
     def MakeHazard(self, label=''):
         ss = self.ss
@@ -10695,7 +10848,7 @@ hazard function:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class HazardFunction(object):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class HazardFunction(object):
 
     def __init__(self, d, label=''):
         self.series = pandas.Series(d)
@@ -10723,7 +10876,7 @@ this:</p>
 39.</p>
 </div>
 <div class="paragraph">
-<p><a href="#survival1">Figure 46</a> (bottom) shows the hazard function for
+<p><a href="#survival1">{figure-label} {chapter}.{figure} 46</a> (bottom) shows the hazard function for
 pregnancy lengths. For times after week 42, the hazard function is
 erratic because it is based on a small number of cases. Other than that
 the shape of the curve is as expected: it is highest around 39 weeks,
@@ -10799,7 +10952,7 @@ at an earlier age.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def EstimateHazardFunction(complete, ongoing, label=''):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def EstimateHazardFunction(complete, ongoing, label=''):
 
     hist_complete = Counter(complete)
     hist_ongoing = Counter(ongoing)
@@ -10902,7 +11055,7 @@ January 1900.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    resp = chap01soln.ReadFemResp()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    resp = chap01soln.ReadFemResp()
     resp.cmmarrhx.replace([9997, 9998, 9999], np.nan, inplace=True)</code></pre>
 </div>
 </div>
@@ -10912,7 +11065,7 @@ interviewed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    resp['agemarry'] = (resp.cmmarrhx - resp.cmbirth) / 12.0
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    resp['agemarry'] = (resp.cmmarrhx - resp.cmbirth) / 12.0
     resp['age'] = (resp.cmintvw - resp.cmbirth) / 12.0</code></pre>
 </div>
 </div>
@@ -10923,7 +11076,7 @@ women who have not:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    complete = resp[resp.evrmarry==1].agemarry
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    complete = resp[resp.evrmarry==1].agemarry
     ongoing = resp[resp.evrmarry==0].age</code></pre>
 </div>
 </div>
@@ -10932,11 +11085,11 @@ women who have not:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    hf = EstimateHazardFunction(complete, ongoing)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    hf = EstimateHazardFunction(complete, ongoing)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#survival2">Figure 47</a> (top) shows the estimated hazard function;
+<p><a href="#survival2">{figure-label} {chapter}.{figure} 47</a> (top) shows the estimated hazard function;
 it is low in the teens, higher in the 20s, and declining in the 30s. It
 increases again in the 40s, but that is an artifact of the estimation
 process; as the number of respondents &#8220;at risk&#8221; decreases, a small
@@ -10963,7 +11116,7 @@ this product:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class HazardFunction:
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class HazardFunction:
 
     def MakeSurvival(self):
         ts = self.series.index
@@ -10987,10 +11140,13 @@ SurvivalFunction object.</p>
 <div class="content">
 <img src="figs/survival2.png" alt="survival2" height="240">
 </div>
-<div class="title">Figure 47. Hazard function for age at first marriage (top) and survival curve (bottom).</div>
+<div class="title">{figure-label} {chapter}.{figure} 47. Hazard function for age at first marriage (top) and survival curve (bottom).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival2">Figure 47</a> (bottom) shows the result. The survival
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#survival2">{figure-label} {chapter}.{figure} 47</a> (bottom) shows the result. The survival
 curve is steepest between 25 and 35, when most women get married.
 Between 35 and 45, the curve is nearly flat, indicating that women who
 do not marry before age 35 are unlikely to get married.</p>
@@ -11031,7 +11187,7 @@ they can be expected to report this information accurately.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def ResampleSurvival(resp, iters=101):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def ResampleSurvival(resp, iters=101):
     low, high = resp.agemarry.min(), resp.agemarry.max()
     ts = np.arange(low, high, 1/12.0)
 
@@ -11077,10 +11233,13 @@ percentiles, returning a 90% confidence interval for the survival curve.</p>
 <div class="content">
 <img src="figs/survival3.png" alt="survival3" height="240">
 </div>
-<div class="title">Figure 48. Survival curve for age at first marriage (dark line) and a 90% confidence interval based on weighted resampling (gray line).</div>
+<div class="title">{figure-label} {chapter}.{figure} 48. Survival curve for age at first marriage (dark line) and a 90% confidence interval based on weighted resampling (gray line).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival3">Figure 48</a> shows the result along with the survival
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#survival3">{figure-label} {chapter}.{figure} 48</a> shows the result along with the survival
 curve we estimated in the previous section. The confidence interval
 takes into account the sampling weights, unlike the estimated curve. The
 discrepancy between them indicates that the sampling weights have a
@@ -11114,7 +11273,7 @@ from 1995. In total these datasets include 30,769 respondents.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    resp5 = ReadFemResp1995()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    resp5 = ReadFemResp1995()
     resp6 = ReadFemResp2002()
     resp7 = ReadFemResp2010()
     resps = [resp5, resp6, resp7]</code></pre>
@@ -11126,7 +11285,7 @@ birth for each respondent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    month0 = pandas.to_datetime('1899-12-15')
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    month0 = pandas.to_datetime('1899-12-15')
     dates = [month0 + pandas.DateOffset(months=cm)
              for cm in resp.cmbirth]
     resp['decade'] = (pandas.DatetimeIndex(dates).year - 1900) // 10</code></pre>
@@ -11147,7 +11306,7 @@ and plot survival curves:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    for i in range(iters):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    for i in range(iters):
         samples = [thinkstats2.ResampleRowsWeighted(resp)
                    for resp in resps]
         sample = pandas.concat(samples, ignore_index=True)
@@ -11168,7 +11327,7 @@ match up respondents by index; instead it creates a new index from 0 to
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def EstimateSurvivalByDecade(resp):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def EstimateSurvivalByDecade(resp):
     for name, group in groups:
         hf, sf = EstimateSurvival(group)
         thinkplot.Plot(sf)</code></pre>
@@ -11178,10 +11337,13 @@ match up respondents by index; instead it creates a new index from 0 to
 <div class="content">
 <img src="figs/survival4.png" alt="survival4" height="240">
 </div>
-<div class="title">Figure 49. Survival curves for respondents born during different decades.</div>
+<div class="title">{figure-label} {chapter}.{figure} 49. Survival curves for respondents born during different decades.</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival4">Figure 49</a> shows the results. Several patterns are
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#survival4">{figure-label} {chapter}.{figure} 49</a> shows the results. Several patterns are
 visible:</p>
 </div>
 <div class="ulist">
@@ -11235,7 +11397,7 @@ tail from another longer HazardFunction:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class HazardFunction
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class HazardFunction
 
     def Extend(self, other):
         last = self.series.index[-1]
@@ -11256,7 +11418,7 @@ the predecessor:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def PlotPredictionsByDecade(groups):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def PlotPredictionsByDecade(groups):
     hfs = []
     for name, group in groups:
         hf, sf = EstimateSurvival(group)
@@ -11284,10 +11446,13 @@ it.</p>
 <div class="content">
 <img src="figs/survival5.png" alt="survival5" height="240">
 </div>
-<div class="title">Figure 50. Survival curves for respondents born during different decades, with predictions for the later cohorts.</div>
+<div class="title">{figure-label} {chapter}.{figure} 50. Survival curves for respondents born during different decades, with predictions for the later cohorts.</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival5">Figure 50</a> shows the results; I’ve removed the 50s
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#survival5">{figure-label} {chapter}.{figure} 50</a> shows the results; I’ve removed the 50s
 cohort to make the predictions more visible. These results suggest that
 by age 40, the most recent cohorts will converge with the 60s cohort,
 with fewer than 20% never married.</p>
@@ -11307,7 +11472,7 @@ provides a method that does that:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class SurvivalFunction
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class SurvivalFunction
 
     def MakePmf(self, filler=None):
         pmf = thinkstats2.Pmf()
@@ -11341,7 +11506,7 @@ does that, too:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python"># class SurvivalFunction
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs"># class SurvivalFunction
 
     def RemainingLifetime(self, filler=None, func=thinkstats2.Pmf.Mean):
         pmf = self.MakePmf(filler=filler)
@@ -11380,10 +11545,13 @@ length.</p>
 <div class="content">
 <img src="figs/survival6.png" alt="survival6" height="240">
 </div>
-<div class="title">Figure 51. Expected remaining pregnancy length (left) and years until first marriage (right).</div>
+<div class="title">{figure-label} {chapter}.{figure} 51. Expected remaining pregnancy length (left) and years until first marriage (right).</div>
 </div>
 <div class="paragraph">
-<p><a href="#survival6">Figure 51</a> (left) shows the expected remaining
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#survival6">{figure-label} {chapter}.{figure} 51</a> (left) shows the expected remaining
 pregnancy length as a function of the current duration. For example,
 during Week 0, the expected remaining duration is about 34 weeks. That’s
 less than full term (39 weeks) because terminations of pregnancy in the
@@ -11403,7 +11571,7 @@ has no effect on the predictions. This behavior is the mathematical
 basis of the infuriating mantra of obstetrics nurses: &#8220;any day now.&#8221;</p>
 </div>
 <div class="paragraph">
-<p><a href="#survival6">Figure 51</a> (right) shows the median remaining time
+<p><a href="#survival6">{figure-label} {chapter}.{figure} 51</a> (right) shows the median remaining time
 until first marriage, as a function of age. For an 11 year-old girl, the
 median time until first marriage is about 14 years. The curve decreases
 until age 22 when the median remaining time is about 7 years. After that
@@ -11440,7 +11608,7 @@ it is hard to define a meaningful expected remaining lifetime.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    rem_life1 = sf1.RemainingLifetime()
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    rem_life1 = sf1.RemainingLifetime()
     thinkplot.Plot(rem_life1)
 
     func = lambda pmf: pmf.Percentile(50)
@@ -11460,13 +11628,10 @@ function that takes a Pmf and computes its median (50th percentile).</p>
 <div class="sect2">
 <h3 id="_exercises_13"><a class="anchor" href="#_exercises_13"></a><a class="link" href="#_exercises_13">13.11. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>My solution to this exercise is in <code>chap13soln.py</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 13.1</strong></p>
+<p><strong>Exercise 13.35</strong></p>
 </div>
 <div class="paragraph">
 <p>In NSFG Cycles 6 and 7, the variable <code>cmdivorcx</code> contains the date of
@@ -11530,6 +11695,10 @@ new in expectation.&#8221;</p>
 <div class="sect1">
 <h2 id="analysis"><a class="anchor" href="#analysis"></a><a class="link" href="#analysis">14. Analytic methods</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>:figure!:
+:exercise!:</p>
+</div>
 <div class="paragraph">
 <p>This book has focused on computational methods like simulation and
 resampling, but some of the problems we solved have analytic solutions
@@ -11717,7 +11886,7 @@ easier to use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def EvalNormalCdfInverse(p, mu=0, sigma=1):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def EvalNormalCdfInverse(p, mu=0, sigma=1):
     return scipy.stats.norm.ppf(p, loc=mu, scale=sigma)</code></pre>
 </div>
 </div>
@@ -11752,7 +11921,7 @@ equations in the previous sections. Here’s what it looks like:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">class Normal(object):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">class Normal(object):
 
     def __init__(self, mu, sigma2):
         self.mu = mu
@@ -11780,7 +11949,7 @@ returns the distribution of the sum of <code>n</code> values, using
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    def Sum(self, n):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    def Sum(self, n):
         return Normal(n * self.mu, n * self.sigma2)</code></pre>
 </div>
 </div>
@@ -11790,7 +11959,7 @@ returns the distribution of the sum of <code>n</code> values, using
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    def __mul__(self, factor):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    def __mul__(self, factor):
         return Normal(factor * self.mu, factor**2 * self.sigma2)
 
     def __div__(self, divisor):
@@ -11884,7 +12053,7 @@ try some experiments. First, we’ll try an exponential distribution:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def MakeExpoSamples(beta=2.0, iters=1000):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def MakeExpoSamples(beta=2.0, iters=1000):
     samples = []
     for n in [1, 10, 100]:
         sample = [np.sum(np.random.exponential(beta, n))
@@ -11916,7 +12085,7 @@ make a normal probability plot:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def NormalPlotSamples(samples, plot=1, ylabel=''):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def NormalPlotSamples(samples, plot=1, ylabel=''):
     for n, sample in samples:
         thinkplot.SubPlot(plot)
         thinkstats2.NormalProbabilityPlot(sample)
@@ -11933,17 +12102,20 @@ and generates a row of normal probability plots.</p>
 <div class="content">
 <img src="figs/normal1.png" alt="normal1" height="336">
 </div>
-<div class="title">Figure 52. Distributions of sums of exponential values (top row) and lognormal values (bottom row).</div>
+<div class="title">{figure-label} {chapter}.{figure} 52. Distributions of sums of exponential values (top row) and lognormal values (bottom row).</div>
 </div>
 <div class="paragraph">
-<p><a href="#normal1">Figure 52</a> (top row) shows the results. With <code>n=1</code>,
+<p></p>
+</div>
+<div class="paragraph">
+<p><a href="#normal1">{figure-label} {chapter}.{figure} 52</a> (top row) shows the results. With <code>n=1</code>,
 the distribution of the sum is still exponential, so the normal
 probability plot is not a straight line. But with <code>n=10</code> the
 distribution of the sum is approximately normal, and with <code>n=100</code> it
 is all but indistinguishable from normal.</p>
 </div>
 <div class="paragraph">
-<p><a href="#normal1">Figure 52</a> (bottom row) shows similar results for a
+<p><a href="#normal1">{figure-label} {chapter}.{figure} 52</a> (bottom row) shows similar results for a
 lognormal distribution. Lognormal distributions are generally more
 skewed than exponential distributions, so the distribution of sums takes
 longer to converge. With <code>n=10</code> the normal probability plot is nowhere
@@ -11953,13 +12125,16 @@ near straight, but with <code>n=100</code> it is approximately normal.</p>
 <div class="content">
 <img src="figs/normal2.png" alt="normal2" height="336">
 </div>
-<div class="title">Figure 53. Distributions of sums of Pareto values (top row) and correlated exponential values (bottom row).</div>
+<div class="title">{figure-label} {chapter}.{figure} 53. Distributions of sums of Pareto values (top row) and correlated exponential values (bottom row).</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>Pareto distributions are even more skewed than lognormal. Depending on
 the parameters, many Pareto distributions do not have finite mean and
 variance. As a result, the Central Limit Theorem does not apply.
-<a href="#normal2">Figure 53</a> (top row) shows distributions of sums of
+<a href="#normal2">{figure-label} {chapter}.{figure} 53</a> (top row) shows distributions of sums of
 Pareto values. Even with <code>n=100</code> the normal probability plot is far
 from straight.</p>
 </div>
@@ -11977,7 +12152,7 @@ serial correlation <code>rho</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def GenerateCorrelated(rho, n):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def GenerateCorrelated(rho, n):
     x = random.gauss(0, 1)
     yield x
 
@@ -12000,7 +12175,7 @@ it to exponential:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def GenerateExpoCorrelated(rho, n):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def GenerateExpoCorrelated(rho, n):
     normal = list(GenerateCorrelated(rho, n))
     uniform = scipy.stats.norm.cdf(normal)
     expo = scipy.stats.expon.ppf(uniform)
@@ -12014,7 +12189,7 @@ sequence of exponential values. <code>ppf</code> stands for &#8220;percent point
 function,&#8221; which is another name for the inverse CDF.</p>
 </div>
 <div class="paragraph">
-<p><a href="#normal2">Figure 53</a> (bottom row) shows distributions of sums of
+<p><a href="#normal2">{figure-label} {chapter}.{figure} 53</a> (bottom row) shows distributions of sums of
 correlated exponential values with <code>rho=0.9</code>. The correlation slows
 the rate of convergence; nevertheless, with <code>n=100</code> the normal
 probability plot is nearly straight. So even though CLT does not
@@ -12054,7 +12229,7 @@ compute the sampling distribution of the mean like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    dist1 = SamplingDistMean(live.prglngth, len(firsts))
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    dist1 = SamplingDistMean(live.prglngth, len(firsts))
     dist2 = SamplingDistMean(live.prglngth, len(others))</code></pre>
 </div>
 </div>
@@ -12066,7 +12241,7 @@ sampling distribution:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def SamplingDistMean(data, n):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def SamplingDistMean(data, n):
     mean, var = data.mean(), data.var()
     dist = Normal(mean, var)
     return dist.Sum(n) / n</code></pre>
@@ -12091,7 +12266,7 @@ means. The <code>Normal</code> class knows how to perform subtraction using
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    def __sub__(self, other):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    def __sub__(self, other):
         return Normal(self.mu - other.mu,
                       self.sigma2 + other.sigma2)</code></pre>
 </div>
@@ -12170,7 +12345,7 @@ returns the sampling distribution of correlation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def StudentCdf(n):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def StudentCdf(n):
     ts = np.linspace(-3, 3, 101)
     ps = scipy.stats.t.cdf(ts, df=n-2)
     rs = ts / np.sqrt(n - 2 + ts**2)
@@ -12189,7 +12364,10 @@ freedom.&#8221; I won’t explain that term, but you can read about it at
 <div class="content">
 <img src="figs/normal4.png" alt="normal4" height="240">
 </div>
-<div class="title">Figure 54. Sampling distribution of correlations for uncorrelated normal variables.</div>
+<div class="title">{figure-label} {chapter}.{figure} 54. Sampling distribution of correlations for uncorrelated normal variables.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>To get from <code>ts</code> to the correlation coefficients, <code>rs</code>, we apply the
@@ -12202,7 +12380,7 @@ inverse transform,</p>
 </div>
 <div class="paragraph">
 <p>The result is the sampling distribution of \(r\) under the null
-hypothesis. <a href="#normal4">Figure 54</a> shows this distribution along
+hypothesis. <a href="#normal4">{figure-label} {chapter}.{figure} 54</a> shows this distribution along
 with the distribution we generated in <a href="#corrtest">Section 9.5</a> by
 resampling. They are nearly identical. Although the actual distributions
 are not normal, Pearson’s coefficient of correlation is based on sample
@@ -12210,14 +12388,14 @@ means and variances. By the Central Limit Theorem, these moment-based
 statistics are normally distributed even if the data are not.</p>
 </div>
 <div class="paragraph">
-<p>From <a href="#normal4">Figure 54</a>, we can see that the observed
+<p>From <a href="#normal4">{figure-label} {chapter}.{figure} 54</a>, we can see that the observed
 correlation, 0.07, is unlikely to occur if the variables are actually
 uncorrelated. Using the analytic distribution, we can compute just how
 unlikely:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    t = r * math.sqrt((n-2) / (1-r**2))
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    t = r * math.sqrt((n-2) / (1-r**2))
     p_value = 1 - scipy.stats.t.cdf(t, df=n-2)</code></pre>
 </div>
 </div>
@@ -12243,7 +12421,7 @@ normalized deviation from the expected values in a table:</p>
 <div class="paragraph">
 <p>One reason the chi-squared statistic is widely used is that its sampling
 distribution under the null hypothesis is analytic; by a remarkable
-coincidence<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnote_6" title="View footnote.">6</a>]</sup>, it is called the chi-squared
+coincidence<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>, it is called the chi-squared
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.</p>
 </div>
@@ -12251,7 +12429,10 @@ computed efficiently using gamma functions.</p>
 <div class="content">
 <img src="figs/normal5.png" alt="normal5" height="240">
 </div>
-<div class="title">Figure 55. Sampling distribution of chi-squared statistics for a fair six-sided die.</div>
+<div class="title">{figure-label} {chapter}.{figure} 55. Sampling distribution of chi-squared statistics for a fair six-sided die.</div>
+</div>
+<div class="paragraph">
+<p></p>
 </div>
 <div class="paragraph">
 <p>SciPy provides an implementation of the chi-squared distribution, which
@@ -12260,14 +12441,14 @@ statistic:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">def ChiSquaredCdf(n):
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">def ChiSquaredCdf(n):
     xs = np.linspace(0, 25, 101)
     ps = scipy.stats.chi2.cdf(xs, df=n-1)
     return thinkstats2.Cdf(xs, ps)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#normal5">Figure 55</a> shows the analytic result along with the
+<p><a href="#normal5">{figure-label} {chapter}.{figure} 55</a> shows the analytic result along with the
 distribution we got by resampling. They are very similar, especially in
 the tail, which is the part we usually care most about.</p>
 </div>
@@ -12277,7 +12458,7 @@ statistic, <code>chi2</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-python hljs" data-lang="python">    p_value = 1 - scipy.stats.chi2.cdf(chi2, df=n-1)</code></pre>
+<pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs">    p_value = 1 - scipy.stats.chi2.cdf(chi2, df=n-1)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12289,7 +12470,7 @@ statistic, <code>chi2</code>:</p>
 again. In this case the correct parameter is <code>n-1</code>, where <code>n</code> is the
 size of the table, 6. Choosing this parameter can be tricky; to be
 honest, I am never confident that I have it right until I generate
-something like <a href="#normal5">Figure 55</a> to compare the analytic
+something like <a href="#normal5">{figure-label} {chapter}.{figure} 55</a> to compare the analytic
 results to the resampling results.</p>
 </div>
 </div>
@@ -12354,13 +12535,10 @@ past Step 1.</p>
 <div class="sect2">
 <h3 id="_exercises_14"><a class="anchor" href="#_exercises_14"></a><a class="link" href="#_exercises_14">14.10. Exercises</a></h3>
 <div class="paragraph">
-<p></p>
-</div>
-<div class="paragraph">
 <p>A solution to these exercises is in <code>chap14soln.py</code></p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 14.1</strong></p>
+<p><strong>Exercise 14.36</strong></p>
 </div>
 <div id="log_clt" class="paragraph">
 <p>In <a href="#lognormal">Section 5.4</a>, we saw
@@ -12400,7 +12578,7 @@ product. What value of \(n\) is needed to converge to a
 lognormal distribution?</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 14.2</strong></p>
+<p><strong>Exercise 14.37</strong></p>
 </div>
 <div class="paragraph">
 <p>In <a href="#usingCLT">Section 14.6</a> we used the Central Limit Theorem to
@@ -12420,10 +12598,10 @@ are drawn from different populations.</p>
 a 90% confidence interval for the difference in means.</p>
 </div>
 <div class="paragraph">
-<p><strong>Exercise 14.3</strong></p>
+<p><strong>Exercise 14.38</strong></p>
 </div>
 <div class="paragraph">
-<p>In a recent paper<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnote_7" title="View footnote.">7</a>]</sup>, Stein et al. investigate the effects of an
+<p>In a recent paper<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup>, Stein et al. investigate the effects of an
 intervention intended to mitigate gender-stereotypical task allocation
 within student engineering teams.</p>
 </div>
@@ -12460,36 +12638,36 @@ distribution of this change, and is it statistically significant?</p>
 </div>
 <div id="footnotes">
 <hr>
-<div class="footnote" id="_footnote_1">
+<div class="footnote" id="_footnotedef_1">
 <a href="#_footnoteref_1">1</a>. This example is based on information and data from Dunn, &#8220;A Simple Dataset for Demonstrating Common Distributions,&#8221; Journal of Statistics Education v.7, n.3 (1999).
 </div>
-<div class="footnote" id="_footnote_2">
+<div class="footnote" id="_footnotedef_2">
 <a href="#_footnoteref_2">2</a>. I was tipped off to this possibility by a comment (without citation) at <a href="http://mathworld.wolfram.com/LogNormalDistribution.html" class="bare">http://mathworld.wolfram.com/LogNormalDistribution.html</a>. Subsequently I found a paper that proposes the log transform and suggests a cause: Penman and Johnson, &#8220;The Changing Shape of the Body Mass Index Distribution Curve in the Population,&#8221; Preventing Chronic Disease, 2006 July; 3(3): A74. Online at <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1636707" class="bare">http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1636707</a>.
 </div>
-<div class="footnote" id="_footnote_3">
+<div class="footnote" id="_footnotedef_3">
 <a href="#_footnoteref_3">3</a>. Centers for Disease Control and Prevention (CDC). Behavioral Risk Factor Surveillance System Survey Data. Atlanta, Georgia: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention, 2008.
 </div>
-<div class="footnote" id="_footnote_4">
+<div class="footnote" id="_footnotedef_4">
 <a href="#_footnoteref_4">4</a>. For more about Bayesian inference, see the sequel to this book, _Think Bayes</em>.
 </div>
-<div class="footnote" id="_footnote_5">
+<div class="footnote" id="_footnotedef_5">
 <a href="#_footnoteref_5">5</a>. Adapted from MacKay, _Information Theory, Inference, and Learning Algorithms</em>, 2003.
 </div>
-<div class="footnote" id="_footnote_6">
+<div class="footnote" id="_footnotedef_6">
 <a href="#_footnoteref_6">6</a>. Not really.
 </div>
-<div class="footnote" id="_footnote_7">
+<div class="footnote" id="_footnotedef_7">
 <a href="#_footnoteref_7">7</a>. &#8220;Evidence for the persistent effects of an intervention to mitigate gender-sterotypical task allocation within student engineering teams,&#8221; Proceedings of the IEEE Frontiers in Education Conference, 2014.
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 2.0.38<br>
-Last updated 2019-09-06 12:24:14 AEST
+Last updated 2019-09-06 13:22:07 +1000
 </div>
 </div>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 <script>hljs.initHighlighting()</script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -12504,8 +12682,16 @@ MathJax.Hub.Config({
     ignoreClass: "nostem|noasciimath"
   },
   TeX: { equationNumbers: { autoNumber: "none" } }
-});
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
