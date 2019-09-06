@@ -1,0 +1,14 @@
+= A Document
+Foo Bar
+1.0.0
+:book:
+// a comment before
+:_:
+
+== A Chapter
+
+Some text before
+
+Some text in the middle{_}footnote:[An inline footnote]
+
+Some text after

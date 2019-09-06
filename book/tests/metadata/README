@@ -1,0 +1,8 @@
+== Experiment
+
+Try using 'metada.yml' to provide document attributes rather than setting them in the
+document header.
+
+== Result
+
+This does not work with enough attributes to be worthwhile.
