@@ -8,17 +8,18 @@ v2.0.38
 :sectlinks:
 :sectanchors:
 :xrefstyle: short
+//:figure-title: \{figure-label} \{chapter}.\{figure}
 :source-highlighter: highlightjs
 :source-language: python
-:empty:
 
-// We define an "empty" attribute above so we can provide visual separation between
-// words and adjacent inline macros, e.g., `something{empty}footnote:[...]`.
-
+// We define an "empty" attribute "_" so we can provide visual separation between
+// words and adjacent inline macros, e.g., `something{_}footnote:[...]`.
+:_:
 
 // Turn off section numbering for frontmatter
 :sectnums!:
 
+// For HTML, we include the advert sidbar as an unnumbered discrete section
 ifdef::backend-html5[]
 [sidebar,role=advert-bar]
 --
@@ -1367,7 +1368,7 @@ standard deviation is 2.7 weeks, which means we should expect deviations
 of 2-3 weeks to be common.
 
 Variance of pregnancy length is 7.3, which is hard to interpret,
-especially since the units are weeks{empty}latexmath:[^2], or "`square weeks.`"
+especially since the units are weeks{_}latexmath:[^2], or "`square weeks.`"
 Variance is useful in some calculations, but it is not a good summary
 statistic.
 
@@ -3587,7 +3588,7 @@ see http://en.wikipedia.org/wiki/Moment_of_inertia.
 When you report moment-based statistics, it is important to think about
 the units. For example, if the values latexmath:[x_i] are in cm, the
 first raw moment is also in cm. But the second moment is in
-cm{empty}latexmath:[^2], the third moment is in cm{empty}latexmath:[^3], and so on.
+cm{_}latexmath:[^2], the third moment is in cm{_}latexmath:[^3], and so on.
 
 Because of these units, moments are hard to interpret by themselves.
 That’s why, for the second moment, it is common to report standard
@@ -4885,7 +4886,7 @@ in the sample by chance.
 
 There are several ways we could formulate this question, including
 Fisher null hypothesis testing, Neyman-Pearson decision theory, and
-Bayesian inference{empty}footnote:[For more about Bayesian inference, see the
+Bayesian inference{_}footnote:[For more about Bayesian inference, see the
 sequel to this book, _Think Bayes_.]. What I present here is a subset of
 all three that makes up most of what people use in practice, which I
 will call *classical hypothesis testing*.
@@ -4974,7 +4975,7 @@ test statistics, and stores them in `+test_stats+`. The result is the
 fraction of elements in `+test_stats+` that exceed or equal the observed
 test statistic, `+self.actual+`.
 
-As a simple example{empty}footnote:[Adapted from MacKay, _Information Theory,
+As a simple example{_}footnote:[Adapted from MacKay, _Information Theory,
 Inference, and Learning Algorithms_, 2003.], suppose we toss a coin 250
 times and see 140 heads and 110 tails. Based on this result, we might
 suspect that the coin is biased; that is, more likely to land heads. To
@@ -9415,7 +9416,7 @@ normalized deviation from the expected values in a table:
 ++++
 One reason the chi-squared statistic is widely used is that its sampling
 distribution under the null hypothesis is analytic; by a remarkable
-coincidence{empty}footnote:[Not really.], it is called the chi-squared
+coincidence{_}footnote:[Not really.], it is called the chi-squared
 distribution. Like the t-distribution, the chi-squared CDF can be
 computed efficiently using gamma functions.
 
@@ -9552,7 +9553,7 @@ a 90% confidence interval for the difference in means.
 
 *Exercise {exercise-chapter}.{counter:exercise}*
 
-In a recent paper{empty}footnote:["`Evidence for the persistent effects of an
+In a recent paper{_}footnote:["`Evidence for the persistent effects of an
 intervention to mitigate gender-sterotypical task allocation within
 student engineering teams,`" Proceedings of the IEEE Frontiers in
 Education Conference, 2014.], Stein et al. investigate the effects of an
