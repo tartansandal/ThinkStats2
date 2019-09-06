@@ -1,0 +1,21 @@
+= A Document
+Foo Bar
+1.0.0
+:book:
+:sectnums:
+:sectlinks:
+:sectanchors:
+:xrefstyle: full
+
+[[first-chapter]]
+== A Chapter
+
+=== A section
+
+Some text before
+
+Some text in the Chapter {chapnum} is a Foo. <<first-chapter>>
+
+Some text in the Section {section-number} is a Foo.
+
+Some text after

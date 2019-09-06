@@ -1,0 +1,8 @@
+Test using and empty {_} macro as an inline macro separator for when there is no
+punctuation or space between the macro and the preceeding word, e.g.,
+
+thisfootnote:[...]
+
+versus
+
+this{_}footnote:[...]
